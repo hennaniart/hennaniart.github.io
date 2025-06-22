@@ -4,10 +4,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hennani Art</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff8f2; }
+    nav { background: #b5651d; padding: 1rem; text-align: center; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    section { padding: 40px; max-width: 800px; margin: auto; }
+    h2 { color: #b5651d; }
+    form input, form textarea { width: 100%; padding: 10px; margin: 10px 0; }
+    form button { background: #b5651d; color: white; padding: 10px 20px; border: none; }
+    footer { background: #b5651d; color: white; text-align: center; padding: 1rem; margin-top: 40px; }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
-  <h1>🌿 Welcome to Hennani Art</h1>
-  <p>This is your fresh new site — proudly powered by GitHub Pages!</p>
-  <p>You can now add your full website content here.</p>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#services">Services</a>
+    <a href="#booking">Booking</a>
+    <a href="#faqs">FAQs</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home">
+    <h2>Welcome to Hennani Art</h2>
+    <p>Professional henna designs for all occasions. Serving with creativity and love.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Hennani Art offers beautiful traditional and modern henna designs for weddings, parties, and festivals. Our artists are experienced and passionate about making your events memorable.</p>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <p>Sample images coming soon!</p>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+    <ul>
+      <li>Bridal Henna</li>
+      <li>Event & Party Henna</li>
+      <li>Custom Henna Designs</li>
+    </ul>
+  </section>
+
+  <section id="booking">
+    <h2>Online Booking</h2>
+    <form action="https://formspree.io/f/yourformid" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="text" name="service" placeholder="Service Interested In" />
+      <textarea name="message" placeholder="Preferred date, time, and any special notes" rows="4"></textarea>
+      <button type="submit">Send Booking Request</button>
+    </form>
+  </section>
+
+  <section id="faqs">
+    <h2>FAQs</h2>
+    <p><strong>Q:</strong> How long does henna last?<br><strong>A:</strong> Typically 1-2 weeks depending on care.</p>
+    <p><strong>Q:</strong> Do you do bridal packages?<br><strong>A:</strong> Yes! Contact us for details.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: hennaniart@gmail.com<br>Instagram: @hennani.art</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Hennani Art. All rights reserved.
+  </footer>
+
 </body>
 </html>
