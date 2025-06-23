@@ -78,6 +78,46 @@
         font-size: 0.9rem;
       }
     }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(90, 62, 27, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+#lightbox {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(90, 62, 27, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 8px 12px rgba(0,0,0,0.7);
+}
+
   </style>
 </head>
 <body>
@@ -93,9 +133,50 @@
     <p>We specialize in beautiful, traditional and modern henna designs for weddings, festivals, and celebrations.</p>
     <a href="#contact" class="cta-button">Book Your Appointment</a>
   </div>
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery-grid">
+    <img src="https://source.unsplash.com/300x200/?henna,art" alt="Henna Design 1" />
+    <img src="https://source.unsplash.com/301x200/?henna,tattoo" alt="Henna Design 2" />
+    <img src="https://source.unsplash.com/302x200/?henna,hand" alt="Henna Design 3" />
+    <img src="https://source.unsplash.com/303x200/?mehndi,design" alt="Henna Design 4" />
+    <img src="https://source.unsplash.com/304x200/?mehndi,hand" alt="Henna Design 5" />
+    <img src="https://source.unsplash.com/305x200/?mehndi,art" alt="Henna Design 6" />
+  </div>
+</section>
 
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Enlarged henna design" />
+</div>
+
+  
   <footer>
     &copy; 2022 Hennani Art. All rights reserved.
   </footer>
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const images = document.querySelectorAll('.gallery-grid img');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+      closeLightbox();
+    }
+  });
+</script>
+
 </body>
 </html>
