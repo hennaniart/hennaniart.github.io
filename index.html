@@ -4,82 +4,97 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hennani Art</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff8f2; }
-    nav { background: #b5651d; padding: 1rem; text-align: center; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-    section { padding: 40px; max-width: 800px; margin: auto; }
-    h2 { color: #b5651d; }
-    form input, form textarea { width: 100%; padding: 10px; margin: 10px 0; }
-    form button { background: #b5651d; color: white; padding: 10px 20px; border: none; }
-    footer { background: #b5651d; color: white; text-align: center; padding: 1rem; margin-top: 40px; }
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #f7f1e3;
+      color: #4e342e;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #fff3e0;
+      padding: 1rem 2rem;
+      text-align: center;
+      border-bottom: 2px solid #d7ccc8;
+    }
+
+    .logo {
+      max-width: 150px;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      margin: 0.5rem 0 0.2rem;
+      font-size: 2.5rem;
+    }
+
+    p.tagline {
+      font-size: 1.2rem;
+      color: #8d6e63;
+    }
+
+    .content {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 2rem;
+      background-color: #a0522d;
+      color: #fff;
+      border-radius: 30px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #8b4513;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #795548;
+      padding: 2rem 1rem;
+      background-color: #fff8f0;
+      border-top: 1px solid #e0d2c0;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .cta-button {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <header>
+    <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.png" alt="Hennani Art Logo" class="logo" />
+    <h1>Hennani Art</h1>
+    <p class="tagline">Elegant Henna Designs for Every Occasion</p>
+  </header>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#services">Services</a>
-    <a href="#booking">Booking</a>
-    <a href="#faqs">FAQs</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="home">
+  <div class="content">
     <h2>Welcome to Hennani Art</h2>
-    <p>Professional henna designs for all occasions. Serving with creativity and love.</p>
-  </section>
-
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Hennani Art offers beautiful traditional and modern henna designs for weddings, parties, and festivals. Our artists are experienced and passionate about making your events memorable.</p>
-  </section>
-
-<section id="gallery">
-  <h2>Gallery</h2>
-  <img src="https://source.unsplash.com/400x400/?mehndi" width="200" />
-  <img src="https://source.unsplash.com/400x400/?henna" width="200" />
-  <img src="https://source.unsplash.com/400x400/?bridal-henna" width="200" />
-</section>
-    
-  </section>
-
-  <section id="services">
-    <h2>Services</h2>
-    <ul>
-      <li>Bridal Henna</li>
-      <li>Event & Party Henna</li>
-      <li>Custom Henna Designs</li>
-    </ul>
-  </section>
-
-  <section id="booking">
-    <h2>Online Booking</h2>
-    <form action="https://formspree.io/f/xnnvgnye" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <input type="text" name="service" placeholder="Service Interested In" />
-      <textarea name="message" placeholder="Preferred date, time, and any special notes" rows="4"></textarea>
-      <button type="submit">Send Booking Request</button>
-    </form>
-  </section>
-
-  <section id="faqs">
-    <h2>FAQs</h2>
-    <p><strong>Q:</strong> How long does henna last?<br><strong>A:</strong> Typically 1-2 weeks depending on care.</p>
-    <p><strong>Q:</strong> Do you do bridal packages?<br><strong>A:</strong> Yes! Contact us for details.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: hennaniart@gmail.com<br>Instagram: @hennani.art</p>
-  </section>
+    <p>We specialize in beautiful, traditional and modern henna designs for weddings, festivals, and celebrations.</p>
+    <a href="#contact" class="cta-button">Book Your Appointment</a>
+  </div>
 
   <footer>
     &copy; 2025 Hennani Art. All rights reserved.
   </footer>
-
 </body>
 </html>
