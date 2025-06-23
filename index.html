@@ -421,4 +421,105 @@
       <p>Learn how to prep your skin and care for your henna to make it last beautifully for days. Tips include natural oils, avoiding water early, and more.</p>
     </article>
     <article class="blog-post" tabindex="0">
-      <h3>Behind the Scenes
+      <h3>Behind the Scenes of a Henna Artist</h3>
+      <p>Discover what goes into designing and applying intricate henna patterns for weddings and festivals.</p>
+    </article>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" tabindex="-1" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact Us</h2>
+    <form action="https://formspree.io/f/xjvdwkpj" method="POST" id="contact-form" novalidate>
+      <label for="name">Name*</label>
+      <input type="text" id="name" name="name" required aria-required="true" />
+      <label for="email">Email*</label>
+      <input type="email" id="email" name="_replyto" required aria-required="true" />
+      <label for="message">Message*</label>
+      <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+      <button type="submit">Send</button>
+      <p id="success-message" role="alert" aria-live="assertive">Thank you! Your message has been sent.</p>
+    </form>
+    <p class="email-info">Or email directly: <a href="mailto:hennaniart@gmail.com">hennaniart@gmail.com</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Hennani Art — Designed with ♥ by Priya
+    <div class="social-icons" role="contentinfo" aria-label="Social media links">
+      <a href="https://www.instagram.com/hennaniart" target="_blank" rel="noopener" aria-label="Instagram">
+        <!-- Instagram SVG icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#4e342e" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2h8.5a3.75 3.75 0 013.75 3.75v8.5a3.75 3.75 0 01-3.75 3.75h-8.5a3.75 3.75 0 01-3.75-3.75v-8.5A3.75 3.75 0 017.75 4zm4.25 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm3.5-.5a1 1 0 11-2 0 1 1 0 012 0z"/></svg>
+      </a>
+      <!-- Add more social icons if you want -->
+    </div>
+  </footer>
+
+<script>
+  // Gallery lightbox logic
+  const galleryImages = document.querySelectorAll('#gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.style.display = 'flex';
+      lightbox.focus();
+    });
+    img.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        img.click();
+      }
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  }
+
+  lightbox.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+
+  // Testimonials carousel
+  const testimonials = document.querySelectorAll('.testimonial');
+  const prevBtn = document.getElementById('prevTestimonial');
+  const nextBtn = document.getElementById('nextTestimonial');
+  let currentTestimonial = 0;
+
+  function showTestimonial(index) {
+    testimonials.forEach((t, i) => {
+      t.classList.toggle('active', i === index);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(currentTestimonial);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    showTestimonial(currentTestimonial);
+  });
+
+  // Contact form success message
+  const form = document.getElementById('contact-form');
+  const successMsg = document.getElementById('success-message');
+  form.addEventListener('submit', e => {
+    // Show success message on submit; actual sending handled by Formspree
+    successMsg.style.display = 'none'; // reset
+    setTimeout(() => {
+      successMsg.style.display = 'block';
+      form.reset();
+    }, 500);
+  });
+</script>
+</body>
+</html>
