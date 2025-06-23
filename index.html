@@ -2,648 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hennani Art</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
   <style>
     body {
       font-family: 'Playfair Display', serif;
       background-color: #f7f1e3;
       color: #4e342e;
       margin: 0;
+      padding: 0;
     }
-    html {
-      scroll-behavior: smooth;
-    }
-    nav {
-      background-color: #fff3e0;
-      border-bottom: 2px solid #d7ccc8;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0.5rem 0;
-    }
-    nav li {
-      margin: 0.5rem 1rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: #4e342e;
-      font-weight: bold;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #a0522d;
-    }
+
     header {
-      text-align: center;
+      background-color: #fff3e0;
       padding: 1rem 2rem;
+      text-align: center;
       border-bottom: 2px solid #d7ccc8;
     }
+
     .logo {
       max-width: 150px;
       margin-bottom: 0.5rem;
     }
+
     h1 {
       margin: 0.5rem 0 0.2rem;
       font-size: 2.5rem;
     }
-    .tagline {
+
+    p.tagline {
       font-size: 1.2rem;
       color: #8d6e63;
     }
-    section {
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .gallery-grid img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(90, 62, 27, 0.2);
-      transition: transform 0.3s ease;
-    }
-    .gallery-grid img:hover {
-      transform: scale(1.05);
-    }
-    #lightbox {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(90, 62, 27, 0.85);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      cursor: pointer;
-    }
-    #lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 12px;
-      box-shadow: 0 8px 12px rgba(0,0,0,0.7);
-    }
-    #testimonials {
-      max-width: 700px;
-      margin: 3rem auto;
-      text-align: center;
-    }
-    .testimonial-carousel {
+
+    .content {
       position: relative;
+      text-align: center;
+      padding: 6rem 1rem;
+      background-image: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/home-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+      border-bottom: 2px solid #d7ccc8;
       overflow: hidden;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeIn 1.5s ease-in-out both;
     }
-    .testimonial {
-      display: none;
-      padding: 1.5rem;
-      background-color: #fff8f0;
-      border-left: 5px solid #a0522d;
-      border-radius: 10px;
-      font-style: italic;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: opacity 0.5s ease;
+
+    .content::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
     }
-    .testimonial.active {
-      display: block;
-    }
-    .stars {
-      font-size: 1.2rem;
-      color: #a0522d;
-      margin-bottom: 0.75rem;
-    }
-    .testimonial-author {
-      text-align: right;
-      margin-top: 1rem;
-      font-weight: bold;
-      font-style: normal;
-      color: #4e342e;
-    }
-    .testimonial-controls {
-      margin-top: 1rem;
-    }
-    .testimonial-controls button {
-      background-color: #a0522d;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      padding: 0.25rem 0.75rem;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      user-select: none;
-    }
-    .testimonial-controls button:hover {
-      background-color: #8b4513;
-    }
-    #blog {
-      max-width: 800px;
-      margin: 0 auto 4rem;
-      text-align: left;
-    }
-    .blog-post {
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-bottom: 1.5rem;
-    }
-    .blog-post h3 {
-      margin-top: 0;
-      color: #6d4c41;
-    }
-    #contact {
-      max-width: 420px;
-      margin: 0 auto 4rem;
-      text-align: left;
-    }
-    .contact-form {
-      margin-top: 1rem;
-    }
-    .contact-form label {
-      font-weight: bold;
-      color: #4e342e;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.5rem;
-      border: 2px solid #a0522d;
-      border-radius: 6px;
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      box-sizing: border-box;
-      transition: border-color 0.3s ease;
-      margin-bottom: 1rem;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: #8b4513;
-      outline: none;
-    }
-    .contact-form button {
-      background-color: #a0522d;
-      color: white;
-      border: none;
-      padding: 0.7rem 2rem;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .contact-form button:hover {
-      background-color: #8b4513;
-    }
-    #contact p {
-      margin-top: 1rem;
-      font-size: 1rem;
-    }
-    #contact p a {
-      color: #a0522d;
-      text-decoration: none;
-    }
-    #contact p a:hover {
-      text-decoration: underline;
-    }
-    #success-message {
-      display: none;
-      color: green;
-      font-weight: bold;
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      text-align: center;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #795548;
-      padding: 2rem 1rem 3rem;
-      background-color: #fff8f0;
-      border-top: 1px solid #e0d2c0;
+
+    .content * {
       position: relative;
+      z-index: 1;
+      animation: fadeUp 1.2s ease-in-out both;
     }
-    /* Social icons */
-    footer .social-icons {
-      margin-top: 1rem;
-    }
-    footer .social-icons a {
-      margin: 0 0.5rem;
-      color: #4e342e;
-      text-decoration: none;
+
+    .cta-button {
       display: inline-block;
-      transition: color 0.3s ease;
+      margin-top: 2rem;
+      padding: 0.75rem 2rem;
+      background-color: #a0522d;
+      color: #fff;
+      border-radius: 30px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     }
-    footer .social-icons a:hover {
-      color: #a0522d;
+
+    .cta-button:hover {
+      background-color: #8b4513;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.3);
     }
-    footer .social-icons svg {
-      vertical-align: middle;
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
-    /* Google Reviews Section */
-    #google-reviews {
-      max-width: 800px;
-      margin: 0 auto 4rem;
-      background: #fff8f0;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: left;
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    #google-reviews h2 {
-      text-align: center;
-      color: #6d4c41;
-      margin-bottom: 1.5rem;
-    }
-    .review {
-      border-bottom: 1px solid #d7ccc8;
-      padding: 1rem 0;
-    }
-    .review:last-child {
-      border-bottom: none;
-    }
-    .review-stars {
-      color: #a0522d;
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
-    }
-    .review-author {
-      font-weight: bold;
-      color: #4e342e;
-      margin-bottom: 0.25rem;
-    }
-    .review-text {
-      font-style: italic;
-      color: #5d4037;
-      margin-bottom: 0.25rem;
-    }
-    .review-date {
-      font-size: 0.85rem;
-      color: #8d6e63;
-    }
-    @media (max-width: 600px) {
-      h1 {
+
+    @media (max-width: 768px) {
+      .content {
+        padding: 4rem 1rem;
+        background-position: center top;
+        min-height: 70vh;
+      }
+
+      .content h2 {
         font-size: 2rem;
       }
-      nav ul {
-        flex-wrap: wrap;
-      }
-      nav li {
-        margin: 0.5rem;
-      }
-      .gallery-grid img {
-        height: 120px;
-      }
-      #contact, #blog, #google-reviews {
-        padding: 0 1rem;
+
+      .content p {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
-<body id="top">
-
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#top">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Header -->
+<body>
   <header>
     <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.PNG" alt="Hennani Art Logo" class="logo" />
     <h1>Hennani Art</h1>
     <p class="tagline">Elegant Henna Designs for Every Occasion</p>
   </header>
 
-  <!-- Services -->
-  <section id="services">
-    <h2>Our Services</h2>
-    <p>Bridal Henna • Festival Henna • Corporate Events • Custom Designs</p>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <img src="img1.JPG" alt="Henna Design 1" />
-      <img src="img2.JPG" alt="Henna Design 2" />
-      <img src="img3.JPG" alt="Henna Design 3" />
-      <img src="img4.JPG" alt="Henna Design 4" />
-      <img src="img5.JPG" alt="Henna Design 5" />
-      <img src="img6.JPG" alt="Henna Design 6" />
-      <img src="img7.JPG" alt="Henna Design 7" />
-      <img src="img8.JPG" alt="Henna Design 8" />
-      <img src="img9.JPG" alt="Henna Design 9" />
-      <img src="img10.JPG" alt="Henna Design 10" />
-      <img src="img11.JPG" alt="Henna Design 11" />
-      <img src="img12.JPG" alt="Henna Design 12" />
-      <img src="img13.JPG" alt="Henna Design 13" />
-      <img src="img14.JPG" alt="Henna Design 14" />
-      <img src="img15.JPG" alt="Henna Design 15" />
-      <img src="img16.JPG" alt="Henna Design 16" />
-    </div>
-  </section>
-
-  <!-- Lightbox -->
-  <div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="Enlarged henna design" />
+  <div class="content" id="home">
+    <h2>Welcome to Hennani Art</h2>
+    <p>We specialize in beautiful, traditional and modern henna designs for weddings, festivals, and celebrations.</p>
+    <a href="#contact" class="cta-button">Book Your Appointment</a>
   </div>
-
-  <!-- Testimonials -->
-  <section id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonial-carousel">
-
-      <div class="testimonial active">
-        <div class="stars">★★★★★</div>
-        <p class="review-text">
-          I reached out to Hennani Art for my engagement henna the last minute and Priya was so kind to give me an appointment the same day. The henna designs were beautiful and lasted perfectly!
-        </p>
-        <div class="testimonial-author">– Sreeja A N</div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="review-text">
-          Priya was professional and easy person to work with! She came completely prepared and was great at applying any design that we requested!
-        </p>
-        <div class="testimonial-author">– Khyati Mehta</div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="review-text">
-          Priya is so good and fast in doing great henna designs. Both my girls got in their hands and they were very happy and really loved the designs. Thanks a lot Priya!!!
-        </p>
-        <div class="testimonial-author">– Gayathri Ramanujam</div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="review-text">
-          I had Priya over for a henna evening for my daughter and her friends. She did an awesome job!! Lovely designs and she was very patient and kind.
-        </p>
-        <div class="testimonial-author">– Urmila Murali</div>
-      </div>
-
-      <div class="testimonial">
-        <div class="stars">★★★★★</div>
-        <p class="review-text">
-          Excellent art work by Priya. She did fabulous job on our family party and it colored beautifully on everyone’s hands. Just go for her!
-        </p>
-        <div class="testimonial-author">– Padmaja Vedantam</div>
-      </div>
-
-    </div>
-
-    <div class="testimonial-controls">
-      <button id="prevTestimonial" aria-label="Previous testimonial">‹</button>
-      <button id="nextTestimonial" aria-label="Next testimonial">›</button>
-    </div>
-  </section>
-
-  <!-- Google Reviews Section (Manual Embed) -->
-  <section id="google-reviews">
-    <h2>Google Reviews</h2>
-
-    <div class="review">
-      <div class="review-stars">★★★★★</div>
-      <div class="review-author">Sreeja A N</div>
-      <div class="review-text">I reached out to Hennani Art for my engagement henna the last minute and Priya was so kind to give me an appointment the... </div>
-      <div class="review-date">Sep 2, 2023</div>
-    </div>
-
-    <div class="review">
-      <div class="review-stars">★★★★★</div>
-      <div class="review-author">Khyati Mehta</div>
-      <div class="review-text">Priya was professional and easy person to work with! She came completely prepared and was great at applying any design that we requested!</div>
-      <div class="review-date">Apr 10, 2023</div>
-    </div>
-
-    <div class="review">
-      <div class="review-stars">★★★★★</div>
-      <div class="review-author">Gayathri Ramanujam</div>
-      <div class="review-text">Priya is so good and fast in doing great henna designs. Both my girls got in their hands and they were very happy and really loved the designs. Thanks a lot Priya!!!</div>
-      <div class="review-date">Dec 13, 2022</div>
-    </div>
-
-    <!-- Add more reviews here similarly -->
-  </section>
-
-  <!-- Blog -->
-  <section id="blog">
-    <h2>Blog</h2>
-    <div class="blog-post">
-      <h3>5 Tips for Long-Lasting Henna</h3>
-      <p>Learn how to prep your skin and care for your henna to make it last beautifully for days. Tips include natural oils, avoiding water early, and more.</p>
-    </div>
-    <div class="blog-post">
-      <h3>Behind the Scenes: Bridal Henna Sessions</h3>
-      <p>Step into the world of intricate bridal mehndi with a peek at our process, design planning, and the care that goes into every detail.</p>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <form
-      action="https://formspree.io/f/xnnvgnye"
-      method="POST"
-      id="contact-form"
-      class="contact-form"
-      novalidate
-    >
-      <label for="name">Name</label><br />
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Your name"
-        required
-        aria-required="true"
-      /><br />
-
-      <label for="email">Email</label><br />
-      <input
-        type="email"
-        id="email"
-        name="_replyto"
-        placeholder="Your email"
-        required
-        aria-required="true"
-      /><br />
-
-      <label for="message">Message</label><br />
-      <textarea
-        id="message"
-        name="message"
-        placeholder="Your message"
-        rows="5"
-        required
-        aria-required="true"
-      ></textarea><br />
-
-      <button type="submit">Send</button>
-
-      <p id="success-message" role="alert" aria-live="polite">Thank you! Your message has been sent.</p>
-    </form>
-
-    <p>
-      Or email directly at
-      <a href="mailto:hennaniart@gmail.com">hennaniart@gmail.com</a>
-    </p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Hennani Art. All rights reserved.
-    <div class="social-icons" aria-label="Social media links">
-      <a href="https://instagram.com/hennaniart" target="_blank" rel="noopener" aria-label="Instagram">
-        <!-- Instagram SVG -->
-        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm8.75 2a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/>
-        </svg>
-      </a>
-      <a href="https://facebook.com/hennaniart" target="_blank" rel="noopener" aria-label="Facebook">
-        <!-- Facebook SVG -->
-        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M22 12a10 10 0 10-11.5 9.85v-6.96h-2.1v-2.9h2.1V9.75c0-2.08 1.25-3.22 3.16-3.22.92 0 1.88.16 1.88.16v2.07h-1.06c-1.05 0-1.37.65-1.37 1.32v1.58h2.33l-.37 2.9h-1.96v6.96A10 10 0 0022 12z"/>
-        </svg>
-      </a>
-    </div>
-  </footer>
-
-  <script>
-    // Lightbox gallery
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const images = document.querySelectorAll('.gallery-grid img');
-
-    images.forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightbox.style.display = 'flex';
-      });
-    });
-
-    function closeLightbox() {
-      lightbox.style.display = 'none';
-      lightboxImg.src = '';
-    }
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-        closeLightbox();
-      }
-    });
-
-    // Testimonials carousel
-    const testimonials = document.querySelectorAll('.testimonial');
-    let currentIndex = 0;
-    const prevBtn = document.getElementById('prevTestimonial');
-    const nextBtn = document.getElementById('nextTestimonial');
-
-    function showTestimonial(index) {
-      testimonials.forEach((t, i) => {
-        t.classList.toggle('active', i === index);
-      });
-    }
-
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-      showTestimonial(currentIndex);
-    });
-
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % testimonials.length;
-      showTestimonial(currentIndex);
-    });
-
-    // Auto rotate testimonials every 8 seconds
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % testimonials.length;
-      showTestimonial(currentIndex);
-    }, 8000);
-
-    // Contact form success message handling
-    const form = document.getElementById('contact-form');
-    const successMsg = document.getElementById('success-message');
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const data = new FormData(form);
-
-      fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          successMsg.style.display = 'block';
-          form.reset();
-        } else {
-          response.json().then(data => {
-            alert(data.error || "Oops! There was a problem submitting your form");
-          });
-        }
-      }).catch(() => {
-        alert("Oops! There was a problem submitting your form");
-      });
-    });
-
-    // Google Reviews API integration outline (not active)
-    /*
-    // Future enhancement:
-    // To fetch live Google reviews, you need:
-    // 1. A Google Cloud API key with Places API enabled
-    // 2. Your Google Place ID
-    // 3. A backend endpoint that fetches reviews securely (to protect API key)
-    // 4. Frontend fetch to call your backend and render reviews dynamically
-
-    // Example (not functional here, only illustrative):
-    fetch('/api/google-reviews')
-      .then(res => res.json())
-      .then(data => {
-        // Render reviews dynamically in #google-reviews section
-        const reviewsContainer = document.getElementById('google-reviews');
-        // Clear existing reviews if needed
-        reviewsContainer.innerHTML = '<h2>Google Reviews</h2>';
-        data.reviews.forEach(review => {
-          const div = document.createElement('div');
-          div.classList.add('review');
-          div.innerHTML = `
-            <div class="review-stars">${'★'.repeat(review.rating)}</div>
-            <div class="review-author">${review.author_name}</div>
-            <div class="review-text">${review.text}</div>
-            <div class="review-date">${new Date(review.time * 1000).toLocaleDateString()}</div>
-          `;
-          reviewsContainer.appendChild(div);
-        });
-      })
-      .catch(console.error);
-    */
-  </script>
-
 </body>
 </html>
