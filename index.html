@@ -329,6 +329,33 @@
         max-width: 100%;
       }
     }
+    /* Gallery Heading */
+#gallery h2 {
+  font-size: 2rem;
+  color: #4e342e;
+  border-bottom: 3px solid #a0522d;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 240px;
+}
+
+/* Gallery images refinement */
+.gallery-grid img {
+  border-radius: 14px;
+  box-shadow: 0 6px 12px rgba(160, 82, 45, 0.3);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+
+.gallery-grid img:hover,
+.gallery-grid img:focus {
+  transform: scale(1.08);
+  box-shadow: 0 10px 20px rgba(160, 82, 45, 0.5);
+  outline: 3px solid #a0522d;
+  outline-offset: 6px;
+}
+
   </style>
 </head>
 <body id="top">
@@ -413,26 +440,26 @@
 
   <!-- Gallery -->
   <section id="gallery" tabindex="-1" aria-labelledby="gallery-title">
-    <h2 id="gallery-title">Gallery</h2>
-    <div class="gallery-grid" role="list">
-      <img src="img1.JPG" alt="Henna Design 1" />
-      <img src="img2.JPG" alt="Henna Design 2" />
-      <img src="img3.JPG" alt="Henna Design 3" />
-      <img src="img4.JPG" alt="Henna Design 4" />
-      <img src="img5.JPG" alt="Henna Design 5" />
-      <img src="img6.JPG" alt="Henna Design 6" />
-      <img src="img7.JPG" alt="Henna Design 7" />
-      <img src="img8.JPG" alt="Henna Design 8" />
-      <img src="img9.JPG" alt="Henna Design 9" />
-      <img src="img10.JPG" alt="Henna Design 10" />
-      <img src="img11.JPG" alt="Henna Design 11" />
-      <img src="img12.JPG" alt="Henna Design 12" />
-      <img src="img13.JPG" alt="Henna Design 13" />
-      <img src="img14.JPG" alt="Henna Design 14" />
-      <img src="img15.JPG" alt="Henna Design 15" />
-      <img src="img16.JPG" alt="Henna Design 16" />
-    </div>
-  </section>
+  <h2 id="gallery-title">Gallery</h2>
+  <div class="gallery-grid" role="list">
+    <img src="img1.JPG" alt="Henna Design 1" tabindex="0" />
+    <img src="img2.JPG" alt="Henna Design 2" tabindex="0" />
+    <img src="img3.JPG" alt="Henna Design 3" tabindex="0" />
+    <img src="img4.JPG" alt="Henna Design 4" tabindex="0" />
+    <img src="img5.JPG" alt="Henna Design 5" tabindex="0" />
+    <img src="img6.JPG" alt="Henna Design 6" tabindex="0" />
+    <img src="img7.JPG" alt="Henna Design 7" tabindex="0" />
+    <img src="img8.JPG" alt="Henna Design 8" tabindex="0" />
+    <img src="img9.JPG" alt="Henna Design 9" tabindex="0" />
+    <img src="img10.JPG" alt="Henna Design 10" tabindex="0" />
+    <img src="img11.JPG" alt="Henna Design 11" tabindex="0" />
+    <img src="img12.JPG" alt="Henna Design 12" tabindex="0" />
+    <img src="img13.JPG" alt="Henna Design 13" tabindex="0" />
+    <img src="img14.JPG" alt="Henna Design 14" tabindex="0" />
+    <img src="img15.JPG" alt="Henna Design 15" tabindex="0" />
+    <img src="img16.JPG" alt="Henna Design 16" tabindex="0" />
+  </div>
+</section>
 
   <!-- Lightbox -->
   <div id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged henna design" onclick="closeLightbox()" tabindex="-1">
