@@ -175,6 +175,52 @@
       color: #6d4c41;
     }
     /* Contact */
+    #contact {
+      max-width: 420px;
+      margin: 0 auto 4rem;
+      text-align: left;
+    }
+    .contact-form {
+      margin-top: 1rem;
+    }
+    .contact-form label {
+      font-weight: bold;
+      color: #4e342e;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 2px solid #a0522d;
+      border-radius: 6px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+      margin-bottom: 1rem;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #8b4513;
+      outline: none;
+    }
+    .contact-form button {
+      background-color: #a0522d;
+      color: white;
+      border: none;
+      padding: 0.7rem 2rem;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .contact-form button:hover {
+      background-color: #8b4513;
+    }
+    #contact p {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
     #contact p a {
       color: #a0522d;
       text-decoration: none;
@@ -204,6 +250,12 @@
       }
       .gallery-grid img {
         height: 120px;
+      }
+      #contact {
+        padding: 0 1rem;
+      }
+      #blog {
+        padding: 0 1rem;
       }
     }
   </style>
@@ -332,7 +384,41 @@
   <!-- Contact -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email us at <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+    <form
+      action="https://formspree.io/f/xnnvgnye"
+      method="POST"
+      class="contact-form"
+    >
+      <label for="name">Name</label><br />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Your name"
+        required
+      /><br />
+
+      <label for="email">Email</label><br />
+      <input
+        type="email"
+        id="email"
+        name="_replyto"
+        placeholder="Your email"
+        required
+      /><br />
+
+      <label for="message">Message</label><br />
+      <textarea
+        id="message"
+        name="message"
+        rows="5"
+        placeholder="Write your message here..."
+        required
+      ></textarea><br />
+
+      <button type="submit">Send Message</button>
+    </form>
+    <p>Or email us directly at <a href="mailto:hennaniart@gmail.com">hennaniart@gmail.com</a></p>
   </section>
 
   <!-- Footer -->
