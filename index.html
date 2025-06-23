@@ -2,67 +2,114 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hennani Art</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
-    html {
-      scroll-behavior: smooth;
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
-    body {
+    body, html {
+      margin: 0; padding: 0;
+      height: 100%;
       font-family: 'Playfair Display', serif;
-      margin: 0;
-      color: #4e342e;
-      background: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/home-bg.jpg') no-repeat center center fixed;
+      color: #f5f0e6;
+      scroll-behavior: smooth;
+      background: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/welcome.JPG') no-repeat center center fixed;
       background-size: cover;
+      position: relative;
+      min-height: 100vh;
     }
+    /* Overlay for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(30, 20, 10, 0.6);
+      z-index: -1;
+    }
+
     nav {
+      background-color: rgba(255, 243, 224, 0.9);
+      border-bottom: 2px solid #d7ccc8;
       position: sticky;
       top: 0;
-      background-color: rgba(255, 243, 224, 0.95);
       z-index: 1000;
-      border-bottom: 1px solid #d7ccc8;
     }
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
-      padding: 1rem;
-      margin: 0;
       flex-wrap: wrap;
+      margin: 0;
+      padding: 0.5rem 0;
     }
     nav li {
-      margin: 0 1rem;
+      margin: 0.5rem 1rem;
     }
     nav a {
       text-decoration: none;
+      color: #4e342e;
+      font-weight: 700;
       font-size: 1.1rem;
-      font-weight: bold;
-      color: #6d4c41;
+      transition: color 0.3s ease;
     }
-    nav a:hover {
+    nav a:hover, nav a:focus {
       color: #a0522d;
+      outline: none;
     }
+
     header {
       text-align: center;
-      padding: 3rem 1rem;
-      background-color: rgba(255, 248, 240, 0.85);
+      padding: 4rem 2rem 2rem;
+      border-bottom: 2px solid #d7ccc8;
+      background-color: rgba(255, 243, 224, 0.7);
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
     .logo {
-      max-width: 120px;
+      max-width: 150px;
+      margin-bottom: 0.75rem;
     }
     h1 {
-      margin-top: 0.5rem;
-      font-size: 2.8rem;
+      margin: 0.5rem 0 0.2rem;
+      font-size: 3rem;
+      color: #4e342e;
     }
+    .tagline {
+      font-size: 1.3rem;
+      color: #8d6e63;
+      font-style: italic;
+    }
+
     section {
-      padding: 4rem 1rem;
-      background-color: rgba(255, 255, 255, 0.92);
-      margin: 2rem auto;
-      max-width: 1000px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      background-color: rgba(255, 243, 224, 0.75);
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      color: #4e342e;
     }
+    section h2 {
+      margin-top: 0;
+      font-size: 2rem;
+      border-bottom: 2px solid #a0522d;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Services */
+    #services p {
+      font-size: 1.2rem;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    /* Gallery */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -70,60 +117,220 @@
     }
     .gallery-grid img {
       width: 100%;
+      height: 150px;
+      object-fit: cover;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(90, 62, 27, 0.3);
+      transition: transform 0.3s ease;
     }
-    .testimonial {
-      font-style: italic;
-      margin-bottom: 1.5rem;
-      border-left: 4px solid #a0522d;
-      padding-left: 1rem;
+    .gallery-grid img:hover, .gallery-grid img:focus {
+      transform: scale(1.05);
+      outline: none;
     }
-    .testimonial-author {
-      font-weight: bold;
-      margin-top: 0.5rem;
-    }
-    .blog-post {
-      background-color: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid #a0522d;
-      border-radius: 6px;
-      font-family: 'Playfair Display', serif;
-    }
-    form button {
-      background-color: #a0522d;
-      color: #fff;
-      padding: 0.75rem 2rem;
-      border: none;
-      border-radius: 25px;
+
+    /* Lightbox */
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(30, 20, 10, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1500;
       cursor: pointer;
     }
-    footer {
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 8px 12px rgba(0,0,0,0.7);
+    }
+
+    /* Testimonials */
+    #testimonials .testimonial-carousel {
+      position: relative;
+      overflow: hidden;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .testimonial {
+      display: none;
+      padding: 1.5rem 2rem;
+      background-color: #fff8f0;
+      border-left: 6px solid #a0522d;
+      border-radius: 12px;
+      font-style: italic;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: opacity 0.5s ease;
+      color: #4e342e;
+    }
+    .testimonial.active {
+      display: block;
+    }
+    .stars {
+      font-size: 1.3rem;
+      color: #a0522d;
+      margin-bottom: 0.7rem;
+    }
+    .testimonial-author {
+      text-align: right;
+      margin-top: 1rem;
+      font-weight: 700;
+      font-style: normal;
+    }
+    .testimonial-controls {
+      margin-top: 1rem;
       text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      background-color: rgba(255, 248, 240, 0.95);
+    }
+    .testimonial-controls button {
+      background-color: #a0522d;
+      border: none;
+      color: white;
+      font-size: 1.6rem;
+      padding: 0.3rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .testimonial-controls button:hover, .testimonial-controls button:focus {
+      background-color: #8b4513;
+      outline: none;
+    }
+
+    /* Blog */
+    #blog .blog-post {
+      background-color: #fff8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1.8rem;
+      color: #4e342e;
+    }
+    #blog .blog-post h3 {
+      margin-top: 0;
       color: #6d4c41;
     }
-    footer a {
+
+    /* Contact form */
+    #contact form {
+      max-width: 400px;
+      margin: 0 auto;
+      color: #4e342e;
+    }
+    #contact label {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    #contact input, #contact textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 2px solid #a0522d;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+    #contact input:focus, #contact textarea:focus {
+      border-color: #8b4513;
+      outline: none;
+    }
+    #contact button {
+      background-color: #a0522d;
+      border: none;
+      color: white;
+      padding: 0.7rem 2rem;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #contact button:hover, #contact button:focus {
+      background-color: #8b4513;
+      outline: none;
+    }
+    #success-message {
+      display: none;
+      color: #2a7a2a;
+      font-weight: 700;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    #contact p.email-info {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    #contact p.email-info a {
       color: #a0522d;
+      text-decoration: none;
+    }
+    #contact p.email-info a:hover, #contact p.email-info a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #795548;
+      padding: 2rem 1rem 3rem;
+      background-color: rgba(255, 243, 224, 0.9);
+      border-top: 1px solid #e0d2c0;
+    }
+    footer .social-icons {
+      margin-top: 1rem;
+    }
+    footer .social-icons a {
       margin: 0 0.5rem;
+      color: #4e342e;
+      text-decoration: none;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+    footer .social-icons a:hover, footer .social-icons a:focus {
+      color: #a0522d;
+      outline: none;
+    }
+    footer .social-icons svg {
+      vertical-align: middle;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      nav ul {
+        flex-wrap: wrap;
+      }
+      nav li {
+        margin: 0.4rem 0.8rem;
+      }
+      .gallery-grid img {
+        height: 120px;
+      }
+      section {
+        margin: 0 1rem 3rem;
+        padding: 1.5rem 1rem;
+      }
+      #contact form {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
-<body>
-  <nav>
+<body id="top">
+
+  <!-- Navigation -->
+  <nav role="navigation" aria-label="Main navigation">
     <ul>
-      <li><a href="#home">Home</a></li>
+      <li><a href="#top">Home</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
@@ -132,86 +339,189 @@
     </ul>
   </nav>
 
-  <header id="home">
+  <!-- Header -->
+  <header role="banner">
     <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.PNG" alt="Hennani Art Logo" class="logo" />
     <h1>Hennani Art</h1>
-    <p>Elegant Henna Designs for Every Occasion</p>
+    <p class="tagline">Elegant Henna Designs for Every Occasion</p>
   </header>
 
-  <section id="services">
-    <h2>Our Services</h2>
+  <!-- Services -->
+  <section id="services" tabindex="-1" aria-labelledby="services-title">
+    <h2 id="services-title">Our Services</h2>
     <p>Bridal Henna • Festival Henna • Corporate Events • Custom Designs</p>
   </section>
 
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <!-- Add 16 gallery images -->
-      <!-- Replace with working image paths if hosted -->
-      <img src="img1.JPG" alt="Henna 1" />
-      <img src="img2.JPG" alt="Henna 2" />
-      <img src="img3.JPG" alt="Henna 3" />
-      <img src="img4.JPG" alt="Henna 4" />
-      <img src="img5.JPG" alt="Henna 5" />
-      <img src="img6.JPG" alt="Henna 6" />
-      <img src="img7.JPG" alt="Henna 7" />
-      <img src="img8.JPG" alt="Henna 8" />
-      <img src="img9.JPG" alt="Henna 9" />
-      <img src="img10.JPG" alt="Henna 10" />
-      <img src="img11.JPG" alt="Henna 11" />
-      <img src="img12.JPG" alt="Henna 12" />
-      <img src="img13.JPG" alt="Henna 13" />
-      <img src="img14.JPG" alt="Henna 14" />
-      <img src="img15.JPG" alt="Henna 15" />
-      <img src="img16.JPG" alt="Henna 16" />
+  <!-- Gallery -->
+  <section id="gallery" tabindex="-1" aria-labelledby="gallery-title">
+    <h2 id="gallery-title">Gallery</h2>
+    <div class="gallery-grid" role="list">
+      
+      <img src="img1.JPG" alt="Henna Design 1" />
+      <img src="img2.JPG" alt="Henna Design 2" />
+      <img src="img3.JPG" alt="Henna Design 3" />
+      <img src="img4.JPG" alt="Henna Design 4" />
+      <img src="img5.JPG" alt="Henna Design 5" />
+      <img src="img6.JPG" alt="Henna Design 6" />
+      <img src="img7.JPG" alt="Henna Design 7" />
+      <img src="img8.JPG" alt="Henna Design 8" />
+      <img src="img9.JPG" alt="Henna Design 9" />
+      <img src="img10.JPG" alt="Henna Design 10" />
+      <img src="img11.JPG" alt="Henna Design 11" />
+      <img src="img12.JPG" alt="Henna Design 12" />
+      <img src="img13.JPG" alt="Henna Design 13" />
+      <img src="img14.JPG" alt="Henna Design 14" />
+      <img src="img15.JPG" alt="Henna Design 15" />
+      <img src="img16.JPG" alt="Henna Design 16" />
+    </div>
+
     </div>
   </section>
 
-  <section id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonial">
-      "I reached out to Hennani Art for my engagement henna the last minute and Priya was so kind to give me an appointment the same day. The henna designs were beautiful and lasted perfectly!"
-      <div class="testimonial-author">– Sreeja A N</div>
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged henna design" onclick="closeLightbox()" tabindex="-1">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <!-- Testimonials -->
+  <section id="testimonials" tabindex="-1" aria-labelledby="testimonials-title">
+    <h2 id="testimonials-title">Testimonials</h2>
+    <div class="testimonial-carousel" aria-live="polite">
+      <div class="testimonial active" role="group" aria-roledescription="testimonial" aria-label="Testimonial 1">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <p>
+          I reached out to Hennani Art for my engagement henna the last minute and Priya was so kind to give me an appointment the same day. The henna designs were beautiful and lasted perfectly!
+        </p>
+        <div class="testimonial-author">– Sreeja A N</div>
+      </div>
+      <div class="testimonial" role="group" aria-roledescription="testimonial" aria-label="Testimonial 2">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <p>
+          Priya was professional and easy person to work with! She came completely prepared and was great at applying any design that we requested!
+        </p>
+        <div class="testimonial-author">– Khyati Mehta</div>
+      </div>
+      <div class="testimonial" role="group" aria-roledescription="testimonial" aria-label="Testimonial 3">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <p>
+          Priya is so good and fast in doing great henna designs. Both my girls got in their hands and they were very happy and really loved the designs. Thanks a lot Priya!!!
+        </p>
+        <div class="testimonial-author">– Gayathri Ramanujam</div>
+      </div>
     </div>
-    <div class="testimonial">
-      "Priya is very talented and professional! Everyone at the party loved her work. Highly recommended."
-      <div class="testimonial-author">– Gayathri Ramanujam</div>
+    <div class="testimonial-controls">
+      <button id="prevTestimonial" aria-label="Previous testimonial">‹</button>
+      <button id="nextTestimonial" aria-label="Next testimonial">›</button>
     </div>
   </section>
 
-  <section id="blog">
-    <h2>Blog</h2>
-    <div class="blog-post">
+  <!-- Blog -->
+  <section id="blog" tabindex="-1" aria-labelledby="blog-title">
+    <h2 id="blog-title">Blog</h2>
+    <article class="blog-post" tabindex="0">
       <h3>5 Tips for Long-Lasting Henna</h3>
       <p>Learn how to prep your skin and care for your henna to make it last beautifully for days. Tips include natural oils, avoiding water early, and more.</p>
-    </div>
-    <div class="blog-post">
-      <h3>Behind the Scenes: Bridal Henna Sessions</h3>
-      <p>Step into the world of intricate bridal mehndi with a peek at our process, design planning, and the care that goes into every detail.</p>
-    </div>
+    </article>
+    <article class="blog-post" tabindex="0">
+      <h3>Behind the Scenes of a Henna Artist</h3>
+      <p>Discover what goes into designing and applying intricate henna patterns for weddings and festivals.</p>
+    </article>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <form action="https://formspree.io/f/xnnvgnye" method="POST">
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name" required />
-
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" required />
-
-      <label for="message">Message</label>
-      <textarea name="message" id="message" rows="5" required></textarea>
-
-      <button type="submit">Send Message</button>
+  <!-- Contact -->
+  <section id="contact" tabindex="-1" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact Us</h2>
+    <form action="https://formspree.io/f/xjvdwkpj" method="POST" id="contact-form" novalidate>
+      <label for="name">Name*</label>
+      <input type="text" id="name" name="name" required aria-required="true" />
+      <label for="email">Email*</label>
+      <input type="email" id="email" name="_replyto" required aria-required="true" />
+      <label for="message">Message*</label>
+      <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+      <button type="submit">Send</button>
+      <p id="success-message" role="alert" aria-live="assertive">Thank you! Your message has been sent.</p>
     </form>
+    <p class="email-info">Or email directly: <a href="mailto:hennaniart@gmail.com">hennaniart@gmail.com</a></p>
   </section>
 
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Hennani Art. All rights reserved.
-    <br>
-    <a href="https://instagram.com/hennaniart" target="_blank">Instagram</a>
-    <a href="https://facebook.com/hennaniart" target="_blank">Facebook</a>
+    &copy; 2025 Hennani Art — Designed with ♥ by Priya
+    <div class="social-icons" role="contentinfo" aria-label="Social media links">
+      <a href="https://www.instagram.com/hennaniart" target="_blank" rel="noopener" aria-label="Instagram">
+        <!-- Instagram SVG icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#4e342e" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2h8.5a3.75 3.75 0 013.75 3.75v8.5a3.75 3.75 0 01-3.75 3.75h-8.5a3.75 3.75 0 01-3.75-3.75v-8.5A3.75 3.75 0 017.75 4zm4.25 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm3.5-.5a1 1 0 11-2 0 1 1 0 012 0z"/></svg>
+      </a>
+      <!-- Add more social icons if you want -->
+    </div>
   </footer>
+
+<script>
+  // Gallery lightbox logic
+  const galleryImages = document.querySelectorAll('#gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.style.display = 'flex';
+      lightbox.focus();
+    });
+    img.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        img.click();
+      }
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  }
+
+  lightbox.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+
+  // Testimonials carousel
+  const testimonials = document.querySelectorAll('.testimonial');
+  const prevBtn = document.getElementById('prevTestimonial');
+  const nextBtn = document.getElementById('nextTestimonial');
+  let currentTestimonial = 0;
+
+  function showTestimonial(index) {
+    testimonials.forEach((t, i) => {
+      t.classList.toggle('active', i === index);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(currentTestimonial);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    showTestimonial(currentTestimonial);
+  });
+
+  // Contact form success message
+  const form = document.getElementById('contact-form');
+  const successMsg = document.getElementById('success-message');
+  form.addEventListener('submit', e => {
+    // Show success message on submit; actual sending handled by Formspree
+    successMsg.style.display = 'none'; // reset
+    setTimeout(() => {
+      successMsg.style.display = 'block';
+      form.reset();
+    }, 500);
+  });
+</script>
 </body>
 </html>
