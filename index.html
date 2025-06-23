@@ -4,90 +4,73 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hennani Art</title>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
-
   <style>
     body {
       font-family: 'Playfair Display', serif;
       background-color: #f7f1e3;
       color: #4e342e;
       margin: 0;
-      padding: 0;
     }
-
-    header {
+    html {
+      scroll-behavior: smooth;
+    }
+    nav {
       background-color: #fff3e0;
-      padding: 1rem 2rem;
+      border-bottom: 2px solid #d7ccc8;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0.5rem 0;
+    }
+    nav li {
+      margin: 0.5rem 1rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #4e342e;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #a0522d;
+    }
+    header {
       text-align: center;
+      padding: 1rem 2rem;
       border-bottom: 2px solid #d7ccc8;
     }
-
     .logo {
       max-width: 150px;
       margin-bottom: 0.5rem;
     }
-
     h1 {
       margin: 0.5rem 0 0.2rem;
       font-size: 2.5rem;
     }
-
-    p.tagline {
+    .tagline {
       font-size: 1.2rem;
       color: #8d6e63;
     }
-
-    .content {
-      text-align: center;
+    section {
       padding: 3rem 1rem;
-    }
-
-    .cta-button {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.75rem 2rem;
-      background-color: #a0522d;
-      color: #fff;
-      border-radius: 30px;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #8b4513;
-    }
-
-    footer {
       text-align: center;
-      font-size: 0.9rem;
-      color: #795548;
-      padding: 2rem 1rem;
-      background-color: #fff8f0;
-      border-top: 1px solid #e0d2c0;
     }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-      .cta-button {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
-      }
-    }
-
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
       max-width: 1000px;
       margin: 0 auto;
-      padding: 2rem 1rem;
     }
-
     .gallery-grid img {
       width: 100%;
       height: 150px;
@@ -97,11 +80,9 @@
       box-shadow: 0 4px 6px rgba(90, 62, 27, 0.2);
       transition: transform 0.3s ease;
     }
-
     .gallery-grid img:hover {
       transform: scale(1.05);
     }
-
     #lightbox {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -112,59 +93,91 @@
       z-index: 1000;
       cursor: pointer;
     }
-
     #lightbox img {
       max-width: 90%;
       max-height: 90%;
       border-radius: 12px;
       box-shadow: 0 8px 12px rgba(0,0,0,0.7);
     }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #795548;
+      padding: 2rem 1rem;
+      background-color: #fff8f0;
+      border-top: 1px solid #e0d2c0;
+    }
   </style>
 </head>
-<body>
+<body id="top">
+  <nav>
+    <ul>
+      <li><a href="#top">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <header>
     <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.PNG" alt="Hennani Art Logo" class="logo" />
     <h1>Hennani Art</h1>
     <p class="tagline">Elegant Henna Designs for Every Occasion</p>
   </header>
 
-  <div class="content">
-    <h2>Welcome to Hennani Art</h2>
-    <p>We specialize in beautiful, traditional and modern henna designs for weddings, festivals, and celebrations.</p>
-    <a href="#gallery" class="cta-button">View Gallery</a>
-    <a href="#contact" class="cta-button">Book Your Appointment</a>
-  </div>
-
-  <section id="gallery">
-    <h2 style="text-align: center;">Gallery</h2>
-    <div class="gallery-grid">
-  <img src="img1.JPG" alt="Henna Design 1" />
-  <img src="img2.JPG" alt="Henna Design 2" />
-  <img src="img3.JPG" alt="Henna Design 3" />
-  <img src="img4.JPG" alt="Henna Design 4" />
-  <img src="img5.JPG" alt="Henna Design 5" />
-  <img src="img6.JPG" alt="Henna Design 6" />
-  <img src="img7.JPG" alt="Henna Design 7" />
-  <img src="img8.JPG" alt="Henna Design 8" />
-  <img src="img9.JPG" alt="Henna Design 9" />
-  <img src="img10.JPG" alt="Henna Design 10" />
-  <img src="img11.JPG" alt="Henna Design 11" />
-  <img src="img12.JPG" alt="Henna Design 12" />
-  <img src="img13.JPG" alt="Henna Design 13" />
-  <img src="img14.JPG" alt="Henna Design 14" />
-  <img src="img15.JPG" alt="Henna Design 15" />
-  <img src="img16.JPG" alt="Henna Design 16" />
-</div>
-
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>Bridal Henna • Festival Henna • Corporate Events • Custom Designs</p>
   </section>
 
-  <!-- Lightbox -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <!-- Update these to match your uploaded filenames -->
+      <img src="img1.JPG" alt="Henna Design 1" />
+      <img src="img2.JPG" alt="Henna Design 2" />
+      <img src="img3.JPG" alt="Henna Design 3" />
+      <img src="img4.JPG" alt="Henna Design 4" />
+      <img src="img5.JPG" alt="Henna Design 5" />
+      <img src="img6.JPG" alt="Henna Design 6" />
+      <img src="img7.JPG" alt="Henna Design 7" />
+      <img src="img8.JPG" alt="Henna Design 8" />
+      <img src="img9.JPG" alt="Henna Design 9" />
+      <img src="img10.JPG" alt="Henna Design 10" />
+      <img src="img11.JPG" alt="Henna Design 11" />
+      <img src="img12.JPG" alt="Henna Design 12" />
+      <img src="img13.JPG" alt="Henna Design 13" />
+      <img src="img14.JPG" alt="Henna Design 14" />
+      <img src="img15.JPG" alt="Henna Design 15" />
+      <img src="img16.JPG" alt="Henna Design 16" />
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <p>"Absolutely stunning work! Everyone loved my bridal henna." – Ayesha</p>
+    <p>"Highly recommended! Very professional and talented." – Reena</p>
+  </section>
+
+  <section id="blog">
+    <h2>Blog</h2>
+    <p>Coming soon: Tips, behind-the-scenes, and the art of Mehndi traditions!</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email us at <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+    <!-- You can replace with a Formspree form later -->
+  </section>
+
   <div id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img" src="" alt="Enlarged henna design" />
   </div>
 
   <footer>
-    &copy; 2022 Hennani Art. All rights reserved.
+    &copy; 2025 Hennani Art. All rights reserved.
   </footer>
 
   <script>
