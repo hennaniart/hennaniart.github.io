@@ -6,27 +6,419 @@
   <title>Hennani Art</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
-    body {
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0; padding: 0;
+      height: 100%;
       font-family: 'Playfair Display', serif;
-      margin: 0;
+      color: #f5f0e6;
+      scroll-behavior: smooth;
       background: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/home-bg.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #4e342e;
+      position: relative;
+      min-height: 100vh;
     }
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Optional overlay for contrast */
+    /* Overlay for readability */
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-color: rgba(255, 255, 255, 0.85);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(30, 20, 10, 0.6);
       z-index: -1;
     }
 
-    /* Keep your entire CSS from previous ver*
+    nav {
+      background-color: rgba(255, 243, 224, 0.9);
+      border-bottom: 2px solid #d7ccc8;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0.5rem 0;
+    }
+    nav li {
+      margin: 0.5rem 1rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #4e342e;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover, nav a:focus {
+      color: #a0522d;
+      outline: none;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+      border-bottom: 2px solid #d7ccc8;
+      background-color: rgba(255, 243, 224, 0.7);
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    .logo {
+      max-width: 150px;
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      margin: 0.5rem 0 0.2rem;
+      font-size: 3rem;
+      color: #4e342e;
+    }
+    .tagline {
+      font-size: 1.3rem;
+      color: #8d6e63;
+      font-style: italic;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      background-color: rgba(255, 243, 224, 0.75);
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      color: #4e342e;
+    }
+    section h2 {
+      margin-top: 0;
+      font-size: 2rem;
+      border-bottom: 2px solid #a0522d;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Services */
+    #services p {
+      font-size: 1.2rem;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(90, 62, 27, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .gallery-grid img:hover, .gallery-grid img:focus {
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Lightbox */
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(30, 20, 10, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1500;
+      cursor: pointer;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 8px 12px rgba(0,0,0,0.7);
+    }
+
+    /* Testimonials */
+    #testimonials .testimonial-carousel {
+      position: relative;
+      overflow: hidden;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .testimonial {
+      display: none;
+      padding: 1.5rem 2rem;
+      background-color: #fff8f0;
+      border-left: 6px solid #a0522d;
+      border-radius: 12px;
+      font-style: italic;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: opacity 0.5s ease;
+      color: #4e342e;
+    }
+    .testimonial.active {
+      display: block;
+    }
+    .stars {
+      font-size: 1.3rem;
+      color: #a0522d;
+      margin-bottom: 0.7rem;
+    }
+    .testimonial-author {
+      text-align: right;
+      margin-top: 1rem;
+      font-weight: 700;
+      font-style: normal;
+    }
+    .testimonial-controls {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .testimonial-controls button {
+      background-color: #a0522d;
+      border: none;
+      color: white;
+      font-size: 1.6rem;
+      padding: 0.3rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .testimonial-controls button:hover, .testimonial-controls button:focus {
+      background-color: #8b4513;
+      outline: none;
+    }
+
+    /* Blog */
+    #blog .blog-post {
+      background-color: #fff8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1.8rem;
+      color: #4e342e;
+    }
+    #blog .blog-post h3 {
+      margin-top: 0;
+      color: #6d4c41;
+    }
+
+    /* Contact form */
+    #contact form {
+      max-width: 400px;
+      margin: 0 auto;
+      color: #4e342e;
+    }
+    #contact label {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    #contact input, #contact textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 2px solid #a0522d;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+    #contact input:focus, #contact textarea:focus {
+      border-color: #8b4513;
+      outline: none;
+    }
+    #contact button {
+      background-color: #a0522d;
+      border: none;
+      color: white;
+      padding: 0.7rem 2rem;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #contact button:hover, #contact button:focus {
+      background-color: #8b4513;
+      outline: none;
+    }
+    #success-message {
+      display: none;
+      color: #2a7a2a;
+      font-weight: 700;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    #contact p.email-info {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    #contact p.email-info a {
+      color: #a0522d;
+      text-decoration: none;
+    }
+    #contact p.email-info a:hover, #contact p.email-info a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #795548;
+      padding: 2rem 1rem 3rem;
+      background-color: rgba(255, 243, 224, 0.9);
+      border-top: 1px solid #e0d2c0;
+    }
+    footer .social-icons {
+      margin-top: 1rem;
+    }
+    footer .social-icons a {
+      margin: 0 0.5rem;
+      color: #4e342e;
+      text-decoration: none;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+    footer .social-icons a:hover, footer .social-icons a:focus {
+      color: #a0522d;
+      outline: none;
+    }
+    footer .social-icons svg {
+      vertical-align: middle;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      nav ul {
+        flex-wrap: wrap;
+      }
+      nav li {
+        margin: 0.4rem 0.8rem;
+      }
+      .gallery-grid img {
+        height: 120px;
+      }
+      section {
+        margin: 0 1rem 3rem;
+        padding: 1.5rem 1rem;
+      }
+      #contact form {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- Navigation -->
+  <nav role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="#top">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header role="banner">
+    <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.PNG" alt="Hennani Art Logo" class="logo" />
+    <h1>Hennani Art</h1>
+    <p class="tagline">Elegant Henna Designs for Every Occasion</p>
+  </header>
+
+  <!-- Services -->
+  <section id="services" tabindex="-1" aria-labelledby="services-title">
+    <h2 id="services-title">Our Services</h2>
+    <p>Bridal Henna • Festival Henna • Corporate Events • Custom Designs</p>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" tabindex="-1" aria-labelledby="gallery-title">
+    <h2 id="gallery-title">Gallery</h2>
+    <div class="gallery-grid" role="list">
+      <!-- Replace src with your actual image URLs -->
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img1.JPG" alt="Henna Design 1" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img2.JPG" alt="Henna Design 2" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img3.JPG" alt="Henna Design 3" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img4.JPG" alt="Henna Design 4" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img5.JPG" alt="Henna Design 5" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img6.JPG" alt="Henna Design 6" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img7.JPG" alt="Henna Design 7" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img8.JPG" alt="Henna Design 8" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img9.JPG" alt="Henna Design 9" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img10.JPG" alt="Henna Design 10" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img11.JPG" alt="Henna Design 11" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img12.JPG" alt="Henna Design 12" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img13.JPG" alt="Henna Design 13" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img14.JPG" alt="Henna Design 14" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img15.JPG" alt="Henna Design 15" role="listitem" tabindex="0" />
+      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/img16.JPG" alt="Henna Design 16" role="listitem" tabindex="0" />
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged henna design" onclick="closeLightbox()" tabindex="-1">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+  <!-- Testimonials -->
+  <section id="testimonials" tabindex="-1" aria-labelledby="testimonials-title">
+    <h2 id="testimonials-title">Testimonials</h2>
+    <div class="testimonial-carousel" aria-live="polite">
+      <div class="testimonial active" role="group" aria-roledescription="testimonial" aria-label="Testimonial 1">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <p>
+          I reached out to Hennani Art for my engagement henna the last minute and Priya was so kind to give me an appointment the same day. The henna designs were beautiful and lasted perfectly!
+        </p>
+        <div class="testimonial-author">– Sreeja A N</div>
+      </div>
+      <div class="testimonial" role="group" aria-roledescription="testimonial" aria-label="Testimonial 2">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <p>
+          Priya was professional and easy person to work with! She came completely prepared and was great at applying any design that we requested!
+        </p>
+        <div class="testimonial-author">– Khyati Mehta</div>
+      </div>
+      <div class="testimonial" role="group" aria-roledescription="testimonial" aria-label="Testimonial 3">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <p>
+          Priya is so good and fast in doing great henna designs. Both my girls got in their hands and they were very happy and really loved the designs. Thanks a lot Priya!!!
+        </p>
+        <div class="testimonial-author">– Gayathri Ramanujam</div>
+      </div>
+    </div>
+    <div class="testimonial-controls">
+      <button id="prevTestimonial" aria-label="Previous testimonial">‹</button>
+      <button id="nextTestimonial" aria-label="Next testimonial">›</button>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" tabindex="-1" aria-labelledby="blog-title">
+    <h2 id="blog-title">Blog</h2>
+    <article class="blog-post" tabindex="0">
+      <h3>5 Tips for Long-Lasting Henna</h3>
+      <p>Learn how to prep your skin and care for your henna to make it last beautifully for days. Tips include natural oils, avoiding water early, and more.</p>
+    </article>
+    <article class="blog-post" tabindex="0">
+      <h3>Behind the Scenes
