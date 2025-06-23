@@ -99,6 +99,35 @@
       border-radius: 12px;
       box-shadow: 0 8px 12px rgba(0,0,0,0.7);
     }
+    .testimonial {
+      background-color: #fff8f0;
+      margin: 1rem auto;
+      max-width: 700px;
+      padding: 1.5rem;
+      border-left: 5px solid #a0522d;
+      border-radius: 10px;
+      font-style: italic;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .testimonial-author {
+      text-align: right;
+      margin-top: 1rem;
+      font-weight: bold;
+      font-style: normal;
+    }
+    .blog-post {
+      max-width: 800px;
+      margin: 1rem auto;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .blog-post h3 {
+      margin-top: 0;
+      color: #6d4c41;
+    }
     footer {
       text-align: center;
       font-size: 0.9rem;
@@ -135,7 +164,6 @@
   <section id="gallery">
     <h2>Gallery</h2>
     <div class="gallery-grid">
-      <!-- Update these to match your uploaded filenames -->
       <img src="img1.JPG" alt="Henna Design 1" />
       <img src="img2.JPG" alt="Henna Design 2" />
       <img src="img3.JPG" alt="Henna Design 3" />
@@ -157,19 +185,31 @@
 
   <section id="testimonials">
     <h2>Testimonials</h2>
-    <p>"Absolutely stunning work! Everyone loved my bridal henna." – Ayesha</p>
-    <p>"Highly recommended! Very professional and talented." – Reena</p>
+    <div class="testimonial">
+      "Absolutely stunning work! Everyone loved my bridal henna."
+      <div class="testimonial-author">– Ayesha</div>
+    </div>
+    <div class="testimonial">
+      "Highly recommended! Very professional and talented."
+      <div class="testimonial-author">– Reena</div>
+    </div>
   </section>
 
   <section id="blog">
     <h2>Blog</h2>
-    <p>Coming soon: Tips, behind-the-scenes, and the art of Mehndi traditions!</p>
+    <div class="blog-post">
+      <h3>5 Tips for Long-Lasting Henna</h3>
+      <p>Learn how to prep your skin and care for your henna to make it last beautifully for days. Tips include natural oils, avoiding water early, and more.</p>
+    </div>
+    <div class="blog-post">
+      <h3>Behind the Scenes: Bridal Henna Sessions</h3>
+      <p>Step into the world of intricate bridal mehndi with a peek at our process, design planning, and the care that goes into every detail.</p>
+    </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
     <p>Email us at <a href="mailto:yourname@example.com">yourname@example.com</a></p>
-    <!-- You can replace with a Formspree form later -->
   </section>
 
   <div id="lightbox" onclick="closeLightbox()">
