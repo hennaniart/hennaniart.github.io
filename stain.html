@@ -10,69 +10,82 @@
       background-color: #fff8f0;
       color: #4e342e;
       margin: 0;
-      padding: 0 1rem;
+      padding: 1rem;
     }
-    a.back-link {
-      display: inline-block;
-      margin: 1rem 0;
-      font-weight: bold;
-      color: #a0522d;
-      text-decoration: none;
-      border: 1px solid #a0522d;
-      padding: 0.4rem 1rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-    a.back-link:hover {
-      background-color: #a0522d;
-      color: white;
-    }
-    h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-top: 0.5rem;
-      margin-bottom: 1.5rem;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      margin: 0 0 2rem 0;
       border-bottom: 2px solid #a0522d;
-      padding-bottom: 0.3rem;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+      background-color: #fbe9e7;
+      justify-content: center;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #4e342e;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #a0522d;
+      outline: none;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .back-link {
+      margin-bottom: 1rem;
+      display: inline-block;
+      color: #a0522d;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .back-link:hover,
+    .back-link:focus {
+      text-decoration: underline;
+      outline: none;
     }
     .gallery {
       max-width: 900px;
-      margin: 0 auto 3rem auto;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
-      background-color: rgba(255, 243, 224, 0.75);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
     .gallery img {
       width: 100%;
-      height: 150px;
+      height: 160px;
       object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 4px 6px rgba(90, 62, 27, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      pointer-events: none;
+      cursor: pointer;
     }
     .gallery img:hover,
     .gallery img:focus {
       transform: scale(1.05);
       box-shadow: 0 8px 15px rgba(90, 62, 27, 0.6);
+      outline: none;
     }
   </style>
 </head>
 <body>
-
-  <a href="index.html#gallery" class="back-link">&larr; Back to Gallery</a>
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+    </ul>
+  </nav>
 
   <main>
-    <h2>Henna Stains Gallery</h2>
-    <section class="gallery" role="list">
-      <img src="staincover.JPG" alt="Henna Stains Cover" />
+    <a href="gallery.html" class="back-link" aria-label="Back to Gallery">← Back to Gallery</a>
+    <h1>Henna Stains Gallery</h1>
+    <section class="gallery" role="list" aria-label="Henna stains designs">
       <img src="stain1.JPG" alt="Henna Stain Design 1" />
       <img src="stain2.JPG" alt="Henna Stain Design 2" />
       <img src="stain3.JPG" alt="Henna Stain Design 3" />
@@ -84,6 +97,5 @@
       <img src="stain9.JPG" alt="Henna Stain Design 9" />
     </section>
   </main>
-
 </body>
 </html>
