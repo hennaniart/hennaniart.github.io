@@ -355,6 +355,73 @@
   outline: 3px solid #a0522d;
   outline-offset: 6px;
 }
+    .gallery-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.gallery-card {
+  flex: 1 1 220px;
+  background-color: #fff8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
+.gallery-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.gallery-card h3 {
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  color: #4e342e;
+}
+
+.gallery-grid-container {
+  margin-top: 1rem;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.gallery-grid img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  filter: grayscale(0.1);
+}
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .gallery-card img {
+    height: 140px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
 
   </style>
 </head>
@@ -441,25 +508,112 @@
   <!-- Gallery -->
   <section id="gallery" tabindex="-1" aria-labelledby="gallery-title">
   <h2 id="gallery-title">Gallery</h2>
-  <div class="gallery-grid" role="list">
-    <img src="img1.JPG" alt="Henna Design 1" tabindex="0" />
-    <img src="img2.JPG" alt="Henna Design 2" tabindex="0" />
-    <img src="img3.JPG" alt="Henna Design 3" tabindex="0" />
-    <img src="img4.JPG" alt="Henna Design 4" tabindex="0" />
-    <img src="img5.JPG" alt="Henna Design 5" tabindex="0" />
-    <img src="img6.JPG" alt="Henna Design 6" tabindex="0" />
-    <img src="img7.JPG" alt="Henna Design 7" tabindex="0" />
-    <img src="img8.JPG" alt="Henna Design 8" tabindex="0" />
-    <img src="img9.JPG" alt="Henna Design 9" tabindex="0" />
-    <img src="img10.JPG" alt="Henna Design 10" tabindex="0" />
-    <img src="img11.JPG" alt="Henna Design 11" tabindex="0" />
-    <img src="img12.JPG" alt="Henna Design 12" tabindex="0" />
-    <img src="img13.JPG" alt="Henna Design 13" tabindex="0" />
-    <img src="img14.JPG" alt="Henna Design 14" tabindex="0" />
-    <img src="img15.JPG" alt="Henna Design 15" tabindex="0" />
-    <img src="img16.JPG" alt="Henna Design 16" tabindex="0" />
+  <div class="gallery-categories">
+    <!-- Bridal -->
+    <div class="gallery-card" onclick="showGallery('bridal')">
+      <img src="bridalcover.JPG" alt="Bridal Henna Cover">
+      <h3>🧡 Bridal Henna</h3>
+    </div>
+
+    <!-- Party -->
+    <div class="gallery-card" onclick="showGallery('party')">
+      <img src="partycover.JPG" alt="Party Henna Cover">
+      <h3>🎉 Party Henna</h3>
+    </div>
+
+    <!-- Occasion -->
+    <div class="gallery-card" onclick="showGallery('occasion')">
+      <img src="occassioncover.JPG" alt="Occasion Henna Cover">
+      <h3>✨ Occasion Henna</h3>
+    </div>
+
+    <!-- Henna Stains -->
+    <div class="gallery-card" onclick="showGallery('stain')">
+      <img src="staincover.JPG" alt="Henna Stain Cover">
+      <h3>🌿 Henna Stains</h3>
+    </div>
+
+    <!-- Design Portfolio -->
+    <div class="gallery-card" onclick="showGallery('portfolio')">
+      <img src="portfoliocover.JPG" alt="Design Portfolio Cover">
+      <h3>🖌️ Design Portfolio</h3>
+    </div>
+  </div>
+
+  <!-- All image grids -->
+  <div class="gallery-grid-container">
+    <!-- Repeat structure for each category -->
+    <div class="gallery-grid hidden" id="bridal">
+      <!-- bridal1.JPG to bridal11.JPG -->
+      <img src="bridal1.JPG" alt="Bridal Henna 1">
+      <img src="bridal2.JPG" alt="Bridal Henna 2">
+      <img src="bridal3.JPG">
+      <img src="bridal4.JPG">
+      <img src="bridal5.JPG">
+      <img src="bridal6.JPG">
+      <img src="bridal7.JPG">
+      <img src="bridal8.JPG">
+      <img src="bridal9.JPG">
+      <img src="bridal10.JPG">
+      <img src="bridal11.JPG">
+    </div>
+
+    <div class="gallery-grid hidden" id="party">
+      <!-- party1.JPG to party12.JPG -->
+      <img src="party1.JPG">
+      <img src="party2.JPG">
+      <img src="party3.JPG">
+      <img src="party4.JPG">
+      <img src="party5.JPG">
+      <img src="party6.JPG">
+      <img src="party7.JPG">
+      <img src="party8.JPG">
+      <img src="party9.JPG">
+      <img src="party10.JPG">
+      <img src="party11.JPG">
+      <img src="party12.JPG">
+    </div>
+
+    <div class="gallery-grid hidden" id="occasion">
+      <!-- occasion1.JPG to occasion10.JPG -->
+      <img src="occassion1.JPG">
+      <img src="occassion2.JPG">
+      <img src="occassion3.JPG">
+      <img src="occassion4.JPG">
+      <img src="occassion5.JPG">
+      <img src="occassion6.JPG">
+      <img src="occassion7.JPG">
+      <img src="occassion8.JPG">
+      <img src="occassion9.JPG">
+      <img src="occassion10.JPG">
+    </div>
+
+    <div class="gallery-grid hidden" id="stain">
+      <!-- stain1.JPG to stain9.JPG -->
+      <img src="stain1.JPG">
+      <img src="stain2.JPG">
+      <img src="stain3.JPG">
+      <img src="stain4.JPG">
+      <img src="stain5.JPG">
+      <img src="stain6.JPG">
+      <img src="stain7.JPG">
+      <img src="stain8.JPG">
+      <img src="stain9.JPG">
+    </div>
+
+    <div class="gallery-grid hidden" id="portfolio">
+      <!-- portfolio1.JPG to portfolio60.JPG -->
+      <!-- For brevity, just showing 5. Add up to 60 -->
+      <img src="portfolio1.JPG">
+      <img src="portfolio2.JPG">
+      <img src="portfolio3.JPG">
+      <img src="portfolio4.JPG">
+      <img src="portfolio5.JPG">
+      <!-- ... continue to portfolio60.JPG -->
+    </div>
   </div>
 </section>
+
 
   <!-- Lightbox -->
   <div id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged henna design" onclick="closeLightbox()" tabindex="-1">
@@ -619,7 +773,12 @@
     } else {
       successMessage.textContent = "Oops! There was a problem submitting your form.";
     }
-  });
+  });function showGallery(id) {
+  const galleries = document.querySelectorAll('.gallery-grid');
+  galleries.forEach(g => g.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+}
+
 </script>
 
 </body>
