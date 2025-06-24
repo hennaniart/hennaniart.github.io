@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery - Hennani Art</title>
+  <title>Hennani Art - Gallery</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,230 +13,110 @@
       padding: 1rem;
     }
     nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
       list-style: none;
-      padding: 1rem 0;
-      margin: 0;
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem;
       background-color: #fbe9e7;
+      margin: 0 0 2rem 0;
       border-bottom: 2px solid #a0522d;
     }
     nav ul li a {
-      color: #4e342e;
       text-decoration: none;
+      color: #4e342e;
       font-weight: 700;
       font-size: 1.1rem;
-      transition: color 0.3s ease;
     }
     nav ul li a:hover,
     nav ul li a:focus {
       color: #a0522d;
       outline: none;
     }
-    #back-home-link {
-      max-width: 900px;
-      margin: 1rem auto;
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      font-size: 1rem;
+    #gallery h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
     }
-    #back-home-link a {
+    #gallery .back-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      color: #a0522d;
+      font-weight: 700;
       text-decoration: none;
-      color: #a97453;
-      cursor: pointer;
     }
-    #back-home-link a:hover,
-    #back-home-link a:focus {
+    #gallery .back-link:hover,
+    #gallery .back-link:focus {
       text-decoration: underline;
       outline: none;
     }
-    h2#gallery-title {
-      text-align: center;
-      font-size: 2rem;
-      margin: 1rem auto 1.5rem;
-      border-bottom: 2px solid #a0522d;
-      padding-bottom: 0.3rem;
-      max-width: 400px;
-    }
     .gallery-categories {
-      max-width: 900px;
-      margin: 0 auto 2rem auto;
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 2rem;
       justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
     }
     .gallery-card {
       cursor: pointer;
-      width: 180px;
-      text-align: center;
       border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(160, 120, 70, 0.3);
-      background: #fdf5e6;
+      box-shadow: 0 4px 6px rgba(90, 62, 27, 0.3);
+      overflow: hidden;
+      width: 250px;
+      background-color: #fff;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      padding: 0.5rem;
-      user-select: none;
+      text-align: center;
     }
     .gallery-card:hover,
     .gallery-card:focus {
       transform: scale(1.05);
-      box-shadow: 0 6px 15px rgba(160, 120, 70, 0.6);
+      box-shadow: 0 8px 15px rgba(90, 62, 27, 0.6);
       outline: none;
     }
     .gallery-card img {
       width: 100%;
-      height: 120px;
+      height: 180px;
       object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 0.5rem;
+      display: block;
     }
     .gallery-card h3 {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
+      margin: 0.75rem 0 1rem;
       font-weight: 700;
-      font-size: 1.1rem;
       color: #4e342e;
-    }
-    .gallery-grid-container {
-      max-width: 900px;
-      margin: 0 auto 3rem auto;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      border-radius: 12px;
-      padding: 1rem;
-      background-color: rgba(255, 243, 224, 0.75);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    .gallery-grid.hidden {
-      display: none;
-    }
-    .gallery-grid img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 3px 6px rgba(90, 62, 27, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .gallery-grid img:hover,
-    .gallery-grid img:focus {
-      transform: scale(1.05);
-      box-shadow: 0 8px 15px rgba(90, 62, 27, 0.6);
-      outline: none;
+      font-size: 1.2rem;
     }
   </style>
 </head>
 <body>
-
-  <nav aria-label="Main navigation">
+  <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
       <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+      <!-- Add other navigation links if needed -->
     </ul>
   </nav>
 
-  <main>
-
-    <div id="back-home-link">
-      <a href="index.html" aria-label="Back to Home">← Back to Home</a>
-    </div>
-
-    <h2 id="gallery-title">Gallery</h2>
-
-    <div class="gallery-categories" role="list" aria-label="Gallery categories">
-      <div class="gallery-card" tabindex="0" onclick="showGallery('bridal')" onkeypress="if(event.key==='Enter'){showGallery('bridal')}">
+  <section id="gallery">
+    <a href="index.html" class="back-link" aria-label="Back to Home">← Back to Home</a>
+    <h1>Gallery</h1>
+    <div class="gallery-categories">
+      <a href="bridal.html" class="gallery-card" aria-label="View Bridal Henna Gallery">
         <img src="bridalcover.JPG" alt="Bridal Henna Cover" />
         <h3>🧡 Bridal Henna</h3>
-      </div>
-      <div class="gallery-card" tabindex="0" onclick="showGallery('party')" onkeypress="if(event.key==='Enter'){showGallery('party')}">
+      </a>
+      <a href="party.html" class="gallery-card" aria-label="View Party Henna Gallery">
         <img src="partycover.JPG" alt="Party Henna Cover" />
         <h3>🎉 Party Henna</h3>
-      </div>
-      <div class="gallery-card" tabindex="0" onclick="showGallery('stain')" onkeypress="if(event.key==='Enter'){showGallery('stain')}">
+      </a>
+      <a href="stain.html" class="gallery-card" aria-label="View Henna Stains Gallery">
         <img src="staincover.JPG" alt="Henna Stains Cover" />
         <h3>🌿 Henna Stains</h3>
-      </div>
-      <div class="gallery-card" tabindex="0" onclick="showGallery('portfolio')" onkeypress="if(event.key==='Enter'){showGallery('portfolio')}">
+      </a>
+      <a href="portfolio.html" class="gallery-card" aria-label="View Design Portfolio Gallery">
         <img src="portfoliocover.JPG" alt="Design Portfolio Cover" />
         <h3>🖌️ Design Portfolio</h3>
-      </div>
+      </a>
     </div>
-
-    <div class="gallery-grid-container">
-      <div class="gallery-grid hidden" id="bridal" role="list" aria-label="Bridal henna designs">
-        <img src="bridal1.JPG" alt="Bridal Henna 1" />
-        <img src="bridal2.JPG" alt="Bridal Henna 2" />
-        <img src="bridal3.JPG" alt="Bridal Henna 3" />
-        <img src="bridal4.JPG" alt="Bridal Henna 4" />
-        <img src="bridal5.JPG" alt="Bridal Henna 5" />
-        <img src="bridal6.JPG" alt="Bridal Henna 6" />
-        <img src="bridal7.JPG" alt="Bridal Henna 7" />
-        <img src="bridal8.JPG" alt="Bridal Henna 8" />
-        <img src="bridal9.JPG" alt="Bridal Henna 9" />
-        <img src="bridal10.JPG" alt="Bridal Henna 10" />
-        <img src="bridal11.JPG" alt="Bridal Henna 11" />
-      </div>
-
-      <div class="gallery-grid hidden" id="party" role="list" aria-label="Party henna designs">
-        <img src="party1.JPG" alt="Party Henna 1" />
-        <img src="party2.JPG" alt="Party Henna 2" />
-        <img src="party3.JPG" alt="Party Henna 3" />
-        <img src="party4.JPG" alt="Party Henna 4" />
-        <img src="party5.JPG" alt="Party Henna 5" />
-        <img src="party6.JPG" alt="Party Henna 6" />
-        <img src="party7.JPG" alt="Party Henna 7" />
-        <img src="party8.JPG" alt="Party Henna 8" />
-        <img src="party9.JPG" alt="Party Henna 9" />
-        <img src="party10.JPG" alt="Party Henna 10" />
-        <img src="party11.JPG" alt="Party Henna 11" />
-        <img src="party12.JPG" alt="Party Henna 12" />
-      </div>
-
-      <div class="gallery-grid hidden" id="stain" role="list" aria-label="Henna stains">
-        <img src="stain1.JPG" alt="Henna Stain 1" />
-        <img src="stain2.JPG" alt="Henna Stain 2" />
-        <img src="stain3.JPG" alt="Henna Stain 3" />
-        <img src="stain4.JPG" alt="Henna Stain 4" />
-        <img src="stain5.JPG" alt="Henna Stain 5" />
-        <img src="stain6.JPG" alt="Henna Stain 6" />
-        <img src="stain7.JPG" alt="Henna Stain 7" />
-        <img src="stain8.JPG" alt="Henna Stain 8" />
-        <img src="stain9.JPG" alt="Henna Stain 9" />
-      </div>
-
-      <div class="gallery-grid hidden" id="portfolio" role="list" aria-label="Design portfolio">
-        <img src="portfolio1.JPG" alt="Design Portfolio 1" />
-        <img src="portfolio2.JPG" alt="Design Portfolio 2" />
-        <img src="portfolio3.JPG" alt="Design Portfolio 3" />
-        <img src="portfolio4.JPG" alt="Design Portfolio 4" />
-        <img src="portfolio5.JPG" alt="Design Portfolio 5" />
-        <!-- Add more portfolio images up to 60 as needed -->
-      </div>
-    </div>
-
-  </main>
-
-  <script>
-    function showGallery(category) {
-      const grids = document.querySelectorAll('.gallery-grid');
-      grids.forEach(grid => {
-        if(grid.id === category) {
-          grid.classList.remove('hidden');
-          grid.focus();
-        } else {
-          grid.classList.add('hidden');
-        }
-      });
-    }
-  </script>
-
+  </section>
 </body>
 </html>
