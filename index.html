@@ -3,65 +3,144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hennani Art - Home</title>
+  <title>Hennani Art</title>
+  <link href=https://g.co/kgs/XEstRwT/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fff8f0;
-      color: #4e342e;
-      margin: 0;
-      padding: 1rem;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      padding: 1rem;
-      background-color: #fbe9e7;
-      margin: 0 0 2rem 0;
-      border-bottom: 2px solid #a0522d;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #4e342e;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-    nav ul li a:hover,
-    nav ul li a:focus {
-      color: #a0522d;
-      outline: none;
-    }
-    #home h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    #home p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      line-height: 1.5;
-    }
+    /* (Your full existing CSS here, unchanged) */
   </style>
 </head>
-<body>
-  <nav>
+<body id="top">
+
+  <!-- Navigation -->
+  <nav role="navigation" aria-label="Main navigation">
     <ul>
-      <li><a href="index.html" aria-current="page">Home</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <!-- Add other navigation links as needed -->
+      <li><a href="#top">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li> <!-- Updated link to gallery page -->
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <section id="home">
-    <h1>Welcome to Hennani Art</h1>
-    <p>
-      Discover the art of natural henna with Priya, born and raised in Mumbai, India. 
-      With years of experience and passion, Priya offers personalized henna designs 
-      that are safe for all skin types and perfect for any occasion.
+  <!-- Header -->
+  <header role="banner">
+    <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.PNG" alt="Hennani Art Logo" class="logo" />
+    <h1>Hennani Art</h1>
+    <p class="tagline">Elegant Henna Designs for Every Occasion</p>
+    <p class="description">
+      Providing beautiful, personalized henna designs for individuals, weddings, photo shoots, belly blessings, events and more. Based in Ellicott City, Maryland.<br />
+      Serving Maryland, Virginia and DC area.
     </p>
-    <p>
-      So whether you're looking to add some flair to your special occasion, express your individuality through henna art, or simply treat yourself to some self-care, I have got you covered. Contact me today to discuss your vision and schedule a henna service that's perfect for you.
-    </p>
+    <div class="home-intro" style="margin-top: 2rem; text-align: left; color: #4e342e;">
+      <h2 style="font-size: 1.8rem; border-bottom: 2px solid #a0522d; padding-bottom: 0.4rem;">✨ Meet Me</h2>
+      <p>
+        Hi, I'm Priya — born and raised in the vibrant city of Mumbai, India. My love for henna began at home, where I started applying henna on my mom’s hands. She adored it so much that no occasion felt complete without it. I was just 10 years old when I applied my very first design on her — and she loved it! Word quickly spread among family and friends, and soon I was everyone's go-to henna artist. My journey began right there. I even did my first bridal henna at just 14 for a close family friend.
+      </p>
+      <p>
+        Though my style has evolved over the years, my connection to henna and its roots has remained strong and meaningful.
+      </p>
+      <p>
+        After moving to the United States, I hadn’t planned on continuing my henna journey. But as fate would have it, in 2016, a friend’s daughter was getting married and had hired a professional henna artist. When their assistant couldn’t make it, I offered to help. What started as a spontaneous gesture turned into a turning point — everyone loved my designs and encouraged me to pursue it further. That moment reignited my passion, and I haven’t looked back since.
+      </p>
+      <p>
+        I truly love what I do. There’s nothing more satisfying than seeing the joy and smiles on my clients’ faces after their henna session. Each design I create is done with love, patience, and care — using only homemade, all-natural henna cones that I personally prepare for a safe and beautiful experience.
+      </p>
+      <p>
+        If you're looking to add a touch of henna magic to your life, I’d love to be part of your journey. Contact me today to schedule your appointment — and let’s bring your henna dreams to life.
+      </p>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section id="services" tabindex="-1" aria-labelledby="services-title">
+    <h2 id="services-title">Our Services</h2>
+    <p>Bridal Henna • Festival Henna • Corporate Events • Custom Designs</p>
   </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" tabindex="-1" aria-labelledby="testimonials-title">
+    <h2 id="testimonials-title">Testimonials</h2>
+    <div class="testimonial-carousel" aria-live="polite">
+      <div class="testimonial active" role="group" aria-roledescription="testimonial" aria-label="Testimonial 1">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <p>
+          I reached out to Hennani Art for my engagement henna the last minute and Priya was so kind to give me an appointment the same day. The henna designs were beautiful and lasted perfectly!
+        </p>
+        <div class="testimonial-author">– Sreeja A N</div>
+      </div>
+      <div class="testimonial" role="group" aria-roledescription="testimonial" aria-label="Testimonial 2">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <p>
+          Priya was professional and easy person to work with! She came completely prepared and was great at applying any design that we requested!
+        </p>
+        <div class="testimonial-author">– Khyati Mehta</div>
+      </div>
+      <div class="testimonial" role="group" aria-roledescription="testimonial" aria-label="Testimonial 3">
+        <div class="stars" aria-label="5 stars">★★★★★</div>
+        <p>
+          Priya is so good and fast in doing great henna designs. Both my girls got in their hands and they were very happy and really loved the designs. Thanks a lot Priya!!!
+        </p>
+        <div class="testimonial-author">– Gayathri Ramanujam</div>
+      </div>
+    </div>
+    <div class="testimonial-controls">
+      <button id="prevTestimonial" aria-label="Previous testimonial">‹</button>
+      <button id="nextTestimonial" aria-label="Next testimonial">›</button>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" tabindex="-1" aria-labelledby="blog-title">
+    <h2 id="blog-title">Blog</h2>
+    <article class="blog-post" tabindex="0">
+      <h3>5 Tips for Long-Lasting Henna</h3>
+      <p>Learn how to prep your skin and care for your henna to make it last beautifully for days. Tips include natural oils, avoiding water early, and more.</p>
+    </article>
+    <article class="blog-post" tabindex="0">
+      <h3>Behind the Scenes of a Henna Artist</h3>
+      <p>Discover what goes into designing and applying intricate henna patterns for weddings and festivals.</p>
+    </article>
+    <article class="blog-post" tabindex="0">
+      <p>
+        Our natural henna paste is safe for all skin types, the process of creating henna designs can be a relaxing and therapeutic experience.<br><br>
+        So whether you're looking to add some flair to your special occasion, express your individuality through henna art, or simply treat yourself to some self-care, I have got you covered. Contact me today to discuss your vision and to schedule a henna service that's perfect for you. I can't wait to bring some henna magic into your life!
+      </p>
+    </article>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" tabindex="-1" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact Us</h2>
+    <form action="https://formspree.io/f/xjvdwkpj" method="POST" id="contact-form" novalidate>
+      <label for="name">Name*</label>
+      <input type="text" id="name" name="name" required aria-required="true" />
+      <label for="email">Email*</label>
+      <input type="email" id="email" name="_replyto" required aria-required="true" />
+      <label for="message">Message*</label>
+      <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+      <button type="submit">Send</button>
+      <p id="success-message" role="alert" aria-live="assertive"></p>
+    </form>
+    <p class="email-info">Or email directly: <a href="mailto:contact@hennaniart.com">contact@hennaniart.com</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Hennani Art. All rights reserved.</p>
+    <div class="social-icons" aria-label="Social media links">
+      <a href="https://facebook.com/hennaniart" target="_blank" rel="noopener" aria-label="Facebook">
+        <!-- Facebook SVG icon -->
+      </a>
+      <a href="https://goo.gl/maps/abcd1234" target="_blank" rel="noopener" aria-label="Google Maps">
+        <!-- Google Maps SVG icon -->
+      </a>
+    </div>
+  </footer>
+
+<script>
+  // (Your existing JS for lightbox, testimonials, and contact form)
+</script>
+
 </body>
 </html>
