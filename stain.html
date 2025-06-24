@@ -12,32 +12,25 @@
       margin: 0;
       padding: 0 1rem;
     }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      list-style: none;
-      padding: 1rem 0;
-      margin: 0;
-      background-color: #fbe9e7;
-      border-bottom: 2px solid #a0522d;
-    }
-    nav ul li a {
-      color: #4e342e;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-    nav ul li a:hover,
-    nav ul li a:focus {
+    a.back-link {
+      display: inline-block;
+      margin: 1rem 0;
+      font-weight: bold;
       color: #a0522d;
-      outline: none;
+      text-decoration: none;
+      border: 1px solid #a0522d;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    a.back-link:hover {
+      background-color: #a0522d;
+      color: white;
     }
     h2 {
       text-align: center;
       font-size: 2rem;
-      margin-top: 2rem;
+      margin-top: 0.5rem;
       margin-bottom: 1.5rem;
       border-bottom: 2px solid #a0522d;
       padding-bottom: 0.3rem;
@@ -61,47 +54,20 @@
       height: 150px;
       object-fit: cover;
       border-radius: 12px;
-      cursor: pointer;
       box-shadow: 0 4px 6px rgba(90, 62, 27, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      pointer-events: none;
     }
     .gallery img:hover,
     .gallery img:focus {
       transform: scale(1.05);
       box-shadow: 0 8px 15px rgba(90, 62, 27, 0.6);
-      outline: none;
     }
-.back-link {
-  text-decoration: none;
-  color: #6d4c41;
-  font-weight: bold;
-  font-size: 1rem;
-  display: inline-block;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.back-link:hover,
-.back-link:focus {
-  color: #a0522d;
-  transform: translateX(-3px);
-  outline: none;
-}
   </style>
 </head>
 <body>
 
- <nav aria-label="Gallery navigation">
-  <ul>
-    <li><a href="bridal.html">Bridal</a></li>
-    <li><a href="party.html">Party</a></li>
-    <li><a href="stain.html" aria-current="page">Henna Stains</a></li>
-    <li><a href="portfolio.html">Design Portfolio</a></li>
-  </ul>
-</nav>
-<div style="max-width: 900px; margin: 1rem auto 0 auto; text-align: left;">
-  <a href="gallery.html" class="back-link">← Back to Gallery</a>
-</div>
-
+  <a href="index.html#gallery" class="back-link">&larr; Back to Gallery</a>
 
   <main>
     <h2>Henna Stains Gallery</h2>
