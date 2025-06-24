@@ -342,7 +342,41 @@
         max-width: 100%;
       }
     }
-  </style>
+
+  .gallery-grid-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+.gallery-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  text-align: center;
+}
+.gallery-thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(160, 82, 45, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-thumb:hover,
+.gallery-thumb:focus {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(160, 82, 45, 0.6);
+  outline: none;
+}
+.gallery-label {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #6d4c41;
+}
+</style>
 </head>
 <body id="top">
 
@@ -398,7 +432,32 @@
     <img id="lightbox-img" src="" alt="" />
   </div>
 
-  <!-- Gallery Section -->
+<!-- Gallery Preview Section -->
+<section id="gallery" tabindex="-1" aria-labelledby="gallery-title">
+  <h2 id="gallery-title">Gallery</h2>
+  <p style="text-align: center;">
+    Explore our henna collections. Click any below to view full galleries.
+  </p>
+  <div class="gallery-grid-preview">
+    <a href="bridal.html" class="gallery-link">
+      <img src="bridalcover.JPG" alt="Bridal Henna Cover" class="gallery-thumb" />
+      <div class="gallery-label">Bridal Henna</div>
+    </a>
+    <a href="party.html" class="gallery-link">
+      <img src="partycover.JPG" alt="Party Henna Cover" class="gallery-thumb" />
+      <div class="gallery-label">Party Henna</div>
+    </a>
+    <a href="stain.html" class="gallery-link">
+      <img src="staincover.JPG" alt="Henna Stains Cover" class="gallery-thumb" />
+      <div class="gallery-label">Stain Art</div>
+    </a>
+    <a href="portfolio.html" class="gallery-link">
+      <img src="portfoliocover.jpg" alt="Design Portfolio Cover" class="gallery-thumb" />
+      <div class="gallery-label">Portfolio</div>
+    </a>
+  </div>
+</section>
+
 
 
   <!-- Testimonials -->
