@@ -3,65 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Henna Stains - Hennani Art</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+  <title>Henna Stains Gallery - Hennani Art</title>
   <style>
     body {
-      font-family: 'Playfair Display', serif;
-      background: #fff8f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff8f0;
       color: #4e342e;
-      margin: 0; padding: 2rem;
-      max-width: 1000px;
+      margin: 0;
+      padding: 0 1rem;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      padding: 1rem 0;
+      margin: 0;
+      background-color: #fbe9e7;
+      border-bottom: 2px solid #a0522d;
+    }
+    nav ul li a {
+      color: #4e342e;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #a0522d;
+      outline: none;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #a0522d;
+      padding-bottom: 0.3rem;
+      max-width: 400px;
       margin-left: auto;
       margin-right: auto;
     }
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-    .grid {
+    .gallery {
+      max-width: 900px;
+      margin: 0 auto 3rem auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap: 1.5rem;
-    }
-    .grid img {
-      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      background-color: rgba(255, 243, 224, 0.75);
+      padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(90, 62, 27, 0.3);
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .gallery img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
       cursor: pointer;
+      box-shadow: 0 4px 6px rgba(90, 62, 27, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .grid img:hover, .grid img:focus {
+    .gallery img:hover,
+    .gallery img:focus {
       transform: scale(1.05);
-      outline: none;
-    }
-    nav a {
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      color: #a0522d;
-      text-decoration: none;
-      font-weight: 700;
-    }
-    nav a:hover, nav a:focus {
-      text-decoration: underline;
+      box-shadow: 0 8px 15px rgba(90, 62, 27, 0.6);
       outline: none;
     }
   </style>
 </head>
 <body>
-  <nav><a href="gallery.html">&larr; Back to Gallery Categories</a></nav>
-  <h1>Henna Stains</h1>
-  <div class="grid">
-    <img src="stain1.JPG" alt="Henna Stain 1" />
-    <img src="stain2.JPG" alt="Henna Stain 2" />
-    <img src="stain3.JPG" alt="Henna Stain 3" />
-    <img src="stain4.JPG" alt="Henna Stain 4" />
-    <img src="stain5.JPG" alt="Henna Stain 5" />
-    <img src="stain6.JPG" alt="Henna Stain 6" />
-    <img src="stain7.JPG" alt="Henna Stain 7" />
-    <img src="stain8.JPG" alt="Henna Stain 8" />
-    <img src="stain9.JPG" alt="Henna Stain 9" />
-  </div>
+
+  <nav aria-label="Gallery navigation">
+    <ul>
+      <li><a href="bridal.html">Bridal</a></li>
+      <li><a href="party.html">Party</a></li>
+      <li><a href="stains.html" aria-current="page">Henna Stains</a></li>
+      <li><a href="portfolio.html">Design Portfolio</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Henna Stains Gallery</h2>
+    <section class="gallery" role="list">
+      <img src="staincover.JPG" alt="Henna Stains Cover" />
+      <img src="stain1.JPG" alt="Henna Stain Design 1" />
+      <img src="stain2.JPG" alt="Henna Stain Design 2" />
+      <img src="stain3.JPG" alt="Henna Stain Design 3" />
+      <img src="stain4.JPG" alt="Henna Stain Design 4" />
+      <img src="stain5.JPG" alt="Henna Stain Design 5" />
+      <img src="stain6.JPG" alt="Henna Stain Design 6" />
+      <img src="stain7.JPG" alt="Henna Stain Design 7" />
+      <img src="stain8.JPG" alt="Henna Stain Design 8" />
+      <img src="stain9.JPG" alt="Henna Stain Design 9" />
+    </section>
+  </main>
+
 </body>
 </html>
