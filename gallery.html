@@ -3,114 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hennani Art - Gallery</title>
+  <title>Hennani Art Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      font-family: 'Playfair Display', serif;
       background-color: #fff8f0;
       color: #4e342e;
-      margin: 0;
-      padding: 1rem;
+      min-height: 100vh;
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      padding: 1rem;
-      background-color: #fbe9e7;
-      margin: 0 0 2rem 0;
-      border-bottom: 2px solid #a0522d;
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1rem;
     }
-    nav ul li a {
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: #a0522d;
+      font-weight: 600;
       text-decoration: none;
-      color: #4e342e;
-      font-weight: 700;
       font-size: 1.1rem;
     }
-    nav ul li a:hover,
-    nav ul li a:focus {
-      color: #a0522d;
-      outline: none;
-    }
-    #gallery h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    #gallery .back-link {
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      color: #a0522d;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    #gallery .back-link:hover,
-    #gallery .back-link:focus {
+    .back-link:hover,
+    .back-link:focus {
       text-decoration: underline;
       outline: none;
     }
-    .gallery-categories {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .gallery-card {
-      cursor: pointer;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(90, 62, 27, 0.3);
-      overflow: hidden;
-      width: 250px;
-      background-color: #fff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    h1 {
       text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      color: #4e342e;
     }
-    .gallery-card:hover,
-    .gallery-card:focus {
-      transform: scale(1.05);
-      box-shadow: 0 8px 15px rgba(90, 62, 27, 0.6);
-      outline: none;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
     }
-    .gallery-card img {
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(90, 62, 27, 0.2);
+      position: relative;
+      background-color: white;
+    }
+    .gallery-item img {
       width: 100%;
       height: 180px;
       object-fit: cover;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
       display: block;
     }
-    .gallery-card h3 {
-      margin: 0.75rem 0 1rem;
-      font-weight: 700;
-      color: #4e342e;
-      font-size: 1.2rem;
+    .gallery-item:hover img,
+    .gallery-item:focus-within img {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(90, 62, 27, 0.4);
+    }
+    .gallery-item:focus-within {
+      outline: 3px solid #a0522d;
+      outline-offset: 4px;
     }
   </style>
 </head>
 <body>
- 
-
-  <section id="gallery">
-    <a href="index.html" class="back-link" aria-label="Back to Home">← Back to Home</a>
+  <div class="container">
+    <a href="index.html" class="back-link">← Back to Home</a>
     <h1>Gallery</h1>
-    <div class="gallery-categories">
-      <a href="bridal.html" class="gallery-card" aria-label="View Bridal Henna Gallery">
-        <img src="bridalcover.JPG" alt="Bridal Henna Cover" />
-        <h3>🧡 Bridal Henna</h3>
-      </a>
-      <a href="party.html" class="gallery-card" aria-label="View Party Henna Gallery">
-        <img src="partycover.JPG" alt="Party Henna Cover" />
-        <h3>🎉 Party Henna</h3>
-      </a>
-      <a href="stain.html" class="gallery-card" aria-label="View Henna Stains Gallery">
-        <img src="staincover.JPG" alt="Henna Stains Cover" />
-        <h3>🌿 Henna Stains</h3>
-      </a>
-      <a href="portfolio.html" class="gallery-card" aria-label="View Design Portfolio Gallery">
-        <img src="portfoliocover.JPG" alt="Design Portfolio Cover" />
-        <h3>🖌️ Design Portfolio</h3>
-      </a>
+    <div class="gallery-grid">
+      <a href="bridal.html" class="gallery-item"><img src="bridalcover.JPG" alt="Bridal Gallery"></a>
+      <a href="party.html" class="gallery-item"><img src="partycover.JPG" alt="Party Gallery"></a>
+      <a href="stain.html" class="gallery-item"><img src="staincover.JPG" alt="Henna Stain Gallery"></a>
+      <a href="portfolio.html" class="gallery-item"><img src="portfoliocover.jpg" alt="Design Portfolio Gallery"></a>
     </div>
-  </section>
+  </div>
 </body>
 </html>
