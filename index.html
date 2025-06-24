@@ -5,98 +5,348 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hennani Art</title>
   <link href=https://g.co/kgs/XEstRwT/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
-<style>
-    /* ++++ Global ++++ */
-    *, *::before, *::after { box-sizing: border-box; }
+  <style>
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body, html {
       margin: 0; padding: 0;
+      height: 100%;
       font-family: 'Playfair Display', serif;
       color: #4e342e;
       scroll-behavior: smooth;
       background: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/welcome.JPG') no-repeat center center fixed;
       background-size: cover;
-      min-height: 100vh;
       position: relative;
+      min-height: 100vh;
     }
+    /* Overlay for readability */
     body::before {
-      content: '';
+      content: "";
       position: fixed;
-      inset: 0;
-      background-color: rgba(255,243,224,0.7);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 243, 224, 0.6);
       z-index: -1;
     }
-    /* ++++ Navigation ++++ */
+
     nav {
-      background-color: rgba(255,243,224,0.95);
+      background-color: rgba(255, 243, 224, 0.9);
       border-bottom: 2px solid #d7ccc8;
-      position: sticky; top: 0; z-index: 1000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     nav ul {
-      display: flex; flex-wrap: wrap;
-      justify-content: center;
-      margin: 0; padding: 0.75rem 0;
       list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0.5rem 0;
+    }
+    nav li {
+      margin: 0.5rem 1rem;
     }
     nav a {
-      color: #4e342e; font-weight: 700; font-size: 1.1rem;
-      text-decoration: none; margin: 0 1rem;
-      transition: color 0.3s;
+      text-decoration: none;
+      color: #4e342e;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
     }
-    nav a:hover, nav a:focus { color:#a0522d; outline: none; }
+    nav a:hover, nav a:focus {
+      color: #a0522d;
+      outline: none;
+    }
 
-    /* ++++ Header ++++ */
     header {
-      max-width: 800px;
-      margin: 2rem auto 3rem;
-      background-color: rgba(255,243,224,0.85);
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      padding: 3rem 2rem 2rem;
       text-align: center;
+      padding: 4rem 2rem 2rem;
+      border-bottom: 2px solid #d7ccc8;
+      background-color: rgba(255, 243, 224, 0.7);
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
-    .logo { max-width: 150px; margin-bottom: .75rem; }
-    .tagline { font-style: italic; color: #8d6e63; font-size: 1.3rem; }
-    .description, .home-intro, section p { color: #4e342e; }
+    .logo {
+      max-width: 150px;
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      margin: 0.5rem 0 0.2rem;
+      font-size: 3rem;
+      color: #4e342e;
+    }
+    .tagline {
+      font-size: 1.3rem;
+      color: #8d6e63;
+      font-style: italic;
+    }
+    .description {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      color: #4e342e;
+    }
 
-    /* ++++ Gallery ++++ */
-    #gallery h2 {
-      font-size: 2rem; margin-bottom: 1rem;
-      border-bottom: 3px solid #a0522d;
-      padding-bottom: 0.3rem;
+    section {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      background-color: rgba(255, 243, 224, 0.75);
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      color: #4e342e;
     }
+    section h2 {
+      margin-top: 0;
+      font-size: 2rem;
+      border-bottom: 2px solid #a0522d;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Services */
+    #services p {
+      font-size: 1.2rem;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    /* Gallery */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
     }
-    .gallery-grid img {
-      width: 100%; height: 160px;
-      object-fit: cover;
-      border-radius: 14px;
-      box-shadow: 0 6px 12px rgba(160,82,45,0.3);
-      transition: transform .3s, box-shadow .3s;
-      cursor: pointer;
-      outline-offset: 4px;
-    }
+    /* Gallery Heading */
+#gallery h2 {
+  font-size: 2rem;
+  color: #4e342e;
+  border-bottom: 3px solid #a0522d;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 240px;
+}
+
+/* Gallery images refinement */
+.gallery-grid img {
+  border-radius: 14px;
+  box-shadow: 0 6px 12px rgba(160, 82, 45, 0.3);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+
+.gallery-grid img:hover,
+.gallery-grid img:focus {
+  transform: scale(1.08);
+  box-shadow: 0 10px 20px rgba(160, 82, 45, 0.5);
+  outline: 3px solid #a0522d;
+  outline-offset: 6px;
+}
+
     .gallery-grid img:hover, .gallery-grid img:focus {
       transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(160,82,45,0.5);
-      outline: 3px solid #a0522d;
+      outline: none;
     }
 
-    /* ++++ Lightbox ++++ */
+    /* Lightbox */
     #lightbox {
-      display: none; position: fixed;
-      inset: 0; background: rgba(30,20,10,0.9);
-      align-items: center; justify-content: center;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(30, 20, 10, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
       z-index: 1500;
+      cursor: pointer;
     }
     #lightbox img {
-      max-width: 90%; max-height: 90%;
-      border-radius: 12px; box-shadow: 0 8px 12px rgba(0,0,0,0.7);
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 8px 12px rgba(0,0,0,0.7);
     }
 
-    /* ++++ Other Sections (unchanged) ++++ */
+    /* Testimonials */
+    #testimonials .testimonial-carousel {
+      position: relative;
+      overflow: hidden;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .testimonial {
+      display: none;
+      padding: 1.5rem 2rem;
+      background-color: #fff8f0;
+      border-left: 6px solid #a0522d;
+      border-radius: 12px;
+      font-style: italic;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: opacity 0.5s ease;
+      color: #4e342e;
+    }
+    .testimonial.active {
+      display: block;
+    }
+    .stars {
+      font-size: 1.3rem;
+      color: #a0522d;
+      margin-bottom: 0.7rem;
+    }
+    .testimonial-author {
+      text-align: right;
+      margin-top: 1rem;
+      font-weight: 700;
+      font-style: normal;
+    }
+    .testimonial-controls {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .testimonial-controls button {
+      background-color: #a0522d;
+      border: none;
+      color: white;
+      font-size: 1.6rem;
+      padding: 0.3rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .testimonial-controls button:hover, .testimonial-controls button:focus {
+      background-color: #8b4513;
+      outline: none;
+    }
+
+    /* Blog */
+    #blog .blog-post {
+      background-color: #fff8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 1.8rem;
+      color: #4e342e;
+      font-size: 1.1rem;
+    }
+    #blog .blog-post h3 {
+      margin-top: 0;
+      color: #6d4c41;
+    }
+
+    /* Contact form */
+    #contact form {
+      max-width: 400px;
+      margin: 0 auto;
+      color: #4e342e;
+    }
+    #contact label {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    #contact input, #contact textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 2px solid #a0522d;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+    #contact input:focus, #contact textarea:focus {
+      border-color: #8b4513;
+      outline: none;
+    }
+    #contact button {
+      background-color: #a0522d;
+      border: none;
+      color: white;
+      padding: 0.7rem 2rem;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #contact button:hover, #contact button:focus {
+      background-color: #8b4513;
+      outline: none;
+    }
+    #success-message {
+      display: none;
+      color: #2a7a2a;
+      font-weight: 700;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    #contact p.email-info {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    #contact p.email-info a {
+      color: #a0522d;
+      text-decoration: none;
+    }
+    #contact p.email-info a:hover, #contact p.email-info a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #795548;
+      padding: 2rem 1rem 3rem;
+      background-color: rgba(255, 243, 224, 0.9);
+      border-top: 1px solid #e0d2c0;
+    }
+    footer .social-icons {
+      margin-top: 1rem;
+    }
+    footer .social-icons a {
+      margin: 0 0.5rem;
+      color: #4e342e;
+      text-decoration: none;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+    footer .social-icons a:hover, footer .social-icons a:focus {
+      color: #a0522d;
+      outline: none;
+    }
+    footer .social-icons svg {
+      vertical-align: middle;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      nav ul {
+        flex-wrap: wrap;
+      }
+      nav li {
+        margin: 0.4rem 0.8rem;
+      }
+      .gallery-grid img {
+        height: 120px;
+      }
+      section {
+        margin: 0 1rem 3rem;
+        padding: 1.5rem 1rem;
+      }
+      #contact form {
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body id="top">
@@ -106,7 +356,7 @@
     <ul>
       <li><a href="#top">Home</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li> <!-- Updated link to gallery page -->
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#blog">Blog</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -122,24 +372,25 @@
       Providing beautiful, personalized henna designs for individuals, weddings, photo shoots, belly blessings, events and more. Based in Ellicott City, Maryland.<br />
       Serving Maryland, Virginia and DC area.
     </p>
-    <div class="home-intro" style="margin-top: 2rem; text-align: left; color: #4e342e;">
-      <h2 style="font-size: 1.8rem; border-bottom: 2px solid #a0522d; padding-bottom: 0.4rem;">✨ Meet Me</h2>
-      <p>
-        Hi, I'm Priya — born and raised in the vibrant city of Mumbai, India. My love for henna began at home, where I started applying henna on my mom’s hands. She adored it so much that no occasion felt complete without it. I was just 10 years old when I applied my very first design on her — and she loved it! Word quickly spread among family and friends, and soon I was everyone's go-to henna artist. My journey began right there. I even did my first bridal henna at just 14 for a close family friend.
-      </p>
-      <p>
-        Though my style has evolved over the years, my connection to henna and its roots has remained strong and meaningful.
-      </p>
-      <p>
-        After moving to the United States, I hadn’t planned on continuing my henna journey. But as fate would have it, in 2016, a friend’s daughter was getting married and had hired a professional henna artist. When their assistant couldn’t make it, I offered to help. What started as a spontaneous gesture turned into a turning point — everyone loved my designs and encouraged me to pursue it further. That moment reignited my passion, and I haven’t looked back since.
-      </p>
-      <p>
-        I truly love what I do. There’s nothing more satisfying than seeing the joy and smiles on my clients’ faces after their henna session. Each design I create is done with love, patience, and care — using only homemade, all-natural henna cones that I personally prepare for a safe and beautiful experience.
-      </p>
-      <p>
-        If you're looking to add a touch of henna magic to your life, I’d love to be part of your journey. Contact me today to schedule your appointment — and let’s bring your henna dreams to life.
-      </p>
-    </div>
+<div class="home-intro" style="margin-top: 2rem; text-align: left; color: #4e342e;">
+  <h2 style="font-size: 1.8rem; border-bottom: 2px solid #a0522d; padding-bottom: 0.4rem;">✨ Meet Me</h2>
+  <p>
+    Hi, I'm Priya — born and raised in the vibrant city of Mumbai, India. My love for henna began at home, where I started applying henna on my mom’s hands. She adored it so much that no occasion felt complete without it. I was just 10 years old when I applied my very first design on her — and she loved it! Word quickly spread among family and friends, and soon I was everyone's go-to henna artist. My journey began right there. I even did my first bridal henna at just 14 for a close family friend.
+  </p>
+  <p>
+    Though my style has evolved over the years, my connection to henna and its roots has remained strong and meaningful.
+  </p>
+  <p>
+    After moving to the United States, I hadn’t planned on continuing my henna journey. But as fate would have it, in 2016, a friend’s daughter was getting married and had hired a professional henna artist. When their assistant couldn’t make it, I offered to help. What started as a spontaneous gesture turned into a turning point — everyone loved my designs and encouraged me to pursue it further. That moment reignited my passion, and I haven’t looked back since.
+  </p>
+  <p>
+    I truly love what I do. There’s nothing more satisfying than seeing the joy and smiles on my clients’ faces after their henna session. Each design I create is done with love, patience, and care — using only homemade, all-natural henna cones that I personally prepare for a safe and beautiful experience.
+  </p>
+  <p>
+    If you're looking to add a touch of henna magic to your life, I’d love to be part of your journey. Contact me today to schedule your appointment — and let’s bring your henna dreams to life.
+  </p>
+</div>
+
   </header>
 
   <!-- Services -->
@@ -147,6 +398,12 @@
     <h2 id="services-title">Our Services</h2>
     <p>Bridal Henna • Festival Henna • Corporate Events • Custom Designs</p>
   </section>
+
+  
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged henna design" onclick="closeLightbox()" tabindex="-1">
+    <img id="lightbox-img" src="" alt="" />
+  </div>
 
   <!-- Testimonials -->
   <section id="testimonials" tabindex="-1" aria-labelledby="testimonials-title">
@@ -220,16 +477,81 @@
     <p>&copy; 2025 Hennani Art. All rights reserved.</p>
     <div class="social-icons" aria-label="Social media links">
       <a href="https://facebook.com/hennaniart" target="_blank" rel="noopener" aria-label="Facebook">
-        <!-- Facebook SVG icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#4e342e" viewBox="0 0 24 24" width="24" height="24"><path d="M22 12a10 10 0 1 0-11.5 9.8v-7h-3v-3h3v-2c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 1-2 2v2h3.4l-.5 3h-2.9v7A10 10 0 0 0 22 12z"/></svg>
       </a>
       <a href="https://goo.gl/maps/abcd1234" target="_blank" rel="noopener" aria-label="Google Maps">
-        <!-- Google Maps SVG icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#4e342e" viewBox="0 0 24 24" width="24" height="24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
       </a>
     </div>
   </footer>
 
 <script>
-  // (Your existing JS for lightbox, testimonials, and contact form)
+  // Gallery lightbox script
+  const galleryImages = document.querySelectorAll('.gallery-grid img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.focus();
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  }
+
+  lightbox.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeLightbox();
+  });
+
+  // Testimonials carousel
+  const testimonials = document.querySelectorAll('.testimonial');
+  const prevBtn = document.getElementById('prevTestimonial');
+  const nextBtn = document.getElementById('nextTestimonial');
+  let currentIndex = 0;
+
+  function showTestimonial(index) {
+    testimonials.forEach((t, i) => {
+      t.classList.toggle('active', i === index);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % testimonials.length;
+    showTestimonial(currentIndex);
+  });
+
+  // Contact form success message
+  const form = document.getElementById('contact-form');
+  const successMessage = document.getElementById('success-message');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    if (response.ok) {
+      successMessage.textContent = "Thank you for your message! I'll get back to you soon.";
+      form.reset();
+    } else {
+      successMessage.textContent = "Oops! There was a problem submitting your form.";
+    }
+  });
 </script>
 
 </body>
