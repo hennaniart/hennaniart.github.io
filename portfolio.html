@@ -10,132 +10,146 @@
       background-color: #fff8f0;
       color: #4e342e;
       margin: 0;
-      padding: 0 1rem;
+      padding: 1rem;
     }
-    a.back-link {
-      display: inline-block;
-      margin: 1rem 0;
-      font-weight: bold;
-      color: #a0522d;
-      text-decoration: none;
-      border: 1px solid #a0522d;
-      padding: 0.4rem 1rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-    a.back-link:hover {
-      background-color: #a0522d;
-      color: white;
-    }
-    h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-top: 0.5rem;
-      margin-bottom: 1.5rem;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      margin: 0 0 2rem 0;
       border-bottom: 2px solid #a0522d;
-      padding-bottom: 0.3rem;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+      background-color: #fbe9e7;
+      justify-content: center;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #4e342e;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #a0522d;
+      outline: none;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .back-link {
+      margin-bottom: 1rem;
+      display: inline-block;
+      color: #a0522d;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .back-link:hover,
+    .back-link:focus {
+      text-decoration: underline;
+      outline: none;
     }
     .gallery {
-      max-width: 1000px;
-      margin: 0 auto 3rem auto;
+      max-width: 900px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 1rem;
-      background-color: rgba(255, 243, 224, 0.75);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
     .gallery img {
       width: 100%;
-      height: 150px;
+      height: 140px;
       object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 4px 6px rgba(90, 62, 27, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      pointer-events: none;
+      cursor: pointer;
     }
     .gallery img:hover,
     .gallery img:focus {
       transform: scale(1.05);
       box-shadow: 0 8px 15px rgba(90, 62, 27, 0.6);
+      outline: none;
     }
   </style>
 </head>
 <body>
-
-  <a href="index.html#gallery" class="back-link">&larr; Back to Gallery</a>
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+    </ul>
+  </nav>
 
   <main>
-    <h2>Design Portfolio Gallery</h2>
-    <section class="gallery" role="list">
-      <img src="portfoliocover.JPG" alt="Design Portfolio Cover" />
-      <!-- Portfolio images 1 to 60 -->
-      <img src="portfolio1.JPG" alt="Design Portfolio 1" />
-      <img src="portfolio2.JPG" alt="Design Portfolio 2" />
-      <img src="portfolio3.JPG" alt="Design Portfolio 3" />
-      <img src="portfolio4.JPG" alt="Design Portfolio 4" />
-      <img src="portfolio5.JPG" alt="Design Portfolio 5" />
-      <img src="portfolio6.JPG" alt="Design Portfolio 6" />
-      <img src="portfolio7.JPG" alt="Design Portfolio 7" />
-      <img src="portfolio8.JPG" alt="Design Portfolio 8" />
-      <img src="portfolio9.JPG" alt="Design Portfolio 9" />
-      <img src="portfolio10.JPG" alt="Design Portfolio 10" />
-      <img src="portfolio11.JPG" alt="Design Portfolio 11" />
-      <img src="portfolio12.JPG" alt="Design Portfolio 12" />
-      <img src="portfolio13.JPG" alt="Design Portfolio 13" />
-      <img src="portfolio14.JPG" alt="Design Portfolio 14" />
-      <img src="portfolio15.JPG" alt="Design Portfolio 15" />
-      <img src="portfolio16.JPG" alt="Design Portfolio 16" />
-      <img src="portfolio17.JPG" alt="Design Portfolio 17" />
-      <img src="portfolio18.JPG" alt="Design Portfolio 18" />
-      <img src="portfolio19.JPG" alt="Design Portfolio 19" />
-      <img src="portfolio20.JPG" alt="Design Portfolio 20" />
-      <img src="portfolio21.JPG" alt="Design Portfolio 21" />
-      <img src="portfolio22.JPG" alt="Design Portfolio 22" />
-      <img src="portfolio23.JPG" alt="Design Portfolio 23" />
-      <img src="portfolio24.JPG" alt="Design Portfolio 24" />
-      <img src="portfolio25.JPG" alt="Design Portfolio 25" />
-      <img src="portfolio26.JPG" alt="Design Portfolio 26" />
-      <img src="portfolio27.JPG" alt="Design Portfolio 27" />
-      <img src="portfolio28.JPG" alt="Design Portfolio 28" />
-      <img src="portfolio29.JPG" alt="Design Portfolio 29" />
-      <img src="portfolio30.JPG" alt="Design Portfolio 30" />
-      <img src="portfolio31.JPG" alt="Design Portfolio 31" />
-      <img src="portfolio32.JPG" alt="Design Portfolio 32" />
-      <img src="portfolio33.JPG" alt="Design Portfolio 33" />
-      <img src="portfolio34.JPG" alt="Design Portfolio 34" />
-      <img src="portfolio35.JPG" alt="Design Portfolio 35" />
-      <img src="portfolio36.JPG" alt="Design Portfolio 36" />
-      <img src="portfolio37.JPG" alt="Design Portfolio 37" />
-      <img src="portfolio38.JPG" alt="Design Portfolio 38" />
-      <img src="portfolio39.JPG" alt="Design Portfolio 39" />
-      <img src="portfolio40.JPG" alt="Design Portfolio 40" />
-      <img src="portfolio41.JPG" alt="Design Portfolio 41" />
-      <img src="portfolio42.JPG" alt="Design Portfolio 42" />
-      <img src="portfolio43.JPG" alt="Design Portfolio 43" />
-      <img src="portfolio44.JPG" alt="Design Portfolio 44" />
-      <img src="portfolio45.JPG" alt="Design Portfolio 45" />
-      <img src="portfolio46.JPG" alt="Design Portfolio 46" />
-      <img src="portfolio47.JPG" alt="Design Portfolio 47" />
-      <img src="portfolio48.JPG" alt="Design Portfolio 48" />
-      <img src="portfolio49.JPG" alt="Design Portfolio 49" />
-      <img src="portfolio50.JPG" alt="Design Portfolio 50" />
-      <img src="portfolio51.JPG" alt="Design Portfolio 51" />
-      <img src="portfolio52.JPG" alt="Design Portfolio 52" />
-      <img src="portfolio53.JPG" alt="Design Portfolio 53" />
-      <img src="portfolio54.JPG" alt="Design Portfolio 54" />
-      <img src="portfolio55.JPG" alt="Design Portfolio 55" />
-      <img src="portfolio56.JPG" alt="Design Portfolio 56" />
-      <img src="portfolio57.JPG" alt="Design Portfolio 57" />
-      <img src="portfolio58.JPG" alt="Design Portfolio 58" />
-      <img src="portfolio59.JPG" alt="Design Portfolio 59" />
-      <img src="portfolio60.JPG" alt="Design Portfolio 60" />
+    <a href="gallery.html" class="back-link" aria-label="Back to Gallery">← Back to Gallery</a>
+    <h1>Design Portfolio Gallery</h1>
+    <section class="gallery" role="list" aria-label="Design portfolio henna images">
+
+  <img src="portfolio1.JPG" alt="Design Portfolio 1" />
+  <img src="portfolio2.JPG" alt="Design Portfolio 2" />
+  <img src="portfolio3.JPG" alt="Design Portfolio 3" />
+  <img src="portfolio4.JPG" alt="Design Portfolio 4" />
+  <img src="portfolio5.JPG" alt="Design Portfolio 5" />
+  <img src="portfolio6.JPG" alt="Design Portfolio 6" />
+  <img src="portfolio7.JPG" alt="Design Portfolio 7" />
+  <img src="portfolio8.JPG" alt="Design Portfolio 8" />
+  <img src="portfolio9.JPG" alt="Design Portfolio 9" />
+  <img src="portfolio10.JPG" alt="Design Portfolio 10" />
+  <img src="portfolio11.JPG" alt="Design Portfolio 11" />
+  <img src="portfolio12.JPG" alt="Design Portfolio 12" />
+  <img src="portfolio13.JPG" alt="Design Portfolio 13" />
+  <img src="portfolio14.JPG" alt="Design Portfolio 14" />
+  <img src="portfolio15.JPG" alt="Design Portfolio 15" />
+  <img src="portfolio16.JPG" alt="Design Portfolio 16" />
+  <img src="portfolio17.JPG" alt="Design Portfolio 17" />
+  <img src="portfolio18.JPG" alt="Design Portfolio 18" />
+  <img src="portfolio19.JPG" alt="Design Portfolio 19" />
+  <img src="portfolio20.JPG" alt="Design Portfolio 20" />
+  <img src="portfolio21.JPG" alt="Design Portfolio 21" />
+  <img src="portfolio22.JPG" alt="Design Portfolio 22" />
+  <img src="portfolio23.JPG" alt="Design Portfolio 23" />
+  <img src="portfolio24.JPG" alt="Design Portfolio 24" />
+  <img src="portfolio25.JPG" alt="Design Portfolio 25" />
+  <img src="portfolio26.JPG" alt="Design Portfolio 26" />
+  <img src="portfolio27.JPG" alt="Design Portfolio 27" />
+  <img src="portfolio28.JPG" alt="Design Portfolio 28" />
+  <img src="portfolio29.JPG" alt="Design Portfolio 29" />
+  <img src="portfolio30.JPG" alt="Design Portfolio 30" />
+  <img src="portfolio31.JPG" alt="Design Portfolio 31" />
+  <img src="portfolio32.JPG" alt="Design Portfolio 32" />
+  <img src="portfolio33.JPG" alt="Design Portfolio 33" />
+  <img src="portfolio34.JPG" alt="Design Portfolio 34" />
+  <img src="portfolio35.JPG" alt="Design Portfolio 35" />
+  <img src="portfolio36.JPG" alt="Design Portfolio 36" />
+  <img src="portfolio37.JPG" alt="Design Portfolio 37" />
+  <img src="portfolio38.JPG" alt="Design Portfolio 38" />
+  <img src="portfolio39.JPG" alt="Design Portfolio 39" />
+  <img src="portfolio40.JPG" alt="Design Portfolio 40" />
+  <img src="portfolio41.JPG" alt="Design Portfolio 41" />
+  <img src="portfolio42.JPG" alt="Design Portfolio 42" />
+  <img src="portfolio43.JPG" alt="Design Portfolio 43" />
+  <img src="portfolio44.JPG" alt="Design Portfolio 44" />
+  <img src="portfolio45.JPG" alt="Design Portfolio 45" />
+  <img src="portfolio46.JPG" alt="Design Portfolio 46" />
+  <img src="portfolio47.JPG" alt="Design Portfolio 47" />
+  <img src="portfolio48.JPG" alt="Design Portfolio 48" />
+  <img src="portfolio49.JPG" alt="Design Portfolio 49" />
+  <img src="portfolio50.JPG" alt="Design Portfolio 50" />
+  <img src="portfolio51.JPG" alt="Design Portfolio 51" />
+  <img src="portfolio52.JPG" alt="Design Portfolio 52" />
+  <img src="portfolio53.JPG" alt="Design Portfolio 53" />
+  <img src="portfolio54.JPG" alt="Design Portfolio 54" />
+  <img src="portfolio55.JPG" alt="Design Portfolio 55" />
+  <img src="portfolio56.JPG" alt="Design Portfolio 56" />
+  <img src="portfolio57.JPG" alt="Design Portfolio 57" />
+  <img src="portfolio58.JPG" alt="Design Portfolio 58" />
+  <img src="portfolio59.JPG" alt="Design Portfolio 59" />
+  <img src="portfolio60.JPG" alt="Design Portfolio 60" />
+
+
     </section>
   </main>
-
 </body>
 </html>
