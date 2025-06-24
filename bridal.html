@@ -4,77 +4,121 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bridal Henna Gallery - Hennani Art</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      font-family: 'Playfair Display', serif;
       background-color: #fff8f0;
       color: #4e342e;
-      margin: 0;
-      padding: 1rem;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      background-color: rgba(255, 243, 224, 0.95);
+      border-bottom: 2px solid #d7ccc8;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
-      padding: 1rem 0;
-      margin: 0 0 2rem 0;
-      border-bottom: 2px solid #a0522d;
-      background-color: #fbe9e7;
       justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      margin: 0;
     }
-    nav ul li a {
+    nav li a {
       text-decoration: none;
       color: #4e342e;
       font-weight: 700;
       font-size: 1.1rem;
     }
-    nav ul li a:hover,
-    nav ul li a:focus {
+    nav li a:hover,
+    nav li a:focus {
       color: #a0522d;
       outline: none;
     }
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
+
     .back-link {
-      margin-bottom: 1rem;
       display: inline-block;
-      color: #a0522d;
+      margin-bottom: 1.5rem;
       font-weight: 600;
       text-decoration: none;
+      color: #a0522d;
     }
     .back-link:hover,
     .back-link:focus {
       text-decoration: underline;
-      outline: none;
     }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
     .gallery {
-      max-width: 900px;
-      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
     }
     .gallery img {
       width: 100%;
-      height: 160px;
+      height: 180px;
       object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(90, 62, 27, 0.3);
+      border-radius: 14px;
+      box-shadow: 0 4px 8px rgba(90, 62, 27, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
     }
     .gallery img:hover,
     .gallery img:focus {
-      transform: scale(1.05);
-      box-shadow: 0 8px 15px rgba(90, 62, 27, 0.6);
-      outline: none;
+      transform: scale(1.06);
+      box-shadow: 0 10px 18px rgba(90, 62, 27, 0.6);
+      outline: 3px solid #a0522d;
+      outline-offset: 4px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #795548;
+      padding: 2rem 1rem;
+      background-color: rgba(255, 243, 224, 0.95);
+      border-top: 1px solid #e0d2c0;
+      margin-top: 3rem;
+    }
+    footer .social-icons {
+      margin-top: 1rem;
+    }
+    footer .social-icons a {
+      margin: 0 0.5rem;
+      color: #4e342e;
+      text-decoration: none;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+    footer .social-icons a:hover,
+    footer .social-icons a:focus {
+      color: #a0522d;
+    }
+    footer .social-icons svg {
+      vertical-align: middle;
     }
   </style>
 </head>
 <body>
+
+  <!-- Navigation -->
   <nav aria-label="Main navigation">
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -82,6 +126,7 @@
     </ul>
   </nav>
 
+  <!-- Main content -->
   <main>
     <a href="gallery.html" class="back-link" aria-label="Back to Gallery">← Back to Gallery</a>
     <h1>Bridal Henna Gallery</h1>
@@ -96,8 +141,21 @@
       <img src="bridal8.JPG" alt="Bridal Henna Design 8" />
       <img src="bridal9.JPG" alt="Bridal Henna Design 9" />
       <img src="bridal10.JPG" alt="Bridal Henna Design 10" />
-      <img src="bridal11.JPG" alt="Bridal Henna Design 11" />
     </section>
   </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div>© 2025 Hennani Art</div>
+    <div class="social-icons" aria-label="Social media links">
+      <a href="https://facebook.com/hennaniart" target="_blank" aria-label="Facebook">
+        <svg width="24" height="24" fill="#4e342e" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.337v21.326C0 23.4.6 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.1 2.797.143v3.24h-1.918c-1.5 0-1.793.713-1.793 1.76v2.31h3.586l-.467 3.622h-3.12V24h6.116C23.4 24 24 23.4 24 22.663V1.337C24 .6 23.4 0 22.675 0z"/></svg>
+      </a>
+      <a href="https://goo.gl/maps/abcd1234" target="_blank" aria-label="Google Maps">
+        <svg width="24" height="24" fill="#4e342e" viewBox="0 0 24 24"><path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zM12 11.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z"/></svg>
+      </a>
+    </div>
+  </footer>
+
 </body>
 </html>
