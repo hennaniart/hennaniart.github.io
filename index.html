@@ -421,6 +421,97 @@
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
 }
+/* About Section */
+#about {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  background-color: rgba(255, 243, 224, 0.75);
+  padding: 2rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  color: #4e342e;
+}
+#about h2 {
+  font-size: 2rem;
+  border-bottom: 2px solid #a0522d;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+#about p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Contact Section improvements */
+#contact label {
+  font-weight: 700;
+  margin-top: 1rem;
+  display: block;
+  color: #4e342e;
+}
+#contact input, #contact textarea {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  border: 2px solid #a0522d;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: #a0522d99;
+}
+#contact input:focus, #contact textarea:focus {
+  border-color: #8b4513;
+  outline: none;
+}
+
+#contact button {
+  margin-top: 1rem;
+  background-color: #a0522d;
+  border: none;
+  color: white;
+  padding: 0.7rem 2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#contact button:hover, #contact button:focus {
+  background-color: #8b4513;
+  outline: none;
+}
+
+#contact .email-info {
+  margin-top: 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #4e342e;
+  text-align: center;
+}
+#contact .email-info a {
+  color: #a0522d;
+  text-decoration: none;
+}
+#contact .email-info a:hover,
+#contact .email-info a:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
   </style>
@@ -448,24 +539,50 @@
       Providing beautiful, personalized henna designs for individuals, weddings, photo shoots, belly blessings, events and more. Based in Ellicott City, Maryland.<br />
       Serving Maryland, Virginia and DC area.
     </p>
-<div class="home-intro" style="margin-top: 2rem; text-align: left; color: #4e342e;">
-  <h2 style="font-size: 1.8rem; border-bottom: 2px solid #a0522d; padding-bottom: 0.4rem;">✨ Meet Me</h2>
+<!-- Place this below your Home/Header section -->
+
+<section id="about" tabindex="-1" aria-labelledby="about-title" class="fade-in">
+  <h2 id="about-title">Meet Me</h2>
   <p>
-    Hi, I'm Priya — born and raised in the vibrant city of Mumbai, India. My love for henna began at home, where I started applying henna on my mom’s hands. She adored it so much that no occasion felt complete without it. I was just 10 years old when I applied my very first design on her — and she loved it! Word quickly spread among family and friends, and soon I was everyone's go-to henna artist. My journey began right there. I even did my first bridal henna at just 14 for a close family friend.
+    I am Priya, born and raised in the vibrant city of Mumbai, India. My deep love for henna started at home, where I began applying henna to my mother, who cherished the tradition for every occasion. I was just 10 years old when I first created henna designs for her. She loved it, and soon word spread—everyone preferred my henna work. This is how my journey began.
   </p>
   <p>
-    Though my style has evolved over the years, my connection to henna and its roots has remained strong and meaningful.
+    I did my first bridal henna for a family friend when I was 14. While my work has evolved over time, my roots remain solidly grounded in tradition and passion.
   </p>
   <p>
-    After moving to the United States, I hadn’t planned on continuing my henna journey. But as fate would have it, in 2016, a friend’s daughter was getting married and had hired a professional henna artist. When their assistant couldn’t make it, I offered to help. What started as a spontaneous gesture turned into a turning point — everyone loved my designs and encouraged me to pursue it further. That moment reignited my passion, and I haven’t looked back since.
+    After moving to the United States, I hadn’t planned to pursue henna professionally. But destiny had other plans. In 2016, during a friend’s daughter’s wedding, the hired henna artist’s partner could not make it. I stepped in to help, not knowing that this moment would shape my career. Everyone loved my designs, and that experience inspired me to turn my passion into my profession. Today, I love what I do — bringing joy and beauty to my clients through henna art is truly rewarding.
   </p>
   <p>
-    I truly love what I do. There’s nothing more satisfying than seeing the joy and smiles on my clients’ faces after their henna session. Each design I create is done with love, patience, and care — using only homemade, all-natural henna cones that I personally prepare for a safe and beautiful experience.
+    I take great care to ensure each client receives a relaxing, unique, and personalized experience. To guarantee quality and stain, I make all-natural, homemade henna cones fresh for every session.
   </p>
   <p>
-    If you're looking to add a touch of henna magic to your life, I’d love to be part of your journey. Contact me today to schedule your appointment — and let’s bring your henna dreams to life.
+    So, if you’re looking to add some henna magic to your life, please <a href="#contact" style="color:#a0522d; text-decoration: underline;">contact me today</a> to schedule your appointment. I can’t wait to create beautiful henna art just for you!
   </p>
-</div>
+</section>
+
+<!-- Replace your existing Contact section with this -->
+
+<section id="contact" tabindex="-1" aria-labelledby="contact-title" class="fade-in">
+  <h2 id="contact-title">Contact Us</h2>
+  <form action="https://formspree.io/f/xjvdwkpj" method="POST" id="contact-form" novalidate>
+    <label for="name">Name<span aria-hidden="true">*</span></label>
+    <input type="text" id="name" name="name" required aria-required="true" placeholder="Your full name" />
+
+    <label for="email">Email<span aria-hidden="true">*</span></label>
+    <input type="email" id="email" name="_replyto" required aria-required="true" placeholder="your.email@example.com" />
+
+    <label for="message">Message<span aria-hidden="true">*</span></label>
+    <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Write your message here"></textarea>
+
+    <button type="submit">Send</button>
+    <p id="success-message" role="alert" aria-live="assertive">Thank you! Your message has been sent.</p>
+  </form>
+  <p class="email-info">
+    Or email directly: <a href="mailto:hennaniart@gmail.com">hennaniart@gmail.com</a><br />
+    Phone: <a href="tel:+14433008954">+1 (443) 300-8954</a>
+  </p>
+</section>
+
 
   </header>
 
@@ -778,6 +895,19 @@
   galleries.forEach(g => g.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  faders.forEach(fader => observer.observe(fader));
+});
 
 </script>
 
