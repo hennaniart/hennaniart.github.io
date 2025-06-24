@@ -49,22 +49,29 @@
       box-shadow: 0 4px 8px rgba(90, 62, 27, 0.2);
       position: relative;
       background-color: white;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
     .gallery-item img {
       width: 100%;
       height: 180px;
       object-fit: cover;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
       display: block;
     }
-    .gallery-item:hover img,
-    .gallery-item:focus-within img {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(90, 62, 27, 0.4);
-    }
+    .gallery-item:hover,
     .gallery-item:focus-within {
-      outline: 3px solid #a0522d;
-      outline-offset: 4px;
+      transform: scale(1.03);
+      box-shadow: 0 10px 18px rgba(90, 62, 27, 0.4);
+    }
+    .gallery-label {
+      text-align: center;
+      margin-top: 0.8rem;
+      font-weight: 600;
+      color: #6d4c41;
+      font-size: 1.1rem;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
     }
   </style>
 </head>
@@ -73,10 +80,27 @@
     <a href="index.html" class="back-link">← Back to Home</a>
     <h1>Gallery</h1>
     <div class="gallery-grid">
-      <a href="bridal.html" class="gallery-item"><img src="bridalcover.JPG" alt="Bridal Gallery"></a>
-      <a href="party.html" class="gallery-item"><img src="partycover.JPG" alt="Party Gallery"></a>
-      <a href="stain.html" class="gallery-item"><img src="staincover.JPG" alt="Henna Stain Gallery"></a>
-      <a href="portfolio.html" class="gallery-item"><img src="portfoliocover.jpg" alt="Design Portfolio Gallery"></a>
+
+      <a href="bridal.html" class="gallery-item">
+        <img src="bridalcover.JPG" alt="Bridal Henna Designs" />
+        <div class="gallery-label">Bridal Henna</div>
+      </a>
+
+      <a href="party.html" class="gallery-item">
+        <img src="partycover.JPG" alt="Party Henna Designs" />
+        <div class="gallery-label">Party Henna</div>
+      </a>
+
+      <a href="stain.html" class="gallery-item">
+        <img src="staincover.JPG" alt="Stain Art" />
+        <div class="gallery-label">Stain Art</div>
+      </a>
+
+      <a href="portfolio.html" class="gallery-item">
+        <img src="portfoliocover.jpg" alt="Portfolio Collection" />
+        <div class="gallery-label">Portfolio</div>
+      </a>
+
     </div>
   </div>
 </body>
