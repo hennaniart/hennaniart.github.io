@@ -3,145 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services - Hennani Art</title>
+  <title>Our Services - Hennani Art</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #fff8f0;
       color: #4e342e;
       margin: 0;
-      padding: 1rem;
+      padding: 1.5rem 2rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
     nav {
       background-color: #fbe9e7;
       border-bottom: 2px solid #a0522d;
       padding: 1rem 0;
       text-align: center;
+      margin-bottom: 2rem;
     }
     nav a {
       text-decoration: none;
       color: #4e342e;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin: 0 1rem;
+      transition: color 0.3s ease;
     }
-    nav a:hover {
+    nav a:hover, nav a:focus {
       color: #a0522d;
-    }
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
+      outline: none;
     }
     h1 {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+    section.service {
       margin-bottom: 2rem;
     }
-    .service {
-      margin-bottom: 2rem;
-      background-color: #fffaf5;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .service h2 {
-      font-size: 1.6rem;
+    section.service h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid #a0522d;
+      padding-bottom: 0.3rem;
       margin-bottom: 0.5rem;
-      color: #6d4c41;
     }
-    .service p {
-      font-size: 1.05rem;
-      line-height: 1.6;
+    section.service p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-top: 0;
+      color: #4e342e;
     }
-    .coming-soon {
-      font-size: 0.9rem;
-      font-style: italic;
+    /* Contact link section */
+    .contact-cta {
+      max-width: 700px;
+      margin: 3rem auto 2rem;
+      text-align: center;
+    }
+    .contact-cta p {
+      font-size: 1.2rem;
+      color: #4e342e;
+    }
+    .contact-cta a {
       color: #a0522d;
-    }
-    .back-link {
-      display: inline-block;
-      margin-top: 2rem;
-      text-decoration: none;
-      color: #a0522d;
-      font-weight: 600;
-    }
-    .back-link:hover {
+      font-weight: 700;
       text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    .contact-cta a:hover, .contact-cta a:focus {
+      color: #8b4513;
+      outline: none;
     }
   </style>
 </head>
 <body>
 
-  <nav>
+  <nav role="navigation" aria-label="Main navigation">
     <a href="index.html">Home</a>
+    <a href="service.html" aria-current="page">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
   </nav>
 
-  <main>
-    <h1>Our Henna Services</h1>
+  <h1>Our Services</h1>
 
-    <div class="service">
-      <h2>Bridal Henna</h2>
-      <p>Celebrate your special day with intricate, personalized bridal henna designs that reflect your culture, story, and personality. We offer full hand, arm, and foot coverage with natural henna for a rich, long-lasting stain.</p>
-    </div>
+  <section class="service" aria-labelledby="bridal-henna">
+    <h2 id="bridal-henna">Bridal Henna</h2>
+    <p>Traditional and intricate bridal henna designs to make your special day unforgettable. Customized patterns that celebrate your unique story and culture.</p>
+  </section>
 
-    <div class="service">
-      <h2>Sangeet Henna</h2>
-      <p>Bring joy and tradition to your sangeet night with beautiful henna for the bride, family, and guests. A perfect way to blend fun, music, and celebration with stunning body art.</p>
-    </div>
+  <section class="service" aria-labelledby="sangeet-henna">
+    <h2 id="sangeet-henna">Sangeet Henna</h2>
+    <p>Festive henna designs perfect for the lively and joyous sangeet ceremony. Bold, vibrant, and celebratory motifs for the dance-filled evening.</p>
+  </section>
 
-    <div class="service">
-      <h2>Belly Blessing Henna</h2>
-      <p>A serene and meaningful experience for expecting mothers. Henna is applied in calming, symbolic designs on the baby bump to celebrate motherhood and welcome new life.</p>
-    </div>
+  <section class="service" aria-labelledby="belly-blessing-henna">
+    <h2 id="belly-blessing-henna">Belly Blessing Henna</h2>
+    <p>Gentle and beautiful henna designs crafted especially for mothers-to-be to celebrate pregnancy and new life during baby showers or belly blessings.</p>
+  </section>
 
-    <div class="service">
-      <h2>Festival Henna</h2>
-      <p>Add tradition and beauty to your festive look with themed henna designs. Whether you're celebrating Diwali lights or Eid gatherings, our henna complements every cultural moment.</p>
-    </div>
+  <section class="service" aria-labelledby="festival-henna">
+    <h2 id="festival-henna">Festival Henna</h2>
+    <p>Celebrate Karwachauth, Eid, Holi, Diwali, and other special occasions with festive and joyous henna designs tailored for every festival.</p>
+  </section>
 
-    <div class="service">
-      <h2>Corporate Henna</h2>
-      <p>Offer a unique, engaging experience at your next corporate event or employee appreciation day. Henna is a relaxing and interactive way to boost morale and cultural inclusion.</p>
-    </div>
+  <section class="service" aria-labelledby="corporate-henna">
+    <h2 id="corporate-henna">Corporate Henna</h2>
+    <p>Unique henna designs for corporate events, team-building activities, or company celebrations to add cultural flair and fun to your gatherings.</p>
+  </section>
 
-    <div class="service">
-      <h2>Birthday or Graduation Henna</h2>
-      <p>Make birthdays and milestones extra special with personalized henna designs for you and your guests. A great alternative to party favors and a fun memory to take home.</p>
-    </div>
+  <section class="service" aria-labelledby="birthday-graduation-henna">
+    <h2 id="birthday-graduation-henna">Birthday or Graduation</h2>
+    <p>Celebrate milestones with personalized henna designs for birthdays, graduations, and other special achievements.</p>
+  </section>
 
-    <div class="service">
-      <h2>Henna for Fun</h2>
-      <p>No occasion needed! Whether it's a self-care day, a hangout with friends, or simply trying something new, get henna just because it brings joy and beauty.</p>
-    </div>
+  <section class="service" aria-labelledby="henna-for-fun">
+    <h2 id="henna-for-fun">Henna for Fun</h2>
+    <p>Casual henna sessions to express yourself, try new designs, or just enjoy the art of henna without any occasion needed.</p>
+  </section>
 
-    <div class="service">
-      <h2>Henna Classes/Workshops <span class="coming-soon">(Coming Soon)</span></h2>
-      <p>Learn the art of henna in hands-on, engaging sessions. Ideal for beginners, kids, or team-building events. All materials provided, including homemade natural cones.</p>
-    </div>
+  <section class="service" aria-labelledby="henna-classes">
+    <h2 id="henna-classes">Henna Classes/Workshops <span style="font-style: italic; color: #a0522d;">(Coming Soon)</span></h2>
+    <p>Learn the art of henna with upcoming classes and workshops, designed for beginners and enthusiasts alike.</p>
+  </section>
 
-    <div class="service">
-      <h2>Photo Shoot Henna</h2>
-      <p>Add a stunning visual element to maternity shoots, engagements, or creative portraits. Henna enhances your look and tells a story through every design.</p>
-    </div>
+  <section class="service" aria-labelledby="photo-shoot-henna">
+    <h2 id="photo-shoot-henna">Photo Shoot Henna</h2>
+    <p>Professional henna designs ideal for photo shoots, adding elegance and detail that shine in pictures.</p>
+  </section>
 
-    <div class="service">
-      <h2>Henna Crowns</h2>
-      <p>A beautiful, empowering alternative to wigs or headscarves for those undergoing hair loss. Our gentle, soothing henna crown designs uplift the spirit and celebrate resilience.</p>
-    </div>
+  <section class="service" aria-labelledby="henna-crowns">
+    <h2 id="henna-crowns">Henna Crowns</h2>
+    <p>Beautiful and empowering henna designs for those going through hair loss or looking to adorn their scalp creatively.</p>
+  </section>
 
-    <div class="service">
-      <h2>Kids’ Parties & Events</h2>
-      <p>Delight little guests with quick, fun, and safe henna designs at birthday parties, fairs, or school events. Always kid-friendly and natural.</p>
-    </div>
+  <section class="service" aria-labelledby="kids-parties">
+    <h2 id="kids-parties">Kids' Parties & Events</h2>
+    <p>Fun and age-appropriate henna designs for children's parties and events, creating joyful memories for little ones.</p>
+  </section>
 
-    <div class="service">
-      <h2>Pop-Up/Vendor Events</h2>
-      <p>Draw attention and create interaction at markets, fairs, and community events with live henna art. We set up a professional, inviting booth for guests of all ages.</p>
-    </div>
+  <section class="service" aria-labelledby="pop-up-events">
+    <h2 id="pop-up-events">Pop-Up/Vendor Events</h2>
+    <p>Available for pop-up shops, festivals, and vendor fairs to bring henna art directly to your community or event.</p>
+  </section>
 
-    <a href="index.html" class="back-link">← Back to Home</a>
-  </main>
+  <div class="contact-cta" role="region" aria-label="Contact to book or inquire">
+    <p>
+      Interested in booking a henna session or have questions? 
+      <a href="contact.html">Contact me here</a> to schedule your appointment or get more information.
+    </p>
+  </div>
 
 </body>
 </html>
