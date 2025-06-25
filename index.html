@@ -4,28 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hennani Art</title>
-  <link href="https://g.co/kgs/XEstRwT/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
-    /* Reset & base */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+    /* Base & layout styles omitted for brevity — use your existing CSS here */
+    /* Only key navigation and content changes shown below */
+
     body, html {
-      margin: 0; padding: 0;
-      height: 100%;
+      margin: 0;
+      padding: 0;
       font-family: 'Playfair Display', serif;
-      color: #4e342e;
-      scroll-behavior: smooth;
       background: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/welcome.JPG') no-repeat center center fixed;
       background-size: cover;
-      position: relative;
-      min-height: 100vh;
+      color: #4e342e;
+      scroll-behavior: smooth;
     }
-    /* Overlay for readability */
+
     body::before {
       content: "";
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background-color: rgba(255, 243, 224, 0.6);
       z-index: -1;
     }
@@ -41,424 +38,23 @@
       list-style: none;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding: 1rem;
       margin: 0;
-      padding: 0.5rem 0;
     }
-    nav li {
-      margin: 0.5rem 1rem;
-    }
-    nav a {
+    nav li a {
       text-decoration: none;
       color: #4e342e;
       font-weight: 700;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
     }
-    nav a:hover, nav a:focus {
+    nav li a:hover {
       color: #a0522d;
-      outline: none;
     }
 
     header {
-      text-align: center;
-      padding: 4rem 2rem 2rem;
-      border-bottom: 2px solid #d7ccc8;
-      background-color: rgba(255, 243, 224, 0.7);
       max-width: 800px;
-      margin: 0 auto 3rem;
+      margin: 3rem auto;
+      background: rgba(255, 243, 224, 0.75);
+      padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    }
-    .logo {
-      max-width: 150px;
-      margin-bottom: 0.75rem;
-    }
-    h1 {
-      margin: 0.5rem 0 0.2rem;
-      font-size: 3rem;
-      color: #4e342e;
-    }
-    .tagline {
-      font-size: 1.3rem;
-      color: #8d6e63;
-      font-style: italic;
-    }
-    .description {
-      font-size: 1.1rem;
-      margin-top: 1rem;
-      color: #4e342e;
-    }
-
-    section {
-      max-width: 900px;
-      margin: 0 auto 4rem;
-      background-color: rgba(255, 243, 224, 0.75);
-      padding: 2rem 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      color: #4e342e;
-    }
-    section h2 {
-      margin-top: 0;
-      font-size: 2rem;
-      border-bottom: 2px solid #a0522d;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1rem;
-    }
-
-    /* Services */
-    #services p {
-      font-size: 1.2rem;
-      text-align: center;
-      letter-spacing: 0.05em;
-    }
-
-    /* Testimonials */
-    #testimonials .testimonial-carousel {
-      position: relative;
-      overflow: hidden;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .testimonial {
-      display: none;
-      padding: 1.5rem 2rem;
-      background-color: #fff8f0;
-      border-left: 6px solid #a0522d;
-      border-radius: 12px;
-      font-style: italic;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      transition: opacity 0.5s ease;
-      color: #4e342e;
-    }
-    .testimonial.active {
-      display: block;
-    }
-    .stars {
-      font-size: 1.3rem;
-      color: #a0522d;
-      margin-bottom: 0.7rem;
-    }
-    .testimonial-author {
-      text-align: right;
-      margin-top: 1rem;
-      font-weight: 700;
-      font-style: normal;
-    }
-    .testimonial-controls {
-      margin-top: 1rem;
-      text-align: center;
-    }
-    .testimonial-controls button {
-      background-color: #a0522d;
-      border: none;
-      color: white;
-      font-size: 1.6rem;
-      padding: 0.3rem 1rem;
-      margin: 0 0.5rem;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      user-select: none;
-    }
-    .testimonial-controls button:hover, .testimonial-controls button:focus {
-      background-color: #8b4513;
-      outline: none;
-    }
-
-    /* Blog */
-    #blog .blog-post {
-      background-color: #fff8f0;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-bottom: 1.8rem;
-      color: #4e342e;
-      font-size: 1.1rem;
-    }
-    #blog .blog-post h3 {
-      margin-top: 0;
-      color: #6d4c41;
-    }
-
-    /* Contact form */
-    #contact form {
-      max-width: 400px;
-      margin: 0 auto;
-      color: #4e342e;
-    }
-    #contact label {
-      font-weight: 700;
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-    #contact input, #contact textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      border: 2px solid #a0522d;
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      box-sizing: border-box;
-      transition: border-color 0.3s ease;
-    }
-    #contact input:focus, #contact textarea:focus {
-      border-color: #8b4513;
-      outline: none;
-    }
-    #contact button {
-      background-color: #a0522d;
-      border: none;
-      color: white;
-      padding: 0.7rem 2rem;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    #contact button:hover, #contact button:focus {
-      background-color: #8b4513;
-      outline: none;
-    }
-    #success-message {
-      display: none;
-      color: #2a7a2a;
-      font-weight: 700;
-      margin-top: 1rem;
-      text-align: center;
-    }
-    #contact p.email-info {
-      margin-top: 1rem;
-      text-align: center;
-    }
-    #contact p.email-info a {
-      color: #a0522d;
-      text-decoration: none;
-    }
-    #contact p.email-info a:hover, #contact p.email-info a:focus {
-      text-decoration: underline;
-      outline: none;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #795548;
-      padding: 2rem 1rem 3rem;
-      background-color: rgba(255, 243, 224, 0.9);
-      border-top: 1px solid #e0d2c0;
-    }
-    footer .social-icons {
-      margin-top: 1rem;
-    }
-    footer .social-icons a {
-      margin: 0 0.5rem;
-      color: #4e342e;
-      text-decoration: none;
-      display: inline-block;
-      transition: color 0.3s ease;
-    }
-    footer .social-icons a:hover, footer .social-icons a:focus {
-      color: #a0522d;
-      outline: none;
-    }
-    footer .social-icons svg {
-      vertical-align: middle;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      nav ul {
-        flex-wrap: wrap;
-      }
-      nav li {
-        margin: 0.4rem 0.8rem;
-      }
-      section {
-        margin: 0 1rem 3rem;
-        padding: 1.5rem 1rem;
-      }
-      #contact form {
-        max-width: 100%;
-      }
-    }
-  </style>
-</head>
-<body id="top">
-
-  <!-- Navigation -->
-  <nav role="navigation" aria-label="Main navigation">
-    <ul>
-      <li><a href="#top">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Header -->
-  <header role="banner">
-    <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.PNG" alt="Hennani Art Logo" class="logo" />
-    <h1>Hennani Art</h1>
-    <p class="tagline">Elegant Henna Designs for Every Occasion</p>
-    <p class="description">
-      Providing beautiful, personalized henna designs for individuals, weddings, photo shoots, belly blessings, events and more. Based in Ellicott City, Maryland.<br />
-      Serving Maryland, Virginia and DC area.
-    </p>
-    <div class="home-intro" style="margin-top: 2rem; text-align: left; color: #4e342e;">
-      <h2 style="font-size: 1.8rem; border-bottom: 2px solid #a0522d; padding-bottom: 0.4rem;">✨ Meet Me</h2>
-      <p>
-        Hi, I'm Priya — born and raised in the vibrant city of Mumbai, India. My love for henna began at home, where I started applying henna on my mom’s hands. She adored it so much that no occasion felt complete without it. I was just 10 years old when I applied my very first design on her — and she loved it! Word quickly spread among family and friends, and soon I was everyone's go-to henna artist. My journey began right there. I even did my first bridal henna at just 14 for a close family friend.
-      </p>
-      <p>
-        Though my style has evolved over the years, my connection to henna and its roots has remained strong and meaningful.
-      </p>
-      <p>
-        After moving to the United States, I hadn’t planned on continuing my henna journey. But as fate would have it, in 2016, a friend’s daughter was getting married and had hired a professional henna artist. When their assistant couldn’t make it, I offered to help. What started as a spontaneous gesture turned into a turning point — everyone loved my designs and encouraged me to pursue it further. That moment reignited my passion, and I haven’t looked back since.
-      </p>
-      <p>
-        I truly love what I do. There’s nothing more satisfying than seeing the joy and smiles on my clients’ faces after their henna session. Each design I create is done with love, patience, and care — using only homemade, all-natural henna cones that I personally prepare for a safe and beautiful experience.
-      </p>
-      <p>
-        If you're looking to add a touch of henna magic to your life, I’d love to be part of your journey. Contact me today to schedule your appointment — and let’s bring your henna dreams to life.
-      </p>
-    </div>
-  </header>
-
-  <!-- Services -->
-  <section id="services" tabindex="-1" aria-labelledby="services-title">
-    <h2 id="services-title">Our Services</h2>
-    <p>Bridal Henna • Festival Henna • Corporate Events • Custom Designs</p>
-  </section>
-
-  <!-- Testimonials -->
-  <section id="testimonials" tabindex="-1" aria-labelledby="testimonials-title">
-    <h2 id="testimonials-title">Testimonials</h2>
-    <div class="testimonial-carousel" aria-live="polite">
-      <div class="testimonial active" role="group" aria-roledescription="testimonial" aria-label="Testimonial 1">
-        <div class="stars" aria-label="5 stars">★★★★★</div>
-        <p>
-          I reached out to Hennani Art for my engagement henna the last minute and Priya was so kind to give me an appointment the same day. The henna designs were beautiful and lasted perfectly!
-        </p>
-        <div class="testimonial-author">– Sreeja A N</div>
-      </div>
-      <div class="testimonial" role="group" aria-roledescription="testimonial" aria-label="Testimonial 2">
-        <div class="stars" aria-label="5 stars">★★★★★</div>
-        <p>
-          Priya is a very talented henna artist! She was easy to communicate with and quick to respond. Loved her creativity and attention to detail.
-        </p>
-        <div class="testimonial-author">– Deepa Parthasarathy</div>
-      </div>
-      <div class="testimonial" role="group" aria-roledescription="testimonial" aria-label="Testimonial 3">
-        <div class="stars" aria-label="5 stars">★★★★★</div>
-        <p>
-          Priya did my bridal henna and I am so happy! The designs were intricate and beautiful, and the henna paste was natural and safe.
-        </p>
-        <div class="testimonial-author">– Nisha K</div>
-      </div>
-    </div>
-    <div class="testimonial-controls" role="group" aria-label="Testimonial navigation">
-      <button id="prev-btn" aria-label="Previous testimonial">&#10094;</button>
-      <button id="next-btn" aria-label="Next testimonial">&#10095;</button>
-    </div>
-  </section>
-
-  <!-- Blog Section -->
-  <section id="blog" tabindex="-1" aria-labelledby="blog-title">
-    <h2 id="blog-title">Blog</h2>
-
-    <article class="blog-post" tabindex="0">
-      <h3>Natural Henna Benefits</h3>
-      <p>
-        Natural henna is derived from the Lawsonia inermis plant and is safe for skin. It offers a cooling effect and is free of chemicals.
-      </p>
-    </article>
-
-    <article class="blog-post" tabindex="0">
-      <h3>Henna Traditions</h3>
-      <p>
-        Henna is traditionally used for celebrations and ceremonies worldwide, including weddings, festivals, and religious holidays.
-      </p>
-    </article>
-
-    <article class="blog-post" tabindex="0">
-      <h3>Why Choose Natural Henna?</h3>
-      <p>
-        Our natural henna paste is safe for all skin types, the process of creating henna designs can be a relaxing and therapeutic experience.
-        <br><br>
-        So whether you're looking to add some flair or connect with cultural traditions, natural henna is the perfect choice.
-      </p>
-    </article>
-
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" tabindex="-1" aria-labelledby="contact-title">
-    <h2 id="contact-title">Contact</h2>
-    <form id="contact-form" action="https://formspree.io/f/mayvlqek" method="POST" aria-label="Contact form">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required aria-required="true" />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="_replyto" required aria-required="true" />
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
-
-      <button type="submit">Send</button>
-
-      <p id="success-message" role="alert" aria-live="assertive">Thanks for your message! I will get back to you shortly.</p>
-    </form>
-
-    <p class="email-info">
-      Or email directly: <a href="mailto:priyahennani@gmail.com">priyahennani@gmail.com</a>
-    </p>
-  </section>
-
-  <!-- Footer -->
-  <footer role="contentinfo">
-    <div>© 2025 Hennani Art</div>
-    <div class="social-icons" aria-label="Social media links">
-      <a href="https://facebook.com/hennaniart" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-        <svg aria-hidden="true" focusable="false" width="24" height="24" fill="#4e342e" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.337v21.326C0 23.4.6 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.796.716-1.796 1.766v2.317h3.588l-.467 3.622h-3.12V24h6.116c.724 0 1.324-.6 1.324-1.337V1.337C24 .6 23.4 0 22.675 0z"/></svg>
-      </a>
-      <a href="https://goo.gl/maps/abcdef" target="_blank" rel="noopener noreferrer" aria-label="Google Maps">
-        <svg aria-hidden="true" focusable="false" width="24" height="24" fill="#4e342e" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-      </a>
-    </div>
-  </footer>
-
-  <script>
-    // Testimonial carousel logic
-    const testimonials = document.querySelectorAll('.testimonial');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    let currentIndex = 0;
-
-    function showTestimonial(index) {
-      testimonials.forEach((t, i) => {
-        t.classList.toggle('active', i === index);
-      });
-    }
-
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-      showTestimonial(currentIndex);
-    });
-
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % testimonials.length;
-      showTestimonial(currentIndex);
-    });
-  </script>
-
-</body>
-</html>
+      box
