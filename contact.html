@@ -5,182 +5,173 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact - Hennani Art</title>
   <style>
+    :root {
+      color-scheme: light dark;
+      --bg-light: #fff8f0;
+      --bg-dark: #1e1e1e;
+      --text-light: #4e342e;
+      --text-dark: #f0e6dc;
+      --accent: #a0522d;
+    }
+
     body {
-      font-family: 'Playfair Display', serif;
-      background-color: #fff8f0;
-      color: #4e342e;
-      margin: 0; padding: 2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      margin: 0;
+      padding: 1rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-dark);
+      }
+    }
+
+    .container {
       max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 2rem auto;
+      background: var(--bg-light);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    a.back-link {
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      text-decoration: none;
-      color: #a0522d;
-      font-weight: 600;
-      font-size: 1rem;
+
+    @media (prefers-color-scheme: dark) {
+      .container {
+        background: #2e2e2e;
+      }
     }
-    a.back-link:hover, a.back-link:focus {
-      text-decoration: underline;
-      outline: none;
-    }
+
     h1 {
       text-align: center;
       font-size: 2.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
-    form {
-      background-color: #fdf3e7;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    label {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      margin-top: 1rem;
-      color: #4e342e;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 0.6rem;
-      border: 2px solid #a0522d;
-      border-radius: 8px;
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      box-sizing: border-box;
-      transition: border-color 0.3s ease;
-      color: #4e342e;
-    }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="tel"]:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #8b4513;
-      outline: none;
-    }
-    textarea {
-      resize: vertical;
-    }
-    button {
-      margin-top: 1.5rem;
-      background-color: #a0522d;
-      color: white;
-      padding: 0.75rem 2rem;
+    p.intro {
+      text-align: center;
       font-size: 1.1rem;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+      line-height: 1.6;
     }
-    button:hover, button:focus {
-      background-color: #8b4513;
-      outline: none;
-    }
-    #success-message {
-      display: none;
-      margin-top: 1rem;
-      font-weight: 700;
-      color: #2a7a2a;
-      text-align: center;
-    }
-    p.email-info {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 1rem;
-    }
-    p.email-info a {
-      color: #a0522d;
+    a.back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--accent);
       text-decoration: none;
       font-weight: 600;
     }
-    p.email-info a:hover, p.email-info a:focus {
-      text-decoration: underline;
-      outline: none;
+    form label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
     }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    textarea::placeholder {
+      color: #999;
+    }
+    button {
+      margin-top: 1.5rem;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.7rem 2rem;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #8b4513;
+    }
+    .note {
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      color: #555;
+    }
+    .date-group {
+      display: flex;
+      gap: 1rem;
+    }
+    .date-group input {
+      flex: 1;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
+    <h1>Contact</h1>
+    <p class="intro">
+      <strong>Thank you so much for considering Hennani Art for your henna journey!</strong><br>
+      We’re now accepting both Bridal and Non-Bridal appointments for 2025.<br>
+      Bridal bookings are also open for 2026.<br>
+      We can't wait to create something beautiful with you!
+    </p>
 
-  <a href="index.html" class="back-link" aria-label="Back to Home">← Back to Home</a>
+    <form action="https://formspree.io/f/xnnvgnye" method="POST">
+      <label for="first-name">First Name *</label>
+      <input type="text" id="first-name" name="First Name" required>
 
-  <h1>Contact Hennani Art</h1>
+      <label for="last-name">Last Name *</label>
+      <input type="text" id="last-name" name="Last Name" required>
 
-  <form id="contact-form" action="https://formspree.io/f/xnnvgnye" method="POST" aria-label="Contact form">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required aria-required="true" />
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="Email" required>
 
-    <label for="phone">Phone Number (optional)</label>
-    <input type="tel" id="phone" name="phone" placeholder="e.g. +1 555-123-4567" />
+      <label for="phone">Phone Number (optional)</label>
+      <input type="tel" id="phone" name="Phone">
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="_replyto" required aria-required="true" />
+      <label for="event-location">Event Location</label>
+      <input type="text" id="event-location" name="Event Location">
 
-    <label for="hear-about">How did you hear about us?</label>
-    <select id="hear-about" name="hear-about" aria-required="false">
-      <option value="" disabled selected>Select an option</option>
-      <option value="Google Search">Google Search</option>
-      <option value="Social Media">Social Media</option>
-      <option value="Friend or Family">Friend or Family</option>
-      <option value="Event or Festival">Event or Festival</option>
-      <option value="Other">Other</option>
-    </select>
+      <label for="city">City</label>
+      <select id="city" name="City">
+        <option value="">Select City</option>
+        <option>Ellicott City</option>
+        <option>Baltimore</option>
+        <option>Washington DC</option>
+        <option>Virginia</option>
+      </select>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="6" required aria-required="true"
-      placeholder="Please include details like event date, location, preferred time, design style, number of people, and any other info..."></textarea>
+      <label for="state">State</label>
+      <select id="state" name="State">
+        <option value="">Select State</option>
+        <option>Maryland</option>
+        <option>Virginia</option>
+        <option>DC</option>
+        <option>Pennsylvania</option>
+      </select>
 
-    <button type="submit">Send</button>
+      <label for="zip">Postal / Zip Code</label>
+      <input type="text" id="zip" name="Zip">
 
-    <p id="success-message" role="alert" aria-live="assertive">Thanks for your message! I will get back to you shortly.</p>
-  </form>
+      <label>Event Date Range</label>
+      <div class="date-group">
+        <input type="date" name="Event Start Date">
+        <input type="date" name="Event End Date">
+      </div>
 
-  <p class="email-info">
-    Or email directly: <a href="mailto:hennaniart@gmail.com">hennaniart@gmail.com</a>
-  </p>
+      <label for="hear-about">How did you hear about us?</label>
+      <input type="text" id="hear-about" name="Referral Source">
 
-  <script>
-    const form = document.getElementById('contact-form');
-    const successMsg = document.getElementById('success-message');
+      <label for="message">Tell us more *</label>
+      <textarea id="message" name="Message" rows="6" placeholder="Event Date, Location, Preferred Time, Design Style (e.g. traditional, floral), Number of People, Any other important details…" required></textarea>
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+      <button type="submit">Send Message</button>
 
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-
-        if (response.ok) {
-          successMsg.style.display = 'block';
-          form.reset();
-        } else {
-          alert('Oops! There was a problem submitting your form.');
-        }
-      } catch (error) {
-        alert('Oops! There was a problem submitting your form.');
-      }
-    });
-  </script>
-
+      <p class="note">
+        Note: File uploads are not supported in this form. If you have inspiration photos, please mention that in your message and we’ll follow up via email.
+      </p>
+    </form>
+  </div>
 </body>
 </html>
