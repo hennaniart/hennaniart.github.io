@@ -6,57 +6,89 @@
   <title>Contact | Hennani Art</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
-    body {
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html, body {
       margin: 0;
       padding: 0;
       font-family: 'Playfair Display', serif;
+      scroll-behavior: smooth;
       background: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/welcome.JPG') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
       color: #4e342e;
       min-height: 100vh;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 243, 224, 0.7);
+      z-index: -1;
+    }
+    nav {
+      background-color: rgba(255, 243, 224, 0.95);
+      border-bottom: 2px solid #d7ccc8;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0.5rem 0;
+    }
+    nav li {
+      margin: 0.5rem 1rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #4e342e;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover, nav a:focus {
+      color: #a0522d;
     }
 
-    .page-content {
-      background-color: rgba(255, 255, 255, 0.95);
+    main {
+      background-color: rgba(255, 243, 224, 0.88);
       max-width: 900px;
-      margin: 3rem auto;
-      padding: 2.5rem;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      margin: 2rem auto;
+      padding: 2.5rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 1.2rem;
       text-align: center;
-      color: #4e342e;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #5d4037;
     }
 
     form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-    }
-
-    .form-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .form-row .form-group {
-      flex: 1;
-      min-width: 240px;
+      margin-top: 1.5rem;
     }
 
     label {
       font-weight: 600;
-      display: block;
       margin-bottom: 0.3rem;
       font-size: 1rem;
+      display: block;
     }
 
     input, select, textarea {
@@ -71,6 +103,17 @@
     textarea {
       min-height: 120px;
       resize: vertical;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: 240px;
     }
 
     .submit-btn {
@@ -89,36 +132,55 @@
       background-color: #874323;
     }
 
-    .back-link {
-      display: inline-block;
-      margin-top: 1.5rem;
-      color: #8b4513;
-      text-decoration: none;
-      font-weight: 600;
+    .note {
+      font-size: 0.95rem;
+      margin-top: 1rem;
     }
 
-    .back-link:hover {
+    .note a {
+      color: #a0522d;
       text-decoration: underline;
     }
 
-    .note {
-      font-size: 0.95rem;
-      margin-top: 1.2rem;
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      background-color: rgba(255, 243, 224, 0.95);
+      border-top: 1px solid #e0d2c0;
+      padding: 2rem 1rem;
+    }
+
+    .social-icons a {
+      margin: 0 0.5rem;
+      color: #4e342e;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      color: #a0522d;
     }
   </style>
 </head>
 <body>
-  <div class="page-content">
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
     <h1>Contact & Booking</h1>
     <p><strong>Thank you so much for considering Hennani Art for your henna journey!</strong><br>
       We’re happily accepting both bridal and non-bridal appointments for 2025, and bridal bookings for 2026.<br>
       We look forward to creating something truly beautiful with you!
     </p>
-    <p>
-      Please fill out the form below — once submitted, we will get back to you within 3–5 business days to discuss availability.
-      To secure your date and time, a deposit and signed contract will be required. ✨<br>
-      Please provide a valid email address so we can reach you easily.
-    </p>
+    <p>Please fill out the form below — once submitted, we will get back to you within 3–5 business days to discuss availability. To secure your date and time, a deposit and signed contract will be required. ✨<br>
+    Please provide a valid email address so we can reach you easily.</p>
 
     <form action="https://formspree.io/f/xnnvgnye" method="POST">
       <label for="email">Email Address *</label>
@@ -127,11 +189,11 @@
       <div class="form-row">
         <div class="form-group">
           <label for="firstName">First Name *</label>
-          <input type="text" id="firstName" name="firstName" required placeholder="First Name" />
+          <input type="text" id="firstName" name="firstName" required />
         </div>
         <div class="form-group">
           <label for="lastName">Last Name *</label>
-          <input type="text" id="lastName" name="lastName" required placeholder="Last Name" />
+          <input type="text" id="lastName" name="lastName" required />
         </div>
       </div>
 
@@ -194,15 +256,22 @@
       <label for="message">Message *</label>
       <textarea id="message" name="message" required placeholder="Include details like: event time, location, services inquiring about, and any other preferences."></textarea>
 
-      <p class="note">
-        Note: If you'd like to share inspiration photos, please email them directly to
+      <p class="note">Note: If you'd like to share inspiration photos, please email them directly to
         <a href="mailto:hennaniart@gmail.com">hennaniart@gmail.com</a>.
       </p>
 
       <button type="submit" class="submit-btn">Submit Inquiry</button>
     </form>
+  </main>
 
-    <a href="index.html" class="back-link">← Back to Home</a>
-  </div>
+  <footer>
+    <div>© 2025 Hennani Art</div>
+    <div class="social-icons">
+      <a href="https://facebook.com/hennaniart" target="_blank">Facebook</a> |
+      <a href="https://www.instagram.com/hennaniarts/" target="_blank">Instagram</a> |
+      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank">Map</a>
+    </div>
+  </footer>
+
 </body>
 </html>
