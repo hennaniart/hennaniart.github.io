@@ -7,198 +7,210 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
     body {
+      margin: 0;
+      padding: 2rem 1rem;
       font-family: 'Playfair Display', serif;
       background-color: #fff8f0;
       color: #4e342e;
-      margin: 0;
-      padding: 2rem 1rem;
       min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255, 243, 224, 0.9);
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(90, 62, 27, 0.25);
     }
     h1 {
       text-align: center;
-      margin-bottom: 2rem;
-      font-size: 2.5rem;
       color: #4e342e;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
     }
-    .intro {
-      max-width: 700px;
-      margin: 0 auto 2rem auto;
+    .intro-text {
       font-size: 1.15rem;
-      line-height: 1.6;
       text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1.5;
       color: #6d4c41;
-      white-space: pre-line;
     }
     form {
-      max-width: 700px;
-      margin: 0 auto;
-      background-color: white;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(160, 82, 45, 0.3);
-    }
-    .form-row {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-    .form-group {
-      flex: 1;
-      min-width: 200px;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem 2rem;
+      font-family: 'Playfair Display', serif;
+      color: #4e342e;
     }
     label {
-      font-weight: 700;
+      font-weight: 600;
+      display: block;
       margin-bottom: 0.3rem;
-      color: #6d4c41;
     }
     input[type="text"],
     input[type="email"],
-    textarea {
+    input[type="tel"],
+    select,
+    textarea,
+    input[type="date"] {
       width: 100%;
-      padding: 0.5rem;
-      border-radius: 8px;
+      padding: 0.5rem 0.7rem;
       border: 2px solid #a0522d;
-      font-family: 'Playfair Display', serif;
+      border-radius: 8px;
       font-size: 1rem;
+      font-family: 'Playfair Display', serif;
+      resize: vertical;
       box-sizing: border-box;
       transition: border-color 0.3s ease;
     }
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-      margin-top: 0.8rem;
-    }
     input[type="text"]:focus,
     input[type="email"]:focus,
-    textarea:focus {
+    input[type="tel"]:focus,
+    select:focus,
+    textarea:focus,
+    input[type="date"]:focus {
       border-color: #8b4513;
       outline: none;
     }
-    button[type="submit"] {
-      margin-top: 1.5rem;
+    textarea {
+      grid-column: 1 / -1;
+      min-height: 100px;
+    }
+    button {
+      grid-column: 1 / -1;
       background-color: #a0522d;
-      border: none;
       color: white;
-      padding: 0.7rem 2rem;
+      border: none;
+      padding: 0.8rem 0;
       border-radius: 30px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      user-select: none;
-      display: block;
-      width: 100%;
+      font-family: 'Playfair Display', serif;
     }
-    button[type="submit"]:hover,
-    button[type="submit"]:focus {
+    button:hover,
+    button:focus {
       background-color: #8b4513;
       outline: none;
     }
-    #success-message {
-      display: none;
-      margin-top: 1rem;
-      color: green;
-      font-weight: 700;
-      text-align: center;
-    }
-    a.back-link {
+    .back-link {
       display: inline-block;
       margin-bottom: 2rem;
       color: #a0522d;
       font-weight: 600;
       text-decoration: none;
       font-size: 1.1rem;
+      border: 2px solid #a0522d;
+      padding: 0.4rem 1rem;
+      border-radius: 12px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-    a.back-link:hover,
-    a.back-link:focus {
-      text-decoration: underline;
+    .back-link:hover,
+    .back-link:focus {
+      background-color: #a0522d;
+      color: #fff8f0;
       outline: none;
     }
-    @media (max-width: 600px) {
-      .form-row {
+    /* Side by side fields */
+    .side-by-side {
+      display: flex;
+      gap: 1rem;
+      grid-column: 1 / -1;
+    }
+    .side-by-side > div {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    @media (max-width: 480px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+      textarea,
+      button,
+      .side-by-side {
+        grid-column: 1 / 2;
         flex-direction: column;
+      }
+      .side-by-side > div {
+        margin-bottom: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <a href="index.html" class="back-link" aria-label="Back to home page">← Back to Home</a>
-  <h1>Contact Hennani Art</h1>
+  <div class="container">
+    <a href="index.html" class="back-link" aria-label="Back to home page">← Back to Home</a>
+    <h1>Contact Hennani Art</h1>
+    <p class="intro-text">
+      Thank you so much for considering Hennani Art for your henna journey!<br />
+      We’re happily accepting both bridal and non-bridal appointments for 2025, and bridal bookings for 2026.<br />
+      We look forward to creating something truly beautiful with you!<br /><br />
+      Please fill out the form below — once submitted, we will get back to you within 3–5 business days to discuss availability.<br />
+      To secure your date and time, a deposit and signed contract will be required.<br />
+      ✨ Please provide a valid email address so we can reach you easily.
+    </p>
+    <form action="https://formspree.io/f/xnnvgnye" method="POST" aria-label="Contact form for henna bookings and inquiries">
+      <label for="email">*Email Address</label>
+      <input type="email" id="email" name="_replyto" required aria-required="true" placeholder="your.email@example.com" />
 
-  <p class="intro">
-    Thank you so much for considering Hennani Art for your henna journey!<br>
-    We’re happily accepting both bridal and non-bridal appointments for 2025, and bridal bookings for 2026.<br>
-    We look forward to creating something truly beautiful with you!<br><br>
-    Please fill out the form below — once submitted, we will get back to you within 3–5 business days to discuss availability.<br>
-    To secure your date and time, a deposit and signed contract will be required.<br>
-    ✨ Please provide a valid email address so we can reach you easily.
-  </p>
-
-  <form id="contact-form" action="https://formspree.io/f/xnnvgnye" method="POST" aria-label="Contact form">
-    <div class="form-row">
-      <div class="form-group">
-        <label for="email">*Email Address</label>
-        <input type="email" id="email" name="_replyto" required aria-required="true" placeholder="your.email@example.com" />
+      <div class="side-by-side">
+        <div>
+          <label for="first-name">*First Name</label>
+          <input type="text" id="first-name" name="first-name" required aria-required="true" />
+        </div>
+        <div>
+          <label for="last-name">*Last Name</label>
+          <input type="text" id="last-name" name="last-name" required aria-required="true" />
+        </div>
       </div>
-      <div class="form-group">
-        <label for="referral">How did you hear about us?</label>
-        <input type="text" id="referral" name="referral" placeholder="e.g. Friend, Instagram" />
+
+      <label for="phone">Phone Number (optional)</label>
+      <input type="tel" id="phone" name="phone" placeholder="(optional)" />
+
+      <div class="side-by-side">
+        <div>
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" placeholder="City" />
+        </div>
+        <div>
+          <label for="state">State</label>
+          <select id="state" name="state" aria-label="Select State">
+            <option value="">Select State</option>
+            <option value="MD">Maryland</option>
+            <option value="VA">Virginia</option>
+            <option value="DC">District of Columbia</option>
+            <!-- Add more states if needed -->
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label for="firstName">*First Name</label>
-        <input type="text" id="firstName" name="firstName" required aria-required="true" placeholder="First Name" />
+      <div class="side-by-side">
+        <div>
+          <label for="event-date-start">Event Date Start</label>
+          <input type="date" id="event-date-start" name="event-date-start" />
+        </div>
+        <div>
+          <label for="event-date-end">Event Date End</label>
+          <input type="date" id="event-date-end" name="event-date-end" />
+        </div>
       </div>
-      <div class="form-group">
-        <label for="lastName">*Last Name</label>
-        <input type="text" id="lastName" name="lastName" required aria-required="true" placeholder="Last Name" />
-      </div>
-    </div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label for="eventLocation">Event Location</label>
-        <input type="text" id="eventLocation" name="eventLocation" placeholder="Street Address" />
-      </div>
-      <div class="form-group">
-        <label for="eventDates">Date(s) for Henna Event</label>
-        <input type="text" id="eventDates" name="eventDates" placeholder="From – To (e.g., 05/01/2025 – 05/03/2025)" />
-      </div>
-    </div>
+      <label for="hear-about">How did you hear about us?</label>
+      <select id="hear-about" name="hear-about" aria-label="How did you hear about us?">
+        <option value="">Please select</option>
+        <option value="Google Search">Google Search</option>
+        <option value="Social Media">Social Media</option>
+        <option value="Friend/Family">Friend or Family</option>
+        <option value="Event">Event</option>
+        <option value="Other">Other</option>
+      </select>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" aria-describedby="messageHelp" placeholder="Please include preferred time, design style, number of people, additional services, etc."></textarea>
+      <label for="message">Message (include event date, location, time preference, design style, number of people, or any additional info)</label>
+      <textarea id="message" name="message" placeholder="Please provide any details or questions you have." rows="5"></textarea>
 
-    <button type="submit">Send</button>
-    <p id="success-message" role="alert" aria-live="assertive">Thanks for your message! We will get back to you shortly.</p>
-  </form>
-
-  <script>
-    const form = document.getElementById('contact-form');
-    const successMessage = document.getElementById('success-message');
-
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          form.reset();
-          successMessage.style.display = 'block';
-        } else {
-          alert('Oops! There was a problem submitting your form.');
-        }
-      }).catch(() => {
-        alert('Oops! There was a problem submitting your form.');
-      });
-    });
-  </script>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
 </body>
 </html>
