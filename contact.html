@@ -3,161 +3,202 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact - Hennani Art</title>
-  <link href="https://g.co/kgs/XEstRwT/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+  <title>Contact Hennani Art</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Playfair Display', serif;
-      background-color: #fff3e0;
+      background-color: #fff8f0;
       color: #4e342e;
       margin: 0;
-      padding: 2rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 2rem 1rem;
+      min-height: 100vh;
     }
-    h1, h2 {
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      color: #4e342e;
+    }
+    .intro {
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
+      font-size: 1.15rem;
+      line-height: 1.6;
       text-align: center;
       color: #6d4c41;
+      white-space: pre-line;
     }
     form {
-      background: #fff8f0;
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: white;
       padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(160, 82, 45, 0.3);
+    }
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .form-group {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
     }
     label {
-      display: block;
       font-weight: 700;
-      margin-top: 1rem;
       margin-bottom: 0.3rem;
+      color: #6d4c41;
     }
-    input, select, textarea {
+    input[type="text"],
+    input[type="email"],
+    textarea {
       width: 100%;
       padding: 0.5rem;
-      font-size: 1rem;
       border-radius: 8px;
       border: 2px solid #a0522d;
-      box-sizing: border-box;
       font-family: 'Playfair Display', serif;
-    }
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: #8b4513;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
     }
     textarea {
       resize: vertical;
-      min-height: 100px;
+      min-height: 120px;
+      margin-top: 0.8rem;
     }
-    button {
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: #8b4513;
+      outline: none;
+    }
+    button[type="submit"] {
+      margin-top: 1.5rem;
       background-color: #a0522d;
+      border: none;
       color: white;
       padding: 0.7rem 2rem;
-      border: none;
       border-radius: 30px;
       font-size: 1.1rem;
       cursor: pointer;
-      margin-top: 1.5rem;
+      transition: background-color 0.3s ease;
+      user-select: none;
       display: block;
       width: 100%;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-      transition: background-color 0.3s ease;
     }
-    button:hover, button:focus {
+    button[type="submit"]:hover,
+    button[type="submit"]:focus {
       background-color: #8b4513;
       outline: none;
     }
-    .info-text {
-      margin-top: 1.5rem;
-      font-style: italic;
-      color: #6d4c41;
+    #success-message {
+      display: none;
+      margin-top: 1rem;
+      color: green;
+      font-weight: 700;
       text-align: center;
-      line-height: 1.5;
+    }
+    a.back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: #a0522d;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    a.back-link:hover,
+    a.back-link:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+    @media (max-width: 600px) {
+      .form-row {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-
+  <a href="index.html" class="back-link" aria-label="Back to home page">← Back to Home</a>
   <h1>Contact Hennani Art</h1>
 
-  <p class="info-text">
-    <strong>Thank you so much for considering Hennani Art for your henna journey!</strong><br />
-    We’re happily accepting both <strong>bridal and non-bridal appointments for 2025</strong>, and <strong>bridal bookings for 2026</strong>.<br />
-    We look forward to creating something truly beautiful with you!
-  </p>
-
-  <p class="info-text">
-    Please fill out the form below — once submitted, we will get back to you within <strong>3–5 business days</strong> to discuss availability.<br />
-    To secure your date and time, <strong>a deposit and signed contract will be required</strong>.<br />
+  <p class="intro">
+    Thank you so much for considering Hennani Art for your henna journey!<br>
+    We’re happily accepting both bridal and non-bridal appointments for 2025, and bridal bookings for 2026.<br>
+    We look forward to creating something truly beautiful with you!<br><br>
+    Please fill out the form below — once submitted, we will get back to you within 3–5 business days to discuss availability.<br>
+    To secure your date and time, a deposit and signed contract will be required.<br>
     ✨ Please provide a valid email address so we can reach you easily.
   </p>
 
-  <form action="https://formspree.io/f/xnnvgnye" method="POST" aria-label="Contact form">
+  <form id="contact-form" action="https://formspree.io/f/xnnvgnye" method="POST" aria-label="Contact form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email">*Email Address</label>
+        <input type="email" id="email" name="_replyto" required aria-required="true" placeholder="your.email@example.com" />
+      </div>
+      <div class="form-group">
+        <label for="referral">How did you hear about us?</label>
+        <input type="text" id="referral" name="referral" placeholder="e.g. Friend, Instagram" />
+      </div>
+    </div>
 
-    <label for="email">* Email Address</label>
-    <input type="email" id="email" name="_replyto" required aria-required="true" placeholder="you@example.com" />
+    <div class="form-row">
+      <div class="form-group">
+        <label for="firstName">*First Name</label>
+        <input type="text" id="firstName" name="firstName" required aria-required="true" placeholder="First Name" />
+      </div>
+      <div class="form-group">
+        <label for="lastName">*Last Name</label>
+        <input type="text" id="lastName" name="lastName" required aria-required="true" placeholder="Last Name" />
+      </div>
+    </div>
 
-    <label for="firstName">* First Name</label>
-    <input type="text" id="firstName" name="firstName" required aria-required="true" />
+    <div class="form-row">
+      <div class="form-group">
+        <label for="eventLocation">Event Location</label>
+        <input type="text" id="eventLocation" name="eventLocation" placeholder="Street Address" />
+      </div>
+      <div class="form-group">
+        <label for="eventDates">Date(s) for Henna Event</label>
+        <input type="text" id="eventDates" name="eventDates" placeholder="From – To (e.g., 05/01/2025 – 05/03/2025)" />
+      </div>
+    </div>
 
-    <label for="lastName">* Last Name</label>
-    <input type="text" id="lastName" name="lastName" required aria-required="true" />
+    <label for="message">Message</label>
+    <textarea id="message" name="message" aria-describedby="messageHelp" placeholder="Please include preferred time, design style, number of people, additional services, etc."></textarea>
 
-    <label for="phone">Phone Number (optional)</label>
-    <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" />
-
-    <label for="eventLocation">Event Location</label>
-    <input type="text" id="eventLocation" name="eventLocation" placeholder="Street Address, City, State, Zip" />
-
-    <label for="city">City</label>
-    <select id="city" name="city">
-      <option value="">-- Select City --</option>
-      <option value="Ellicott City">Ellicott City</option>
-      <option value="Baltimore">Baltimore</option>
-      <option value="Columbia">Columbia</option>
-      <option value="Annapolis">Annapolis</option>
-      <option value="Washington DC">Washington DC</option>
-      <!-- Add more cities as needed -->
-    </select>
-
-    <label for="state">State</label>
-    <select id="state" name="state">
-      <option value="">-- Select State --</option>
-      <option value="MD">Maryland</option>
-      <option value="VA">Virginia</option>
-      <option value="DC">District of Columbia</option>
-      <!-- Add more states if needed -->
-    </select>
-
-    <label for="postalCode">Postal / Zip Code</label>
-    <input type="text" id="postalCode" name="postalCode" />
-
-    <label for="country">Country</label>
-    <input type="text" id="country" name="country" value="USA" />
-
-    <label for="eventDateFrom">Event Date From</label>
-    <input type="date" id="eventDateFrom" name="eventDateFrom" />
-
-    <label for="eventDateTo">Event Date To</label>
-    <input type="date" id="eventDateTo" name="eventDateTo" />
-
-    <label for="message">Additional Services Inquiry / Message</label>
-    <textarea id="message" name="message" placeholder="Please include Event Date(s), Location, Preferred Time, Design Style, Number of People, and any other details."></textarea>
-
-    <label for="hearAbout">How did you hear about us?</label>
-    <select id="hearAbout" name="hearAbout">
-      <option value="">-- Please choose an option --</option>
-      <option value="Google Search">Google Search</option>
-      <option value="Facebook">Facebook</option>
-      <option value="Instagram">Instagram</option>
-      <option value="Friend/Family">Friend/Family</option>
-      <option value="Other">Other</option>
-    </select>
-
-    <button type="submit">Send Message</button>
+    <button type="submit">Send</button>
+    <p id="success-message" role="alert" aria-live="assertive">Thanks for your message! We will get back to you shortly.</p>
   </form>
 
+  <script>
+    const form = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          successMessage.style.display = 'block';
+        } else {
+          alert('Oops! There was a problem submitting your form.');
+        }
+      }).catch(() => {
+        alert('Oops! There was a problem submitting your form.');
+      });
+    });
+  </script>
 </body>
 </html>
