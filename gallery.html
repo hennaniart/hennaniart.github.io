@@ -87,30 +87,25 @@
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       text-align: center;
       cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      text-decoration: none;
+      color: inherit;
     }
     .gallery-item img {
       width: 100%;
       height: 300px;
       object-fit: cover;
       border-radius: 12px 12px 0 0;
-      user-select: none;
-      pointer-events: none;
     }
     .gallery-item:hover,
     .gallery-item:focus-within {
       transform: scale(1.03);
       box-shadow: 0 10px 18px rgba(90, 62, 27, 0.4);
-      outline: none;
     }
     .gallery-label {
       padding: 1rem;
       font-size: 1.3rem;
       font-weight: 600;
       color: #6d4c41;
-      user-select: none;
     }
     footer {
       text-align: center;
@@ -118,16 +113,14 @@
       padding: 2rem 1rem;
       background-color: rgba(255, 243, 224, 0.95);
       border-top: 1px solid #e0d2c0;
+      margin: 2rem auto;
       max-width: 900px;
-      margin: 0 auto 3rem auto;
       border-radius: 0 0 12px 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .social-icons a {
       margin: 0 0.5rem;
       color: #4e342e;
       text-decoration: none;
-      font-weight: 600;
     }
     .social-icons a:hover {
       color: #a0522d;
@@ -148,20 +141,20 @@
   <section>
     <h1>Gallery</h1>
     <div class="gallery-grid">
-      <a href="bridal.html" class="gallery-item" tabindex="0">
-        <img src="bridalcover.JPG" alt="Bridal Henna Designs" />
+      <a href="bridal.html" class="gallery-item">
+        <img src="bridalcover.JPG" alt="Bridal Henna Designs">
         <div class="gallery-label">Bridal Henna</div>
       </a>
-      <a href="party.html" class="gallery-item" tabindex="0">
-        <img src="partycover.JPG" alt="Party Henna Designs" />
+      <a href="party.html" class="gallery-item">
+        <img src="partycover.JPG" alt="Party Henna Designs">
         <div class="gallery-label">Party Henna</div>
       </a>
-      <a href="stain.html" class="gallery-item" tabindex="0">
-        <img src="staincover.JPG" alt="Stain Art" />
+      <a href="stain.html" class="gallery-item">
+        <img src="staincover.JPG" alt="Stain Art">
         <div class="gallery-label">Stain Art</div>
       </a>
-      <a href="portfolio.html" class="gallery-item" tabindex="0">
-        <img src="portfoliocover.JPG" alt="Portfolio Collection" />
+      <a href="portfolio.html" class="gallery-item">
+        <img src="portfoliocover.JPG" alt="Portfolio Collection">
         <div class="gallery-label">Portfolio</div>
       </a>
     </div>
@@ -170,9 +163,9 @@
   <footer>
     <div>© 2025 Hennani Art</div>
     <div class="social-icons">
-      <a href="https://facebook.com/hennaniart" target="_blank" rel="noopener noreferrer">Facebook</a> |
-      <a href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">Instagram</a> |
-      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank" rel="noopener noreferrer">Map</a>
+      <a href="https://facebook.com/hennaniart" target="_blank">Facebook</a> |
+      <a href="https://www.instagram.com/hennaniarts/" target="_blank">Instagram</a> |
+      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank">Map</a>
     </div>
   </footer>
 </body>
