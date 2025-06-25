@@ -2,156 +2,178 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Our Services - Hennani Art</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Services | Hennani Art</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
-    body {
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
       font-family: 'Playfair Display', serif;
       background: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/welcome.JPG') no-repeat center center fixed;
       background-size: cover;
       color: #4e342e;
-      margin: 0;
-      padding: 0;
       min-height: 100vh;
       position: relative;
+      scroll-behavior: smooth;
     }
-
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(255, 243, 224, 0.75);
+      background-color: rgba(255, 243, 224, 0.7);
       z-index: -1;
     }
-
-    .page-content {
-      background-color: rgba(255, 255, 255, 0.95);
-      margin: 2rem auto;
-      padding: 2rem;
-      max-width: 1000px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .logo {
-      max-width: 140px;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      color: #4e342e;
-      margin: 0.5rem 0;
-    }
-
     nav {
-      background-color: #fff3e0;
-      border-bottom: 2px solid #a0522d;
-      padding: 1rem 0;
-      text-align: center;
-      margin-bottom: 2rem;
+      background-color: rgba(255, 243, 224, 0.95);
+      border-bottom: 2px solid #d7ccc8;
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
-
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0.5rem 0;
+    }
+    nav li {
+      margin: 0.5rem 1rem;
+    }
     nav a {
       text-decoration: none;
       color: #4e342e;
       font-weight: 700;
-      font-size: 1.2rem;
-      margin: 0 1rem;
+      font-size: 1.1rem;
       transition: color 0.3s ease;
     }
-
     nav a:hover, nav a:focus {
       color: #a0522d;
     }
-
-    section.service {
-      margin-bottom: 2rem;
+    header, section, footer {
+      background-color: rgba(255, 243, 224, 0.88);
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      margin: 2rem auto;
+      max-width: 1000px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-
-    section.service h2 {
-      font-size: 1.8rem;
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.6rem;
       border-bottom: 2px solid #a0522d;
       padding-bottom: 0.3rem;
-      margin-bottom: 0.5rem;
-      color: #5d4037;
+      color: #6d4c41;
+      margin-top: 2rem;
     }
-
-    section.service p {
+    p {
       font-size: 1.1rem;
       line-height: 1.6;
-      margin: 0;
-      color: #4e342e;
+      color: #5d4037;
     }
-
     .contact-cta {
       text-align: center;
       margin-top: 3rem;
-    }
-
-    .contact-cta p {
       font-size: 1.2rem;
     }
-
     .contact-cta a {
       color: #a0522d;
       font-weight: 700;
       text-decoration: underline;
     }
-
     .contact-cta a:hover {
       color: #8b4513;
     }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      background-color: rgba(255, 243, 224, 0.95);
+      border-top: 1px solid #e0d2c0;
+      padding: 2rem 1rem;
+    }
+    .social-icons a {
+      margin: 0 0.5rem;
+      color: #4e342e;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      color: #a0522d;
     }
   </style>
 </head>
 <body>
-  <div class="page-content">
-    <header>
-      <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.PNG" alt="Hennani Art Logo" class="logo" />
-      <h1>Our Services</h1>
-    </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="service.html" aria-current="page">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="service.html" aria-current="page">Services</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <header>
+    <h1>Our Services</h1>
+  </header>
 
-    <!-- Services -->
-    <section class="service"><h2>Bridal Henna</h2><p>Traditional and intricate bridal henna designs to make your special day unforgettable...</p></section>
-    <section class="service"><h2>Sangeet Henna</h2><p>Festive henna designs perfect for the lively and joyous sangeet ceremony...</p></section>
-    <section class="service"><h2>Belly Blessing Henna</h2><p>Gentle and beautiful henna designs crafted especially for mothers-to-be...</p></section>
-    <section class="service"><h2>Festival Henna</h2><p>Celebrate Karwachauth, Eid, Holi, Diwali, and other special occasions...</p></section>
-    <section class="service"><h2>Corporate Henna</h2><p>Unique henna designs for corporate events, team-building activities...</p></section>
-    <section class="service"><h2>Birthday or Graduation</h2><p>Celebrate milestones with personalized henna designs...</p></section>
-    <section class="service"><h2>Henna for Fun</h2><p>Casual henna sessions to express yourself, try new designs...</p></section>
-    <section class="service"><h2>Henna Classes/Workshops <span style="font-style: italic; color: #a0522d;">(Coming Soon)</span></h2><p>Learn the art of henna with upcoming classes and workshops...</p></section>
-    <section class="service"><h2>Photo Shoot Henna</h2><p>Professional henna designs ideal for photo shoots...</p></section>
-    <section class="service"><h2>Henna Crowns</h2><p>Beautiful and empowering henna designs for those going through hair loss...</p></section>
-    <section class="service"><h2>Kids' Parties & Events</h2><p>Fun and age-appropriate henna designs for children's parties...</p></section>
-    <section class="service"><h2>Pop-Up/Vendor Events</h2><p>Available for pop-up shops, festivals, and vendor fairs...</p></section>
+  <section>
+    <h2>Bridal Henna</h2>
+    <p>Traditional and intricate bridal henna designs to make your special day unforgettable...</p>
+
+    <h2>Sangeet Henna</h2>
+    <p>Festive henna designs perfect for the lively and joyous sangeet ceremony...</p>
+
+    <h2>Belly Blessing Henna</h2>
+    <p>Gentle and beautiful henna designs crafted especially for mothers-to-be...</p>
+
+    <h2>Festival Henna</h2>
+    <p>Celebrate Karwachauth, Eid, Holi, Diwali, and other special occasions...</p>
+
+    <h2>Corporate Henna</h2>
+    <p>Unique henna designs for corporate events, team-building activities...</p>
+
+    <h2>Birthday or Graduation</h2>
+    <p>Celebrate milestones with personalized henna designs...</p>
+
+    <h2>Henna for Fun</h2>
+    <p>Casual henna sessions to express yourself, try new designs...</p>
+
+    <h2>Henna Classes/Workshops <span style="font-style: italic; color: #a0522d;">(Coming Soon)</span></h2>
+    <p>Learn the art of henna with upcoming classes and workshops...</p>
+
+    <h2>Photo Shoot Henna</h2>
+    <p>Professional henna designs ideal for photo shoots...</p>
+
+    <h2>Henna Crowns</h2>
+    <p>Beautiful and empowering henna designs for those going through hair loss...</p>
+
+    <h2>Kids' Parties & Events</h2>
+    <p>Fun and age-appropriate henna designs for children's parties...</p>
+
+    <h2>Pop-Up/Vendor Events</h2>
+    <p>Available for pop-up shops, festivals, and vendor fairs...</p>
 
     <div class="contact-cta">
       <p>Interested in booking a henna session or have questions? <a href="contact.html">Contact me here</a> to schedule your appointment or get more information.</p>
     </div>
-  </div>
+  </section>
+
+  <footer>
+    <div>© 2025 Hennani Art</div>
+    <div class="social-icons">
+      <a href="https://facebook.com/hennaniart" target="_blank">Facebook</a> |
+      <a href="https://www.instagram.com/hennaniarts/" target="_blank">Instagram</a> |
+      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank">Map</a>
+    </div>
+  </footer>
 </body>
 </html>
