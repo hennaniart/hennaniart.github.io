@@ -4,174 +4,160 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact - Hennani Art</title>
+  <link href="https://g.co/kgs/XEstRwT/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      color-scheme: light dark;
-      --bg-light: #fff8f0;
-      --bg-dark: #1e1e1e;
-      --text-light: #4e342e;
-      --text-dark: #f0e6dc;
-      --accent: #a0522d;
-    }
-
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-light);
+      font-family: 'Playfair Display', serif;
+      background-color: #fff3e0;
+      color: #4e342e;
       margin: 0;
-      padding: 1rem;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: var(--bg-dark);
-        color: var(--text-dark);
-      }
-    }
-
-    .container {
-      max-width: 700px;
-      margin: 2rem auto;
-      background: var(--bg-light);
-      border-radius: 12px;
       padding: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #6d4c41;
+    }
+    form {
+      background: #fff8f0;
+      padding: 2rem;
+      border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
-    @media (prefers-color-scheme: dark) {
-      .container {
-        background: #2e2e2e;
-      }
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    p.intro {
-      text-align: center;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    a.back-link {
-      display: inline-block;
-      margin-bottom: 1rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    form label {
-      font-weight: bold;
+    label {
       display: block;
+      font-weight: 700;
       margin-top: 1rem;
+      margin-bottom: 0.3rem;
     }
-    form input, form textarea, form select {
+    input, select, textarea {
       width: 100%;
-      padding: 0.6rem;
-      margin-top: 0.3rem;
-      border: 1px solid var(--accent);
-      border-radius: 8px;
+      padding: 0.5rem;
       font-size: 1rem;
-      font-family: inherit;
+      border-radius: 8px;
+      border: 2px solid #a0522d;
+      box-sizing: border-box;
+      font-family: 'Playfair Display', serif;
     }
-    textarea::placeholder {
-      color: #999;
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #8b4513;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
     }
     button {
-      margin-top: 1.5rem;
-      background-color: var(--accent);
+      background-color: #a0522d;
       color: white;
-      border: none;
       padding: 0.7rem 2rem;
-      font-size: 1rem;
+      border: none;
       border-radius: 30px;
+      font-size: 1.1rem;
       cursor: pointer;
+      margin-top: 1.5rem;
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: background-color 0.3s ease;
     }
-    button:hover {
+    button:hover, button:focus {
       background-color: #8b4513;
+      outline: none;
     }
-    .note {
-      font-size: 0.9rem;
-      margin-top: 1rem;
-      color: #555;
-    }
-    .date-group {
-      display: flex;
-      gap: 1rem;
-    }
-    .date-group input {
-      flex: 1;
+    .info-text {
+      margin-top: 1.5rem;
+      font-style: italic;
+      color: #6d4c41;
+      text-align: center;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <a href="index.html" class="back-link">&larr; Back to Home</a>
-    <h1>Contact</h1>
-    <p class="intro">
-      <strong>Thank you so much for considering Hennani Art for your henna journey!</strong><br>
-      We’re now accepting both Bridal and Non-Bridal appointments for 2025.<br>
-      Bridal bookings are also open for 2026.<br>
-      We can't wait to create something beautiful with you!
-    </p>
 
-    <form action="https://formspree.io/f/xnnvgnye" method="POST">
-      <label for="first-name">First Name *</label>
-      <input type="text" id="first-name" name="First Name" required>
+  <h1>Contact Hennani Art</h1>
 
-      <label for="last-name">Last Name *</label>
-      <input type="text" id="last-name" name="Last Name" required>
+  <p class="info-text">
+    <strong>Thank you so much for considering Hennani Art for your henna journey!</strong><br />
+    We’re happily accepting both <strong>bridal and non-bridal appointments for 2025</strong>, and <strong>bridal bookings for 2026</strong>.<br />
+    We look forward to creating something truly beautiful with you!
+  </p>
 
-      <label for="email">Email Address *</label>
-      <input type="email" id="email" name="Email" required>
+  <p class="info-text">
+    Please fill out the form below — once submitted, we will get back to you within <strong>3–5 business days</strong> to discuss availability.<br />
+    To secure your date and time, <strong>a deposit and signed contract will be required</strong>.<br />
+    ✨ Please provide a valid email address so we can reach you easily.
+  </p>
 
-      <label for="phone">Phone Number (optional)</label>
-      <input type="tel" id="phone" name="Phone">
+  <form action="https://formspree.io/f/xnnvgnye" method="POST" aria-label="Contact form">
 
-      <label for="event-location">Event Location</label>
-      <input type="text" id="event-location" name="Event Location">
+    <label for="email">* Email Address</label>
+    <input type="email" id="email" name="_replyto" required aria-required="true" placeholder="you@example.com" />
 
-      <label for="city">City</label>
-      <select id="city" name="City">
-        <option value="">Select City</option>
-        <option>Ellicott City</option>
-        <option>Baltimore</option>
-        <option>Washington DC</option>
-        <option>Virginia</option>
-      </select>
+    <label for="firstName">* First Name</label>
+    <input type="text" id="firstName" name="firstName" required aria-required="true" />
 
-      <label for="state">State</label>
-      <select id="state" name="State">
-        <option value="">Select State</option>
-        <option>Maryland</option>
-        <option>Virginia</option>
-        <option>DC</option>
-        <option>Pennsylvania</option>
-      </select>
+    <label for="lastName">* Last Name</label>
+    <input type="text" id="lastName" name="lastName" required aria-required="true" />
 
-      <label for="zip">Postal / Zip Code</label>
-      <input type="text" id="zip" name="Zip">
+    <label for="phone">Phone Number (optional)</label>
+    <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" />
 
-      <label>Event Date Range</label>
-      <div class="date-group">
-        <input type="date" name="Event Start Date">
-        <input type="date" name="Event End Date">
-      </div>
+    <label for="eventLocation">Event Location</label>
+    <input type="text" id="eventLocation" name="eventLocation" placeholder="Street Address, City, State, Zip" />
 
-      <label for="hear-about">How did you hear about us?</label>
-      <input type="text" id="hear-about" name="Referral Source">
+    <label for="city">City</label>
+    <select id="city" name="city">
+      <option value="">-- Select City --</option>
+      <option value="Ellicott City">Ellicott City</option>
+      <option value="Baltimore">Baltimore</option>
+      <option value="Columbia">Columbia</option>
+      <option value="Annapolis">Annapolis</option>
+      <option value="Washington DC">Washington DC</option>
+      <!-- Add more cities as needed -->
+    </select>
 
-      <label for="message">Tell us more *</label>
-      <textarea id="message" name="Message" rows="6" placeholder="Event Date, Location, Preferred Time, Design Style (e.g. traditional, floral), Number of People, Any other important details…" required></textarea>
+    <label for="state">State</label>
+    <select id="state" name="state">
+      <option value="">-- Select State --</option>
+      <option value="MD">Maryland</option>
+      <option value="VA">Virginia</option>
+      <option value="DC">District of Columbia</option>
+      <!-- Add more states if needed -->
+    </select>
 
-      <button type="submit">Send Message</button>
+    <label for="postalCode">Postal / Zip Code</label>
+    <input type="text" id="postalCode" name="postalCode" />
 
-      <p class="note">
-        Note: File uploads are not supported in this form. If you have inspiration photos, please mention that in your message and we’ll follow up via email.
-      </p>
-    </form>
-  </div>
+    <label for="country">Country</label>
+    <input type="text" id="country" name="country" value="USA" />
+
+    <label for="eventDateFrom">Event Date From</label>
+    <input type="date" id="eventDateFrom" name="eventDateFrom" />
+
+    <label for="eventDateTo">Event Date To</label>
+    <input type="date" id="eventDateTo" name="eventDateTo" />
+
+    <label for="message">Additional Services Inquiry / Message</label>
+    <textarea id="message" name="message" placeholder="Please include Event Date(s), Location, Preferred Time, Design Style, Number of People, and any other details."></textarea>
+
+    <label for="hearAbout">How did you hear about us?</label>
+    <select id="hearAbout" name="hearAbout">
+      <option value="">-- Please choose an option --</option>
+      <option value="Google Search">Google Search</option>
+      <option value="Facebook">Facebook</option>
+      <option value="Instagram">Instagram</option>
+      <option value="Friend/Family">Friend/Family</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <button type="submit">Send Message</button>
+  </form>
+
 </body>
 </html>
