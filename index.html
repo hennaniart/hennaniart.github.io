@@ -142,6 +142,101 @@
         font-size: 2rem;
       }
     }
+/* Testimonials */
+#testimonials .testimonial-carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.testimonial {
+  display: none;
+  padding: 1.5rem 2rem;
+  background-color: #fff8f0;
+  border-left: 6px solid #a0522d;
+  border-radius: 12px;
+  font-style: italic;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: opacity 0.5s ease;
+  color: #4e342e;
+}
+
+.testimonial.active {
+  display: block;
+}
+
+.stars {
+  font-size: 1.3rem;
+  color: #a0522d;
+  margin-bottom: 0.7rem;
+}
+
+.testimonial-author {
+  text-align: right;
+  margin-top: 1rem;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.testimonial-controls {
+  margin-top: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testimonial-controls button {
+  background-color: #a0522d;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  padding: 0.3rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-controls button:hover,
+.testimonial-controls button:focus {
+  background-color: #8b4513;
+  outline: none;
+}
+
+/* Pagination dots container */
+#testimonial-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#testimonial-dots button {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  background-color: #d7ccc8;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#testimonial-dots button.active {
+  background-color: #a0522d;
+}
+
+#testimonial-dots button:hover,
+#testimonial-dots button:focus {
+  background-color: #8b4513;
+  outline: none;
+}
+
   </style>
 </head>
 <body id="top">
@@ -167,6 +262,39 @@
       <br />Based in Ellicott City, Maryland, serving MD, VA & DC area.
     </p>
   </header>
+<!-- Testimonials -->
+<section id="testimonials" tabindex="-1" aria-labelledby="testimonials-title">
+  <h2 id="testimonials-title">Testimonials</h2>
+  <div class="testimonial-carousel" aria-live="polite">
+    <div class="testimonial active" role="group" aria-roledescription="testimonial" aria-label="Testimonial 1">
+      <div class="stars" aria-label="5 stars">★★★★★</div>
+      <p>
+        I reached out to Hennani Art for my engagement henna the last minute and Priya was so kind to give me an appointment the same day. The henna designs were beautiful and lasted perfectly!
+      </p>
+      <div class="testimonial-author">– Sreeja A N</div>
+    </div>
+    <div class="testimonial" role="group" aria-roledescription="testimonial" aria-label="Testimonial 2">
+      <div class="stars" aria-label="5 stars">★★★★★</div>
+      <p>
+        Priya is a very talented henna artist! She was easy to communicate with and quick to respond. Loved her creativity and attention to detail.
+      </p>
+      <div class="testimonial-author">– Deepa Parthasarathy</div>
+    </div>
+    <div class="testimonial" role="group" aria-roledescription="testimonial" aria-label="Testimonial 3">
+      <div class="stars" aria-label="5 stars">★★★★★</div>
+      <p>
+        Priya did my bridal henna and I am so happy! The designs were intricate and beautiful, and the henna paste was natural and safe.
+      </p>
+      <div class="testimonial-author">– Nisha K</div>
+    </div>
+  </div>
+  <div class="testimonial-controls" role="group" aria-label="Testimonial navigation">
+    <button id="prev-btn" aria-label="Previous testimonial">&#10094;</button>
+    <div id="testimonial-dots" aria-label="Testimonial pagination"></div>
+    <button id="next-btn" aria-label="Next testimonial">&#10095;</button>
+  </div>
+</section>
+
 
   <!-- Contact (Visible on Home) -->
   <section id="contact">
@@ -193,6 +321,56 @@
       <a href="https://goo.gl/maps/abcdef" target="_blank">Map</a>
     </div>
   </footer>
+ <script>
+  const testimonials = document.querySelectorAll('.testimonial');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const dotsContainer = document.getElementById('testimonial-dots');
+
+  let currentIndex = 0;
+
+  function showTestimonial(index) {
+    testimonials.forEach((t, i) => {
+      t.classList.toggle('active', i === index);
+    });
+    updateDots(index);
+  }
+
+  function updateDots(activeIndex) {
+    const dots = dotsContainer.querySelectorAll('button');
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === activeIndex);
+    });
+  }
+
+  function createDots() {
+    testimonials.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.setAttribute('aria-label', `Testimonial ${i + 1}`);
+      dot.addEventListener('click', () => {
+        currentIndex = i;
+        showTestimonial(currentIndex);
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % testimonials.length;
+    showTestimonial(currentIndex);
+  });
+
+  // Initialize
+  createDots();
+  showTestimonial(currentIndex);
+</script>
+
+</body>
 
 </body>
 </html>
