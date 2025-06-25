@@ -4,367 +4,186 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact Hennani Art</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      padding: 2rem 1rem 3rem;
       font-family: 'Playfair Display', serif;
-      font-style: italic;
-      background-color: #fff8f0;
+      background-color: #fffaf5;
       color: #4e342e;
-      min-height: 100vh;
+      margin: 0;
+      padding: 0;
     }
     .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #fffaf3;
-      padding: 2rem 2.5rem 3rem;
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #ffffff;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(90, 62, 27, 0.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     h1 {
+      font-family: 'Dancing Script', cursive;
       text-align: center;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-      color: #4e342e;
+      font-size: 2.4rem;
+      color: #6a3b2d;
     }
     p.intro {
       font-size: 1.1rem;
-      margin-bottom: 2rem;
-      line-height: 1.4;
       text-align: center;
-      font-style: normal;
-      font-weight: 400;
-      color: #6d4c41;
+      margin-bottom: 2rem;
     }
-    form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem 2rem;
-    }
-    /* Full width fields */
-    form > .full-width {
-      grid-column: 1 / -1;
-    }
-    label {
+    form label {
       display: block;
+      margin-top: 1rem;
       font-weight: 600;
-      margin-bottom: 0.4rem;
-      font-style: normal;
-      color: #5a3e1b;
     }
-    input, select, textarea {
+    form input, form textarea, form select {
       width: 100%;
-      padding: 0.5rem 0.8rem;
-      border: 1.8px solid #d9bfa3;
+      padding: 10px;
+      margin-top: 0.4rem;
+      border: 1px solid #ccc;
       border-radius: 8px;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
       font-size: 1rem;
-      color: #4e342e;
-      transition: border-color 0.3s ease;
+      font-family: inherit;
     }
-    input::placeholder,
-    textarea::placeholder {
-      color: #a18567;
-      font-style: italic;
+    .row {
+      display: flex;
+      gap: 1rem;
     }
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: none;
-      border-color: #a0522d;
-      background-color: #fff6e8;
+    .row .col {
+      flex: 1;
     }
-    textarea {
-      min-height: 110px;
-      resize: vertical;
+    .full-width {
+      width: 100%;
     }
     button {
-      grid-column: 1 / -1;
-      background-color: #a0522d;
-      color: #fff8f0;
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      background-color: #8b4a32;
+      color: white;
       border: none;
-      padding: 1rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-      border-radius: 12px;
+      border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      font-family: 'Playfair Display', serif;
-      font-style: normal;
     }
-    button:hover,
-    button:focus {
-      background-color: #6e3614;
-      outline: none;
+    button:hover {
+      background-color: #6a3b2d;
     }
-    a.back-link {
+    .back-button {
       display: inline-block;
-      margin-bottom: 2rem;
-      font-weight: 600;
-      font-style: normal;
-      color: #a0522d;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-    a.back-link:hover,
-    a.back-link:focus {
-      text-decoration: underline;
-      color: #6e3614;
-      outline: none;
-    }
-    /* Confirmation message */
-    #confirmation-message {
-      display: none;
-      text-align: center;
       margin-top: 2rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #4e342e;
+      color: #8b4a32;
+      text-decoration: none;
+      font-weight: bold;
     }
-    /* Responsive */
-    @media (max-width: 600px) {
-      form {
-        grid-template-columns: 1fr;
-      }
-      button {
-        font-size: 1.1rem;
-      }
-    }
-
-    /* Dark Mode */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #1e1e1e;
-        color: #ddd5c7;
-      }
-      .container {
-        background-color: #2a2a2a;
-        box-shadow: 0 4px 12px rgba(200, 180, 120, 0.2);
-      }
-      a.back-link {
-        color: #f0c674;
-      }
-      a.back-link:hover, a.back-link:focus {
-        color: #f9e79f;
-      }
-      input, select, textarea {
-        background-color: #3a3a3a;
-        color: #ddd5c7;
-        border: 1px solid #555;
-      }
-      input::placeholder,
-      textarea::placeholder {
-        color: #bbb;
-      }
-      button {
-        background-color: #f0c674;
-        color: #2a2a2a;
-      }
-      button:hover, button:focus {
-        background-color: #f9e79f;
-      }
-      label {
-        color: #f5deb3;
-      }
-      #confirmation-message {
-        color: #f0c674;
-      }
+    .back-button:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <a href="index.html" class="back-link">← Back to Home</a>
-    <h1>Contact Hennani Art</h1>
+    <h1>Let’s Plan Your Big Day!</h1>
     <p class="intro">
-      Thank you so much for considering Hennani Art for your henna journey!<br />
-      We’re happily accepting both bridal and non-bridal appointments for 2025, and bridal bookings for 2026.<br />
-      We look forward to creating something truly beautiful with you!<br /><br />
-      Please fill out the form below — once submitted, we will get back to you within 3–5 business days to discuss availability.<br />
-      To secure your date and time, a deposit and signed contract will be required.<br />
+      Thank you so much for considering Hennani Art for your henna journey!<br>
+      We’re happily accepting both bridal and non-bridal appointments for 2025,<br>
+      and bridal bookings for 2026. We look forward to creating something truly beautiful with you!<br><br>
+      Please fill out the form below — once submitted, we will get back to you within 3–5 business days to discuss availability.<br>
+      To secure your date and time, a deposit and signed contract will be required.<br>
       ✨ Please provide a valid email address so we can reach you easily.
     </p>
 
-    <form id="contact-form" action="https://formspree.io/f/xnnvgnye" method="POST" autocomplete="on">
-      <!-- Email full width -->
-      <label for="email" class="full-width">*Email Address</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="your.email@example.com"
-        required
-        class="full-width"
-        autocomplete="email"
-      />
+    <form action="https://formspree.io/f/xnnvgnye" method="POST">
+      <label>Email Address*</label>
+      <input type="email" name="email" placeholder="you@example.com" required class="full-width" />
 
-      <!-- Phone full width optional -->
-      <label for="phone" class="full-width">Phone Number (optional)</label>
-      <input
-        type="tel"
-        id="phone"
-        name="phone"
-        placeholder="(123) 456-7890"
-        class="full-width"
-        autocomplete="tel"
-      />
+      <label>Phone Number (optional)</label>
+      <input type="tel" name="phone" placeholder="(123) 456-7890" class="full-width" />
 
-      <!-- First and Last Name side by side -->
-      <label for="firstName">*First Name</label>
-      <input
-        type="text"
-        id="firstName"
-        name="firstName"
-        placeholder="First Name"
-        required
-        autocomplete="given-name"
-      />
+      <div class="row">
+        <div class="col">
+          <label>First Name*</label>
+          <input type="text" name="first_name" placeholder="First Name" required />
+        </div>
+        <div class="col">
+          <label>Last Name*</label>
+          <input type="text" name="last_name" placeholder="Last Name" required />
+        </div>
+      </div>
 
-      <label for="lastName">*Last Name</label>
-      <input
-        type="text"
-        id="lastName"
-        name="lastName"
-        placeholder="Last Name"
-        required
-        autocomplete="family-name"
-      />
+      <label>Event Location</label>
+      <input type="text" name="street" placeholder="Street Address" />
+      <input type="text" name="street2" placeholder="Address line 2" />
 
-      <!-- City and State side by side -->
-      <label for="city">City</label>
-      <select id="city" name="city" required>
-        <option value="" disabled selected>Select City</option>
-        <option>Alexandria</option>
-        <option>Arlington</option>
-        <option>Bethesda</option>
-        <option>Bowie</option>
-        <option>Chantilly</option>
-        <option>Chantilly</option>
-        <option>Fairfax</option>
-        <option>Falls Church</option>
-        <option>Fredericksburg</option>
-        <option>Gaithersburg</option>
-        <option>Germantown</option>
-        <option>Herndon</option>
-        <option>Leesburg</option>
-        <option>Manassas</option>
-        <option>Rockville</option>
-        <option>Reston</option>
-        <option>Silver Spring</option>
-        <option>Springfield</option>
-        <option>Woodbridge</option>
-        <!-- add more DMV cities as needed -->
-      </select>
+      <div class="row">
+        <div class="col">
+          <label>City</label>
+          <select name="city">
+            <option value="">Select City</option>
+            <option>Columbia</option>
+            <option>Ellicott City</option>
+            <option>Laurel</option>
+            <option>Silver Spring</option>
+            <option>Baltimore</option>
+            <option>Rockville</option>
+            <option>Germantown</option>
+            <option>Bethesda</option>
+            <option>Gaithersburg</option>
+            <option>Hanover</option>
+            <option>Jessup</option>
+            <option>Fulton</option>
+            <option>Clarksville</option>
+            <option>Catonsville</option>
+            <option>Odenton</option>
+            <option>Washington, DC</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>State</label>
+          <select name="state">
+            <option value="">Select State</option>
+            <option>MD</option>
+            <option>VA</option>
+            <option>DC</option>
+          </select>
+        </div>
+      </div>
 
-      <label for="state">State</label>
-      <select id="state" name="state" required>
-        <option value="" disabled selected>Select State</option>
-        <option>District of Columbia</option>
-        <option>Maryland</option>
-        <option>Virginia</option>
-      </select>
+      <label>Postal / Zip Code</label>
+      <input type="text" name="zip" placeholder="Zip Code" />
 
-      <!-- Date range side by side -->
-      <label for="dateFrom">Date From</label>
-      <input
-        type="date"
-        id="dateFrom"
-        name="dateFrom"
-        required
-        aria-label="Event start date"
-      />
+      <div class="row">
+        <div class="col">
+          <label>Event Start Date*</label>
+          <input type="date" name="event_start" required />
+        </div>
+        <div class="col">
+          <label>Event End Date*</label>
+          <input type="date" name="event_end" required />
+        </div>
+      </div>
 
-      <label for="dateTo">Date To</label>
-      <input
-        type="date"
-        id="dateTo"
-        name="dateTo"
-        required
-        aria-label="Event end date"
-      />
-
-      <!-- Design style preference -->
-      <label for="designStyle">Design Style Preference</label>
-      <select id="designStyle" name="designStyle" required>
-        <option value="" disabled selected>Select Style</option>
-        <option>Traditional</option>
-        <option>Modern</option>
-        <option>Floral</option>
-        <option>Geometric</option>
-        <option>Other</option>
-      </select>
-
-      <!-- Number of people -->
-      <label for="numberPeople">Number of People</label>
-      <input
-        type="number"
-        id="numberPeople"
-        name="numberPeople"
-        min="1"
-        placeholder="1"
-      />
-
-      <!-- How did you hear about us? -->
-      <label for="heardAbout">How did you hear about us?</label>
-      <select id="heardAbout" name="heardAbout" required>
-        <option value="" disabled selected>Select an option</option>
-        <option>Google Search</option>
+      <label>How did you hear about us?</label>
+      <select name="referral">
+        <option value="">Select an option</option>
         <option>Instagram</option>
         <option>Facebook</option>
+        <option>Google</option>
         <option>Friend or Family</option>
-        <option>Event or Vendor</option>
+        <option>Event</option>
         <option>Other</option>
       </select>
 
-      <!-- Message textarea full width -->
-      <label for="message" class="full-width">Event Details & Additional Requests</label>
-      <textarea
-        id="message"
-        name="message"
-        placeholder="Please include Event Date, Location, Preferred Time, and any additional services you're interested in..."
-        class="full-width"
-      ></textarea>
+      <label>Additional Notes</label>
+      <textarea name="message" rows="5" placeholder="Event details, preferred time, other services..." required></textarea>
 
-      <button type="submit">Submit</button>
+      <p style="font-size: 0.9rem; color: #6e4d3b; margin-top: 1rem;">Note: If you'd like to share inspiration photos, please email them directly to <strong>hennaniart@gmail.com</strong>.</p>
+
+      <button type="submit">Submit Inquiry</button>
     </form>
 
-    <div id="confirmation-message">
-      Thank you for your message! We will get back to you within 3–5 business days.
-    </div>
+    <a href="index.html" class="back-button">← Back to Home</a>
   </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('contact-form');
-      const confirmation = document.getElementById('confirmation-message');
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(form);
-        try {
-          const response = await fetch(form.action, {
-            method: form.method,
-            headers: { 'Accept': 'application/json' },
-            body: formData
-          });
-          if (response.ok) {
-            form.style.display = 'none';
-            confirmation.style.display = 'block';
-          } else {
-            alert('Oops! There was a problem submitting your form.');
-          }
-        } catch (error) {
-          alert('Oops! There was a problem submitting your form.');
-        }
-      });
-    });
-  </script>
 </body>
 </html>
