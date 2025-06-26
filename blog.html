@@ -3,27 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Henna Blog | Hennani Art</title>
+  <title>Henna Care & Insights - Hennani Art</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
     html, body {
       margin: 0;
       padding: 0;
       font-family: 'Playfair Display', serif;
-      scroll-behavior: smooth;
       background: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/welcome.JPG') no-repeat center center fixed;
       background-size: cover;
       color: #4e342e;
+      scroll-behavior: smooth;
       min-height: 100vh;
       position: relative;
     }
     body::before {
       content: "";
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background-color: rgba(255, 243, 224, 0.7);
       z-index: -1;
     }
@@ -32,65 +30,81 @@
       border-bottom: 2px solid #d7ccc8;
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
     }
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 1rem;
       margin: 0;
-      padding: 0.5rem 0;
     }
-    nav li {
-      margin: 0.5rem 1rem;
-    }
-    nav a {
+    nav li a {
       text-decoration: none;
       color: #4e342e;
       font-weight: 700;
       font-size: 1.1rem;
-      transition: color 0.3s ease;
     }
-    nav a:hover, nav a:focus {
+    nav li a:hover,
+    nav li a:focus {
       color: #a0522d;
+      outline: none;
     }
-    header, section, footer {
-      background-color: rgba(255, 243, 224, 0.88);
-      padding: 2rem 1.5rem;
-      border-radius: 12px;
-      margin: 2rem auto;
+    main {
       max-width: 900px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 243, 224, 0.88);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
     }
     h1 {
-      text-align: center;
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
     h2 {
-      font-size: 1.6rem;
-      color: #6d4c41;
-      margin-bottom: 0.75rem;
+      font-size: 1.8rem;
+      margin-top: 2rem;
     }
     p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #5d4037;
+      line-height: 1.7;
+      margin: 1rem 0;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    li {
+      margin: 0.5rem 0;
     }
     footer {
       text-align: center;
       font-size: 0.9rem;
+      color: #795548;
+      padding: 2rem 1rem;
       background-color: rgba(255, 243, 224, 0.95);
       border-top: 1px solid #e0d2c0;
+      margin-top: 3rem;
     }
-    .social-icons a {
+    footer .social-icons {
+      margin-top: 1rem;
+    }
+    footer .social-icons a {
       margin: 0 0.5rem;
       color: #4e342e;
       text-decoration: none;
+      display: inline-block;
+      transition: color 0.3s ease;
     }
-    .social-icons a:hover {
+    footer .social-icons a:hover,
+    footer .social-icons a:focus {
       color: #a0522d;
+    }
+    footer .social-icons svg {
+      vertical-align: middle;
     }
   </style>
 </head>
@@ -104,27 +118,37 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
+  <main>
+    <h1>All About Henna: Insights & Care</h1>
 
-  <header>
-    <h1>Henna Blog</h1>
-    <p style="text-align: center;">Tips, Care, and Henna Inspiration</p>
-  </header>
+    <h2>What is Henna?</h2>
+    <p>Henna, also known as mehndi, is a natural plant-based dye made from the leaves of the Lawsonia inermis plant. Used for centuries in South Asia, the Middle East, and North Africa, henna is traditionally applied to the skin in intricate patterns for celebrations, weddings, and festivals. When applied, henna leaves behind a reddish-brown stain that fades naturally over 1–3 weeks.</p>
 
-  <section>
-    <h2>What Is Henna?</h2>
-    <p>Henna is a natural dye made from the leaves of the henna plant. For centuries, it's been used to adorn the skin with beautiful temporary designs during special celebrations and rituals.</p>
-  </section>
+    <h2>Before Your Henna Appointment</h2>
+    <ul>
+      <li>Shave or wax at least 24–48 hours before your appointment. Avoid doing it the same day.</li>
+      <li>Do not apply lotions, oils, or creams on the area where henna will be applied.</li>
+      <li>Wear comfortable, loose clothing that allows easy access to the area being decorated.</li>
+      <li>Drink water and eat something light—relaxing helps with stillness and better results.</li>
+    </ul>
 
-  <section>
-    <h2>Before & After Henna Care</h2>
-    <p>For the best stain, avoid lotion before your henna session, and keep the paste on as long as possible. After removal, avoid water for 12–24 hours and moisturize daily to deepen the color.</p>
-  </section>
+    <h2>Aftercare Tips</h2>
+    <ul>
+      <li>Leave the paste on for 4–8 hours (or overnight if possible) for the darkest stain.</li>
+      <li>Scrape off dried henna—do not wash with water immediately.</li>
+      <li>Apply lemon-sugar mixture or sealant to keep the paste moist (if provided).</li>
+      <li>Avoid water, soap, and sweat for the first 12–24 hours after removing the paste.</li>
+      <li>The stain will darken over 48 hours—expect a peak rich brown or maroon shade.</li>
+    </ul>
 
-  <section>
     <h2>How Long Does Henna Last?</h2>
-    <p>Henna typically lasts 7–14 days depending on your skin type and how well you care for it. The design starts darkening 24 hours after paste removal, reaching its deepest stain in 2 days.</p>
-  </section>
+    <p>The stain typically lasts 7–14 days depending on skin type, care, and placement. Hands and feet tend to stain darkest and last longest, while other areas may fade sooner. Gentle care can help preserve the design.</p>
 
+    <h2>Is Henna Safe?</h2>
+    <p>Natural henna is generally safe and non-toxic. At Hennani Art, we only use 100% natural, fresh henna with no additives or harmful chemicals. We never use "black henna," which can contain dangerous substances like PPD.</p>
+
+    <p>If you have any allergies or skin sensitivities, please inform us beforehand so we can accommodate you accordingly.</p>
+  </main>
   <footer>
     <div>© 2025 Hennani Art</div>
     <div class="social-icons">
