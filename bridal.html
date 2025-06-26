@@ -6,13 +6,24 @@
   <title>Bridal Henna Gallery - Hennani Art</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
-    body {
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
       margin: 0;
       padding: 0;
       font-family: 'Playfair Display', serif;
-      background-color: #fff8f0;
+      background: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/welcome.JPG') no-repeat center center fixed;
+      background-size: cover;
       color: #4e342e;
       scroll-behavior: smooth;
+      min-height: 100vh;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-color: rgba(255, 243, 224, 0.7);
+      z-index: -1;
     }
 
     nav {
@@ -45,7 +56,10 @@
     main {
       max-width: 1000px;
       margin: 2rem auto;
-      padding: 0 1rem;
+      padding: 2rem;
+      background-color: rgba(255, 243, 224, 0.88);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .back-link {
@@ -119,11 +133,19 @@
 <body>
 
   <!-- Navigation -->
-
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
   <!-- Main content -->
   <main>
-     <a href="index.html" class="back-link" aria-label="Home">← Home</a>
+    <a href="index.html" class="back-link" aria-label="Home">← Home</a>
     <a href="gallery.html" class="back-link" aria-label="Back to Gallery">← Back to Gallery</a>
     <h1>Bridal Henna Gallery</h1>
     <section class="gallery" role="list" aria-label="Bridal henna designs">
@@ -147,7 +169,7 @@
       <a href="https://facebook.com/hennaniart" target="_blank" aria-label="Facebook">
         <svg width="24" height="24" fill="#4e342e" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.337v21.326C0 23.4.6 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.1 2.797.143v3.24h-1.918c-1.5 0-1.793.713-1.793 1.76v2.31h3.586l-.467 3.622h-3.12V24h6.116C23.4 24 24 23.4 24 22.663V1.337C24 .6 23.4 0 22.675 0z"/></svg>
       </a>
-      <a href="https://goo.gl/maps/abcd1234" target="_blank" aria-label="Google Maps">
+      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank" aria-label="Google Maps">
         <svg width="24" height="24" fill="#4e342e" viewBox="0 0 24 24"><path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zM12 11.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z"/></svg>
       </a>
     </div>
