@@ -327,3 +327,40 @@ footer a:hover{ color:var(--accent); }
     grid-template-columns: 1fr;i
   }
 }
+/* ===== Fix logo alignment on mobile ===== */
+.brand-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap: wrap;
+}
+
+.brand-text{
+  min-width: 200px;
+}
+
+@media (max-width: 520px){
+  .brand-row{
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .brand-logo{
+    width: 48px;
+    height: 48px;
+    padding: 6px;
+  }
+
+  .tagline{
+    font-size: 16px;
+    line-height: 1.3;
+  }
+}.subtitle{
+  margin-top: 10px;
+  color: var(--muted);
+  font-weight: 600;
+}.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
