@@ -1,7 +1,6 @@
 /* ==========================================
    Hennani Art – Premium Mobile-First Styles
-   Works on iPhone • iPad • Laptop
-   (Clean + No duplicates + No conflicts)
+   Clean + No duplicates + No conflicts
 ========================================== */
 
 /* ---------- VARIABLES ---------- */
@@ -23,7 +22,7 @@ html,body{
   margin:0;
   padding:0;
   max-width:100%;
-  overflow-x:hidden; /* stops horizontal scroll/zoom issues */
+  overflow-x:hidden;
 }
 
 body{
@@ -33,13 +32,10 @@ body{
   line-height: 1.6;
 }
 
-/* Images never overflow */
 img{
   max-width:100%;
   height:auto;
   display:block;
-
-  /* iOS tap safety */
   -webkit-user-select: none;
   -webkit-touch-callout: none;
 }
@@ -102,7 +98,6 @@ nav a:hover{ color:var(--accent); }
   height:42vh;
   min-height:280px;
   object-fit:cover;
-  display:block;
 }
 
 .hero-overlay{
@@ -114,7 +109,6 @@ nav a:hover{ color:var(--accent); }
   );
 }
 
-/* Logo + Title (fixed, clean, responsive) */
 .brand-row{
   display:flex;
   align-items:center;
@@ -136,16 +130,63 @@ nav a:hover{ color:var(--accent); }
   min-width: 200px;
 }
 
+.hero-copy{
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 @media (max-width: 520px){
+  .hero-overlay{ padding: 18px 16px; }
+
   .brand-row{
     flex-wrap: nowrap;
     align-items: center;
+    gap: 14px;
   }
+
   .brand-logo{
-    width: 48px;
-    height: 48px;
-    padding: 6px;
+    width:64px;
+    height:64px;
+    padding:8px;
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.08);
   }
+
+  .brand-text h1{
+    font-size: 30px;
+    line-height: 1.05;
+  }
+
+  .tagline{
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .hero-copy{
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    padding:12px 14px;
+    border-radius:16px;
+    font-size:16px;
+  }
+
+  .subtitle{
+    font-size: 13px;
+    line-height: 1.35;
+  }
+}
+
+@media (min-width: 521px) and (max-width: 1024px){
+  .brand-logo{ width:64px; height:64px; }
+  .hero-copy{ font-size: 16px; }
+  .subtitle{ font-size: 14px; }
 }
 
 /* ---------- TYPOGRAPHY ---------- */
@@ -158,6 +199,13 @@ h1{
 h2{
   margin: 0 0 10px;
   font-size:clamp(20px,2.4vw,28px);
+}
+
+.section-title{
+  margin: 0 0 10px;
+  text-align:center;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.15;
 }
 
 .tagline{
@@ -188,6 +236,106 @@ h2{
 
 .btn:hover{ background:var(--accent); }
 
+/* ---------- HOMEPAGE: REVIEWS ---------- */
+.rating-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.stars{
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.stars.small{ font-size: 16px; letter-spacing: 1px; }
+
+.rating-text{
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.reviews-grid{
+  display:grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+  margin-top: 10px;
+}
+
+.review{
+  background: rgba(255,255,255,.72);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+}
+
+.review-text{
+  margin: 8px 0 10px;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.review-name{
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+@media (min-width: 820px){
+  .reviews-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.center{ text-align:center; }
+.mt-14{ margin-top: 14px; }
+
+.link-pill{
+  display:inline-block;
+  margin: 8px 8px 0;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.78);
+  color: var(--text);
+  text-decoration:none;
+  font-weight:700;
+}
+.link-pill:hover{ color: var(--accent); }
+
+/* ---------- HOMEPAGE: QR ---------- */
+.qr-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+.qr-img{
+  width: min(240px, 70vw);
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(0,0,0,.10);
+  padding: 10px;
+}
+
+.qr-sub{
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+.qr-sub a{
+  color: var(--text);
+  font-weight: 800;
+  text-decoration: none;
+}
+.qr-sub a:hover{ color: var(--accent); }
+
 /* ---------- BREADCRUMB PILLS ---------- */
 .breadcrumb{
   display:flex;
@@ -206,29 +354,18 @@ h2{
   text-decoration: none;
   font-weight: 700;
 }
-
 .pill:hover{ color: var(--accent); }
 
-/* ==========================================
-   ✅ UNIVERSAL GALLERY GRID (ONE SYSTEM)
-   Works for:
-   - Bridal (.portrait-gallery)
-   - Party (.portrait-gallery or .gallery-grid)
-   - Stain (.gallery-grid)
-   - Portfolio (.gallery-grid)
-========================================== */
-
-/* Make all gallery wrappers behave the same */
+/* ---------- UNIVERSAL GALLERY GRID ---------- */
 .gallery,
 .gallery-grid,
 .portrait-gallery{
   display: grid;
   gap: 14px;
   margin-top: 18px;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* iPhone default: 2 */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-/* iPad */
 @media (min-width: 700px){
   .gallery,
   .gallery-grid,
@@ -238,7 +375,6 @@ h2{
   }
 }
 
-/* Laptop */
 @media (min-width: 1100px){
   .gallery,
   .gallery-grid,
@@ -248,17 +384,15 @@ h2{
   }
 }
 
-/* Images inside any gallery grid */
 .gallery img,
 .gallery-grid img,
 .portrait-gallery img{
   width: 100%;
-  aspect-ratio: 3 / 4; /* portrait lock */
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 16px;
   border: 1px solid var(--border);
   box-shadow: 0 10px 26px rgba(0,0,0,.10);
-  display: block;
   cursor: pointer;
   transition: transform .22s ease, box-shadow .22s ease;
   background: rgba(255,255,255,.65);
@@ -271,64 +405,8 @@ h2{
   box-shadow: 0 18px 40px rgba(0,0,0,.16);
 }
 
-/* Thumb wrappers should NOT interfere */
-.thumb{ margin: 0; padding: 0; }
-
-/* ---------- CATEGORY / GALLERY LANDING CARDS ---------- */
-.category-grid{
-  display:grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 14px;
-  margin-top: 16px;
-}
-
-.category-card{
-  grid-column: span 6;
-  text-decoration: none;
-  color: inherit;
-  background: rgba(255,255,255,.82);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.category-card:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 18px 42px rgba(0,0,0,.14);
-}
-
-.category-thumb{
-  width:100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-}
-
-.category-body{ padding: 14px 14px 16px; }
-
-.category-title{
-  margin: 0;
-  font-size: 22px;
-  line-height: 1.2;
-}
-
-.category-sub{
-  margin: 6px 0 0;
-  color: var(--muted);
-  font-size: 15px;
-}
-
-/* iPhone */
-@media (max-width: 520px){
-  .category-card{ grid-column: span 12; }
-  .category-thumb{ aspect-ratio: 3 / 4; }
-}
-
-/* Laptop */
-@media (min-width: 900px){
-  .category-card{ grid-column: span 3; }
-}
+/* Make thumb wrappers neutral (if any pages still have them) */
+.thumb{ margin:0; padding:0; }
 
 /* ---------- FOOTER ---------- */
 footer{
@@ -345,151 +423,13 @@ footer a{
   text-decoration:none;
   font-weight:700;
 }
-
 footer a:hover{ color:var(--accent); }
 
-/* (Optional) super tiny phones safety */
+/* Super tiny phones safety */
 @media (max-width: 360px){
   .gallery,
   .gallery-grid,
   .portrait-gallery{
     grid-template-columns: 1fr;
   }
-}
-/* ==============================
-   HOME HERO – Mobile polish
-   (logo impact + text hierarchy)
-============================== */
-
-/* Make the hero feel more “luxury” on phones */
-@media (max-width: 520px){
-
-  /* More breathing room */
-  .hero-overlay{
-    padding: 18px 16px;
-  }
-
-  /* Bigger logo + tighter alignment */
-  .brand-row{
-    gap: 14px;
-    align-items: center;
-  }
-
-  .brand-logo{
-    width: 64px;          /* 🔥 bigger impact */
-    height: 64px;
-    padding: 8px;
-    border-radius: 16px;
-    box-shadow: 0 10px 24px rgba(0,0,0,.08);
-  }
-
-  /* Title and tagline scale down a bit */
-  .brand-text h1{
-    font-size: 30px;
-    line-height: 1.05;
-    letter-spacing: .2px;
-  }
-
-  .tagline{
-    font-size: 15px;      /* smaller + elegant */
-    line-height: 1.25;
-    margin-top: 6px;
-  }
-
-  /* Make paragraph lighter and smaller */
-  .hero-copy{
-    font-size: 15px;
-    line-height: 1.55;
-    margin-top: 12px;
-    color: var(--muted);
-  }
-
-  /* Button: slightly smaller + centered */
-  .btn{
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-top: 14px;
-    padding: 12px 14px;
-    border-radius: 16px;
-    font-size: 16px;
-  }
-
-  /* That bottom “Bridal • Events…” line is too big right now */
-  .hero-overlay .subtitle{
-    font-size: 13px;
-    line-height: 1.35;
-    margin-top: 12px;
-    opacity: .9;
-  }
-}
-
-/* iPad: keep it polished */
-@media (min-width: 521px) and (max-width: 1024px){
-  .brand-logo{
-    width: 64px;
-    height: 64px;
-  }
-  .hero-copy{
-    font-size: 16px;
-  }
-  .hero-overlay .subtitle{
-    font-size: 14px;
-  }
-}
-/* ===========================================
-   FINAL OVERRIDE: FIX “GIANT SINGLE IMAGE”
-   Bridal / Party / Stain / Portfolio
-   Put this at the VERY BOTTOM of styles.css
-=========================================== */
-
-.gallery,
-.gallery-grid,
-.portrait-gallery{
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 14px !important;
-  margin-top: 18px;
-}
-
-/* iPad */
-@media (min-width: 700px){
-  .gallery,
-  .gallery-grid,
-  .portrait-gallery{
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 16px !important;
-  }
-}
-
-/* Desktop */
-@media (min-width: 1100px){
-  .gallery,
-  .gallery-grid,
-  .portrait-gallery{
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-    gap: 18px !important;
-  }
-}
-
-/* Party/Stain/Portfolio use .thumb wrappers — make them neutral */
-.thumb{
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-}
-
-/* Apply same tile look everywhere */
-.gallery img,
-.gallery-grid img,
-.portrait-gallery img{
-  width: 100% !important;
-  aspect-ratio: 3 / 4 !important;
-  object-fit: cover !important;
-  height: auto !important;
-
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 26px rgba(0,0,0,.10);
-  display: block !important;
 }
