@@ -283,3 +283,42 @@ footer a:hover {
 @media (max-width: 520px){
   .gallery-card{ grid-column: span 12; }
 }
+/* ===== Portrait Bridal / Party / Stain Galleries ===== */
+
+.portrait-gallery{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.portrait-gallery img.zoomable{
+  grid-column: span 4;
+  width: 100%;
+  aspect-ratio: 3 / 4;     /* 🔒 portrait lock */
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  cursor: pointer;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.portrait-gallery img.zoomable:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(0,0,0,.14);
+}
+
+/* Tablet */
+@media (max-width: 900px){
+  .portrait-gallery img.zoomable{
+    grid-column: span 6;
+  }
+}
+
+/* Phone */
+@media (max-width: 520px){
+  .portrait-gallery img.zoomable{
+    grid-column: span 12;
+  }
+}
