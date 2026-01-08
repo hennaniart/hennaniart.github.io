@@ -206,7 +206,7 @@ h2{
   filter: drop-shadow(0 14px 26px rgba(0,0,0,.38));
 }
 
-/* NEW: CTA row in hero */
+/* CTA row in hero */
 .hero-actions{
   display:flex;
   gap: 12px;
@@ -217,7 +217,7 @@ h2{
 .hero-cta{
   display:inline-block;
   padding: 14px 26px;
-  border-radius: 0; /* keep clean luxury edge */
+  border-radius: 0; /* clean luxury edge */
   background: rgba(0,0,0,.82);
   color:#fff;
   text-decoration:none;
@@ -338,7 +338,8 @@ h2{
 }
 
 /* ==========================================
-   ✅ UNIVERSAL GALLERY GRID (keep your look)
+   ✅ UNIVERSAL GALLERY GRID (inner gallery pages)
+   bridal / party / stain / portfolio
 ========================================== */
 .gallery,
 .gallery-grid,
@@ -495,12 +496,122 @@ footer a{
   font-weight:700;
 }
 footer a:hover{ color:var(--accent); }
+
+/* ==========================================
+   GALLERY LANDING PAGE (gallery.html)
+   Fix: thumbnails were too large + landscape
+   Keep them elegant + portrait-friendly
+========================================== */
+
+/* Make gallery landing container not feel giant on wide screens */
+.container.page{
+  width: min(980px, 92%);
+}
+
+/* Category grid (your gallery landing cards) */
+.category-grid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.category-card{
+  grid-column: span 6;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255,255,255,.82);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden; /* important for image crop */
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.category-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(0,0,0,.14);
+}
+
+/* Key fix: cap height so they don't become banners */
+.category-thumb{
+  width: 100%;
+  height: clamp(180px, 26vh, 260px); /* prevents huge blocks */
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.category-body{
+  padding: 12px 14px 14px;
+}
+
+.category-title{
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.category-sub{
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* iPhone: single column */
+@media (max-width: 520px){
+  .category-card{ grid-column: span 12; }
+  .category-thumb{ height: 220px; }
+}
+
+/* iPad / large tablet: 2 across looks premium */
+@media (min-width: 820px) and (max-width: 1199px){
+  .category-card{ grid-column: span 6; }
+  .category-grid{ gap: 16px; }
+  .category-thumb{ height: 240px; }
+}
+
+/* Desktop: 4 across but keep image height capped */
+@media (min-width: 1200px){
+  .category-card{ grid-column: span 3; }
+  .category-grid{ gap: 22px; }
+  .category-thumb{ height: 240px; }
+}
+
+/* ==========================================
+   iPAD / LARGE TABLET REFINEMENT
+   Fixes “in-between” look without changing mobile
+========================================== */
+@media (min-width: 820px) and (max-width: 1199px){
+
+  /* Hero less tall */
+  .hero-full{
+    height: 62vh;
+    max-height: 680px;
+  }
+
+  .hero-logo{
+    width: 260px;
+  }
+
+  .card{
+    padding: 16px;
+  }
+
+  .cta-row{
+    gap: 10px;
+  }
+
+  .btn{
+    padding: 12px 16px;
+  }
+}
+
 /* ==========================================
    DESKTOP REFINEMENT (does NOT affect mobile)
 ========================================== */
 @media (min-width: 1200px){
 
-  /* Hero: slightly shorter on large screens */
   .hero-full{
     height: 72vh;
     max-height: 760px;
@@ -510,119 +621,11 @@ footer a:hover{ color:var(--accent); }
     width: 280px;
   }
 
-  /* Reduce card padding so pages feel lighter */
   .card{
     padding: 16px;
   }
 
-  /* Gallery landing (category grid) */
-  .category-grid{
-    gap: 22px;
-  }
-
-  .category-thumb{
-    aspect-ratio: 3 / 4;
-  }
-
-  .category-title{
-    font-size: 18px;
-  }
-
-  .category-sub{
-    font-size: 13px;
-  }
-
-  /* Reduce vertical spacing between sections */
   .section{
     margin: 14px 0;
-  }
-}
-/* ==========================================
-   iPAD / LARGE TABLET REFINEMENT (fixes “in-between” look)
-   Targets iPad landscape + iPad Pro widths
-========================================== */
-@media (min-width: 820px) and (max-width: 1199px){
-
-  /* Hero: less tall so it doesn't feel overwhelming */
-  .hero-full{
-    height: 62vh;
-    max-height: 680px;
-  }
-
-  /* Logo slightly smaller so the hero feels balanced */
-  .hero-logo{
-    width: 260px;
-  }
-
-  /* Cards: a bit tighter */
-  .card{
-    padding: 16px;
-  }
-
-  /* Buttons row: keep it neat on iPad */
-  .cta-row{
-    gap: 10px;
-  }
-  .btn{
-    padding: 12px 16px;
-  }
-
-  /* Gallery landing tiles: reduce “big blocks” feeling */
-  .category-grid{
-    gap: 16px;
-  }
-
-  /* 2 across on iPad (looks cleaner than 3/4 crowded) */
-  .category-card{
-    grid-column: span 6;
-  }
-
-  .category-title{
-    font-size: 20px;
-  }
-  .category-sub{
-    font-size: 14px;
-  }
-}/* ==========================================
-   FIX: Gallery landing thumbnails too large
-   (gallery.html category cards)
-   Paste at VERY BOTTOM of styles.css
-========================================== */
-
-/* Make gallery landing section not feel “giant” on wide screens */
-.container.page{
-  width: min(980px, 92%);
-}
-
-/* Category thumbnails: cap visual size so they don't look huge */
-.category-thumb{
-  width: 100%;
-  height: clamp(180px, 26vh, 260px); /* key: prevents huge blocks */
-  object-fit: cover;
-  display: block;
-}
-
-/* Card body a bit tighter */
-.category-body{
-  padding: 12px 14px 14px;
-}
-.category-title{
-  font-size: 20px;
-}
-.category-sub{
-  font-size: 14px;
-}
-
-/* iPad landscape + iPad Pro: 2 across looks premium */
-@media (min-width: 820px) and (max-width: 1199px){
-  .category-card{ grid-column: span 6; }  /* 2 across */
-  .category-grid{ gap: 16px; }
-}
-
-/* Desktop: 4 across but with a smaller image height cap */
-@media (min-width: 1200px){
-  .category-card{ grid-column: span 3; }  /* 4 across */
-  .category-thumb{
-    height: 240px; /* keeps it elegant, not massive */
   }
 }
