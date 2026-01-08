@@ -302,3 +302,28 @@ footer a:hover{ color: var(--accent); }
 }
 .lightbox .nav-btn.prev{ left: 14px; }
 .lightbox .nav-btn.next{ right: 14px; }
+/* ===== HERO: center + premium alignment fix (logo out of place) ===== */
+.hero-overlay{
+  text-align: center;               /* centers text + CTA area */
+}
+
+.brand-row{
+  justify-content: center;          /* centers logo+title row */
+  text-align: center;
+}
+
+.brand-row > div{
+  text-align: center;               /* centers the text block next to logo */
+}
+
+.brand-logo{
+  margin: 0 auto;                   /* fixes logo when wrapping */
+}
+
+/* Mobile: stack logo above text cleanly */
+@media (max-width: 700px){
+  .brand-row{
+    flex-direction: column;
+    gap: 10px;
+  }
+}
