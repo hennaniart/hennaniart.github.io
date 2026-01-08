@@ -6,246 +6,13 @@
   <title>Hennani Art</title>
   <link rel="canonical" href="https://www.hennaniart.com/" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Playfair Display', serif;
-      scroll-behavior: smooth;
-      background: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/welcome.JPG') no-repeat center center fixed;
-      background-size: cover;
-      color: #4e342e;
-      min-height: 100vh;
-      position: relative;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(255, 243, 224, 0.7);
-      z-index: -1;
-    }
-    nav {
-      background-color: rgba(255, 243, 224, 0.95);
-      border-bottom: 2px solid #d7ccc8;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0.5rem 0;
-    }
-    nav li {
-      margin: 0.5rem 1rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: #4e342e;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-    nav a:hover, nav a:focus {
-      color: #a0522d;
-      outline: none;
-    }
-    header, section, footer {
-      background-color: rgba(255, 243, 224, 0.88);
-      padding: 2rem 1.5rem;
-      border-radius: 12px;
-      margin: 2rem auto;
-      max-width: 900px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    .logo {
-      max-width: 150px;
-      display: block;
-      margin: 0 auto 1rem;
-    }
-    h1 {
-      text-align: center;
-      font-size: 3rem;
-      margin: 0;
-    }
-    .tagline {
-      text-align: center;
-      font-style: italic;
-      color: #8d6e63;
-      margin: 0.5rem 0 1rem;
-    }
-    .description {
-      text-align: center;
-      font-size: 1.1rem;
-    }
-    h2 {
-      font-size: 2rem;
-      border-bottom: 2px solid #a0522d;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.1rem;
-    }
-    #contact form {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-    #contact label {
-      font-weight: 700;
-      display: block;
-      margin-top: 1rem;
-    }
-    #contact input, #contact textarea {
-      width: 100%;
-      padding: 0.5rem;
-      border: 2px solid #a0522d;
-      border-radius: 8px;
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-    }
-    #contact button {
-      margin-top: 1rem;
-      background-color: #a0522d;
-      color: white;
-      padding: 0.6rem 1.5rem;
-      border: none;
-      border-radius: 25px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    #contact button:hover {
-      background-color: #8b4513;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 2rem 1rem;
-      background-color: rgba(255, 243, 224, 0.95);
-      border-top: 1px solid #e0d2c0;
-    }
-    .social-icons a {
-      margin: 0 0.5rem;
-      color: #4e342e;
-      text-decoration: none;
-    }
-    .social-icons a:hover {
-      color: #a0522d;
-    }
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-    }
-/* Testimonials */
-#testimonials .testimonial-carousel {
-  position: relative;
-  overflow: hidden;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.testimonial {
-  display: none;
-  padding: 1.5rem 2rem;
-  background-color: #fff8f0;
-  border-left: 6px solid #a0522d;
-  border-radius: 12px;
-  font-style: italic;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  transition: opacity 0.5s ease;
-  color: #4e342e;
-}
-
-.testimonial.active {
-  display: block;
-}
-
-.stars {
-  font-size: 1.3rem;
-  color: #a0522d;
-  margin-bottom: 0.7rem;
-}
-
-.testimonial-author {
-  text-align: right;
-  margin-top: 1rem;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.testimonial-controls {
-  margin-top: 1rem;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
-.testimonial-controls button {
-  background-color: #a0522d;
-  border: none;
-  color: white;
-  font-size: 1.6rem;
-  padding: 0.3rem 1rem;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  user-select: none;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.testimonial-controls button:hover,
-.testimonial-controls button:focus {
-  background-color: #8b4513;
-  outline: none;
-}
-
-/* Pagination dots container */
-#testimonial-dots {
-  display: flex;
-  gap: 0.5rem;
-}
-
-#testimonial-dots button {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: none;
-  background-color: #d7ccc8;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#testimonial-dots button.active {
-  background-color: #a0522d;
-}
-
-#testimonial-dots button:hover,
-#testimonial-dots button:focus {
-  background-color: #8b4513;
-  outline: none;
-}
-
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body id="top">
+<body>
 
-  <!-- Navigation -->
   <nav>
     <ul>
-      <li><a href="#top">Home</a></li>
+      <li><a href="index.html" aria-current="page">Home</a></li>
       <li><a href="service.html">Services</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <li><a href="blog.html">Blog</a></li>
@@ -253,123 +20,146 @@
     </ul>
   </nav>
 
-  <!-- Header -->
-  <header>
-    <img src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.png" alt="Hennani Art Logo" class="logo" />
-    <h1>Hennani Art</h1>
-    <p class="tagline">Elegant Henna Designs for Every Occasion</p>
-    <p class="description">
-      Providing beautiful, personalized henna designs for individuals, weddings, events and more.
-      <br />Based in Ellicott City, Maryland, serving MD, VA & DC area.
-    </p>
-  </header>
+  <main class="container page">
 
-  <!-- Testimonials -->
-<section id="testimonials" tabindex="-1" aria-labelledby="testimonials-title">
-  <h2 id="testimonials-title">Testimonials</h2>
-  <div class="testimonial-carousel" aria-live="polite">
-    <div class="testimonial active" role="group" aria-roledescription="testimonial" aria-label="Testimonial 1">
-      <div class="stars" aria-label="5 stars">★★★★★</div>
-      <p>
-        I reached out to Hennani Art for my engagement henna the last minute and Priya was so kind to give me an appointment the same day. The henna designs were beautiful and lasted perfectly!
-      </p>
-      <div class="testimonial-author">– Sreeja A N</div>
-    </div>
-    <div class="testimonial" role="group" aria-roledescription="testimonial" aria-label="Testimonial 2">
-      <div class="stars" aria-label="5 stars">★★★★★</div>
-      <p>
-        Priya is a very talented henna artist! She was easy to communicate with and quick to respond. Loved her creativity and attention to detail.
-      </p>
-      <div class="testimonial-author">– Deepa Parthasarathy</div>
-    </div>
-    <div class="testimonial" role="group" aria-roledescription="testimonial" aria-label="Testimonial 3">
-      <div class="stars" aria-label="5 stars">★★★★★</div>
-      <p>
-        Priya did my bridal henna and I am so happy! The designs were intricate and beautiful, and the henna paste was natural and safe.
-      </p>
-      <div class="testimonial-author">– Nisha K</div>
-    </div>
-  </div>
-  <div class="testimonial-controls" role="group" aria-label="Testimonial navigation">
-    <button id="prev-btn" aria-label="Previous testimonial">&#10094;</button>
-    <div id="testimonial-dots" aria-label="Testimonial pagination"></div>
-    <button id="next-btn" aria-label="Next testimonial">&#10095;</button>
-  </div>
-</section>
-<section style="text-align: center; background-color: rgba(255, 243, 224, 0.88); padding: 2rem 1.5rem; border-radius: 12px; margin: 2rem auto; max-width: 900px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-  <h2 style="margin-bottom: 1rem;">Scan to Follow @hennaniarts</h2>
-  <a href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">
-    <img
-      src="hennaniarts_qr.png"
-      alt="QR code linking to Hennani Arts Instagram"
-      style="width: 220px; height: 220px; cursor: pointer; border: 3px solid #a0522d; border-radius: 12px;"
-    />
-  </a>
-  <p style="margin-top: 1rem; font-size: 1.1rem;">
-    Or visit <a href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">@hennaniarts</a>
-  </p>
-</section>
+    <!-- Hero -->
+    <section class="section">
+      <div class="hero-card">
+        <img class="hero-img" src="welcome.JPG" alt="Hennani Art henna background" />
+        <div class="hero-overlay">
+          <div class="brand-row">
+            <img class="brand-logo" src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.png" alt="Hennani Art logo" />
+            <div>
+              <h1>Hennani Art</h1>
+              <p class="tagline">Elegant Henna Designs for Every Occasion</p>
+            </div>
+          </div>
 
+          <p class="hero-copy">
+            Providing beautiful, personalized henna designs for individuals, weddings, events and more.<br />
+            Based in Ellicott City, Maryland — serving MD, VA & DC area.
+          </p>
 
-  <!-- Footer -->
+          <!-- Evergreen CTA -->
+          <div class="section">
+            <a class="btn" href="contact.html">Book Your Henna Experience</a>
+            <p class="subtitle" style="text-align:left; margin-top:10px;">
+              Bridal • Events • Custom Designs — response within 3–5 business days.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section card">
+      <h2 class="line" style="text-align:center;">Testimonials</h2>
+
+      <div class="testimonial-carousel" aria-live="polite">
+        <div class="testimonial active" role="group" aria-label="Testimonial 1">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p>
+            I reached out to Hennani Art for my engagement henna last minute and Priya was so kind to give me an appointment the same day.
+            The henna designs were beautiful and lasted perfectly!
+          </p>
+          <div class="testimonial-author">– Sreeja A N</div>
+        </div>
+
+        <div class="testimonial" role="group" aria-label="Testimonial 2">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p>
+            Priya is a very talented henna artist! She was easy to communicate with and quick to respond.
+            Loved her creativity and attention to detail.
+          </p>
+          <div class="testimonial-author">– Deepa Parthasarathy</div>
+        </div>
+
+        <div class="testimonial" role="group" aria-label="Testimonial 3">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p>
+            Priya did my bridal henna and I am so happy! The designs were intricate and beautiful,
+            and the henna paste was natural and safe.
+          </p>
+          <div class="testimonial-author">– Nisha K</div>
+        </div>
+      </div>
+
+      <div class="testimonial-controls" role="group" aria-label="Testimonial navigation">
+        <button class="icon-btn" id="prev-btn" aria-label="Previous testimonial">&#10094;</button>
+        <div id="testimonial-dots" aria-label="Testimonial pagination"></div>
+        <button class="icon-btn" id="next-btn" aria-label="Next testimonial">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Instagram QR -->
+    <section class="section card soft" style="text-align:center;">
+      <h2 class="line">Follow @hennaniarts</h2>
+      <a href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">
+        <img
+          src="hennaniarts_qr.png"
+          alt="QR code linking to Hennani Arts Instagram"
+          style="width: 220px; height: 220px; border-radius: 16px; border: 1px solid rgba(0,0,0,.12);"
+        />
+      </a>
+      <p class="subtitle" style="margin-top:10px;">
+        Or visit <a class="link" href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">@hennaniarts</a>
+      </p>
+    </section>
+
+  </main>
+
   <footer>
     <div>© 2025 Hennani Art</div>
-    <div class="social-icons">
-      <a href="https://facebook.com/hennaniart" target="_blank">Facebook</a> |
-       <a href="https://www.instagram.com/hennaniarts/" target="_blank">Instagram</a> |
-      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank">Map</a>
+    <div>
+      <a href="https://facebook.com/hennaniart" target="_blank" rel="noopener noreferrer">Facebook</a> |
+      <a href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">Instagram</a> |
+      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank" rel="noopener noreferrer">Map</a>
     </div>
   </footer>
- <script>
-  const testimonials = document.querySelectorAll('.testimonial');
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
-  const dotsContainer = document.getElementById('testimonial-dots');
 
-  let currentIndex = 0;
+  <script>
+    // Testimonials
+    const testimonials = document.querySelectorAll('.testimonial');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const dotsContainer = document.getElementById('testimonial-dots');
+    let currentIndex = 0;
 
-  function showTestimonial(index) {
-    testimonials.forEach((t, i) => {
-      t.classList.toggle('active', i === index);
-    });
-    updateDots(index);
-  }
+    function showTestimonial(index) {
+      testimonials.forEach((t, i) => t.classList.toggle('active', i === index));
+      updateDots(index);
+    }
 
-  function updateDots(activeIndex) {
-    const dots = dotsContainer.querySelectorAll('button');
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === activeIndex);
-    });
-  }
+    function updateDots(activeIndex) {
+      const dots = dotsContainer.querySelectorAll('button');
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
+    }
 
-  function createDots() {
-    testimonials.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.setAttribute('aria-label', `Testimonial ${i + 1}`);
-      dot.addEventListener('click', () => {
-        currentIndex = i;
-        showTestimonial(currentIndex);
+    function createDots() {
+      testimonials.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.setAttribute('aria-label', `Testimonial ${i + 1}`);
+        dot.addEventListener('click', () => {
+          currentIndex = i;
+          showTestimonial(currentIndex);
+        });
+        dotsContainer.appendChild(dot);
       });
-      dotsContainer.appendChild(dot);
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(currentIndex);
     });
-  }
 
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % testimonials.length;
+      showTestimonial(currentIndex);
+    });
+
+    createDots();
     showTestimonial(currentIndex);
-  });
-
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % testimonials.length;
-    showTestimonial(currentIndex);
-  });
-
-  // Initialize
-  createDots();
-  showTestimonial(currentIndex);
-</script>
-
-</body>
+  </script>
 
 </body>
 </html>
