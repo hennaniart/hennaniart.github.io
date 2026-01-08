@@ -25,31 +25,30 @@
     <section class="section card">
 
       <div class="breadcrumb">
+        <a class="pill" href="index.html">← Home</a>
         <a class="pill" href="gallery.html">← Back to Gallery</a>
       </div>
 
       <h1 style="text-align:center;">Henna Stains Gallery</h1>
-      <p class="subtitle" style="text-align:center;">
-        Tap any image to view full size.
-      </p>
+      <p class="subtitle" style="text-align:center;">Tap any image to view full size.</p>
 
       <!-- Stain Gallery Grid -->
       <div class="portrait-gallery" id="gallery">
-        <img loading="lazy" src="stain1.JPG" alt="Henna Stain Design 1">
-        <img loading="lazy" src="stain2.JPG" alt="Henna Stain Design 2">
-        <img loading="lazy" src="stain3.JPG" alt="Henna Stain Design 3">
-        <img loading="lazy" src="stain4.JPG" alt="Henna Stain Design 4">
-        <img loading="lazy" src="stain5.JPG" alt="Henna Stain Design 5">
-        <img loading="lazy" src="stain6.JPG" alt="Henna Stain Design 6">
-        <img loading="lazy" src="stain7.JPG" alt="Henna Stain Design 7">
-        <img loading="lazy" src="stain8.JPG" alt="Henna Stain Design 8">
-        <img loading="lazy" src="stain9.JPG" alt="Henna Stain Design 9">
+        <img class="zoomable" loading="lazy" src="stain1.JPG" alt="Henna Stain Design 1">
+        <img class="zoomable" loading="lazy" src="stain2.JPG" alt="Henna Stain Design 2">
+        <img class="zoomable" loading="lazy" src="stain3.JPG" alt="Henna Stain Design 3">
+        <img class="zoomable" loading="lazy" src="stain4.JPG" alt="Henna Stain Design 4">
+        <img class="zoomable" loading="lazy" src="stain5.JPG" alt="Henna Stain Design 5">
+        <img class="zoomable" loading="lazy" src="stain6.JPG" alt="Henna Stain Design 6">
+        <img class="zoomable" loading="lazy" src="stain7.JPG" alt="Henna Stain Design 7">
+        <img class="zoomable" loading="lazy" src="stain8.JPG" alt="Henna Stain Design 8">
+        <img class="zoomable" loading="lazy" src="stain9.JPG" alt="Henna Stain Design 9">
       </div>
 
     </section>
   </main>
 
-  <!-- Lightbox -->
+  <!-- Lightbox (center-screen overlay, with margin) -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <figure>
       <button class="close-btn" id="lbClose" aria-label="Close">×</button>
@@ -69,12 +68,14 @@
   </footer>
 
   <script>
+    // Lightbox with arrows + keyboard + scroll lock
     const thumbs = Array.from(document.querySelectorAll('#gallery img'));
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lbImg');
     const lbClose = document.getElementById('lbClose');
     const lbPrev = document.getElementById('lbPrev');
     const lbNext = document.getElementById('lbNext');
+
     let idx = 0;
 
     function openLb(i){
@@ -82,14 +83,14 @@
       lbImg.src = thumbs[idx].src;
       lb.classList.add('open');
       lb.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden'; // stop background scroll
     }
 
     function closeLb(){
       lb.classList.remove('open');
       lb.setAttribute('aria-hidden','true');
       lbImg.src = '';
-      document.body.style.overflow = '';
+      document.body.style.overflow = ''; // restore scroll
     }
 
     function prev(){
@@ -102,18 +103,17 @@
       lbImg.src = thumbs[idx].src;
     }
 
-    thumbs.forEach((img, i) =>
-      img.addEventListener('click', () => openLb(i))
-    );
-
+    thumbs.forEach((img, i) => img.addEventListener('click', () => openLb(i)));
     lbClose.addEventListener('click', closeLb);
     lbPrev.addEventListener('click', prev);
     lbNext.addEventListener('click', next);
 
+    // Click outside image closes
     lb.addEventListener('click', (e) => {
       if (e.target === lb) closeLb();
     });
 
+    // Keyboard controls
     document.addEventListener('keydown', (e) => {
       if (!lb.classList.contains('open')) return;
       if (e.key === 'Escape') closeLb();
