@@ -22,42 +22,42 @@
     </ul>
   </nav>
 
-  <main class="container page">
+  <main class="container">
 
     <section class="section card">
+      <div class="breadcrumb">
+        <a class="pill" href="gallery.html">← Back to Gallery</a>
+      </div>
 
-      <a class="pill" href="gallery.html">← Back to Gallery</a>
-
-      <h1 style="text-align:center;">Bridal Henna</h1>
+      <h1 style="text-align:center;">Bridal Henna Gallery</h1>
       <p class="subtitle" style="text-align:center;">
-        Intricate, personalized bridal henna designed for timeless elegance
+        Tap any image to view full size.
       </p>
 
-      <!-- ✅ Bridal Gallery (MATCHES Party / Portfolio) -->
-      <div class="gallery" id="bridalGallery">
-
-        <img src="bridal1.JPG" alt="Bridal Henna Design 1" class="zoomable">
-        <img src="bridal2.JPG" alt="Bridal Henna Design 2" class="zoomable">
-        <img src="bridal3.JPG" alt="Bridal Henna Design 3" class="zoomable">
-        <img src="bridal4.JPG" alt="Bridal Henna Design 4" class="zoomable">
-        <img src="bridal5.JPG" alt="Bridal Henna Design 5" class="zoomable">
-        <img src="bridal6.JPG" alt="Bridal Henna Design 6" class="zoomable">
-        <img src="bridal7.JPG" alt="Bridal Henna Design 7" class="zoomable">
-        <img src="bridal8.JPG" alt="Bridal Henna Design 8" class="zoomable">
-        <img src="bridal9.JPG" alt="Bridal Henna Design 9" class="zoomable">
-        <img src="bridal10.JPG" alt="Bridal Henna Design 10" class="zoomable">
-
+      <!-- Bridal Gallery Grid (matches Party/Stain/Portfolio style) -->
+      <div class="portrait-gallery" id="gallery">
+        <img class="zoomable" loading="lazy" src="bridal1.JPG"  alt="Bridal Henna Design 1">
+        <img class="zoomable" loading="lazy" src="bridal2.JPG"  alt="Bridal Henna Design 2">
+        <img class="zoomable" loading="lazy" src="bridal3.JPG"  alt="Bridal Henna Design 3">
+        <img class="zoomable" loading="lazy" src="bridal4.JPG"  alt="Bridal Henna Design 4">
+        <img class="zoomable" loading="lazy" src="bridal5.JPG"  alt="Bridal Henna Design 5">
+        <img class="zoomable" loading="lazy" src="bridal6.JPG"  alt="Bridal Henna Design 6">
+        <img class="zoomable" loading="lazy" src="bridal7.JPG"  alt="Bridal Henna Design 7">
+        <img class="zoomable" loading="lazy" src="bridal8.JPG"  alt="Bridal Henna Design 8">
+        <img class="zoomable" loading="lazy" src="bridal9.JPG"  alt="Bridal Henna Design 9">
+        <img class="zoomable" loading="lazy" src="bridal10.JPG" alt="Bridal Henna Design 10">
+        <img class="zoomable" loading="lazy" src="bridal11.JPG" alt="Bridal Henna Design 11">
       </div>
     </section>
 
   </main>
 
-  <!-- Lightbox -->
+  <!-- Lightbox (same as your other pages) -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <figure>
       <button class="close-btn" id="lbClose" aria-label="Close">×</button>
       <button class="nav-btn prev" id="lbPrev" aria-label="Previous">‹</button>
-      <img id="lbImg" src="" alt="Full size bridal henna">
+      <img id="lbImg" src="" alt="Full size bridal henna" />
       <button class="nav-btn next" id="lbNext" aria-label="Next">›</button>
     </figure>
   </div>
@@ -65,62 +65,57 @@
   <footer>
     <div>© 2025 Hennani Art</div>
     <div>
-      <a href="https://facebook.com/hennaniart" target="_blank">Facebook</a> |
-      <a href="https://www.instagram.com/hennaniarts/" target="_blank">Instagram</a> |
-      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank">Map</a>
+      <a href="https://facebook.com/hennaniart" target="_blank" rel="noopener noreferrer">Facebook</a> |
+      <a href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">Instagram</a> |
+      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank" rel="noopener noreferrer">Map</a>
     </div>
   </footer>
 
-  <!-- Lightbox Script -->
   <script>
-    const images = Array.from(document.querySelectorAll('.zoomable'));
-    const lightbox = document.getElementById('lightbox');
+    // Lightbox with arrows + keyboard (matches your other gallery pages)
+    const thumbs = Array.from(document.querySelectorAll('#gallery img'));
+    const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lbImg');
-    const closeBtn = document.getElementById('lbClose');
-    const prevBtn = document.getElementById('lbPrev');
-    const nextBtn = document.getElementById('lbNext');
-    let index = 0;
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
 
-    function openLightbox(i){
-      index = i;
-      lbImg.src = images[index].src;
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden', 'false');
+    let idx = 0;
+
+    function openLb(i){
+      idx = i;
+      lbImg.src = thumbs[idx].src;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
     }
-
-    function closeLightbox(){
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
+    function closeLb(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
       lbImg.src = '';
     }
-
-    function showPrev(){
-      index = (index - 1 + images.length) % images.length;
-      lbImg.src = images[index].src;
+    function prev(){
+      idx = (idx - 1 + thumbs.length) % thumbs.length;
+      lbImg.src = thumbs[idx].src;
+    }
+    function next(){
+      idx = (idx + 1) % thumbs.length;
+      lbImg.src = thumbs[idx].src;
     }
 
-    function showNext(){
-      index = (index + 1) % images.length;
-      lbImg.src = images[index].src;
-    }
+    thumbs.forEach((img, i) => img.addEventListener('click', () => openLb(i)));
+    lbClose.addEventListener('click', closeLb);
+    lbPrev.addEventListener('click', prev);
+    lbNext.addEventListener('click', next);
 
-    images.forEach((img, i) => {
-      img.addEventListener('click', () => openLightbox(i));
-    });
-
-    closeBtn.addEventListener('click', closeLightbox);
-    prevBtn.addEventListener('click', showPrev);
-    nextBtn.addEventListener('click', showNext);
-
-    lightbox.addEventListener('click', (e) => {
-      if(e.target === lightbox) closeLightbox();
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb) closeLb();
     });
 
     document.addEventListener('keydown', (e) => {
-      if(!lightbox.classList.contains('open')) return;
-      if(e.key === 'Escape') closeLightbox();
-      if(e.key === 'ArrowLeft') showPrev();
-      if(e.key === 'ArrowRight') showNext();
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
     });
   </script>
 
