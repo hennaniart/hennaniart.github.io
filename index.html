@@ -23,102 +23,74 @@
     </ul>
   </nav>
 
-  <main class="container">
+  <main>
 
-    <!-- HERO SECTION -->
-    <section class="section hero">
-      <div class="hero-card">
+    <!-- HERO (Full image + centered brand logo + CTA like your reference) -->
+    <section class="hero-full">
+      <img src="hero.JPG" alt="Luxury henna designs by Hennani Art" class="hero-bg" />
 
+      <div class="hero-center">
+        <!-- Use your logo as the brand identity (no big title text) -->
         <img
-          src="hero.JPG"
-          alt="Luxury henna designs by Hennani Art"
-          class="hero-img"
+          src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.png"
+          alt="Hennani Art"
+          class="hero-logo"
         />
 
-        <div class="hero-overlay">
-
-          <div class="brand-row">
-            <img
-              src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.png"
-              alt="Hennani Art logo"
-              class="brand-logo"
-            />
-
-            <div class="brand-text">
-              <h1>Hennani Art</h1>
-              <p class="tagline">Elegant Henna Designs for Every Occasion</p>
-            </div>
-          </div>
-
-          <p class="hero-copy">
-            Bespoke henna artistry for brides, celebrations, and meaningful moments.<br>
-            Based in Ellicott City, Maryland — serving MD, VA & DC.
-          </p>
-
-          <a class="btn" href="contact.html">Book Your Henna Experience</a>
-
-          <p class="subtitle">
-            Bridal • Events • Custom Designs — response within 3–5 business days
-          </p>
-
-        </div>
+        <a class="hero-cta" href="contact.html">Book Now</a>
       </div>
     </section>
 
-    <!-- REVIEWS -->
-    <section class="section card">
-      <h2 class="section-title">Let clients speak for us</h2>
+    <div class="container">
 
-      <div class="rating-row" aria-label="Five star rating">
-        <span class="stars" aria-hidden="true">★★★★★</span>
-        <span class="rating-text">Trusted by clients across MD, VA & DC</span>
-      </div>
-
-      <div class="reviews-grid">
-        <article class="review">
-          <div class="stars small" aria-hidden="true">★★★★★</div>
-          <p class="review-text">“Beautiful work and super professional. My stain turned out dark and lasted perfectly!”</p>
-          <p class="review-name">— Client Review</p>
-        </article>
-
-        <article class="review">
-          <div class="stars small" aria-hidden="true">★★★★★</div>
-          <p class="review-text">“Loved the details and the speed for our party. Everyone kept complimenting the designs.”</p>
-          <p class="review-name">— Client Review</p>
-        </article>
-
-        <article class="review">
-          <div class="stars small" aria-hidden="true">★★★★★</div>
-          <p class="review-text">“Bridal mehndi was stunning — intricate, clean, and exactly my style. Highly recommended.”</p>
-          <p class="review-name">— Client Review</p>
-        </article>
-      </div>
-
-      <div class="center mt-14">
-        <a class="link-pill" href="gallery.html">View Gallery</a>
-        <a class="link-pill" href="contact.html">Get a Quote</a>
-      </div>
-    </section>
-
-    <!-- QR CODE -->
-    <section class="section card">
-      <h2 class="section-title">Scan to follow @hennaniarts</h2>
-
-      <div class="qr-wrap">
-        <img
-          src="hennaniarts_qr.png"
-          alt="QR code to follow @hennaniarts on Instagram"
-          class="qr-img"
-        />
-        <p class="qr-sub">
-          Or visit
-          <a href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">@hennaniarts</a>
+      <!-- Intro / Value -->
+      <section class="section card center">
+        <p class="lead">
+          Bespoke henna artistry for brides, celebrations, and meaningful moments.<br>
+          Based in Ellicott City, Maryland — serving MD, VA & DC.
         </p>
-      </div>
-    </section>
+        <p class="micro">
+          Bridal • Events • Custom Designs — response within 3–5 business days
+        </p>
 
+        <div class="cta-row">
+          <a class="btn" href="contact.html">Book Your Henna Experience</a>
+          <a class="btn btn-ghost" href="gallery.html">View Gallery</a>
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section class="section card center">
+        <h2 class="section-title">Let customers speak for us</h2>
+        <div class="stars" aria-label="5 star rating">★★★★★</div>
+
+        <!-- Edit this review text anytime -->
+        <blockquote class="review">
+          “I reached out to Hennani Art for my engagement henna last minute and Priya was so kind to give me an appointment the same day.
+          The henna designs were beautiful and lasted perfectly!”
+          <span class="review-name">— Sreeja A N</span>
+        </blockquote>
+
+        <a class="btn btn-ghost" href="contact.html">Check Availability</a>
+      </section>
+
+      <!-- QR Code -->
+      <section class="section card center">
+        <h2 class="section-title">Scan to Follow @hennaniarts</h2>
+
+        <div class="qr-wrap">
+          <img class="qr" src="hennaniarts_qr.png" alt="QR code to follow Hennani Art on Instagram (@hennaniarts)">
+        </div>
+
+        <p class="micro">
+          Or visit <a class="inline-link" href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">@hennaniarts</a>
+        </p>
+      </section>
+
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div>© 2025 Hennani Art</div>
     <div>
