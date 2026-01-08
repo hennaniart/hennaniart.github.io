@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hennani Art</title>
+  <title>Hennani Art – Luxury Henna Artist</title>
+
   <link rel="canonical" href="https://www.hennaniart.com/" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
+  <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="index.html" aria-current="page">Home</a></li>
@@ -20,94 +23,56 @@
     </ul>
   </nav>
 
-  <main class="container page">
+  <main class="container">
 
-    <!-- Hero -->
-    <section class="section">
+    <!-- HERO SECTION -->
+    <section class="section hero">
       <div class="hero-card">
-        <img class="hero-img" src="hero.JPG" alt="Hennani Art henna background" />
+
+        <!-- Hero Image -->
+        <img
+          src="hero.JPG"
+          alt="Luxury henna designs by Hennani Art"
+          class="hero-img"
+        />
+
+        <!-- Hero Overlay -->
         <div class="hero-overlay">
+
           <div class="brand-row">
-            <img class="brand-logo" src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.png" alt="Hennani Art logo" />
-            <div>
+            <img
+              src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.png"
+              alt="Hennani Art logo"
+              class="brand-logo"
+            />
+
+            <div class="brand-text">
               <h1>Hennani Art</h1>
               <p class="tagline">Elegant Henna Designs for Every Occasion</p>
             </div>
           </div>
 
           <p class="hero-copy">
-            Providing beautiful, personalized henna designs for individuals, weddings, events and more.<br />
-            Based in Ellicott City, Maryland — serving MD, VA & DC area.
+            Bespoke henna artistry for brides, celebrations, and meaningful moments.<br>
+            Based in Ellicott City, Maryland — serving MD, VA & DC.
           </p>
 
           <!-- Evergreen CTA -->
-          <div class="section">
-            <a class="btn" href="contact.html">Book Your Henna Experience</a>
-            <p class="subtitle" style="text-align:left; margin-top:10px;">
-              Bridal • Events • Custom Designs — response within 3–5 business days.
-            </p>
-          </div>
+          <a class="btn" href="contact.html">
+            Book Your Henna Experience
+          </a>
+
+          <p class="subtitle">
+            Bridal • Events • Custom Designs — response within 3–5 business days
+          </p>
+
         </div>
       </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="section card">
-      <h2 class="line" style="text-align:center;">Testimonials</h2>
-
-      <div class="testimonial-carousel" aria-live="polite">
-        <div class="testimonial active" role="group" aria-label="Testimonial 1">
-          <div class="stars" aria-label="5 stars">★★★★★</div>
-          <p>
-            I reached out to Hennani Art for my engagement henna last minute and Priya was so kind to give me an appointment the same day.
-            The henna designs were beautiful and lasted perfectly!
-          </p>
-          <div class="testimonial-author">– Sreeja A N</div>
-        </div>
-
-        <div class="testimonial" role="group" aria-label="Testimonial 2">
-          <div class="stars" aria-label="5 stars">★★★★★</div>
-          <p>
-            Priya is a very talented henna artist! She was easy to communicate with and quick to respond.
-            Loved her creativity and attention to detail.
-          </p>
-          <div class="testimonial-author">– Deepa Parthasarathy</div>
-        </div>
-
-        <div class="testimonial" role="group" aria-label="Testimonial 3">
-          <div class="stars" aria-label="5 stars">★★★★★</div>
-          <p>
-            Priya did my bridal henna and I am so happy! The designs were intricate and beautiful,
-            and the henna paste was natural and safe.
-          </p>
-          <div class="testimonial-author">– Nisha K</div>
-        </div>
-      </div>
-
-      <div class="testimonial-controls" role="group" aria-label="Testimonial navigation">
-        <button class="icon-btn" id="prev-btn" aria-label="Previous testimonial">&#10094;</button>
-        <div id="testimonial-dots" aria-label="Testimonial pagination"></div>
-        <button class="icon-btn" id="next-btn" aria-label="Next testimonial">&#10095;</button>
-      </div>
-    </section>
-
-    <!-- Instagram QR -->
-    <section class="section card soft" style="text-align:center;">
-      <h2 class="line">Follow @hennaniarts</h2>
-      <a href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">
-        <img
-          src="hennaniarts_qr.png"
-          alt="QR code linking to Hennani Arts Instagram"
-          style="width: 220px; height: 220px; border-radius: 16px; border: 1px solid rgba(0,0,0,.12);"
-        />
-      </a>
-      <p class="subtitle" style="margin-top:10px;">
-        Or visit <a class="link" href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">@hennaniarts</a>
-      </p>
     </section>
 
   </main>
 
+  <!-- Footer -->
   <footer>
     <div>© 2025 Hennani Art</div>
     <div>
@@ -116,50 +81,6 @@
       <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank" rel="noopener noreferrer">Map</a>
     </div>
   </footer>
-
-  <script>
-    // Testimonials
-    const testimonials = document.querySelectorAll('.testimonial');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    const dotsContainer = document.getElementById('testimonial-dots');
-    let currentIndex = 0;
-
-    function showTestimonial(index) {
-      testimonials.forEach((t, i) => t.classList.toggle('active', i === index));
-      updateDots(index);
-    }
-
-    function updateDots(activeIndex) {
-      const dots = dotsContainer.querySelectorAll('button');
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIndex));
-    }
-
-    function createDots() {
-      testimonials.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.setAttribute('aria-label', `Testimonial ${i + 1}`);
-        dot.addEventListener('click', () => {
-          currentIndex = i;
-          showTestimonial(currentIndex);
-        });
-        dotsContainer.appendChild(dot);
-      });
-    }
-
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-      showTestimonial(currentIndex);
-    });
-
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % testimonials.length;
-      showTestimonial(currentIndex);
-    });
-
-    createDots();
-    showTestimonial(currentIndex);
-  </script>
 
 </body>
 </html>
