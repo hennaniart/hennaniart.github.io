@@ -5,134 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bridal Henna Gallery - Hennani Art</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Playfair Display', serif;
-      background: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/welcome.JPG') no-repeat center center fixed;
-      background-size: cover;
-      color: #4e342e;
-      scroll-behavior: smooth;
-      min-height: 100vh;
-      position: relative;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-color: rgba(255, 243, 224, 0.7);
-      z-index: -1;
-    }
-
-    nav {
-      background-color: rgba(255, 243, 224, 0.95);
-      border-bottom: 2px solid #d7ccc8;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      margin: 0;
-    }
-    nav li a {
-      text-decoration: none;
-      color: #4e342e;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-    nav li a:hover,
-    nav li a:focus {
-      color: #a0522d;
-      outline: none;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: rgba(255, 243, 224, 0.88);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      text-decoration: none;
-      color: #a0522d;
-    }
-    .back-link:hover,
-    .back-link:focus {
-      text-decoration: underline;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-    .gallery img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 14px;
-      box-shadow: 0 4px 8px rgba(90, 62, 27, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .gallery img:hover,
-    .gallery img:focus {
-      transform: scale(1.06);
-      box-shadow: 0 10px 18px rgba(90, 62, 27, 0.6);
-      outline: 3px solid #a0522d;
-      outline-offset: 4px;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #795548;
-      padding: 2rem 1rem;
-      background-color: rgba(255, 243, 224, 0.95);
-      border-top: 1px solid #e0d2c0;
-      margin-top: 3rem;
-    }
-    footer .social-icons {
-      margin-top: 1rem;
-    }
-    footer .social-icons a {
-      margin: 0 0.5rem;
-      color: #4e342e;
-      text-decoration: none;
-      display: inline-block;
-      transition: color 0.3s ease;
-    }
-    footer .social-icons a:hover,
-    footer .social-icons a:focus {
-      color: #a0522d;
-    }
-    footer .social-icons svg {
-      vertical-align: middle;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -143,37 +19,91 @@
     </ul>
   </nav>
 
-  <!-- Main content -->
-  <main>
-    <a href="index.html" class="back-link" aria-label="Home">← Home</a>
-    <a href="gallery.html" class="back-link" aria-label="Back to Gallery">← Back to Gallery</a>
-    <h1>Bridal Henna Gallery</h1>
-    <section class="gallery" role="list" aria-label="Bridal henna designs">
-      <img src="bridal1.JPG" alt="Bridal Henna Design 1" />
-      <img src="bridal2.JPG" alt="Bridal Henna Design 2" />
-      <img src="bridal3.JPG" alt="Bridal Henna Design 3" />
-      <img src="bridal4.JPG" alt="Bridal Henna Design 4" />
-      <img src="bridal5.JPG" alt="Bridal Henna Design 5" />
-      <img src="bridal6.JPG" alt="Bridal Henna Design 6" />
-      <img src="bridal7.JPG" alt="Bridal Henna Design 7" />
-      <img src="bridal8.JPG" alt="Bridal Henna Design 8" />
-      <img src="bridal9.JPG" alt="Bridal Henna Design 9" />
-      <img src="bridal10.JPG" alt="Bridal Henna Design 10" />
+  <main class="container page">
+    <section class="section card">
+      <div class="breadcrumb">
+        <a class="pill" href="index.html">← Home</a>
+        <a class="pill" href="gallery.html">← Back to Gallery</a>
+      </div>
+
+      <h1 class="page-title">Bridal Henna Gallery</h1>
+      <p class="subtitle">Tap any image to view full size.</p>
+
+      <div class="gallery-grid" id="gallery">
+        <div class="thumb"><img loading="lazy" src="bridal1.JPG"  alt="Bridal Henna Design 1"></div>
+        <div class="thumb"><img loading="lazy" src="bridal2.JPG"  alt="Bridal Henna Design 2"></div>
+        <div class="thumb"><img loading="lazy" src="bridal3.JPG"  alt="Bridal Henna Design 3"></div>
+        <div class="thumb"><img loading="lazy" src="bridal4.JPG"  alt="Bridal Henna Design 4"></div>
+        <div class="thumb"><img loading="lazy" src="bridal5.JPG"  alt="Bridal Henna Design 5"></div>
+        <div class="thumb"><img loading="lazy" src="bridal6.JPG"  alt="Bridal Henna Design 6"></div>
+        <div class="thumb"><img loading="lazy" src="bridal7.JPG"  alt="Bridal Henna Design 7"></div>
+        <div class="thumb"><img loading="lazy" src="bridal8.JPG"  alt="Bridal Henna Design 8"></div>
+        <div class="thumb"><img loading="lazy" src="bridal9.JPG"  alt="Bridal Henna Design 9"></div>
+        <div class="thumb"><img loading="lazy" src="bridal10.JPG" alt="Bridal Henna Design 10"></div>
+        <div class="thumb"><img loading="lazy" src="bridal11.JPG" alt="Bridal Henna Design 11"></div>
+      </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer role="contentinfo">
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner" role="dialog" aria-label="Image viewer">
+      <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+      <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+      <img id="lbImg" src="" alt="Full size view" />
+      <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+    </div>
+  </div>
+
+  <footer>
     <div>© 2025 Hennani Art</div>
-    <div class="social-icons" aria-label="Social media links">
-      <a href="https://facebook.com/hennaniart" target="_blank" aria-label="Facebook">
-        <svg width="24" height="24" fill="#4e342e" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.337v21.326C0 23.4.6 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.1 2.797.143v3.24h-1.918c-1.5 0-1.793.713-1.793 1.76v2.31h3.586l-.467 3.622h-3.12V24h6.116C23.4 24 24 23.4 24 22.663V1.337C24 .6 23.4 0 22.675 0z"/></svg>
-      </a>
-      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank" aria-label="Google Maps">
-        <svg width="24" height="24" fill="#4e342e" viewBox="0 0 24 24"><path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zM12 11.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z"/></svg>
-      </a>
+    <div>
+      <a href="https://facebook.com/hennaniart" target="_blank" rel="noopener noreferrer">Facebook</a> |
+      <a href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">Instagram</a> |
+      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank" rel="noopener noreferrer">Map</a>
     </div>
   </footer>
+
+  <script>
+    // Lightbox with arrows + keyboard
+    const thumbs = Array.from(document.querySelectorAll('#gallery img'));
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+    let idx = 0;
+
+    function openLb(i){
+      idx = i;
+      lbImg.src = thumbs[idx].src;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+    }
+    function closeLb(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      lbImg.src = '';
+    }
+    function prev(){ idx = (idx - 1 + thumbs.length) % thumbs.length; lbImg.src = thumbs[idx].src; }
+    function next(){ idx = (idx + 1) % thumbs.length; lbImg.src = thumbs[idx].src; }
+
+    thumbs.forEach((img, i) => img.addEventListener('click', () => openLb(i)));
+    lbClose.addEventListener('click', closeLb);
+    lbPrev.addEventListener('click', prev);
+    lbNext.addEventListener('click', next);
+
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb) closeLb();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+  </script>
 
 </body>
 </html>
