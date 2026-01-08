@@ -15,7 +15,7 @@
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="service.html">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="gallery.html" aria-current="page">Gallery</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -29,26 +29,36 @@
         <a class="pill" href="gallery.html">← Back to Gallery</a>
       </div>
 
-      <h1 class="page-title">Party Henna Gallery</h1>
-      <p class="subtitle">Browse the designs below.</p>
+      <h1 style="text-align:center;">Party Henna Gallery</h1>
+      <p class="subtitle" style="text-align:center;">Tap any image to view full size.</p>
 
       <div class="gallery-grid" id="gallery">
-        <div class="thumb"><img loading="lazy" src="party1.JPG"  alt="Party Henna Design 1"></div>
-        <div class="thumb"><img loading="lazy" src="party2.JPG"  alt="Party Henna Design 2"></div>
-        <div class="thumb"><img loading="lazy" src="party3.JPG"  alt="Party Henna Design 3"></div>
-        <div class="thumb"><img loading="lazy" src="party4.JPG"  alt="Party Henna Design 4"></div>
-        <div class="thumb"><img loading="lazy" src="party5.JPG"  alt="Party Henna Design 5"></div>
-        <div class="thumb"><img loading="lazy" src="party6.JPG"  alt="Party Henna Design 6"></div>
-        <div class="thumb"><img loading="lazy" src="party7.JPG"  alt="Party Henna Design 7"></div>
-        <div class="thumb"><img loading="lazy" src="party8.JPG"  alt="Party Henna Design 8"></div>
-        <div class="thumb"><img loading="lazy" src="party9.JPG"  alt="Party Henna Design 9"></div>
-        <div class="thumb"><img loading="lazy" src="party10.JPG" alt="Party Henna Design 10"></div>
-        <div class="thumb"><img loading="lazy" src="party11.JPG" alt="Party Henna Design 11"></div>
-        <div class="thumb"><img loading="lazy" src="party12.JPG" alt="Party Henna Design 12"></div>
+        <div class="thumb"><img class="zoomable" loading="lazy" src="party1.JPG"  alt="Party Henna Design 1"></div>
+        <div class="thumb"><img class="zoomable" loading="lazy" src="party2.JPG"  alt="Party Henna Design 2"></div>
+        <div class="thumb"><img class="zoomable" loading="lazy" src="party3.JPG"  alt="Party Henna Design 3"></div>
+        <div class="thumb"><img class="zoomable" loading="lazy" src="party4.JPG"  alt="Party Henna Design 4"></div>
+        <div class="thumb"><img class="zoomable" loading="lazy" src="party5.JPG"  alt="Party Henna Design 5"></div>
+        <div class="thumb"><img class="zoomable" loading="lazy" src="party6.JPG"  alt="Party Henna Design 6"></div>
+        <div class="thumb"><img class="zoomable" loading="lazy" src="party7.JPG"  alt="Party Henna Design 7"></div>
+        <div class="thumb"><img class="zoomable" loading="lazy" src="party8.JPG"  alt="Party Henna Design 8"></div>
+        <div class="thumb"><img class="zoomable" loading="lazy" src="party9.JPG"  alt="Party Henna Design 9"></div>
+        <div class="thumb"><img class="zoomable" loading="lazy" src="party10.JPG" alt="Party Henna Design 10"></div>
+        <div class="thumb"><img class="zoomable" loading="lazy" src="party11.JPG" alt="Party Henna Design 11"></div>
+        <div class="thumb"><img class="zoomable" loading="lazy" src="party12.JPG" alt="Party Henna Design 12"></div>
       </div>
 
     </section>
   </main>
+
+  <!-- Lightbox (center-screen overlay) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <figure>
+      <button class="close-btn" id="lbClose" aria-label="Close">×</button>
+      <button class="nav-btn prev" id="lbPrev" aria-label="Previous">‹</button>
+      <img id="lbImg" src="" alt="Full size view" />
+      <button class="nav-btn next" id="lbNext" aria-label="Next">›</button>
+    </figure>
+  </div>
 
   <footer>
     <div>© 2025 Hennani Art</div>
@@ -58,6 +68,56 @@
       <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank" rel="noopener noreferrer">Map</a>
     </div>
   </footer>
+
+  <script>
+    // Lightbox with arrows + keyboard (same behavior as Bridal/Stain/Portfolio)
+    const thumbs = Array.from(document.querySelectorAll('#gallery img'));
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+
+    let idx = 0;
+
+    function openLb(i){
+      idx = i;
+      lbImg.src = thumbs[idx].src;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+    }
+    function closeLb(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      lbImg.src = '';
+    }
+    function prev(){
+      idx = (idx - 1 + thumbs.length) % thumbs.length;
+      lbImg.src = thumbs[idx].src;
+    }
+    function next(){
+      idx = (idx + 1) % thumbs.length;
+      lbImg.src = thumbs[idx].src;
+    }
+
+    thumbs.forEach((img, i) => img.addEventListener('click', () => openLb(i)));
+    lbClose.addEventListener('click', closeLb);
+    lbPrev.addEventListener('click', prev);
+    lbNext.addEventListener('click', next);
+
+    // Click outside image closes
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb) closeLb();
+    });
+
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+  </script>
 
 </body>
 </html>
