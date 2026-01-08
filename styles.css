@@ -356,3 +356,84 @@ footer a:hover{ color:var(--accent); }
     grid-template-columns: 1fr;
   }
 }
+/* ==============================
+   HOME HERO – Mobile polish
+   (logo impact + text hierarchy)
+============================== */
+
+/* Make the hero feel more “luxury” on phones */
+@media (max-width: 520px){
+
+  /* More breathing room */
+  .hero-overlay{
+    padding: 18px 16px;
+  }
+
+  /* Bigger logo + tighter alignment */
+  .brand-row{
+    gap: 14px;
+    align-items: center;
+  }
+
+  .brand-logo{
+    width: 64px;          /* 🔥 bigger impact */
+    height: 64px;
+    padding: 8px;
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  }
+
+  /* Title and tagline scale down a bit */
+  .brand-text h1{
+    font-size: 30px;
+    line-height: 1.05;
+    letter-spacing: .2px;
+  }
+
+  .tagline{
+    font-size: 15px;      /* smaller + elegant */
+    line-height: 1.25;
+    margin-top: 6px;
+  }
+
+  /* Make paragraph lighter and smaller */
+  .hero-copy{
+    font-size: 15px;
+    line-height: 1.55;
+    margin-top: 12px;
+    color: var(--muted);
+  }
+
+  /* Button: slightly smaller + centered */
+  .btn{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    font-size: 16px;
+  }
+
+  /* That bottom “Bridal • Events…” line is too big right now */
+  .hero-overlay .subtitle{
+    font-size: 13px;
+    line-height: 1.35;
+    margin-top: 12px;
+    opacity: .9;
+  }
+}
+
+/* iPad: keep it polished */
+@media (min-width: 521px) and (max-width: 1024px){
+  .brand-logo{
+    width: 64px;
+    height: 64px;
+  }
+  .hero-copy{
+    font-size: 16px;
+  }
+  .hero-overlay .subtitle{
+    font-size: 14px;
+  }
+}
