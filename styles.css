@@ -1,5 +1,10 @@
-/* ====== Hennani Art – Mobile-First Premium Gallery Fix ====== */
+/* ==========================================
+   Hennani Art – Premium Mobile-First Styles
+   Works on iPhone • iPad • Laptop
+   (Clean + No duplicates + No conflicts)
+========================================== */
 
+/* ---------- VARIABLES ---------- */
 :root{
   --bg: #fff7ef;
   --card: rgba(255,255,255,.92);
@@ -11,12 +16,14 @@
   --radius: 18px;
 }
 
+/* ---------- RESET + SAFETY ---------- */
 *{ box-sizing: border-box; }
+
 html,body{
   margin:0;
   padding:0;
   max-width:100%;
-  overflow-x:hidden;   /* 🔑 stops horizontal zoom issues */
+  overflow-x:hidden; /* stops horizontal scroll/zoom issues */
 }
 
 body{
@@ -26,14 +33,27 @@ body{
   line-height: 1.6;
 }
 
-/* NAV */
+/* Images never overflow */
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+
+  /* iOS tap safety */
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* ---------- NAV ---------- */
 nav{
   position: sticky;
   top: 0;
   z-index: 1000;
   background: rgba(255,247,239,.92);
   border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
 }
+
 nav ul{
   list-style:none;
   display:flex;
@@ -41,19 +61,23 @@ nav ul{
   gap:20px;
   padding:14px;
   margin:0;
+  flex-wrap: wrap;
 }
+
 nav a{
   text-decoration:none;
   color:var(--text);
   font-weight:700;
 }
+
 nav a:hover{ color:var(--accent); }
 
-/* LAYOUT */
+/* ---------- LAYOUT ---------- */
 .container{
   width:min(1100px,92%);
   margin:auto;
 }
+
 .section{ margin:18px 0; }
 
 .card{
@@ -64,13 +88,15 @@ nav a:hover{ color:var(--accent); }
   padding:18px;
 }
 
-/* HERO */
+/* ---------- HERO ---------- */
 .hero-card{
   border-radius:var(--radius);
   overflow:hidden;
   box-shadow:var(--shadow);
   background:#fff;
+  border: 1px solid var(--border);
 }
+
 .hero-img{
   width:100%;
   height:42vh;
@@ -78,19 +104,24 @@ nav a:hover{ color:var(--accent); }
   object-fit:cover;
   display:block;
 }
+
 .hero-overlay{
   padding:20px;
   background:linear-gradient(
     to bottom,
-    rgba(255,255,255,.7),
+    rgba(255,255,255,.70),
     rgba(255,255,255,.95)
   );
 }
+
+/* Logo + Title (fixed, clean, responsive) */
 .brand-row{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:16px;
+  flex-wrap: wrap;
 }
+
 .brand-logo{
   width:52px;
   height:52px;
@@ -98,20 +129,52 @@ nav a:hover{ color:var(--accent); }
   background:#fff;
   padding:6px;
   border:1px solid var(--border);
+  object-fit: contain;
 }
 
-/* TYPOGRAPHY */
+.brand-text{
+  min-width: 200px;
+}
+
+@media (max-width: 520px){
+  .brand-row{
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .brand-logo{
+    width: 48px;
+    height: 48px;
+    padding: 6px;
+  }
+}
+
+/* ---------- TYPOGRAPHY ---------- */
 h1{
   margin:0;
   font-size:clamp(26px,3vw,40px);
+  line-height: 1.1;
 }
+
 h2{
+  margin: 0 0 10px;
   font-size:clamp(20px,2.4vw,28px);
 }
+
 .tagline{
+  margin: 6px 0 0;
   color:var(--muted);
   font-weight:600;
+  line-height: 1.3;
 }
+
+.subtitle{
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ---------- BUTTON ---------- */
 .btn{
   display:inline-block;
   padding:12px 18px;
@@ -120,64 +183,98 @@ h2{
   color:#fff;
   text-decoration:none;
   font-weight:700;
+  margin-top: 14px;
 }
+
 .btn:hover{ background:var(--accent); }
 
-/* ===============================
-   ✅ PREMIUM GALLERY (FIXED)
-   =============================== */
-
-.gallery{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);   /* 🔑 always 2 on mobile */
-  gap:14px;
+/* ---------- BREADCRUMB PILLS ---------- */
+.breadcrumb{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom: 10px;
 }
 
-.gallery img{
-  width:100%;
-  aspect-ratio: 3 / 4;     /* 🔑 locks portrait feel */
-  object-fit:cover;
-  border-radius:18px;
-  border:1px solid var(--border);
-  box-shadow:0 10px 24px rgba(0,0,0,.08);
-  cursor:pointer;
-  transition:transform .25s ease, box-shadow .25s ease;
+.pill{
+  display:inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.75);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
 }
 
-.gallery img:hover{
-  transform:translateY(-3px);
-  box-shadow:0 18px 42px rgba(0,0,0,.14);
+.pill:hover{ color: var(--accent); }
+
+/* ==========================================
+   ✅ UNIVERSAL GALLERY GRID (ONE SYSTEM)
+   Works for:
+   - Bridal (.portrait-gallery)
+   - Party (.portrait-gallery or .gallery-grid)
+   - Stain (.gallery-grid)
+   - Portfolio (.gallery-grid)
+========================================== */
+
+/* Make all gallery wrappers behave the same */
+.gallery,
+.gallery-grid,
+.portrait-gallery{
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* iPhone default: 2 */
 }
 
-/* TABLET */
-@media (min-width: 768px){
-  .gallery{
-    grid-template-columns: repeat(3, 1fr);
+/* iPad */
+@media (min-width: 700px){
+  .gallery,
+  .gallery-grid,
+  .portrait-gallery{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
   }
 }
 
-/* DESKTOP */
+/* Laptop */
 @media (min-width: 1100px){
-  .gallery{
-    grid-template-columns: repeat(4, 1fr);
+  .gallery,
+  .gallery-grid,
+  .portrait-gallery{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
   }
 }
 
-/* FOOTER */
-footer{
-  margin-top:30px;
-  padding:20px;
-  text-align:center;
-  color:var(--muted);
-  border-top:1px solid var(--border);
+/* Images inside any gallery grid */
+.gallery img,
+.gallery-grid img,
+.portrait-gallery img{
+  width: 100%;
+  aspect-ratio: 3 / 4; /* portrait lock */
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px rgba(0,0,0,.10);
+  display: block;
+  cursor: pointer;
+  transition: transform .22s ease, box-shadow .22s ease;
+  background: rgba(255,255,255,.65);
 }
-footer a{
-  color:var(--text);
-  text-decoration:none;
-  font-weight:700;
+
+.gallery img:hover,
+.gallery-grid img:hover,
+.portrait-gallery img:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.16);
 }
-footer a:hover{ color:var(--accent); }
-/* ===== Gallery landing (category cards) ===== */
+
+/* Thumb wrappers should NOT interfere */
+.thumb{ margin: 0; padding: 0; }
+
+/* ---------- CATEGORY / GALLERY LANDING CARDS ---------- */
 .category-grid{
   display:grid;
   grid-template-columns: repeat(12, 1fr);
@@ -190,10 +287,10 @@ footer a:hover{ color:var(--accent); }
   text-decoration: none;
   color: inherit;
   background: rgba(255,255,255,.82);
-  border: 1px solid rgba(59,42,36,.12);
+  border: 1px solid var(--border);
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  box-shadow: var(--shadow);
   transition: transform .18s ease, box-shadow .18s ease;
 }
 
@@ -204,14 +301,11 @@ footer a:hover{ color:var(--accent); }
 
 .category-thumb{
   width:100%;
-  aspect-ratio: 4 / 5;            /* portrait feel, NEVER huge */
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  display:block;
 }
 
-.category-body{
-  padding: 14px 14px 16px;
-}
+.category-body{ padding: 14px 14px 16px; }
 
 .category-title{
   margin: 0;
@@ -221,7 +315,7 @@ footer a:hover{ color:var(--accent); }
 
 .category-sub{
   margin: 6px 0 0;
-  color: rgba(106,80,70,1);
+  color: var(--muted);
   font-size: 15px;
 }
 
@@ -231,181 +325,34 @@ footer a:hover{ color:var(--accent); }
   .category-thumb{ aspect-ratio: 3 / 4; }
 }
 
-/* iPad landscape + bigger */
+/* Laptop */
 @media (min-width: 900px){
-  .category-card{ grid-column: span 3; } /* 4 across on laptop */
-  .category-thumb{ aspect-ratio: 4 / 5; }
+  .category-card{ grid-column: span 3; }
 }
-/* ==============================
-   FIX: Bridal / Party / Stain / Portfolio gallery sizing
-   Goal: 2 columns on iPhone, 3 on iPad, 4 on laptop
-================================ */
 
-/* Breadcrumb + subtitle polish (optional but makes it look premium) */
-.breadcrumb{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom: 10px;
-}
-.pill{
-  display:inline-block;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.75);
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 700;
-}
-.pill:hover{ color: var(--accent); }
-
-.page-title{
-  margin: 6px 0 6px;
+/* ---------- FOOTER ---------- */
+footer{
+  margin-top:30px;
+  padding:20px;
   text-align:center;
-  font-size: clamp(28px, 3vw, 44px);
-  line-height: 1.15;
-}
-.subtitle{
-  margin: 0 0 10px;
-  text-align:center;
-  color: var(--muted);
-  font-weight: 600;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  background: rgba(255,247,239,.92);
 }
 
-/* ✅ THIS is the key: your bridal page uses .portrait-gallery */
-.portrait-gallery{
-  display: grid;
-  gap: 14px;
-  margin-top: 18px;
-
-  /* iPhone default: 2 columns */
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+footer a{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:700;
 }
 
-/* iPad: 3 columns */
-@media (min-width: 700px){
-  .portrait-gallery{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-}
+footer a:hover{ color:var(--accent); }
 
-/* Laptop: 4 columns */
-@media (min-width: 1100px){
-  .portrait-gallery{
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
-  }
-}
-
-/* Make every tile consistent + stop “giant image” behavior */
-.portrait-gallery img.zoomable{
-  width: 100%;
-  aspect-ratio: 3 / 4;     /* portrait lock like your party page look */
-  height: auto;
-  max-height: none;        /* IMPORTANT: overrides your earlier max-height clamp */
-  object-fit: cover;
-
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 26px rgba(0,0,0,.10);
-  cursor: pointer;
-  transition: transform .22s ease, box-shadow .22s ease;
-  background: rgba(255,255,255,.65);
-}
-
-.portrait-gallery img.zoomable:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.16);
-}
-
-/* If you ever want 1 column on super tiny phones, use 420px here.
-   Keeping 2 columns because you said you prefer that look. */
+/* (Optional) super tiny phones safety */
 @media (max-width: 360px){
-  .portrait-gallery{
-    grid-template-columns: 1fr;i
-  }
-}
-/* ===== Fix logo alignment on mobile ===== */
-.brand-row{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  flex-wrap: wrap;
-}
-
-.brand-text{
-  min-width: 200px;
-}
-
-@media (max-width: 520px){
-  .brand-row{
-    flex-wrap: nowrap;
-    align-items: center;
-  }
-
-  .brand-logo{
-    width: 48px;
-    height: 48px;
-    padding: 6px;
-  }
-
-  .tagline{
-    font-size: 16px;
-    line-height: 1.3;
-  }
-}.subtitle{
-  margin-top: 10px;
-  color: var(--muted);
-  font-weight: 600;
-}.brand-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-/* ============================
-   FORCE ALL GALLERY PAGES
-   to match Bridal layout
-   ============================ */
-
-/* Apply same grid to common gallery wrappers */
-.gallery,
-.gallery-grid,
-.portrait-gallery{
-  display: grid;
-  gap: 14px;
-  margin-top: 18px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-@media (min-width: 700px){
   .gallery,
   .gallery-grid,
   .portrait-gallery{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+    grid-template-columns: 1fr;
   }
-}
-
-@media (min-width: 1100px){
-  .gallery,
-  .gallery-grid,
-  .portrait-gallery{
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
-  }
-}
-
-/* Apply same image style everywhere */
-.gallery img,
-.gallery-grid img,
-.portrait-gallery img{
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 26px rgba(0,0,0,.10);
-  display: block;
 }
