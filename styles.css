@@ -583,4 +583,46 @@ footer a:hover{ color:var(--accent); }
   .category-sub{
     font-size: 14px;
   }
+}/* ==========================================
+   FIX: Gallery landing thumbnails too large
+   (gallery.html category cards)
+   Paste at VERY BOTTOM of styles.css
+========================================== */
+
+/* Make gallery landing section not feel “giant” on wide screens */
+.container.page{
+  width: min(980px, 92%);
+}
+
+/* Category thumbnails: cap visual size so they don't look huge */
+.category-thumb{
+  width: 100%;
+  height: clamp(180px, 26vh, 260px); /* key: prevents huge blocks */
+  object-fit: cover;
+  display: block;
+}
+
+/* Card body a bit tighter */
+.category-body{
+  padding: 12px 14px 14px;
+}
+.category-title{
+  font-size: 20px;
+}
+.category-sub{
+  font-size: 14px;
+}
+
+/* iPad landscape + iPad Pro: 2 across looks premium */
+@media (min-width: 820px) and (max-width: 1199px){
+  .category-card{ grid-column: span 6; }  /* 2 across */
+  .category-grid{ gap: 16px; }
+}
+
+/* Desktop: 4 across but with a smaller image height cap */
+@media (min-width: 1200px){
+  .category-card{ grid-column: span 3; }  /* 4 across */
+  .category-thumb{
+    height: 240px; /* keeps it elegant, not massive */
+  }
 }
