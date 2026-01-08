@@ -88,12 +88,19 @@ nav a:hover{ color:var(--accent); }
 
 /* ---------- TYPOGRAPHY ---------- */
 h1,h2{ margin:0; }
+
 h2{
   font-size: clamp(20px, 2.4vw, 28px);
 }
 
 .section-title{
   margin-bottom: 10px;
+}
+
+.home-h1{
+  font-size: clamp(18px, 2.2vw, 24px);
+  letter-spacing: .2px;
+  margin: 0 0 8px;
 }
 
 .lead{
@@ -146,8 +153,8 @@ h2{
 }
 
 /* ==========================================
-   HOME HERO (like your reference)
-   Full image + centered logo + CTA
+   HOME HERO
+   Full image + centered logo + 2 CTAs
 ========================================== */
 
 .hero-full{
@@ -168,6 +175,7 @@ h2{
   transform: scale(1.01);
 }
 
+/* overlay */
 .hero-full::after{
   content:"";
   position:absolute;
@@ -175,7 +183,7 @@ h2{
   background: linear-gradient(
     to bottom,
     rgba(0,0,0,.10),
-    rgba(0,0,0,.30)
+    rgba(0,0,0,.34)
   );
 }
 
@@ -187,20 +195,29 @@ h2{
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap: 18px;
-  padding: 18px;
+  gap: 16px;
+  padding: 20px;
+  text-align: center;
 }
 
 .hero-logo{
-  width: min(320px, 68vw);
+  width: min(340px, 74vw);
   height: auto;
-  filter: drop-shadow(0 12px 22px rgba(0,0,0,.35));
+  filter: drop-shadow(0 14px 26px rgba(0,0,0,.38));
+}
+
+/* NEW: CTA row in hero */
+.hero-actions{
+  display:flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content:center;
 }
 
 .hero-cta{
   display:inline-block;
   padding: 14px 26px;
-  border-radius: 0;
+  border-radius: 0; /* keep clean luxury edge */
   background: rgba(0,0,0,.82);
   color:#fff;
   text-decoration:none;
@@ -208,10 +225,44 @@ h2{
   font-weight: 700;
   text-transform: uppercase;
   box-shadow: 0 14px 28px rgba(0,0,0,.25);
+  border: 1px solid rgba(255,255,255,.10);
 }
 
 .hero-cta:hover{
   background: rgba(0,0,0,.92);
+}
+
+.hero-cta--ghost{
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.22);
+  backdrop-filter: blur(6px);
+}
+.hero-cta--ghost:hover{
+  background: rgba(255,255,255,.16);
+}
+
+.hero-micro{
+  margin: 2px 0 0;
+  color: rgba(255,255,255,.88);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .3px;
+  text-shadow: 0 6px 18px rgba(0,0,0,.35);
+}
+
+/* Mobile polish */
+@media (max-width: 520px){
+  .hero-full{
+    height: 74vh;
+    min-height: 520px;
+  }
+  .hero-logo{
+    width: min(320px, 82vw);
+  }
+  .hero-cta{
+    padding: 13px 20px;
+    letter-spacing: .6px;
+  }
 }
 
 /* ==========================================
@@ -342,8 +393,8 @@ h2{
 .thumb{ margin: 0; padding: 0; }
 
 /* ==========================================
-   ✅ LIGHTBOX (fixes the “full size view” issue)
-   This makes images open CENTER SCREEN
+   ✅ LIGHTBOX
+   Opens CENTER screen with margins
 ========================================== */
 .lightbox{
   position: fixed;
@@ -352,7 +403,7 @@ h2{
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 18px;
+  padding: 18px;           /* margin around image */
   z-index: 2000;
 }
 
@@ -361,8 +412,8 @@ h2{
 .lightbox figure{
   position: relative;
   margin: 0;
-  width: min(980px, 96vw);
-  max-height: 88vh;
+  width: min(980px, 92vw);
+  max-height: 86vh;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -371,12 +422,12 @@ h2{
 .lightbox img{
   width: 100%;
   height: auto;
-  max-height: 88vh;
+  max-height: 86vh;
   object-fit: contain;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,.18);
   box-shadow: 0 18px 60px rgba(0,0,0,.45);
-  background: rgba(0,0,0,.2);
+  background: rgba(0,0,0,.20);
 }
 
 /* Close + arrows */
