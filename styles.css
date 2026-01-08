@@ -236,3 +236,94 @@ footer a:hover{ color:var(--accent); }
   .category-card{ grid-column: span 3; } /* 4 across on laptop */
   .category-thumb{ aspect-ratio: 4 / 5; }
 }
+/* ==============================
+   FIX: Bridal / Party / Stain / Portfolio gallery sizing
+   Goal: 2 columns on iPhone, 3 on iPad, 4 on laptop
+================================ */
+
+/* Breadcrumb + subtitle polish (optional but makes it look premium) */
+.breadcrumb{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom: 10px;
+}
+.pill{
+  display:inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.75);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+}
+.pill:hover{ color: var(--accent); }
+
+.page-title{
+  margin: 6px 0 6px;
+  text-align:center;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.15;
+}
+.subtitle{
+  margin: 0 0 10px;
+  text-align:center;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* ✅ THIS is the key: your bridal page uses .portrait-gallery */
+.portrait-gallery{
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+
+  /* iPhone default: 2 columns */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* iPad: 3 columns */
+@media (min-width: 700px){
+  .portrait-gallery{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* Laptop: 4 columns */
+@media (min-width: 1100px){
+  .portrait-gallery{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* Make every tile consistent + stop “giant image” behavior */
+.portrait-gallery img.zoomable{
+  width: 100%;
+  aspect-ratio: 3 / 4;     /* portrait lock like your party page look */
+  height: auto;
+  max-height: none;        /* IMPORTANT: overrides your earlier max-height clamp */
+  object-fit: cover;
+
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px rgba(0,0,0,.10);
+  cursor: pointer;
+  transition: transform .22s ease, box-shadow .22s ease;
+  background: rgba(255,255,255,.65);
+}
+
+.portrait-gallery img.zoomable:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.16);
+}
+
+/* If you ever want 1 column on super tiny phones, use 420px here.
+   Keeping 2 columns because you said you prefer that look. */
+@media (max-width: 360px){
+  .portrait-gallery{
+    grid-template-columns: 1fr;i
+  }
+}
