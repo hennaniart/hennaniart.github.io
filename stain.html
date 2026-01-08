@@ -3,53 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Henna Stains Gallery - Hennani Art</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+  <title>Henna Stains Gallery | Hennani Art</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="service.html">Services</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="gallery.html" aria-current="page">Gallery</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <main class="container page">
+  <main class="container">
     <section class="section card">
       <div class="breadcrumb">
-        <a class="pill" href="index.html">← Home</a>
         <a class="pill" href="gallery.html">← Back to Gallery</a>
       </div>
 
-      <h1 class="page-title">Henna Stains Gallery</h1>
-      <p class="subtitle">Tap any image to view full size.</p>
+      <h1 style="text-align:center;">Henna Stains Gallery</h1>
+      <p class="subtitle" style="text-align:center;">Tap any image to view full size.</p>
 
-      <div class="gallery-grid" id="gallery">
-        <div class="thumb"><img loading="lazy" src="stain1.JPG" alt="Henna Stain Design 1"></div>
-        <div class="thumb"><img loading="lazy" src="stain2.JPG" alt="Henna Stain Design 2"></div>
-        <div class="thumb"><img loading="lazy" src="stain3.JPG" alt="Henna Stain Design 3"></div>
-        <div class="thumb"><img loading="lazy" src="stain4.JPG" alt="Henna Stain Design 4"></div>
-        <div class="thumb"><img loading="lazy" src="stain5.JPG" alt="Henna Stain Design 5"></div>
-        <div class="thumb"><img loading="lazy" src="stain6.JPG" alt="Henna Stain Design 6"></div>
-        <div class="thumb"><img loading="lazy" src="stain7.JPG" alt="Henna Stain Design 7"></div>
-        <div class="thumb"><img loading="lazy" src="stain8.JPG" alt="Henna Stain Design 8"></div>
-        <div class="thumb"><img loading="lazy" src="stain9.JPG" alt="Henna Stain Design 9"></div>
+      <!-- MATCHES BRIDAL EXACTLY -->
+      <div class="portrait-gallery" id="gallery">
+        <img class="zoomable" loading="lazy" src="stain1.JPG" alt="Henna Stain Design 1">
+        <img class="zoomable" loading="lazy" src="stain2.JPG" alt="Henna Stain Design 2">
+        <img class="zoomable" loading="lazy" src="stain3.JPG" alt="Henna Stain Design 3">
+        <img class="zoomable" loading="lazy" src="stain4.JPG" alt="Henna Stain Design 4">
+        <img class="zoomable" loading="lazy" src="stain5.JPG" alt="Henna Stain Design 5">
+        <img class="zoomable" loading="lazy" src="stain6.JPG" alt="Henna Stain Design 6">
+        <img class="zoomable" loading="lazy" src="stain7.JPG" alt="Henna Stain Design 7">
+        <img class="zoomable" loading="lazy" src="stain8.JPG" alt="Henna Stain Design 8">
+        <img class="zoomable" loading="lazy" src="stain9.JPG" alt="Henna Stain Design 9">
       </div>
     </section>
   </main>
 
+  <!-- Lightbox (same structure as Bridal) -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox-inner" role="dialog" aria-label="Image viewer">
-      <button class="lb-close" id="lbClose" aria-label="Close">×</button>
-      <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <figure>
+      <button class="close-btn" id="lbClose" aria-label="Close">×</button>
+      <button class="nav-btn prev" id="lbPrev" aria-label="Previous">‹</button>
       <img id="lbImg" src="" alt="Full size view" />
-      <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
-    </div>
+      <button class="nav-btn next" id="lbNext" aria-label="Next">›</button>
+    </figure>
   </div>
 
   <footer>
@@ -70,21 +72,34 @@
     const lbNext = document.getElementById('lbNext');
     let idx = 0;
 
-    function openLb(i){ idx=i; lbImg.src=thumbs[idx].src; lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); }
-    function closeLb(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); lbImg.src=''; }
-    function prev(){ idx=(idx-1+thumbs.length)%thumbs.length; lbImg.src=thumbs[idx].src; }
-    function next(){ idx=(idx+1)%thumbs.length; lbImg.src=thumbs[idx].src; }
+    function openLb(i){
+      idx = i;
+      lbImg.src = thumbs[idx].src;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+    }
+    function closeLb(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      lbImg.src = '';
+    }
+    function prev(){ idx = (idx - 1 + thumbs.length) % thumbs.length; lbImg.src = thumbs[idx].src; }
+    function next(){ idx = (idx + 1) % thumbs.length; lbImg.src = thumbs[idx].src; }
 
-    thumbs.forEach((img,i)=>img.addEventListener('click',()=>openLb(i)));
-    lbClose.addEventListener('click',closeLb);
-    lbPrev.addEventListener('click',prev);
-    lbNext.addEventListener('click',next);
-    lb.addEventListener('click',(e)=>{ if(e.target===lb) closeLb(); });
-    document.addEventListener('keydown',(e)=>{
-      if(!lb.classList.contains('open')) return;
-      if(e.key==='Escape') closeLb();
-      if(e.key==='ArrowLeft') prev();
-      if(e.key==='ArrowRight') next();
+    thumbs.forEach((img, i) => img.addEventListener('click', () => openLb(i)));
+    lbClose.addEventListener('click', closeLb);
+    lbPrev.addEventListener('click', prev);
+    lbNext.addEventListener('click', next);
+
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb) closeLb();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
     });
   </script>
 
