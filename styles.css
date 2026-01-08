@@ -437,3 +437,59 @@ footer a:hover{ color:var(--accent); }
     font-size: 14px;
   }
 }
+/* ===========================================
+   FINAL OVERRIDE: FIX “GIANT SINGLE IMAGE”
+   Bridal / Party / Stain / Portfolio
+   Put this at the VERY BOTTOM of styles.css
+=========================================== */
+
+.gallery,
+.gallery-grid,
+.portrait-gallery{
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+  margin-top: 18px;
+}
+
+/* iPad */
+@media (min-width: 700px){
+  .gallery,
+  .gallery-grid,
+  .portrait-gallery{
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1100px){
+  .gallery,
+  .gallery-grid,
+  .portrait-gallery{
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+  }
+}
+
+/* Party/Stain/Portfolio use .thumb wrappers — make them neutral */
+.thumb{
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* Apply same tile look everywhere */
+.gallery img,
+.gallery-grid img,
+.portrait-gallery img{
+  width: 100% !important;
+  aspect-ratio: 3 / 4 !important;
+  object-fit: cover !important;
+  height: auto !important;
+
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px rgba(0,0,0,.10);
+  display: block !important;
+}
