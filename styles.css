@@ -364,3 +364,48 @@ footer a:hover{ color:var(--accent); }
   align-items: center;
   gap: 16px;
 }
+/* ============================
+   FORCE ALL GALLERY PAGES
+   to match Bridal layout
+   ============================ */
+
+/* Apply same grid to common gallery wrappers */
+.gallery,
+.gallery-grid,
+.portrait-gallery{
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 700px){
+  .gallery,
+  .gallery-grid,
+  .portrait-gallery{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1100px){
+  .gallery,
+  .gallery-grid,
+  .portrait-gallery{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* Apply same image style everywhere */
+.gallery img,
+.gallery-grid img,
+.portrait-gallery img{
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px rgba(0,0,0,.10);
+  display: block;
+}
