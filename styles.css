@@ -232,3 +232,54 @@ footer a {
 footer a:hover {
   color: var(--accent);
 }
+/* ===== Gallery Landing (Mobile Safe & Premium) ===== */
+
+.gallery-cards{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.gallery-card{
+  grid-column: span 6;
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.gallery-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.14);
+}
+
+.gallery-card img{
+  width: 100%;
+  aspect-ratio: 3 / 4;     /* 🔑 PORTRAIT LOCK */
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-card span{
+  display: block;
+  padding: 14px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: .3px;
+}
+
+/* Tablet */
+@media (max-width: 900px){
+  .gallery-card{ grid-column: span 6; }
+}
+
+/* Phone */
+@media (max-width: 520px){
+  .gallery-card{ grid-column: span 12; }
+}
