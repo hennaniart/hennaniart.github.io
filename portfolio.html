@@ -23,15 +23,18 @@
 
   <main class="container">
     <section class="section card">
+
       <div class="breadcrumb">
         <a class="pill" href="gallery.html">← Back to Gallery</a>
       </div>
 
-      <h1 class="page-title">Design Portfolio Gallery</h1>
-      <p class="subtitle">A curated selection of detailed henna work.</p>
+      <h1 style="text-align:center;">Design Portfolio Gallery</h1>
+      <p class="subtitle" style="text-align:center;">
+        Tap any image to view full size.
+      </p>
 
-      <!-- CLEAN GRID ONLY (NO LIGHTBOX, NO FULL SIZE VIEW) -->
-      <div class="portrait-gallery">
+      <!-- Portfolio Gallery Grid -->
+      <div class="portrait-gallery" id="gallery">
         <img loading="lazy" src="portfolio1.JPG"  alt="Design Portfolio 1">
         <img loading="lazy" src="portfolio2.JPG"  alt="Design Portfolio 2">
         <img loading="lazy" src="portfolio3.JPG"  alt="Design Portfolio 3">
@@ -93,8 +96,19 @@
         <img loading="lazy" src="portfolio59.JPG" alt="Design Portfolio 59">
         <img loading="lazy" src="portfolio60.JPG" alt="Design Portfolio 60">
       </div>
+
     </section>
   </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <figure>
+      <button class="close-btn" id="lbClose" aria-label="Close">×</button>
+      <button class="nav-btn prev" id="lbPrev" aria-label="Previous">‹</button>
+      <img id="lbImg" src="" alt="Full size portfolio view" />
+      <button class="nav-btn next" id="lbNext" aria-label="Next">›</button>
+    </figure>
+  </div>
 
   <footer>
     <div>© 2025 Hennani Art</div>
@@ -104,6 +118,57 @@
       <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank" rel="noopener noreferrer">Map</a>
     </div>
   </footer>
+
+  <script>
+    const thumbs = Array.from(document.querySelectorAll('#gallery img'));
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+    let idx = 0;
+
+    function openLb(i){
+      idx = i;
+      lbImg.src = thumbs[idx].src;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLb(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden','true');
+      lbImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    function prev(){
+      idx = (idx - 1 + thumbs.length) % thumbs.length;
+      lbImg.src = thumbs[idx].src;
+    }
+
+    function next(){
+      idx = (idx + 1) % thumbs.length;
+      lbImg.src = thumbs[idx].src;
+    }
+
+    thumbs.forEach((img, i) => img.addEventListener('click', () => openLb(i)));
+    lbClose.addEventListener('click', closeLb);
+    lbPrev.addEventListener('click', prev);
+    lbNext.addEventListener('click', next);
+
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb) closeLb();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+  </script>
 
 </body>
 </html>
