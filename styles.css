@@ -495,3 +495,92 @@ footer a{
   font-weight:700;
 }
 footer a:hover{ color:var(--accent); }
+/* ==========================================
+   DESKTOP REFINEMENT (does NOT affect mobile)
+========================================== */
+@media (min-width: 1200px){
+
+  /* Hero: slightly shorter on large screens */
+  .hero-full{
+    height: 72vh;
+    max-height: 760px;
+  }
+
+  .hero-logo{
+    width: 280px;
+  }
+
+  /* Reduce card padding so pages feel lighter */
+  .card{
+    padding: 16px;
+  }
+
+  /* Gallery landing (category grid) */
+  .category-grid{
+    gap: 22px;
+  }
+
+  .category-thumb{
+    aspect-ratio: 3 / 4;
+  }
+
+  .category-title{
+    font-size: 18px;
+  }
+
+  .category-sub{
+    font-size: 13px;
+  }
+
+  /* Reduce vertical spacing between sections */
+  .section{
+    margin: 14px 0;
+  }
+}
+/* ==========================================
+   iPAD / LARGE TABLET REFINEMENT (fixes “in-between” look)
+   Targets iPad landscape + iPad Pro widths
+========================================== */
+@media (min-width: 820px) and (max-width: 1199px){
+
+  /* Hero: less tall so it doesn't feel overwhelming */
+  .hero-full{
+    height: 62vh;
+    max-height: 680px;
+  }
+
+  /* Logo slightly smaller so the hero feels balanced */
+  .hero-logo{
+    width: 260px;
+  }
+
+  /* Cards: a bit tighter */
+  .card{
+    padding: 16px;
+  }
+
+  /* Buttons row: keep it neat on iPad */
+  .cta-row{
+    gap: 10px;
+  }
+  .btn{
+    padding: 12px 16px;
+  }
+
+  /* Gallery landing tiles: reduce “big blocks” feeling */
+  .category-grid{
+    gap: 16px;
+  }
+
+  /* 2 across on iPad (looks cleaner than 3/4 crowded) */
+  .category-card{
+    grid-column: span 6;
+  }
+
+  .category-title{
+    font-size: 20px;
+  }
+  .category-sub{
+    font-size: 14px;
+  }
+}
