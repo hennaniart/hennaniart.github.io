@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Party Henna Gallery - Hennani Art</title>
+  <title>Party Henna Gallery | Hennani Art</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
@@ -70,31 +70,34 @@
   </footer>
 
   <script>
-    // Lightbox with arrows + keyboard (same behavior as Bridal/Stain/Portfolio)
     const thumbs = Array.from(document.querySelectorAll('#gallery img'));
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lbImg');
     const lbClose = document.getElementById('lbClose');
     const lbPrev = document.getElementById('lbPrev');
     const lbNext = document.getElementById('lbNext');
-
     let idx = 0;
 
     function openLb(i){
       idx = i;
       lbImg.src = thumbs[idx].src;
       lb.classList.add('open');
-      lb.setAttribute('aria-hidden', 'false');
+      lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden'; // stop background scroll
     }
+
     function closeLb(){
       lb.classList.remove('open');
-      lb.setAttribute('aria-hidden', 'true');
+      lb.setAttribute('aria-hidden','true');
       lbImg.src = '';
+      document.body.style.overflow = ''; // restore scroll
     }
+
     function prev(){
       idx = (idx - 1 + thumbs.length) % thumbs.length;
       lbImg.src = thumbs[idx].src;
     }
+
     function next(){
       idx = (idx + 1) % thumbs.length;
       lbImg.src = thumbs[idx].src;
