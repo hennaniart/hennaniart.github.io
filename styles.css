@@ -1,368 +1,179 @@
-/* ===============================
-   Hennani Art – Premium Responsive CSS
-   Mobile • iPad • Laptop safe
-================================ */
+/* ====== Hennani Art – Mobile-First Premium Gallery Fix ====== */
 
-/* ---------- VARIABLES ---------- */
-:root {
+:root{
   --bg: #fff7ef;
-  --card: #ffffff;
+  --card: rgba(255,255,255,.92);
   --text: #3b2a24;
   --muted: #6a5046;
   --accent: #a0522d;
   --border: rgba(59,42,36,.12);
-  --shadow: 0 12px 30px rgba(0,0,0,.08);
+  --shadow: 0 10px 30px rgba(0,0,0,.08);
   --radius: 18px;
 }
 
-/* ---------- GLOBAL RESET ---------- */
-* {
-  box-sizing: border-box;
+*{ box-sizing: border-box; }
+html,body{
+  margin:0;
+  padding:0;
+  max-width:100%;
+  overflow-x:hidden;   /* 🔑 stops horizontal zoom issues */
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
+body{
   font-family: 'Playfair Display', serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
 }
 
-/* ---------- IMAGE SAFETY (VERY IMPORTANT) ---------- */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ---------- NAV ---------- */
-nav {
+/* NAV */
+nav{
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255,247,239,.9);
-  backdrop-filter: blur(10px);
+  background: rgba(255,247,239,.92);
   border-bottom: 1px solid var(--border);
 }
+nav ul{
+  list-style:none;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:14px;
+  margin:0;
+}
+nav a{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:700;
+}
+nav a:hover{ color:var(--accent); }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 14px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+/* LAYOUT */
+.container{
+  width:min(1100px,92%);
+  margin:auto;
+}
+.section{ margin:18px 0; }
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  padding:18px;
 }
 
-nav a {
-  text-decoration: none;
-  font-weight: 700;
-  color: var(--text);
+/* HERO */
+.hero-card{
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  background:#fff;
 }
-
-nav a:hover {
-  color: var(--accent);
+.hero-img{
+  width:100%;
+  height:42vh;
+  min-height:280px;
+  object-fit:cover;
+  display:block;
 }
-
-/* ---------- LAYOUT ---------- */
-.container {
-  max-width: 1200px;
-  width: 92%;
-  margin: auto;
-}
-
-.section {
-  margin: 22px 0;
-}
-
-.card {
-  background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-  padding: 20px;
-}
-
-/* ---------- HERO ---------- */
-.hero-card {
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.hero-img {
-  width: 100%;
-  height: 55vh;
-  min-height: 320px;
-  object-fit: cover;
-}
-
-.hero-overlay {
-  padding: 22px;
-  background: linear-gradient(
-    180deg,
+.hero-overlay{
+  padding:20px;
+  background:linear-gradient(
+    to bottom,
     rgba(255,255,255,.7),
     rgba(255,255,255,.95)
   );
 }
-
-/* Logo + Title FIXED */
-.brand-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.brand-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.brand-logo{
+  width:52px;
+  height:52px;
+  border-radius:12px;
+  background:#fff;
+  padding:6px;
+  border:1px solid var(--border);
 }
 
-.brand-logo {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  background: #fff;
-  padding: 8px;
-  border: 1px solid var(--border);
+/* TYPOGRAPHY */
+h1{
+  margin:0;
+  font-size:clamp(26px,3vw,40px);
+}
+h2{
+  font-size:clamp(20px,2.4vw,28px);
+}
+.tagline{
+  color:var(--muted);
+  font-weight:600;
+}
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:14px;
+  background:var(--text);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+}
+.btn:hover{ background:var(--accent); }
+
+/* ===============================
+   ✅ PREMIUM GALLERY (FIXED)
+   =============================== */
+
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);   /* 🔑 always 2 on mobile */
+  gap:14px;
 }
 
-h1 {
-  margin: 0;
-  font-size: clamp(28px, 3vw, 42px);
+.gallery img{
+  width:100%;
+  aspect-ratio: 3 / 4;     /* 🔑 locks portrait feel */
+  object-fit:cover;
+  border-radius:18px;
+  border:1px solid var(--border);
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:transform .25s ease, box-shadow .25s ease;
 }
 
-.tagline {
-  margin-top: 6px;
-  font-weight: 600;
-  color: var(--muted);
+.gallery img:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 42px rgba(0,0,0,.14);
 }
 
-.hero-copy {
-  margin-top: 14px;
-  max-width: 520px;
-}
-
-/* ---------- BUTTON ---------- */
-.btn {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 12px 18px;
-  background: var(--text);
-  color: white;
-  border-radius: 14px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background: var(--accent);
-}
-
-/* ---------- GALLERY (FIXES YOUR ISSUE) ---------- */
-.gallery-grid {
-  display: grid;
-  gap: 16px;
-}
-
-/* iPhone */
-@media (max-width: 600px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .gallery-grid img {
-    height: 240px;
-    object-fit: cover;
-    border-radius: 16px;
-  }
-}
-
-/* iPad */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .gallery-grid {
+/* TABLET */
+@media (min-width: 768px){
+  .gallery{
     grid-template-columns: repeat(3, 1fr);
   }
-
-  .gallery-grid img {
-    height: 300px;
-    border-radius: 18px;
-  }
 }
 
-/* Laptop */
-@media (min-width: 1025px) {
-  .gallery-grid {
+/* DESKTOP */
+@media (min-width: 1100px){
+  .gallery{
     grid-template-columns: repeat(4, 1fr);
   }
-
-  .gallery-grid img {
-    height: 320px;
-    border-radius: 20px;
-  }
 }
 
-.gallery-grid img {
-  width: 100%;
-  box-shadow: 0 10px 26px rgba(0,0,0,.1);
-  border: 1px solid var(--border);
-  transition: transform .25s ease, box-shadow .25s ease;
+/* FOOTER */
+footer{
+  margin-top:30px;
+  padding:20px;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid var(--border);
 }
-
-.gallery-grid img:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.16);
+footer a{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:700;
 }
-
-/* ---------- FOOTER ---------- */
-footer {
-  margin-top: 40px;
-  padding: 24px 0;
-  text-align: center;
-  background: rgba(255,247,239,.9);
-  border-top: 1px solid var(--border);
-}
-
-footer a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 700;
-}
-
-footer a:hover {
-  color: var(--accent);
-}
-/* ===== Gallery Landing (Mobile Safe & Premium) ===== */
-
-.gallery-cards{
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 18px;
-  margin-top: 22px;
-}
-
-.gallery-card{
-  grid-column: span 6;
-  display: block;
-  text-decoration: none;
-  color: var(--text);
-  border-radius: 18px;
-  overflow: hidden;
-  background: rgba(255,255,255,.92);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.gallery-card:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0,0,0,.14);
-}
-
-.gallery-card img{
-  width: 100%;
-  aspect-ratio: 3 / 4;     /* 🔑 PORTRAIT LOCK */
-  object-fit: cover;
-  display: block;
-}
-
-.gallery-card span{
-  display: block;
-  padding: 14px;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: .3px;
-}
-
-/* Tablet */
-@media (max-width: 900px){
-  .gallery-card{ grid-column: span 6; }
-}
-
-/* Phone */
-@media (max-width: 520px){
-  .gallery-card{ grid-column: span 12; }
-}
-/* ===== Portrait Bridal / Party / Stain Galleries ===== */
-
-.portrait-gallery{
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 16px;
-  margin-top: 22px;
-}
-
-.portrait-gallery img.zoomable{
-  grid-column: span 4;
-  width: 100%;
-  aspect-ratio: 3 / 4;     /* 🔒 portrait lock */
-  object-fit: cover;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 24px rgba(0,0,0,.08);
-  cursor: pointer;
-  transition: transform .22s ease, box-shadow .22s ease;
-}
-
-.portrait-gallery img.zoomable:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 18px 42px rgba(0,0,0,.14);
-}
-
-/* Tablet */
-@media (max-width: 900px){
-  .portrait-gallery img.zoomable{
-    grid-column: span 6;
-  }
-}
-
-/* Phone */
-@media (max-width: 520px){
-  .portrait-gallery img.zoomable{
-    grid-column: span 12;
-  }
-}
-/* ===== FIX iPhone / iPad Gallery Zoom Issue ===== */
-
-/* Prevent iOS double-tap zoom behavior */
-img {
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-}
-
-/* Bridal / Party / Stain / Portfolio galleries */
-.gallery img,
-.gallery-grid img,
-.portrait-gallery img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-
-  /* Portrait-first lock */
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-
-  /* Prevent giant image rendering on mobile */
-  max-height: 420px;
-
-  border-radius: 16px;
-  display: block;
-}
-
-/* iPhone */
-@media (max-width: 520px) {
-  .gallery img,
-  .gallery-grid img,
-  .portrait-gallery img {
-    max-height: 360px;   /* key fix */
-  }
-}
-
-/* iPad */
-@media (min-width: 521px) and (max-width: 900px) {
-  .gallery img,
-  .gallery-grid img,
-  .portrait-gallery img {
-    max-height: 380px;
-  }
-}
+footer a:hover{ color:var(--accent); }
