@@ -25,19 +25,29 @@
 
   <main>
 
-    <!-- HERO (Full image + centered brand logo + CTA like your reference) -->
-    <section class="hero-full">
+    <!-- HERO (Full image + centered brand logo + CTA) -->
+    <section class="hero-full" aria-label="Hennani Art hero">
       <img src="hero.JPG" alt="Luxury henna designs by Hennani Art" class="hero-bg" />
 
+      <!-- Dark overlay is handled in CSS; keep content centered -->
       <div class="hero-center">
-        <!-- Use your logo as the brand identity (no big title text) -->
+        <!-- Use your logo as the brand identity -->
         <img
           src="https://raw.githubusercontent.com/hennaniart/hennani-art/main/logo.png"
-          alt="Hennani Art"
+          alt="Hennani Art logo"
           class="hero-logo"
+          loading="eager"
         />
 
-        <a class="hero-cta" href="contact.html">Book Now</a>
+        <div class="hero-actions">
+          <a class="hero-cta" href="contact.html">Book Now</a>
+          <a class="hero-cta hero-cta--ghost" href="gallery.html">View Gallery</a>
+        </div>
+
+        <!-- Small supporting line (kept subtle) -->
+        <p class="hero-micro">
+          Bridal • Events • Custom Designs — Serving MD, VA & DC
+        </p>
       </div>
     </section>
 
@@ -45,45 +55,56 @@
 
       <!-- Intro / Value -->
       <section class="section card center">
+        <h1 class="home-h1">Luxury Henna Artist in Maryland</h1>
         <p class="lead">
           Bespoke henna artistry for brides, celebrations, and meaningful moments.<br>
           Based in Ellicott City, Maryland — serving MD, VA & DC.
         </p>
-        <p class="micro">
-          Bridal • Events • Custom Designs — response within 3–5 business days
-        </p>
 
         <div class="cta-row">
           <a class="btn" href="contact.html">Book Your Henna Experience</a>
-          <a class="btn btn-ghost" href="gallery.html">View Gallery</a>
+          <a class="btn btn-ghost" href="gallery.html">Browse Gallery</a>
         </div>
+
+        <p class="micro" style="margin-top:10px;">
+          Response within 3–5 business days
+        </p>
       </section>
 
       <!-- Reviews -->
-      <section class="section card center">
-        <h2 class="section-title">Let customers speak for us</h2>
+      <section class="section card center" aria-label="Client review">
+        <h2 class="section-title">Client Love</h2>
         <div class="stars" aria-label="5 star rating">★★★★★</div>
 
-        <!-- Edit this review text anytime -->
         <blockquote class="review">
           “I reached out to Hennani Art for my engagement henna last minute and Priya was so kind to give me an appointment the same day.
           The henna designs were beautiful and lasted perfectly!”
           <span class="review-name">— Sreeja A N</span>
         </blockquote>
 
-        <a class="btn btn-ghost" href="contact.html">Check Availability</a>
+        <div class="cta-row">
+          <a class="btn btn-ghost" href="contact.html">Check Availability</a>
+        </div>
       </section>
 
       <!-- QR Code -->
-      <section class="section card center">
-        <h2 class="section-title">Scan to Follow @hennaniarts</h2>
+      <section class="section card center" aria-label="Instagram QR">
+        <h2 class="section-title">Follow @hennaniarts</h2>
 
         <div class="qr-wrap">
-          <img class="qr" src="hennaniarts_qr.png" alt="QR code to follow Hennani Art on Instagram (@hennaniarts)">
+          <img
+            class="qr"
+            src="hennaniarts_qr.png"
+            alt="QR code to follow Hennani Art on Instagram (@hennaniarts)"
+            loading="lazy"
+          >
         </div>
 
         <p class="micro">
-          Or visit <a class="inline-link" href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">@hennaniarts</a>
+          Or visit
+          <a class="inline-link" href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">
+            @hennaniarts
+          </a>
         </p>
       </section>
 
