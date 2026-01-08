@@ -629,3 +629,47 @@ footer a:hover{ color:var(--accent); }
     margin: 14px 0;
   }
 }
+/* ==========================================
+   Gallery interaction hint
+========================================== */
+
+.category-card{
+  position: relative;
+}
+
+/* Overlay */
+.category-card::after{
+  content: "Tap to View Gallery";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #fff;
+  background: rgba(0,0,0,.38);
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+/* Show on hover (desktop) */
+.category-card:hover::after{
+  opacity: 1;
+}
+
+/* Always visible on touch devices */
+@media (hover: none){
+  .category-card::after{
+    opacity: 1;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,.55),
+      rgba(0,0,0,.15)
+    );
+    align-items: flex-end;
+    padding-bottom: 14px;
+  }
+}
