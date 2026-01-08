@@ -322,3 +322,47 @@ footer a:hover {
     grid-column: span 12;
   }
 }
+/* ===== FIX iPhone / iPad Gallery Zoom Issue ===== */
+
+/* Prevent iOS double-tap zoom behavior */
+img {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Bridal / Party / Stain / Portfolio galleries */
+.gallery img,
+.gallery-grid img,
+.portrait-gallery img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+
+  /* Portrait-first lock */
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+
+  /* Prevent giant image rendering on mobile */
+  max-height: 420px;
+
+  border-radius: 16px;
+  display: block;
+}
+
+/* iPhone */
+@media (max-width: 520px) {
+  .gallery img,
+  .gallery-grid img,
+  .portrait-gallery img {
+    max-height: 360px;   /* key fix */
+  }
+}
+
+/* iPad */
+@media (min-width: 521px) and (max-width: 900px) {
+  .gallery img,
+  .gallery-grid img,
+  .portrait-gallery img {
+    max-height: 380px;
+  }
+}
