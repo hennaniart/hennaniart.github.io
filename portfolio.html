@@ -5,135 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Design Portfolio Gallery - Hennani Art</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Playfair Display', serif;
-      background: url('https://raw.githubusercontent.com/hennaniart/hennani-art/main/welcome.JPG') no-repeat center center fixed;
-      background-size: cover;
-      color: #4e342e;
-      scroll-behavior: smooth;
-      min-height: 100vh;
-      position: relative;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-color: rgba(255, 243, 224, 0.7);
-      z-index: -1;
-    }
-
-    nav {
-      background-color: rgba(255, 243, 224, 0.95);
-      border-bottom: 2px solid #d7ccc8;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      margin: 0;
-    }
-    nav li a {
-      text-decoration: none;
-      color: #4e342e;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-    nav li a:hover,
-    nav li a:focus {
-      color: #a0522d;
-      outline: none;
-    }
-
-    main {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: rgba(255, 243, 224, 0.88);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .back-link {
-      display: inline-block;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      text-decoration: none;
-      color: #a0522d;
-    }
-    .back-link:hover,
-    .back-link:focus {
-      text-decoration: underline;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1rem;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(90, 62, 27, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .gallery img:hover,
-    .gallery img:focus {
-      transform: scale(1.05);
-      box-shadow: 0 8px 15px rgba(90, 62, 27, 0.6);
-      outline: none;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #795548;
-      padding: 2rem 1rem;
-      background-color: rgba(255, 243, 224, 0.95);
-      border-top: 1px solid #e0d2c0;
-      margin-top: 3rem;
-    }
-    footer .social-icons {
-      margin-top: 1rem;
-    }
-    footer .social-icons a {
-      margin: 0 0.5rem;
-      color: #4e342e;
-      text-decoration: none;
-      display: inline-block;
-      transition: color 0.3s ease;
-    }
-    footer .social-icons a:hover,
-    footer .social-icons a:focus {
-      color: #a0522d;
-    }
-    footer .social-icons svg {
-      vertical-align: middle;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -144,88 +19,147 @@
     </ul>
   </nav>
 
-  <!-- Main content -->
-  <main>
-    <a href="index.html" class="back-link" aria-label="Home">← Home</a>
-    <a href="gallery.html" class="back-link" aria-label="Back to Gallery">← Back to Gallery</a>
+  <main class="container page">
+    <section class="section card">
+      <div class="breadcrumb">
+        <a class="pill" href="index.html">← Home</a>
+        <a class="pill" href="gallery.html">← Back to Gallery</a>
+      </div>
 
-    <h1>Design Portfolio Gallery</h1>
-    <section class="gallery" role="list" aria-label="Design portfolio henna images">
-     <img src="portfolio1.JPG" alt="Design Portfolio 1" />
-  <img src="portfolio2.JPG" alt="Design Portfolio 2" />
-  <img src="portfolio3.JPG" alt="Design Portfolio 3" />
-  <img src="portfolio4.JPG" alt="Design Portfolio 4" />
-  <img src="portfolio5.JPG" alt="Design Portfolio 5" />
-  <img src="portfolio6.JPG" alt="Design Portfolio 6" />
-  <img src="portfolio7.JPG" alt="Design Portfolio 7" />
-  <img src="portfolio8.JPG" alt="Design Portfolio 8" />
-  <img src="portfolio9.JPG" alt="Design Portfolio 9" />
-  <img src="portfolio10.JPG" alt="Design Portfolio 10" />
-  <img src="portfolio11.JPG" alt="Design Portfolio 11" />
-  <img src="portfolio12.JPG" alt="Design Portfolio 12" />
-  <img src="portfolio13.JPG" alt="Design Portfolio 13" />
-  <img src="portfolio14.JPG" alt="Design Portfolio 14" />
-  <img src="portfolio15.JPG" alt="Design Portfolio 15" />
-  <img src="portfolio16.JPG" alt="Design Portfolio 16" />
-  <img src="portfolio17.JPG" alt="Design Portfolio 17" />
-  <img src="portfolio18.JPG" alt="Design Portfolio 18" />
-  <img src="portfolio19.JPG" alt="Design Portfolio 19" />
-  <img src="portfolio20.JPG" alt="Design Portfolio 20" />
-  <img src="portfolio21.JPG" alt="Design Portfolio 21" />
-  <img src="portfolio22.JPG" alt="Design Portfolio 22" />
-  <img src="portfolio23.JPG" alt="Design Portfolio 23" />
-  <img src="portfolio24.JPG" alt="Design Portfolio 24" />
-  <img src="portfolio25.JPG" alt="Design Portfolio 25" />
-  <img src="portfolio26.JPG" alt="Design Portfolio 26" />
-  <img src="portfolio27.JPG" alt="Design Portfolio 27" />
-  <img src="portfolio28.JPG" alt="Design Portfolio 28" />
-  <img src="portfolio29.JPG" alt="Design Portfolio 29" />
-  <img src="portfolio30.JPG" alt="Design Portfolio 30" />
-  <img src="portfolio31.JPG" alt="Design Portfolio 31" />
-  <img src="portfolio32.JPG" alt="Design Portfolio 32" />
-  <img src="portfolio33.JPG" alt="Design Portfolio 33" />
-  <img src="portfolio34.JPG" alt="Design Portfolio 34" />
-  <img src="portfolio35.JPG" alt="Design Portfolio 35" />
-  <img src="portfolio36.JPG" alt="Design Portfolio 36" />
-  <img src="portfolio37.JPG" alt="Design Portfolio 37" />
-  <img src="portfolio38.JPG" alt="Design Portfolio 38" />
-  <img src="portfolio39.JPG" alt="Design Portfolio 39" />
-  <img src="portfolio40.JPG" alt="Design Portfolio 40" />
-  <img src="portfolio41.JPG" alt="Design Portfolio 41" />
-  <img src="portfolio42.JPG" alt="Design Portfolio 42" />
-  <img src="portfolio43.JPG" alt="Design Portfolio 43" />
-  <img src="portfolio44.JPG" alt="Design Portfolio 44" />
-  <img src="portfolio45.JPG" alt="Design Portfolio 45" />
-  <img src="portfolio46.JPG" alt="Design Portfolio 46" />
-  <img src="portfolio47.JPG" alt="Design Portfolio 47" />
-  <img src="portfolio48.JPG" alt="Design Portfolio 48" />
-  <img src="portfolio49.JPG" alt="Design Portfolio 49" />
-  <img src="portfolio50.JPG" alt="Design Portfolio 50" />
-  <img src="portfolio51.JPG" alt="Design Portfolio 51" />
-  <img src="portfolio52.JPG" alt="Design Portfolio 52" />
-  <img src="portfolio53.JPG" alt="Design Portfolio 53" />
-  <img src="portfolio54.JPG" alt="Design Portfolio 54" />
-  <img src="portfolio55.JPG" alt="Design Portfolio 55" />
-  <img src="portfolio56.JPG" alt="Design Portfolio 56" />
-  <img src="portfolio57.JPG" alt="Design Portfolio 57" />
-  <img src="portfolio58.JPG" alt="Design Portfolio 58" />
-  <img src="portfolio59.JPG" alt="Design Portfolio 59" />
-  <img src="portfolio60.JPG" alt="Design Portfolio 60" />
+      <h1 class="page-title">Design Portfolio Gallery</h1>
+      <p class="subtitle">Tap any image to view full size. (60 images)</p>
+
+      <div class="gallery-grid" id="gallery">
+        <!-- 1–60 -->
+        <div class="thumb"><img loading="lazy" src="portfolio1.JPG"  alt="Design Portfolio 1"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio2.JPG"  alt="Design Portfolio 2"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio3.JPG"  alt="Design Portfolio 3"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio4.JPG"  alt="Design Portfolio 4"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio5.JPG"  alt="Design Portfolio 5"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio6.JPG"  alt="Design Portfolio 6"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio7.JPG"  alt="Design Portfolio 7"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio8.JPG"  alt="Design Portfolio 8"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio9.JPG"  alt="Design Portfolio 9"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio10.JPG" alt="Design Portfolio 10"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio11.JPG" alt="Design Portfolio 11"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio12.JPG" alt="Design Portfolio 12"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio13.JPG" alt="Design Portfolio 13"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio14.JPG" alt="Design Portfolio 14"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio15.JPG" alt="Design Portfolio 15"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio16.JPG" alt="Design Portfolio 16"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio17.JPG" alt="Design Portfolio 17"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio18.JPG" alt="Design Portfolio 18"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio19.JPG" alt="Design Portfolio 19"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio20.JPG" alt="Design Portfolio 20"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio21.JPG" alt="Design Portfolio 21"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio22.JPG" alt="Design Portfolio 22"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio23.JPG" alt="Design Portfolio 23"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio24.JPG" alt="Design Portfolio 24"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio25.JPG" alt="Design Portfolio 25"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio26.JPG" alt="Design Portfolio 26"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio27.JPG" alt="Design Portfolio 27"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio28.JPG" alt="Design Portfolio 28"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio29.JPG" alt="Design Portfolio 29"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio30.JPG" alt="Design Portfolio 30"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio31.JPG" alt="Design Portfolio 31"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio32.JPG" alt="Design Portfolio 32"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio33.JPG" alt="Design Portfolio 33"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio34.JPG" alt="Design Portfolio 34"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio35.JPG" alt="Design Portfolio 35"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio36.JPG" alt="Design Portfolio 36"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio37.JPG" alt="Design Portfolio 37"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio38.JPG" alt="Design Portfolio 38"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio39.JPG" alt="Design Portfolio 39"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio40.JPG" alt="Design Portfolio 40"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio41.JPG" alt="Design Portfolio 41"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio42.JPG" alt="Design Portfolio 42"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio43.JPG" alt="Design Portfolio 43"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio44.JPG" alt="Design Portfolio 44"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio45.JPG" alt="Design Portfolio 45"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio46.JPG" alt="Design Portfolio 46"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio47.JPG" alt="Design Portfolio 47"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio48.JPG" alt="Design Portfolio 48"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio49.JPG" alt="Design Portfolio 49"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio50.JPG" alt="Design Portfolio 50"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio51.JPG" alt="Design Portfolio 51"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio52.JPG" alt="Design Portfolio 52"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio53.JPG" alt="Design Portfolio 53"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio54.JPG" alt="Design Portfolio 54"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio55.JPG" alt="Design Portfolio 55"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio56.JPG" alt="Design Portfolio 56"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio57.JPG" alt="Design Portfolio 57"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio58.JPG" alt="Design Portfolio 58"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio59.JPG" alt="Design Portfolio 59"></div>
+        <div class="thumb"><img loading="lazy" src="portfolio60.JPG" alt="Design Portfolio 60"></div>
+      </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer role="contentinfo">
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner" role="dialog" aria-label="Image viewer">
+      <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+      <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+      <img id="lbImg" src="" alt="Full size view" />
+      <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+    </div>
+  </div>
+
+  <footer>
     <div>© 2025 Hennani Art</div>
-    <div class="social-icons" aria-label="Social media links">
-      <a href="https://facebook.com/hennaniart" target="_blank" aria-label="Facebook">
-        <svg width="24" height="24" fill="#4e342e" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.337v21.326C0 23.4.6 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.1 2.797.143v3.24h-1.918c-1.5 0-1.793.713-1.793 1.76v2.31h3.586l-.467 3.622h-3.12V24h6.116C23.4 24 24 23.4 24 22.663V1.337C24 .6 23.4 0 22.675 0z"/></svg>
-      </a>
-      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank" aria-label="Google Maps">
-        <svg width="24" height="24" fill="#4e342e" viewBox="0 0 24 24"><path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zM12 11.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z"/></svg>
-      </a>
+    <div>
+      <a href="https://facebook.com/hennaniart" target="_blank" rel="noopener noreferrer">Facebook</a> |
+      <a href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">Instagram</a> |
+      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank" rel="noopener noreferrer">Map</a>
     </div>
   </footer>
+
+  <script>
+    // Lightbox with arrows + keyboard
+    const thumbs = Array.from(document.querySelectorAll('#gallery img'));
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+    let idx = 0;
+
+    function openLb(i){
+      idx = i;
+      lbImg.src = thumbs[idx].src;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+    }
+    function closeLb(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      lbImg.src = '';
+    }
+    function prev(){ idx = (idx - 1 + thumbs.length) % thumbs.length; lbImg.src = thumbs[idx].src; }
+    function next(){ idx = (idx + 1) % thumbs.length; lbImg.src = thumbs[idx].src; }
+
+    thumbs.forEach((img, i) => img.addEventListener('click', () => openLb(i)));
+    lbClose.addEventListener('click', closeLb);
+    lbPrev.addEventListener('click', prev);
+    lbNext.addEventListener('click', next);
+
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb) closeLb();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+
+    // Extra small "lazy-load assist": if browser doesn't support native lazy, force decode after load.
+    // (Native loading="lazy" already handles most cases.)
+    thumbs.forEach(img => {
+      if (img.loading !== undefined) return;
+      img.decoding = "async";
+    });
+  </script>
 
 </body>
 </html>
