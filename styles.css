@@ -1114,3 +1114,21 @@ footer a:hover{ color:var(--accent); }
   gap: 12px;
   flex-wrap: wrap;
 }
+/* Gallery category thumbnails (ensure they always render nicely) */
+.category-thumb{
+  width: 100%;
+  height: clamp(180px, 26vh, 260px);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background: rgba(255,255,255,.55);
+}
+
+/* If thumbnail image fails to load, use a luxury fallback */
+.category-card.thumb-fallback{
+  background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.18));
+}
+.category-card.thumb-fallback::after{
+  opacity: 1;
+  background: rgba(0,0,0,.28);
+}
