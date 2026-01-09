@@ -157,8 +157,7 @@ h2{
 }
 
 /* ==========================================
-   HOME HERO (NEW: background + logo overlay)
-   Goal: cinematic background, logo crisp, premium CTAs
+   HOME HERO (background + logo overlay)
 ========================================== */
 
 .hero-full{
@@ -175,22 +174,22 @@ h2{
   inset:0;
   width:100%;
   height:100%;
-  object-fit: cover;               /* fill screen */
-  object-position: center 45%;     /* slightly up to keep hands centered */
+  object-fit: cover;
+  object-position: center 45%;
   transform: scale(1.01);
   filter: saturate(1.02) contrast(1.04);
 }
 
-/* Elegant dark overlay (helps logo + CTAs pop) */
+/* Elegant overlay (not too dark) */
 .hero-full::after{
   content:"";
   position:absolute;
   inset:0;
   background: radial-gradient(
-      circle at 50% 40%,
-      rgba(0,0,0,.10),
-      rgba(0,0,0,.55)
-    );
+    circle at 50% 40%,
+    rgba(0,0,0,.06),
+    rgba(0,0,0,.52)
+  );
 }
 
 /* Content layer */
@@ -202,20 +201,21 @@ h2{
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap: 14px;
-  padding: 20px;
+  gap: 16px;
+  padding: 22px 18px;
   text-align: center;
 }
 
-/* Logo overlay (THIS is what you needed) */
+/* Logo overlay */
 .hero-logo{
   width: min(420px, 78vw);
   height: auto;
   filter: drop-shadow(0 18px 34px rgba(0,0,0,.55));
   transform: translateY(-6px);
+  margin-bottom: 2px;
 }
 
-/* CTA row in hero */
+/* CTA row */
 .hero-actions{
   display:flex;
   gap: 12px;
@@ -227,7 +227,7 @@ h2{
 .hero-cta{
   display:inline-block;
   padding: 14px 26px;
-  border-radius: 0; /* clean luxury edge */
+  border-radius: 0;
   background: rgba(0,0,0,.78);
   color:#fff;
   text-decoration:none;
@@ -370,8 +370,7 @@ h2{
 }
 
 /* ==========================================
-   ✅ UNIVERSAL GALLERY GRID (inner gallery pages)
-   bridal / party / stain / portfolio
+   ✅ UNIVERSAL GALLERY GRID
 ========================================== */
 .gallery,
 .gallery-grid,
@@ -382,7 +381,6 @@ h2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-/* iPad */
 @media (min-width: 700px){
   .gallery,
   .gallery-grid,
@@ -392,7 +390,6 @@ h2{
   }
 }
 
-/* Laptop */
 @media (min-width: 1100px){
   .gallery,
   .gallery-grid,
@@ -528,7 +525,6 @@ footer a:hover{ color:var(--accent); }
 
 /* ==========================================
    GALLERY LANDING PAGE (gallery.html)
-   category grid + elegant thumbnail sizing
 ========================================== */
 
 .category-grid{
@@ -580,29 +576,22 @@ footer a:hover{ color:var(--accent); }
   font-size: 14px;
 }
 
-/* iPhone: single column */
 @media (max-width: 520px){
   .category-card{ grid-column: span 12; }
   .category-thumb{ height: 220px; }
 }
 
-/* iPad / large tablet: 2 across */
 @media (min-width: 820px) and (max-width: 1199px){
   .category-card{ grid-column: span 6; }
   .category-grid{ gap: 16px; }
   .category-thumb{ height: 240px; }
 }
 
-/* Desktop: 4 across */
 @media (min-width: 1200px){
   .category-card{ grid-column: span 3; }
   .category-grid{ gap: 22px; }
   .category-thumb{ height: 240px; }
 }
-
-/* ==========================================
-   Gallery interaction hint
-========================================== */
 
 .category-card::after{
   content: "Tap to View Gallery";
@@ -638,18 +627,12 @@ footer a:hover{ color:var(--accent); }
   }
 }
 
-/* ==========================================
-   iPAD / LARGE TABLET REFINEMENT (general)
-========================================== */
 @media (min-width: 820px) and (max-width: 1199px){
   .card{ padding: 16px; }
   .cta-row{ gap: 10px; }
   .btn{ padding: 12px 16px; }
 }
 
-/* ==========================================
-   DESKTOP REFINEMENT (general)
-========================================== */
 @media (min-width: 1200px){
   .card{ padding: 16px; }
   .section{ margin: 14px 0; }
