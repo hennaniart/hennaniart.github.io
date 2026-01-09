@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Henna Stains Gallery | Hennani Art</title>
+  <meta name="description" content="Henna stain results by Hennani Art. See stain development and rich color outcomes. Tap any photo to view full size. Serving MD, VA & DC." />
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
@@ -21,34 +22,52 @@
     </ul>
   </nav>
 
-  <main class="container">
-    <section class="section card">
+  <main class="container page">
 
-      <div class="breadcrumb">
-        <a class="pill" href="index.html">← Home</a>
+    <!-- Header -->
+    <section class="section card center">
+      <div class="breadcrumb" style="justify-content:center;">
         <a class="pill" href="gallery.html">← Back to Gallery</a>
+        <a class="pill" href="contact.html">Book Henna</a>
       </div>
 
-      <h1 style="text-align:center;">Henna Stains Gallery</h1>
-      <p class="subtitle" style="text-align:center;">Tap any image to view full size.</p>
-
-      <!-- Stain Gallery Grid -->
-      <div class="portrait-gallery" id="gallery">
-        <img class="zoomable" loading="lazy" src="stain1.JPG" alt="Henna Stain Design 1">
-        <img class="zoomable" loading="lazy" src="stain2.JPG" alt="Henna Stain Design 2">
-        <img class="zoomable" loading="lazy" src="stain3.JPG" alt="Henna Stain Design 3">
-        <img class="zoomable" loading="lazy" src="stain4.JPG" alt="Henna Stain Design 4">
-        <img class="zoomable" loading="lazy" src="stain5.JPG" alt="Henna Stain Design 5">
-        <img class="zoomable" loading="lazy" src="stain6.JPG" alt="Henna Stain Design 6">
-        <img class="zoomable" loading="lazy" src="stain7.JPG" alt="Henna Stain Design 7">
-        <img class="zoomable" loading="lazy" src="stain8.JPG" alt="Henna Stain Design 8">
-        <img class="zoomable" loading="lazy" src="stain9.JPG" alt="Henna Stain Design 9">
-      </div>
-
+      <h1 class="page-title">Henna Stains Gallery</h1>
+      <p class="subtitle">
+        Real stain results and development — tap any photo to view full size.
+      </p>
+      <p class="micro" style="margin-top:10px;">
+        Serving Maryland, Virginia & Washington DC
+      </p>
     </section>
+
+    <!-- Gallery -->
+    <section class="section card">
+      <div class="portrait-gallery" id="gallery" aria-label="Henna stains gallery">
+        <img class="zoomable" loading="lazy" src="stain1.JPG" alt="Henna stain result 1">
+        <img class="zoomable" loading="lazy" src="stain2.JPG" alt="Henna stain result 2">
+        <img class="zoomable" loading="lazy" src="stain3.JPG" alt="Henna stain result 3">
+        <img class="zoomable" loading="lazy" src="stain4.JPG" alt="Henna stain result 4">
+        <img class="zoomable" loading="lazy" src="stain5.JPG" alt="Henna stain result 5">
+        <img class="zoomable" loading="lazy" src="stain6.JPG" alt="Henna stain result 6">
+        <img class="zoomable" loading="lazy" src="stain7.JPG" alt="Henna stain result 7">
+        <img class="zoomable" loading="lazy" src="stain8.JPG" alt="Henna stain result 8">
+        <img class="zoomable" loading="lazy" src="stain9.JPG" alt="Henna stain result 9">
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="cta-row" style="margin-top:16px;">
+        <a class="btn" href="contact.html">Book Henna</a>
+        <a class="btn btn-ghost" href="gallery.html">Back to Gallery</a>
+      </div>
+
+      <p class="micro" style="text-align:center; margin-top:10px;">
+        Tip: best stain results come from good aftercare — ask me for a recommended routine when you book.
+      </p>
+    </section>
+
   </main>
 
-  <!-- Lightbox (center-screen overlay, with margin) -->
+  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <figure>
       <button class="close-btn" id="lbClose" aria-label="Close">×</button>
@@ -68,14 +87,12 @@
   </footer>
 
   <script>
-    // Lightbox with arrows + keyboard + scroll lock
     const thumbs = Array.from(document.querySelectorAll('#gallery img'));
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lbImg');
     const lbClose = document.getElementById('lbClose');
     const lbPrev = document.getElementById('lbPrev');
     const lbNext = document.getElementById('lbNext');
-
     let idx = 0;
 
     function openLb(i){
@@ -83,14 +100,14 @@
       lbImg.src = thumbs[idx].src;
       lb.classList.add('open');
       lb.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden'; // stop background scroll
+      document.body.style.overflow = 'hidden';
     }
 
     function closeLb(){
       lb.classList.remove('open');
       lb.setAttribute('aria-hidden','true');
       lbImg.src = '';
-      document.body.style.overflow = ''; // restore scroll
+      document.body.style.overflow = '';
     }
 
     function prev(){
@@ -108,12 +125,10 @@
     lbPrev.addEventListener('click', prev);
     lbNext.addEventListener('click', next);
 
-    // Click outside image closes
     lb.addEventListener('click', (e) => {
       if (e.target === lb) closeLb();
     });
 
-    // Keyboard controls
     document.addEventListener('keydown', (e) => {
       if (!lb.classList.contains('open')) return;
       if (e.key === 'Escape') closeLb();
