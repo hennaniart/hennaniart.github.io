@@ -880,3 +880,204 @@ textarea{
 @media (min-width: 900px){
   .sticky-book-btn{ display:none; }
 }
+/* ==========================================
+   CONTACT / BOOKING PAGE (Premium Form + Timeline + FAQ)
+   Paste at the BOTTOM of styles.css
+========================================== */
+
+.page-title{
+  font-size: clamp(22px, 2.6vw, 32px);
+  margin: 0 0 6px;
+  letter-spacing: .2px;
+}
+
+.ha-form label{
+  display:block;
+  margin: 14px 0 6px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.ha-form input,
+.ha-form select,
+.ha-form textarea{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.85);
+  color: var(--text);
+  outline: none;
+  box-shadow: 0 8px 18px rgba(0,0,0,.05);
+}
+
+.ha-form input:focus,
+.ha-form select:focus,
+.ha-form textarea:focus{
+  border-color: rgba(160,82,45,.45);
+  box-shadow: 0 12px 26px rgba(0,0,0,.08);
+}
+
+.ha-form textarea{
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-row{
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.form-col-6{
+  flex: 1 1 260px;
+  min-width: 240px;
+}
+
+.field{
+  margin-top: 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px 12px 10px;
+  background: rgba(255,255,255,.72);
+}
+
+.field legend{
+  padding: 0 8px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.choice-row{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+.choice{
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.85);
+  cursor: pointer;
+  user-select: none;
+}
+
+.choice input{
+  width: auto;
+  margin: 0;
+  box-shadow: none;
+}
+
+.form-note{
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.72);
+  color: var(--text);
+}
+
+.form-submit{
+  margin-top: 16px;
+}
+
+/* Timeline */
+.timeline{
+  display:flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.step{
+  display:flex;
+  gap: 12px;
+  align-items:flex-start;
+  padding: 12px 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255,255,255,.78);
+}
+
+.step-badge{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 800;
+  background: rgba(59,42,36,.92);
+  color: #fff;
+  flex: 0 0 34px;
+}
+
+.step-title{
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.step-sub{
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* FAQ */
+.faq{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.faq-item{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255,255,255,.78);
+  padding: 10px 12px;
+}
+
+.faq-item summary{
+  cursor: pointer;
+  font-weight: 800;
+  color: var(--text);
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker{ display:none; }
+
+.faq-item p{
+  margin: 10px 0 0;
+}
+
+/* Sticky submit (mobile) */
+.sticky-submit{
+  display:none;
+}
+
+@media (max-width: 640px){
+  .sticky-submit{
+    display:block;
+    position: sticky;
+    bottom: 0;
+    margin-top: 14px;
+    padding: 10px 0 2px;
+    background: linear-gradient(to top, rgba(255,247,239,.96), rgba(255,247,239,.0));
+  }
+  .sticky-btn{
+    width: 100%;
+    text-align:center;
+    padding: 14px 18px;
+  }
+
+  /* add breathing room so sticky doesn't cover content */
+  .ha-form{
+    padding-bottom: 60px;
+  }
+}
