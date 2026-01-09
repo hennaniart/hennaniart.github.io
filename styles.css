@@ -74,6 +74,10 @@ nav a:hover{ color:var(--accent); }
   margin:auto;
 }
 
+.container.page{
+  width: min(980px, 92%);
+}
+
 .section{ margin:18px 0; }
 
 .card{
@@ -153,57 +157,55 @@ h2{
 }
 
 /* ==========================================
-   HOME HERO
-   Full image + centered logo + 2 CTAs
+   HOME HERO (UPDATED for 9:16 hero image)
+   Phone = cover (immersive)
+   iPad/Desktop = contain (no cropping of logo/text inside image)
 ========================================== */
 
 .hero-full{
   position: relative;
   width: 100%;
-  height: clamp(520px, 78vh, 880px);
+  height: clamp(560px, 78vh, 900px);
   overflow: hidden;
-  background: #000;
+  background: #000; /* letterbox color when contain is used */
 }
 
+/* Image */
 .hero-bg{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* phone default */
+  object-position: center;   /* keep centered */
   filter: saturate(1.02);
   transform: scale(1.01);
 }
 
-/* overlay */
+/* Overlay for readability */
 .hero-full::after{
   content:"";
   position:absolute;
   inset:0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,.10),
-    rgba(0,0,0,.34)
+    rgba(0,0,0,.12),
+    rgba(0,0,0,.38)
   );
 }
 
+/* Content */
 .hero-center{
-  position:relative;
-  z-index:2;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap: 16px;
-  padding: 20px;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px;
   text-align: center;
-}
-
-.hero-logo{
-  width: min(340px, 74vw);
-  height: auto;
-  filter: drop-shadow(0 14px 26px rgba(0,0,0,.38));
 }
 
 /* CTA row in hero */
@@ -214,6 +216,7 @@ h2{
   justify-content:center;
 }
 
+/* Buttons */
 .hero-cta{
   display:inline-block;
   padding: 14px 26px;
@@ -228,40 +231,55 @@ h2{
   border: 1px solid rgba(255,255,255,.10);
 }
 
-.hero-cta:hover{
-  background: rgba(0,0,0,.92);
-}
+.hero-cta:hover{ background: rgba(0,0,0,.92); }
 
 .hero-cta--ghost{
   background: rgba(255,255,255,.10);
   border: 1px solid rgba(255,255,255,.22);
   backdrop-filter: blur(6px);
 }
-.hero-cta--ghost:hover{
-  background: rgba(255,255,255,.16);
-}
+.hero-cta--ghost:hover{ background: rgba(255,255,255,.16); }
 
 .hero-micro{
   margin: 2px 0 0;
-  color: rgba(255,255,255,.88);
+  color: rgba(255,255,255,.92);
   font-weight: 600;
   font-size: 13px;
   letter-spacing: .3px;
   text-shadow: 0 6px 18px rgba(0,0,0,.35);
 }
 
-/* Mobile polish */
+/* Phone polish */
 @media (max-width: 520px){
   .hero-full{
     height: 74vh;
-    min-height: 520px;
-  }
-  .hero-logo{
-    width: min(320px, 82vw);
+    min-height: 560px;
   }
   .hero-cta{
     padding: 13px 20px;
     letter-spacing: .6px;
+  }
+}
+
+/* ✅ iPad + Desktop: show FULL 9:16 image (no crop) */
+@media (min-width: 820px){
+  .hero-bg{
+    object-fit: contain;   /* IMPORTANT: prevents cutting off logo/text */
+    transform: none;       /* avoid scaling when contain */
+  }
+
+  /* Slightly lighter overlay since image is fully visible */
+  .hero-full::after{
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,.10),
+      rgba(0,0,0,.28)
+    );
+  }
+
+  /* Make hero not feel too tall on big screens */
+  .hero-full{
+    height: clamp(520px, 70vh, 780px);
   }
 }
 
@@ -395,7 +413,6 @@ h2{
 
 /* ==========================================
    ✅ LIGHTBOX
-   Opens CENTER screen with margins
 ========================================== */
 .lightbox{
   position: fixed;
@@ -404,7 +421,7 @@ h2{
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 18px;           /* margin around image */
+  padding: 18px;
   z-index: 2000;
 }
 
@@ -431,7 +448,6 @@ h2{
   background: rgba(0,0,0,.20);
 }
 
-/* Close + arrows */
 .close-btn,
 .nav-btn{
   position: absolute;
@@ -470,7 +486,6 @@ h2{
   background: rgba(0,0,0,.75);
 }
 
-/* Tiny phones */
 @media (max-width: 360px){
   .gallery,
   .gallery-grid,
@@ -499,16 +514,9 @@ footer a:hover{ color:var(--accent); }
 
 /* ==========================================
    GALLERY LANDING PAGE (gallery.html)
-   Fix: thumbnails were too large + landscape
-   Keep them elegant + portrait-friendly
+   category grid + elegant thumbnail sizing
 ========================================== */
 
-/* Make gallery landing container not feel giant on wide screens */
-.container.page{
-  width: min(980px, 92%);
-}
-
-/* Category grid (your gallery landing cards) */
 .category-grid{
   display:grid;
   grid-template-columns: repeat(12, 1fr);
@@ -523,9 +531,10 @@ footer a:hover{ color:var(--accent); }
   background: rgba(255,255,255,.82);
   border: 1px solid var(--border);
   border-radius: 18px;
-  overflow: hidden; /* important for image crop */
+  overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform .18s ease, box-shadow .18s ease;
+  position: relative;
 }
 
 .category-card:hover{
@@ -533,10 +542,9 @@ footer a:hover{ color:var(--accent); }
   box-shadow: 0 18px 42px rgba(0,0,0,.14);
 }
 
-/* Key fix: cap height so they don't become banners */
 .category-thumb{
   width: 100%;
-  height: clamp(180px, 26vh, 260px); /* prevents huge blocks */
+  height: clamp(180px, 26vh, 260px);
   object-fit: cover;
   object-position: center;
   display: block;
@@ -564,14 +572,14 @@ footer a:hover{ color:var(--accent); }
   .category-thumb{ height: 220px; }
 }
 
-/* iPad / large tablet: 2 across looks premium */
+/* iPad / large tablet: 2 across */
 @media (min-width: 820px) and (max-width: 1199px){
   .category-card{ grid-column: span 6; }
   .category-grid{ gap: 16px; }
   .category-thumb{ height: 240px; }
 }
 
-/* Desktop: 4 across but keep image height capped */
+/* Desktop: 4 across */
 @media (min-width: 1200px){
   .category-card{ grid-column: span 3; }
   .category-grid{ gap: 22px; }
@@ -579,65 +587,9 @@ footer a:hover{ color:var(--accent); }
 }
 
 /* ==========================================
-   iPAD / LARGE TABLET REFINEMENT
-   Fixes “in-between” look without changing mobile
-========================================== */
-@media (min-width: 820px) and (max-width: 1199px){
-
-  /* Hero less tall */
-  .hero-full{
-    height: 62vh;
-    max-height: 680px;
-  }
-
-  .hero-logo{
-    width: 260px;
-  }
-
-  .card{
-    padding: 16px;
-  }
-
-  .cta-row{
-    gap: 10px;
-  }
-
-  .btn{
-    padding: 12px 16px;
-  }
-}
-
-/* ==========================================
-   DESKTOP REFINEMENT (does NOT affect mobile)
-========================================== */
-@media (min-width: 1200px){
-
-  .hero-full{
-    height: 72vh;
-    max-height: 760px;
-  }
-
-  .hero-logo{
-    width: 280px;
-  }
-
-  .card{
-    padding: 16px;
-  }
-
-  .section{
-    margin: 14px 0;
-  }
-}
-/* ==========================================
    Gallery interaction hint
 ========================================== */
 
-.category-card{
-  position: relative;
-}
-
-/* Overlay */
 .category-card::after{
   content: "Tap to View Gallery";
   position: absolute;
@@ -655,12 +607,10 @@ footer a:hover{ color:var(--accent); }
   transition: opacity .25s ease;
 }
 
-/* Show on hover (desktop) */
 .category-card:hover::after{
   opacity: 1;
 }
 
-/* Always visible on touch devices */
 @media (hover: none){
   .category-card::after{
     opacity: 1;
@@ -672,4 +622,21 @@ footer a:hover{ color:var(--accent); }
     align-items: flex-end;
     padding-bottom: 14px;
   }
+}
+
+/* ==========================================
+   iPAD / LARGE TABLET REFINEMENT (general)
+========================================== */
+@media (min-width: 820px) and (max-width: 1199px){
+  .card{ padding: 16px; }
+  .cta-row{ gap: 10px; }
+  .btn{ padding: 12px 16px; }
+}
+
+/* ==========================================
+   DESKTOP REFINEMENT (general)
+========================================== */
+@media (min-width: 1200px){
+  .card{ padding: 16px; }
+  .section{ margin: 14px 0; }
 }
