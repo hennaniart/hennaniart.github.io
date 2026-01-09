@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact & Booking | Hennani Art</title>
-  <link rel="canonical" href="https://www.hennaniart.com/contact.html" />
+  <title>Contact | Hennani Art</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -23,145 +23,244 @@
   <main class="container page">
 
     <!-- Header -->
-    <section class="section card center booking-hero">
+    <section class="section card">
       <h1 class="page-title">Contact & Booking</h1>
       <p class="subtitle">
         Thank you for considering Hennani Art — bridal & non-bridal appointments available.
       </p>
-
-      <div class="booking-badges" aria-label="Booking highlights">
-        <span class="badge">Response in 3–5 business days</span>
-        <span class="badge">Deposit + contract to secure</span>
-        <span class="badge">Serving MD • VA • DC</span>
-      </div>
     </section>
 
-    <!-- Form -->
-    <section class="section card">
-      <p class="form-intro">
-        Please share your event details below. This helps me confirm availability and send you the best pricing options.
+    <!-- Sticky Mobile CTA (shows only on phone) -->
+    <a class="sticky-book-btn" href="#booking-form">Book Henna</a>
+
+    <!-- Form Card -->
+    <section class="section card" id="booking-form">
+      <p class="lead" style="margin-top:0;">
+        Please fill out the form below. Once submitted, we will get back to you within <strong>3–5 business days</strong>
+        to discuss availability. To secure your date and time, a deposit and signed contract will be required.
       </p>
 
-      <form action="https://formspree.io/f/xnnvgnye" method="POST" class="booking-form">
+      <form action="https://formspree.io/f/xnnvgnye" method="POST">
 
-        <!-- Contact -->
-        <div class="form-block">
-          <h2 class="form-title">Your Details</h2>
+        <!-- Contact Info -->
+        <h2 class="form-title">Your Information</h2>
 
-          <label for="email">Email Address <span class="req">*</span></label>
-          <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" />
-
-          <div class="form-row">
-            <div class="form-col-6">
-              <label for="firstName">First Name <span class="req">*</span></label>
-              <input type="text" id="firstName" name="firstName" required autocomplete="given-name" />
-            </div>
-            <div class="form-col-6">
-              <label for="lastName">Last Name <span class="req">*</span></label>
-              <input type="text" id="lastName" name="lastName" required autocomplete="family-name" />
-            </div>
+        <div class="form-row">
+          <div class="form-col-6">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" name="firstName" required placeholder="First name" />
           </div>
-
-          <label for="phone">Phone Number <span class="optional">(optional)</span></label>
-          <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" autocomplete="tel" />
-        </div>
-
-        <!-- Location -->
-        <div class="form-block">
-          <h2 class="form-title">Event Location</h2>
-
-          <div class="form-row">
-            <div class="form-col-6">
-              <label for="city">City <span class="req">*</span></label>
-              <select id="city" name="city" required>
-                <option value="" disabled selected>Select City</option>
-                <option>Columbia</option>
-                <option>Ellicott City</option>
-                <option>Baltimore</option>
-                <option>Laurel</option>
-                <option>Silver Spring</option>
-                <option>Rockville</option>
-                <option>Germantown</option>
-                <option>Bowie</option>
-                <option>Gaithersburg</option>
-                <option>Washington DC</option>
-                <option>Arlington</option>
-                <option>Alexandria</option>
-                <option>Fairfax</option>
-              </select>
-            </div>
-
-            <div class="form-col-6">
-              <label for="state">State <span class="req">*</span></label>
-              <select id="state" name="state" required>
-                <option value="" disabled selected>Select State</option>
-                <option>Maryland</option>
-                <option>Virginia</option>
-                <option>Washington DC</option>
-              </select>
-            </div>
+          <div class="form-col-6">
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" name="lastName" required placeholder="Last name" />
           </div>
         </div>
 
-        <!-- Date -->
-        <div class="form-block">
-          <h2 class="form-title">Date & Timing</h2>
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" />
 
-          <div class="form-row">
-            <div class="form-col-6">
-              <label for="eventDateFrom">Event Date <span class="req">*</span></label>
-              <input type="date" id="eventDateFrom" name="eventDateFrom" required />
-            </div>
-            <div class="form-col-6">
-              <label for="eventDateTo">Multi-day? End Date <span class="optional">(optional)</span></label>
-              <input type="date" id="eventDateTo" name="eventDateTo" />
-            </div>
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890" />
+
+        <label class="label-top">Preferred Contact Method *</label>
+        <div class="choice-row" role="radiogroup" aria-label="Preferred contact method">
+          <label class="choice">
+            <input type="radio" name="preferredContact" value="Email" required />
+            <span>Email (recommended)</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="preferredContact" value="Text" />
+            <span>Text</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="preferredContact" value="Phone call" />
+            <span>Phone call</span>
+          </label>
+        </div>
+
+        <hr class="form-divider" />
+
+        <!-- Event Basics -->
+        <h2 class="form-title">Event Details</h2>
+
+        <label class="label-top">Service Type *</label>
+        <div class="choice-grid" role="radiogroup" aria-label="Service type">
+          <label class="choice-card">
+            <input type="radio" name="serviceType" value="Bridal Henna" required />
+            <span>Bridal Henna</span>
+          </label>
+
+          <label class="choice-card">
+            <input type="radio" name="serviceType" value="Party / Guest Henna" />
+            <span>Party / Guest Henna</span>
+          </label>
+
+          <label class="choice-card">
+            <input type="radio" name="serviceType" value="Bridal + Guests" />
+            <span>Bridal + Guests</span>
+          </label>
+
+          <label class="choice-card">
+            <input type="radio" name="serviceType" value="Other Event" />
+            <span>Other Event</span>
+          </label>
+        </div>
+
+        <label for="eventCategory">Event Category (optional)</label>
+        <select id="eventCategory" name="eventCategory">
+          <option value="" selected>Select an option</option>
+          <option>Engagement / Roka</option>
+          <option>Mehndi / Wedding</option>
+          <option>Baby Shower / Godh Bharai</option>
+          <option>Birthday / Celebration</option>
+          <option>Festival (Diwali, Karva Chauth, Eid, etc.)</option>
+          <option>Saree Ceremony / Pooja</option>
+          <option>Corporate / Community Event</option>
+          <option>Other</option>
+        </select>
+
+        <div class="form-row">
+          <div class="form-col-6">
+            <label for="eventDate">Event Date *</label>
+            <input type="date" id="eventDate" name="eventDate" required />
+          </div>
+          <div class="form-col-6">
+            <label for="startTime">Preferred Start Time *</label>
+            <input type="text" id="startTime" name="startTime" required placeholder="e.g., 4:00 PM" />
           </div>
         </div>
 
-        <!-- Referral -->
-        <div class="form-block">
-          <h2 class="form-title">A Quick Question</h2>
+        <div class="form-row">
+          <div class="form-col-6">
+            <label for="city">City *</label>
+            <select id="city" name="city" required>
+              <option value="" disabled selected>Select City</option>
+              <option>Columbia</option>
+              <option>Ellicott City</option>
+              <option>Baltimore</option>
+              <option>Laurel</option>
+              <option>Silver Spring</option>
+              <option>Rockville</option>
+              <option>Germantown</option>
+              <option>Bowie</option>
+              <option>Gaithersburg</option>
+              <option>Washington DC</option>
+              <option>Arlington</option>
+              <option>Alexandria</option>
+              <option>Fairfax</option>
+            </select>
+          </div>
 
-          <label for="referral">How did you hear about Hennani Art? <span class="optional">(optional)</span></label>
-          <select id="referral" name="referral">
-            <option value="" disabled selected>Select an option</option>
-            <option>Google Search</option>
-            <option>Instagram</option>
-            <option>Facebook</option>
-            <option>Friend or Family</option>
-            <option>Event or Pop-Up</option>
-            <option>Other</option>
-          </select>
+          <div class="form-col-6">
+            <label for="state">State *</label>
+            <select id="state" name="state" required>
+              <option value="" disabled selected>Select State</option>
+              <option>Maryland</option>
+              <option>Virginia</option>
+              <option>Washington DC</option>
+            </select>
+          </div>
         </div>
 
-        <!-- Message -->
-        <div class="form-block">
-          <h2 class="form-title">Tell Me About Your Event</h2>
+        <label for="address">Event Address (optional)</label>
+        <input type="text" id="address" name="address" placeholder="Street address / venue name" />
 
-          <label for="message">Message <span class="req">*</span></label>
-          <textarea
-            id="message"
-            name="message"
-            required
-            placeholder="Include: event time, exact location (venue/home), bridal or guest henna, number of people, and any design preferences."
-          ></textarea>
+        <label for="guestCount">Approx. Number of People Receiving Henna *</label>
+        <select id="guestCount" name="guestCount" required>
+          <option value="" disabled selected>Select</option>
+          <option>1–2</option>
+          <option>3–5</option>
+          <option>6–10</option>
+          <option>10+</option>
+        </select>
 
-          <p class="note">
-            Inspiration photos? Email them to
-            <a class="inline-link" href="mailto:hennaniart@gmail.com">hennaniart@gmail.com</a>
-          </p>
-        </div>
+        <label for="referral">How did you hear about us? (optional)</label>
+        <select id="referral" name="referral">
+          <option value="" selected>Select an option</option>
+          <option>Google Search</option>
+          <option>Instagram</option>
+          <option>Facebook</option>
+          <option>Friend or Family</option>
+          <option>Event or Pop-Up</option>
+          <option>Other</option>
+        </select>
 
-        <!-- Submit -->
-        <div class="form-submit">
-          <button class="btn btn-primary" type="submit">Submit Inquiry</button>
-          <p class="micro form-footnote">
-            By submitting, you agree that a deposit and signed contract are required to reserve your date.
-          </p>
-        </div>
+        <label for="message">Message *</label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          placeholder="Please include: event location (home/venue), any design preferences, bridal coverage (hands/feet), guest design style (simple/intricate), and anything you want me to know."></textarea>
 
+        <p class="note">
+          To share inspiration photos, please email them to
+          <a class="link" href="mailto:hennaniart@gmail.com">hennaniart@gmail.com</a>
+          after submitting this form.
+        </p>
+
+        <button class="btn" type="submit">Submit Inquiry</button>
       </form>
+    </section>
+
+    <!-- What Happens Next -->
+    <section class="section card">
+      <h2 class="section-title">What Happens Next</h2>
+
+      <ol class="timeline">
+        <li>
+          <span class="step">Step 1</span>
+          <div>
+            <strong>Inquiry Submitted</strong>
+            <p class="micro">You’ll receive a confirmation once your form is received.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step">Step 2</span>
+          <div>
+            <strong>Review & Availability Check</strong>
+            <p class="micro">I personally review your details and reply within <strong>3–5 business days</strong>.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step">Step 3</span>
+          <div>
+            <strong>Quote, Contract & Deposit</strong>
+            <p class="micro">To secure your date, a deposit and signed agreement are required.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section card">
+      <h2 class="section-title">Quick FAQ</h2>
+
+      <div class="faq">
+        <details>
+          <summary>How long does bridal henna take?</summary>
+          <p class="micro">Bridal henna typically takes 4–6 hours depending on design complexity and coverage.</p>
+        </details>
+
+        <details>
+          <summary>Is a deposit required?</summary>
+          <p class="micro">Yes. A non-refundable deposit and signed contract are required to reserve your date/time.</p>
+        </details>
+
+        <details>
+          <summary>Do you travel?</summary>
+          <p class="micro">Yes — available across Maryland, Virginia, and Washington DC. Travel fees may apply.</p>
+        </details>
+
+        <details>
+          <summary>Do you provide aftercare instructions?</summary>
+          <p class="micro">Yes — you’ll receive detailed aftercare guidance for best stain results.</p>
+        </details>
+
+        <details>
+          <summary>Can I share inspiration photos?</summary>
+          <p class="micro">Absolutely. Email them after submitting your inquiry.</p>
+        </details>
+      </div>
     </section>
 
   </main>
