@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gallery | Hennani Art</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <nav>
@@ -21,66 +23,90 @@
 
   <main class="container page">
 
+    <!-- Header -->
     <section class="section card center">
       <h1 class="page-title">Gallery</h1>
       <p class="subtitle">Bridal • Party • Custom designs — crafted with precision and care.</p>
 
-      <div class="cta-row" style="margin-top:10px;">
+      <div class="cta-row" style="margin-top:14px;">
         <a class="btn" href="contact.html">Book Now</a>
         <a class="btn btn-ghost" href="blog.html">Henna Care Guide</a>
       </div>
     </section>
 
+    <!-- Categories -->
     <section class="section card">
       <h2 class="section-title">Browse by Category</h2>
-      <p class="micro">Select a gallery to explore more designs.</p>
+      <p class="micro" style="margin-top:-4px;">Select a gallery to explore more designs.</p>
 
       <div class="category-grid">
-        <!-- Update these href pages to match your actual category pages -->
+
+        <!-- Bridal -->
         <a class="category-card" href="bridal.html">
-          <img class="category-thumb" src="gallery-bridal.jpg" alt="Bridal henna gallery">
+          <img class="category-thumb"
+               src="bridal1.JPG"
+               alt="Bridal henna gallery thumbnail"
+               loading="lazy"
+               decoding="async"
+               onerror="this.style.display='none'; this.parentElement.classList.add('thumb-fallback');">
           <div class="category-body">
             <h3 class="category-title">Bridal Henna</h3>
             <p class="category-sub">Intricate, luxury bridal work.</p>
           </div>
         </a>
 
+        <!-- Party -->
         <a class="category-card" href="party.html">
-          <img class="category-thumb" src="gallery-party.jpg" alt="Party and guest henna gallery">
+          <img class="category-thumb"
+               src="party1.JPG"
+               alt="Party and guest henna gallery thumbnail"
+               loading="lazy"
+               decoding="async"
+               onerror="this.style.display='none'; this.parentElement.classList.add('thumb-fallback');">
           <div class="category-body">
             <h3 class="category-title">Party / Guest Henna</h3>
             <p class="category-sub">Quick, elegant designs for events.</p>
           </div>
         </a>
 
+        <!-- Stain -->
         <a class="category-card" href="stain.html">
-          <img class="category-thumb" src="gallery-stain.jpg" alt="Henna stain results gallery">
+          <img class="category-thumb"
+               src="stain1.JPG"
+               alt="Henna stain results gallery thumbnail"
+               loading="lazy"
+               decoding="async"
+               onerror="this.style.display='none'; this.parentElement.classList.add('thumb-fallback');">
           <div class="category-body">
             <h3 class="category-title">Stain Results</h3>
             <p class="category-sub">Real stain development & results.</p>
           </div>
         </a>
 
-        <a class="category-card" href="custom.html">
-          <img class="category-thumb" src="gallery-custom.jpg" alt="Custom henna designs gallery">
+        <!-- Custom / Portfolio -->
+        <a class="category-card" href="portfolio.html">
+          <img class="category-thumb"
+               src="portfolio1.JPG"
+               alt="Custom design portfolio gallery thumbnail"
+               loading="lazy"
+               decoding="async"
+               onerror="this.style.display='none'; this.parentElement.classList.add('thumb-fallback');">
           <div class="category-body">
             <h3 class="category-title">Custom Designs</h3>
-            <p class="category-sub">Motifs, themes, and personalized art.</p>
+            <p class="category-sub">Motifs, themes, and personalized elements.</p>
           </div>
         </a>
-      </div>
 
-      <div class="soft-divider"></div>
-
-      <div class="ig-strip">
-        <div>
-          <h2 class="section-title" style="margin-bottom:4px;">Featured on Instagram</h2>
-          <p class="micro">More videos & behind-the-scenes on @hennaniarts.</p>
-        </div>
-        <a class="ig-btn" href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">
-          View Instagram
-        </a>
       </div>
+    </section>
+
+    <!-- Instagram feature row (optional spot) -->
+    <section class="section card" style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+      <div>
+        <h2 class="section-title" style="margin:0;">Featured on Instagram</h2>
+        <p class="micro" style="margin-top:6px;">More videos & behind-the-scenes on <strong>@hennaniarts</strong>.</p>
+      </div>
+      <a class="btn" href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">View Instagram</a>
     </section>
 
   </main>
