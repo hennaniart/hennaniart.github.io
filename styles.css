@@ -924,3 +924,53 @@ footer a:hover{ color:var(--accent); }
 @media (max-width: 900px){
   footer{ padding-bottom: 86px; }
 }
+/* ==========================================
+   iPhone ONLY – Home intro polish
+   Fixes spacing + text flow
+========================================== */
+
+@media (max-width: 430px){
+
+  /* tighten the entire intro card */
+  .section.card.center{
+    padding: 14px 14px 16px;
+  }
+
+  /* headline balance */
+  .home-h1{
+    font-size: 19px;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+
+  /* paragraph readability on narrow screens */
+  .lead{
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin: 6px 0 10px;
+  }
+
+  /* remove any accidental extra spacing */
+  .lead + .cta-row{
+    margin-top: 8px;
+  }
+
+  /* buttons: stack cleanly without adding height */
+  .cta-row{
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .cta-row .btn{
+    width: 100%;
+    margin-top: 0;   /* IMPORTANT */
+    padding: 13px 14px;
+    border-radius: 14px;
+  }
+
+  /* response line closer to CTA */
+  .micro{
+    font-size: 13px;
+    margin-top: 8px !important;
+  }
+}
