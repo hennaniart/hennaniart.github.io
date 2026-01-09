@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Party Henna Gallery | Hennani Art</title>
+  <meta name="description" content="Explore party and guest henna designs by Hennani Art. Tap any image to view full size. Serving MD, VA & DC." />
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
@@ -22,17 +23,26 @@
   </nav>
 
   <main class="container page">
-    <section class="section card">
 
-      <div class="breadcrumb">
-        <a class="pill" href="index.html">← Home</a>
+    <!-- Header -->
+    <section class="section card center">
+      <div class="breadcrumb" style="justify-content:center;">
         <a class="pill" href="gallery.html">← Back to Gallery</a>
+        <a class="pill" href="contact.html">Book Henna</a>
       </div>
 
-      <h1 style="text-align:center;">Party Henna Gallery</h1>
-      <p class="subtitle" style="text-align:center;">Tap any image to view full size.</p>
+      <h1 class="page-title">Party Henna Gallery</h1>
+      <p class="subtitle">
+        Guest-friendly designs for events, celebrations, and festivals — tap any photo to view full size.
+      </p>
+      <p class="micro" style="margin-top:10px;">
+        Serving Maryland, Virginia & Washington DC
+      </p>
+    </section>
 
-      <div class="gallery-grid" id="gallery">
+    <!-- Gallery -->
+    <section class="section card">
+      <div class="gallery-grid" id="gallery" aria-label="Party henna gallery">
         <div class="thumb"><img class="zoomable" loading="lazy" src="party1.JPG"  alt="Party Henna Design 1"></div>
         <div class="thumb"><img class="zoomable" loading="lazy" src="party2.JPG"  alt="Party Henna Design 2"></div>
         <div class="thumb"><img class="zoomable" loading="lazy" src="party3.JPG"  alt="Party Henna Design 3"></div>
@@ -47,10 +57,20 @@
         <div class="thumb"><img class="zoomable" loading="lazy" src="party12.JPG" alt="Party Henna Design 12"></div>
       </div>
 
+      <!-- Bottom CTA -->
+      <div class="cta-row" style="margin-top:16px;">
+        <a class="btn" href="contact.html">Book Party Henna</a>
+        <a class="btn btn-ghost" href="gallery.html">Back to Gallery</a>
+      </div>
+
+      <p class="micro" style="text-align:center; margin-top:10px;">
+        Planning a guest list? Add the estimated number of people in your inquiry.
+      </p>
     </section>
+
   </main>
 
-  <!-- Lightbox (center-screen overlay) -->
+  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <figure>
       <button class="close-btn" id="lbClose" aria-label="Close">×</button>
@@ -83,14 +103,14 @@
       lbImg.src = thumbs[idx].src;
       lb.classList.add('open');
       lb.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden'; // stop background scroll
+      document.body.style.overflow = 'hidden';
     }
 
     function closeLb(){
       lb.classList.remove('open');
       lb.setAttribute('aria-hidden','true');
       lbImg.src = '';
-      document.body.style.overflow = ''; // restore scroll
+      document.body.style.overflow = '';
     }
 
     function prev(){
@@ -108,12 +128,10 @@
     lbPrev.addEventListener('click', prev);
     lbNext.addEventListener('click', next);
 
-    // Click outside image closes
     lb.addEventListener('click', (e) => {
       if (e.target === lb) closeLb();
     });
 
-    // Keyboard controls
     document.addEventListener('keydown', (e) => {
       if (!lb.classList.contains('open')) return;
       if (e.key === 'Escape') closeLb();
