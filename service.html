@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Our Services | Hennani Art</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,63 +21,209 @@
   </nav>
 
   <main class="container page">
-    <section class="section card">
+
+    <!-- Header -->
+    <section class="section card center">
       <h1 class="page-title">Our Services</h1>
-      <p class="subtitle">Bridal • Events • Custom designs — created with natural henna.</p>
-    </section>
+      <p class="subtitle" style="margin-top:8px;">
+        Bridal • Events • Custom designs — created with natural henna.
+      </p>
 
-    <section class="section card">
-      <h2 class="line">Bridal Henna</h2>
-      <p>Traditional and intricate bridal henna designs to make your special day unforgettable.</p>
-
-      <h2 class="line">Sangeet Henna</h2>
-      <p>Festive henna designs perfect for the lively and joyous sangeet ceremony.</p>
-
-      <h2 class="line">Belly Blessing Henna</h2>
-      <p>Gentle and beautiful henna designs crafted especially for mothers-to-be.</p>
-
-      <h2 class="line">Festival Henna</h2>
-      <p>Celebrate Karwachauth, Eid, Holi, Diwali, and other special occasions with meaningful designs.</p>
-
-      <h2 class="line">Corporate Henna</h2>
-      <p>Unique henna designs for corporate events, team-building activities, and brand activations.</p>
-
-      <h2 class="line">Birthday or Graduation</h2>
-      <p>Celebrate milestones with personalized henna designs.</p>
-
-      <h2 class="line">Henna for Fun</h2>
-      <p>Casual henna sessions to express yourself and try new styles.</p>
-
-      <h2 class="line">Henna Classes/Workshops <span style="color: var(--accent); font-style: italic;">(Coming Soon)</span></h2>
-      <p>Learn the art of henna with upcoming classes and workshops.</p>
-
-      <h2 class="line">Photo Shoot Henna</h2>
-      <p>Professional henna designs ideal for photo shoots and special creative projects.</p>
-
-      <h2 class="line">Henna Crowns</h2>
-      <p>Beautiful and empowering designs for those going through hair loss.</p>
-
-      <h2 class="line">Kids' Parties & Events</h2>
-      <p>Fun and age-appropriate henna designs for children's parties and community events.</p>
-
-      <h2 class="line">Pop-Up/Vendor Events</h2>
-      <p>Available for pop-up shops, festivals, and vendor fairs.</p>
-
-      <div class="section" style="text-align:center;">
-        <a class="btn" href="contact.html">Inquire & Book</a>
-        <p class="subtitle" style="margin-top:10px;">Share your event details and we’ll confirm availability.</p>
+      <div class="service-highlights">
+        <div class="highlight">Serving MD • VA • DC</div>
+        <div class="highlight">Natural Henna Only</div>
+        <div class="highlight">By Appointment</div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div>© 2025 Hennani Art</div>
-    <div>
-      <a href="https://facebook.com/hennaniart" target="_blank" rel="noopener noreferrer">Facebook</a> |
-      <a href="https://www.instagram.com/hennaniarts/" target="_blank" rel="noopener noreferrer">Instagram</a> |
-      <a href="https://maps.app.goo.gl/y7Aei8oEW1K4fNVGA" target="_blank" rel="noopener noreferrer">Map</a>
-    </div>
-  </footer>
+    <!-- Services Grid -->
+    <section class="section service-grid" aria-label="Hennani Art services">
 
-</body>
-</html>
+      <!-- Bridal -->
+      <article class="service-card">
+        <h2 class="service-title">Bridal Henna</h2>
+        <p class="service-desc">
+          Intricate bridal henna designed with intention and elegance — created to reflect your story and style.
+          Bridal bookings include a personalized planning process.
+        </p>
+
+        <ul class="service-list">
+          <li>Hands & feet coverage options</li>
+          <li>Custom design planning based on your vision</li>
+          <li><strong>Phone consultation</strong> prior to your event to discuss details, timing, and preferences</li>
+        </ul>
+
+        <div class="service-cta-row">
+          <a class="btn" href="contact.html#booking-form">Bridal Inquiry</a>
+          <a class="btn btn-ghost" href="gallery.html">View Bridal Gallery</a>
+        </div>
+
+        <p class="micro" style="margin-top:10px;">
+          Bridal inquiries include a consultation call prior to booking confirmation.
+        </p>
+      </article>
+
+      <!-- Guest / Party -->
+      <article class="service-card">
+        <h2 class="service-title">Guest & Party Henna</h2>
+        <p class="service-desc">
+          Beautiful guest henna for mehndi nights, birthdays, and celebrations — from minimal designs to detailed florals.
+        </p>
+
+        <ul class="service-list">
+          <li>Ideal for parties & group bookings</li>
+          <li>Design styles: simple, medium, or intricate</li>
+          <li>Perfect for events, showers, and gatherings</li>
+        </ul>
+
+        <div class="service-cta-row">
+          <a class="btn" href="contact.html#booking-form">Check Availability</a>
+          <a class="btn btn-ghost" href="gallery.html">Browse Gallery</a>
+        </div>
+      </article>
+
+      <!-- Weddings / Mehndi / Sangeet -->
+      <article class="service-card">
+        <h2 class="service-title">Mehndi Night & Wedding Events</h2>
+        <p class="service-desc">
+          Elegant designs for pre-wedding events such as mehndi, sangeet, and wedding celebrations.
+        </p>
+
+        <ul class="service-list">
+          <li>Bridal + guests available</li>
+          <li>Flexible event flow planning</li>
+          <li>Beautiful, photo-ready designs</li>
+        </ul>
+
+        <div class="service-cta-row">
+          <a class="btn" href="contact.html#booking-form">Inquire</a>
+          <a class="btn btn-ghost" href="gallery.html">View Work</a>
+        </div>
+      </article>
+
+      <!-- Festivals / Private -->
+      <article class="service-card">
+        <h2 class="service-title">Festivals & Private Appointments</h2>
+        <p class="service-desc">
+          Celebrate special occasions with meaningful henna — perfect for Karva Chauth, Diwali, Eid, Navratri, and more.
+        </p>
+
+        <ul class="service-list">
+          <li>Appointments available seasonally</li>
+          <li>Custom motifs & traditional patterns</li>
+          <li>Short sessions to detailed looks</li>
+        </ul>
+
+        <div class="service-cta-row">
+          <a class="btn" href="contact.html#booking-form">Book a Slot</a>
+          <a class="btn btn-ghost" href="gallery.html">See Designs</a>
+        </div>
+      </article>
+
+      <!-- Baby Shower / Belly Blessing -->
+      <article class="service-card">
+        <h2 class="service-title">Baby Shower & Belly Blessing</h2>
+        <p class="service-desc">
+          Gentle and beautiful henna designs for mothers-to-be and family celebrations.
+        </p>
+
+        <ul class="service-list">
+          <li>Elegant belly designs (optional)</li>
+          <li>Simple-to-intricate options</li>
+          <li>Great for photos & memories</li>
+        </ul>
+
+        <div class="service-cta-row">
+          <a class="btn" href="contact.html#booking-form">Inquire</a>
+          <a class="btn btn-ghost" href="gallery.html">Browse Gallery</a>
+        </div>
+      </article>
+
+      <!-- Corporate / Community -->
+      <article class="service-card">
+        <h2 class="service-title">Corporate & Community Events</h2>
+        <p class="service-desc">
+          Henna for pop-ups, brand activations, cultural events, and community gatherings.
+        </p>
+
+        <ul class="service-list">
+          <li>Professional & organized setup</li>
+          <li>Great for large crowds</li>
+          <li>Perfect for festivals & vendor events</li>
+        </ul>
+
+        <div class="service-cta-row">
+          <a class="btn" href="contact.html#booking-form">Event Inquiry</a>
+          <a class="btn btn-ghost" href="gallery.html">See Work</a>
+        </div>
+      </article>
+
+      <!-- Photoshoots -->
+      <article class="service-card">
+        <h2 class="service-title">Photoshoot Henna</h2>
+        <p class="service-desc">
+          Statement designs for maternity shoots, engagement shoots, editorial work, and creative projects.
+        </p>
+
+        <ul class="service-list">
+          <li>Photo-friendly placement & detail</li>
+          <li>Custom motifs and styling</li>
+          <li>Timing planned around shoot schedule</li>
+        </ul>
+
+        <div class="service-cta-row">
+          <a class="btn" href="contact.html#booking-form">Inquire</a>
+          <a class="btn btn-ghost" href="gallery.html">View Gallery</a>
+        </div>
+      </article>
+
+      <!-- Kids Parties -->
+      <article class="service-card">
+        <h2 class="service-title">Kids’ Parties</h2>
+        <p class="service-desc">
+          Fun, age-appropriate designs for children’s events and family gatherings.
+        </p>
+
+        <ul class="service-list">
+          <li>Quick, cute designs</li>
+          <li>Perfect for birthdays and school/community events</li>
+          <li>Kid-friendly experience</li>
+        </ul>
+
+        <div class="service-cta-row">
+          <a class="btn" href="contact.html#booking-form">Inquire</a>
+          <a class="btn btn-ghost" href="gallery.html">See Designs</a>
+        </div>
+      </article>
+
+      <!-- Coming Soon -->
+      <article class="service-card service-card--coming">
+        <h2 class="service-title">
+          Henna Classes / Workshops
+          <span class="badge">Coming Soon</span>
+        </h2>
+        <p class="service-desc">
+          Workshops for beginners and creatives — learn cones, lines, florals, and more.
+        </p>
+
+        <ul class="service-list">
+          <li>Beginner-friendly</li>
+          <li>Hands-on practice</li>
+          <li>Updates coming soon</li>
+        </ul>
+
+        <div class="service-cta-row">
+          <a class="btn btn-ghost" href="contact.html#booking-form">Join Waitlist</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="section card center">
+      <h2 class="section-title">Ready to book?</h2>
+      <p class="subtitle" style="margin-top:8px;">
+        Share your event details and we’ll confirm availability within 2–3 business days.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="contact.html#
