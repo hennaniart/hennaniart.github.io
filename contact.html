@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Hennani Art</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <nav>
@@ -23,28 +23,58 @@
   <main class="container page">
 
     <!-- Header -->
-    <section class="section card">
+    <section class="section card center">
       <h1 class="page-title">Contact & Booking</h1>
       <p class="subtitle">
         Thank you for considering Hennani Art — bridal & non-bridal appointments available.
       </p>
+      <p class="micro" style="margin-top:10px;">
+        Response within <strong>3–5 business days</strong>. To secure your date/time, a deposit + signed contract are required.
+      </p>
     </section>
 
-    <!-- Sticky Mobile CTA (shows only on phone) -->
-    <a class="sticky-book-btn" href="#booking-form">Book Henna</a>
+    <!-- What happens next -->
+    <section class="section card">
+      <h2 class="section-title">What happens next</h2>
 
-    <!-- Form Card -->
-    <section class="section card" id="booking-form">
-      <p class="lead" style="margin-top:0;">
-        Please fill out the form below. Once submitted, we will get back to you within <strong>3–5 business days</strong>
-        to discuss availability. To secure your date and time, a deposit and signed contract will be required.
+      <div class="timeline">
+        <div class="step">
+          <div class="step-badge">1</div>
+          <div class="step-body">
+            <div class="step-title">Submit your inquiry</div>
+            <div class="step-sub">Share your event details + service type so we can confirm the best fit.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-badge">2</div>
+          <div class="step-body">
+            <div class="step-title">We confirm availability</div>
+            <div class="step-sub">You’ll receive a reply with pricing, timing guidance, and next steps.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-badge">3</div>
+          <div class="step-body">
+            <div class="step-title">Reserve your spot</div>
+            <div class="step-sub">Once deposit + contract are completed, your booking is officially secured.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form -->
+    <section class="section card">
+      <h2 class="section-title">Booking Inquiry Form</h2>
+      <p class="micro">
+        If you'd like to share inspiration photos, email them to
+        <a class="inline-link" href="mailto:hennaniart@gmail.com">hennaniart@gmail.com</a>.
       </p>
 
-      <form action="https://formspree.io/f/xnnvgnye" method="POST">
+      <form class="ha-form" action="https://formspree.io/f/xnnvgnye" method="POST">
 
-        <!-- Contact Info -->
-        <h2 class="form-title">Your Information</h2>
-
+        <!-- Contact info -->
         <div class="form-row">
           <div class="form-col-6">
             <label for="firstName">First Name *</label>
@@ -56,80 +86,37 @@
           </div>
         </div>
 
-        <label for="email">Email Address *</label>
-        <input type="email" id="email" name="email" required placeholder="you@example.com" />
-
-        <label for="phone">Phone Number *</label>
-        <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890" />
-
-        <label class="label-top">Preferred Contact Method *</label>
-        <div class="choice-row" role="radiogroup" aria-label="Preferred contact method">
-          <label class="choice">
-            <input type="radio" name="preferredContact" value="Email" required />
-            <span>Email (recommended)</span>
-          </label>
-          <label class="choice">
-            <input type="radio" name="preferredContact" value="Text" />
-            <span>Text</span>
-          </label>
-          <label class="choice">
-            <input type="radio" name="preferredContact" value="Phone call" />
-            <span>Phone call</span>
-          </label>
-        </div>
-
-        <hr class="form-divider" />
-
-        <!-- Event Basics -->
-        <h2 class="form-title">Event Details</h2>
-
-        <label class="label-top">Service Type *</label>
-        <div class="choice-grid" role="radiogroup" aria-label="Service type">
-          <label class="choice-card">
-            <input type="radio" name="serviceType" value="Bridal Henna" required />
-            <span>Bridal Henna</span>
-          </label>
-
-          <label class="choice-card">
-            <input type="radio" name="serviceType" value="Party / Guest Henna" />
-            <span>Party / Guest Henna</span>
-          </label>
-
-          <label class="choice-card">
-            <input type="radio" name="serviceType" value="Bridal + Guests" />
-            <span>Bridal + Guests</span>
-          </label>
-
-          <label class="choice-card">
-            <input type="radio" name="serviceType" value="Other Event" />
-            <span>Other Event</span>
-          </label>
-        </div>
-
-        <label for="eventCategory">Event Category (optional)</label>
-        <select id="eventCategory" name="eventCategory">
-          <option value="" selected>Select an option</option>
-          <option>Engagement / Roka</option>
-          <option>Mehndi / Wedding</option>
-          <option>Baby Shower / Godh Bharai</option>
-          <option>Birthday / Celebration</option>
-          <option>Festival (Diwali, Karva Chauth, Eid, etc.)</option>
-          <option>Saree Ceremony / Pooja</option>
-          <option>Corporate / Community Event</option>
-          <option>Other</option>
-        </select>
-
         <div class="form-row">
           <div class="form-col-6">
-            <label for="eventDate">Event Date *</label>
-            <input type="date" id="eventDate" name="eventDate" required />
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com" />
           </div>
           <div class="form-col-6">
-            <label for="startTime">Preferred Start Time *</label>
-            <input type="text" id="startTime" name="startTime" required placeholder="e.g., 4:00 PM" />
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890" />
           </div>
         </div>
 
+        <!-- Preferred contact method -->
+        <fieldset class="field">
+          <legend>Preferred contact method *</legend>
+          <div class="choice-row">
+            <label class="choice">
+              <input type="radio" name="preferredContact" value="Email" required />
+              <span>Email</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="preferredContact" value="Phone Call" />
+              <span>Phone Call</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="preferredContact" value="Text Message" />
+              <span>Text Message</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Location -->
         <div class="form-row">
           <div class="form-col-6">
             <label for="city">City *</label>
@@ -148,6 +135,7 @@
               <option>Arlington</option>
               <option>Alexandria</option>
               <option>Fairfax</option>
+              <option>Other (please write in message)</option>
             </select>
           </div>
 
@@ -162,21 +150,67 @@
           </div>
         </div>
 
-        <label for="address">Event Address (optional)</label>
-        <input type="text" id="address" name="address" placeholder="Street address / venue name" />
+        <label for="address">Event Address (street + venue if applicable) *</label>
+        <input type="text" id="address" name="address" required placeholder="Venue name, street address, city, state" />
 
-        <label for="guestCount">Approx. Number of People Receiving Henna *</label>
-        <select id="guestCount" name="guestCount" required>
-          <option value="" disabled selected>Select</option>
-          <option>1–2</option>
-          <option>3–5</option>
-          <option>6–10</option>
-          <option>10+</option>
-        </select>
+        <!-- Event dates + time -->
+        <div class="form-row">
+          <div class="form-col-6">
+            <label for="eventDate">Event Date *</label>
+            <input type="date" id="eventDate" name="eventDate" required />
+          </div>
+          <div class="form-col-6">
+            <label for="eventTime">Preferred Start Time *</label>
+            <input type="time" id="eventTime" name="eventTime" required />
+          </div>
+        </div>
 
-        <label for="referral">How did you hear about us? (optional)</label>
+        <!-- Service type + occasion -->
+        <div class="form-row">
+          <div class="form-col-6">
+            <label for="serviceType">Service Type *</label>
+            <select id="serviceType" name="serviceType" required>
+              <option value="" disabled selected>Select Service Type</option>
+              <option>Bridal Only</option>
+              <option>Guest / Party Henna</option>
+              <option>Bridal + Guests</option>
+              <option>Custom (please explain in message)</option>
+            </select>
+          </div>
+
+          <div class="form-col-6">
+            <label for="occasion">Occasion *</label>
+            <select id="occasion" name="occasion" required>
+              <option value="" disabled selected>Select Occasion</option>
+              <option>Wedding / Mehndi Night</option>
+              <option>Engagement</option>
+              <option>Baby Shower</option>
+              <option>Festival (Diwali / Eid / Navratri / etc.)</option>
+              <option>Birthday / Party</option>
+              <option>Sangeet / Garba Night</option>
+              <option>Corporate / Community Event</option>
+              <option>Other (write in message)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Guests + artists -->
+        <div class="form-row">
+          <div class="form-col-6">
+            <label for="guestCount">Estimated number of people for henna *</label>
+            <input type="number" id="guestCount" name="guestCount" min="1" required placeholder="e.g., 10" />
+          </div>
+
+          <div class="form-col-6">
+            <label for="artistsNeeded">Number of artists needed (if you know)</label>
+            <input type="number" id="artistsNeeded" name="artistsNeeded" min="1" placeholder="e.g., 1" />
+          </div>
+        </div>
+
+        <!-- Referral -->
+        <label for="referral">How did you hear about us?</label>
         <select id="referral" name="referral">
-          <option value="" selected>Select an option</option>
+          <option value="" disabled selected>Select an option</option>
           <option>Google Search</option>
           <option>Instagram</option>
           <option>Facebook</option>
@@ -185,80 +219,62 @@
           <option>Other</option>
         </select>
 
+        <!-- Message -->
         <label for="message">Message *</label>
         <textarea
           id="message"
           name="message"
           required
-          placeholder="Please include: event location (home/venue), any design preferences, bridal coverage (hands/feet), guest design style (simple/intricate), and anything you want me to know."></textarea>
+          placeholder="Please include: event details, location notes (parking/access), design style (simple or detailed), and any special requests."></textarea>
 
-        <p class="note">
-          To share inspiration photos, please email them to
-          <a class="link" href="mailto:hennaniart@gmail.com">hennaniart@gmail.com</a>
-          after submitting this form.
-        </p>
+        <!-- Henna type + allergy note -->
+        <div class="form-note">
+          <strong>Henna used:</strong> 100% natural, freshly prepared henna paste.
+          No black henna or chemical dyes.
+          <br />
+          <span class="micro">
+            If you have allergies/sensitivities or are pregnant, please mention it in your message.
+          </span>
+        </div>
 
-        <button class="btn" type="submit">Submit Inquiry</button>
+        <!-- Normal submit button (desktop/tablet) -->
+        <button class="btn form-submit" type="submit">Submit Inquiry</button>
+
+        <!-- Sticky submit (mobile) -->
+        <div class="sticky-submit" aria-hidden="false">
+          <button class="btn sticky-btn" type="submit">Submit Inquiry</button>
+        </div>
       </form>
     </section>
 
-    <!-- What Happens Next -->
-    <section class="section card">
-      <h2 class="section-title">What Happens Next</h2>
-
-      <ol class="timeline">
-        <li>
-          <span class="step">Step 1</span>
-          <div>
-            <strong>Inquiry Submitted</strong>
-            <p class="micro">You’ll receive a confirmation once your form is received.</p>
-          </div>
-        </li>
-        <li>
-          <span class="step">Step 2</span>
-          <div>
-            <strong>Review & Availability Check</strong>
-            <p class="micro">I personally review your details and reply within <strong>3–5 business days</strong>.</p>
-          </div>
-        </li>
-        <li>
-          <span class="step">Step 3</span>
-          <div>
-            <strong>Quote, Contract & Deposit</strong>
-            <p class="micro">To secure your date, a deposit and signed agreement are required.</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- FAQ -->
+    <!-- Mini FAQ -->
     <section class="section card">
       <h2 class="section-title">Quick FAQ</h2>
 
       <div class="faq">
-        <details>
-          <summary>How long does bridal henna take?</summary>
-          <p class="micro">Bridal henna typically takes 4–6 hours depending on design complexity and coverage.</p>
+        <details class="faq-item">
+          <summary>How long does bridal henna usually take?</summary>
+          <p class="micro">It depends on design complexity and how far up the arms/legs you’d like. Share your inspiration photos and we’ll recommend timing.</p>
         </details>
 
-        <details>
-          <summary>Is a deposit required?</summary>
-          <p class="micro">Yes. A non-refundable deposit and signed contract are required to reserve your date/time.</p>
+        <details class="faq-item">
+          <summary>How do I reserve my date?</summary>
+          <p class="micro">Once availability is confirmed, your booking is secured with a deposit and signed contract.</p>
         </details>
 
-        <details>
+        <details class="faq-item">
+          <summary>Do you offer guest/party henna packages?</summary>
+          <p class="micro">Yes — we offer guest/party services and can also arrange additional artists for larger events.</p>
+        </details>
+
+        <details class="faq-item">
           <summary>Do you travel?</summary>
-          <p class="micro">Yes — available across Maryland, Virginia, and Washington DC. Travel fees may apply.</p>
+          <p class="micro">Yes, travel is available across MD, VA, and DC. Travel fees may apply based on distance and event needs.</p>
         </details>
 
-        <details>
-          <summary>Do you provide aftercare instructions?</summary>
-          <p class="micro">Yes — you’ll receive detailed aftercare guidance for best stain results.</p>
-        </details>
-
-        <details>
-          <summary>Can I share inspiration photos?</summary>
-          <p class="micro">Absolutely. Email them after submitting your inquiry.</p>
+        <details class="faq-item">
+          <summary>What kind of henna do you use?</summary>
+          <p class="micro">We use 100% natural, freshly prepared henna paste. No black henna, no chemical dyes, and no artificial colorants.</p>
         </details>
       </div>
     </section>
