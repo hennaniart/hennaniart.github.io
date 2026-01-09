@@ -119,12 +119,26 @@ h2{
   font-weight: 600;
 }
 
+.subtitle{
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-weight: 600;
+  text-align: center;
+}
+
 .inline-link{
   color: var(--text);
   font-weight: 700;
   text-decoration: none;
 }
 .inline-link:hover{ color: var(--accent); }
+
+.page-title{
+  text-align:center;
+  font-size: clamp(22px, 2.6vw, 34px);
+  margin: 0 0 6px;
+  letter-spacing: .2px;
+}
 
 /* ---------- BUTTONS ---------- */
 .btn{
@@ -338,35 +352,6 @@ h2{
   border-radius: 16px;
   padding: 14px;
   box-shadow: 0 10px 26px rgba(0,0,0,.10);
-}
-
-/* ==========================================
-   BREADCRUMB PILLS
-========================================== */
-.breadcrumb{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom: 10px;
-}
-
-.pill{
-  display:inline-block;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.75);
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 700;
-}
-.pill:hover{ color: var(--accent); }
-
-.subtitle{
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-weight: 600;
-  text-align: center;
 }
 
 /* ==========================================
@@ -627,39 +612,20 @@ footer a:hover{ color:var(--accent); }
   }
 }
 
-@media (min-width: 820px) and (max-width: 1199px){
-  .card{ padding: 16px; }
-  .cta-row{ gap: 10px; }
-  .btn{ padding: 12px 16px; }
-}
+/* ==========================================
+   CONTACT / BOOKING PAGE (Premium)
+   - Form polish
+   - Service type cards
+   - Preferred contact pills
+   - Timeline
+   - FAQ accordion
+   - Sticky mobile button
+========================================== */
 
-@media (min-width: 1200px){
-  .card{ padding: 16px; }
-  .section{ margin: 14px 0; }
-}
-
-/* =========================================================
-   CONTACT / BOOKING PAGE (FINAL – clean, premium, no conflicts)
-   Matches your contact.html:
-   .notice, .booking-form, .radio-card/.radio-pill,
-   .choice-grid/.choice-card, .timeline (t-step),
-   details.faq, .sticky-book-btn
-========================================================= */
-
-/* Page title (used on contact page) */
-.page-title{
-  text-align:center;
-  font-size: clamp(22px, 2.8vw, 34px);
-  letter-spacing: .2px;
-  margin: 0 0 6px;
-}
-
-/* Form base (scoped so other pages aren't affected) */
 .booking-form label{
   display:block;
   font-weight: 800;
   margin: 12px 0 6px;
-  color: var(--text);
 }
 
 .booking-form input,
@@ -688,7 +654,6 @@ footer a:hover{ color:var(--accent); }
   resize: vertical;
 }
 
-/* helper under fields */
 .field-help{
   margin: 6px 0 0;
   color: var(--muted);
@@ -696,13 +661,11 @@ footer a:hover{ color:var(--accent); }
   font-size: 13px;
 }
 
-/* Two-column rows */
 .form-row{
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
 }
-.form-col-6{ width: 100%; }
 
 @media (min-width: 820px){
   .form-row{
@@ -711,23 +674,16 @@ footer a:hover{ color:var(--accent); }
   }
 }
 
-/* Section labels inside form */
 .form-section-title{
   margin: 0 0 8px;
   font-weight: 900;
-  letter-spacing: .4px;
+  letter-spacing: .3px;
   text-transform: uppercase;
   font-size: 12px;
   color: rgba(59,42,36,.70);
 }
 
-.form-divider{
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 18px 0;
-}
-
-/* Preferred Contact Method */
+/* Radio fieldset pills */
 .radio-card{
   margin-top: 12px;
   border: 1px solid var(--border);
@@ -760,12 +716,6 @@ footer a:hover{ color:var(--accent); }
   background: rgba(255,255,255,.92);
   cursor: pointer;
   font-weight: 800;
-  transition: transform .16s ease, box-shadow .16s ease;
-}
-
-.radio-pill:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 12px 26px rgba(0,0,0,.07);
 }
 
 .radio-pill input{
@@ -775,7 +725,7 @@ footer a:hover{ color:var(--accent); }
   box-shadow: none;
 }
 
-/* Service type choices */
+/* Service type cards */
 .choice-grid{
   display:grid;
   grid-template-columns: 1fr;
@@ -784,9 +734,7 @@ footer a:hover{ color:var(--accent); }
 }
 
 @media (min-width: 640px){
-  .choice-grid{
-    grid-template-columns: 1fr 1fr;
-  }
+  .choice-grid{ grid-template-columns: 1fr 1fr; }
 }
 
 .choice-card{
@@ -807,13 +755,9 @@ footer a:hover{ color:var(--accent); }
   box-shadow: 0 12px 26px rgba(0,0,0,.08);
 }
 
-.choice-card input{
-  width:auto;
-  margin: 0;
-  box-shadow: none;
-}
+.choice-card input{ width:auto; }
 
-/* Timeline (What happens next) */
+/* Timeline */
 .timeline{
   display:flex;
   flex-direction:column;
@@ -842,7 +786,6 @@ footer a:hover{ color:var(--accent); }
   align-items:center;
   justify-content:center;
   font-weight: 900;
-  flex: 0 0 36px;
 }
 
 .t-title{
@@ -855,7 +798,7 @@ footer a:hover{ color:var(--accent); }
   font-weight: 600;
 }
 
-/* FAQ (details/summary) */
+/* FAQ */
 .faq{
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -891,86 +834,121 @@ footer a:hover{ color:var(--accent); }
   line-height: 1.7;
 }
 
-/* Sticky Mobile Button */
+/* Sticky mobile button (Contact page) */
 .sticky-book-btn{
   position: fixed;
-  left: 14px;
-  right: 14px;
-  bottom: 14px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
   z-index: 2500;
-  text-align: center;
+  text-align:center;
   padding: 14px 16px;
-  border-radius: 16px;
   background: rgba(0,0,0,.86);
   color: #fff;
-  text-decoration: none;
+  text-decoration:none;
+  letter-spacing: .8px;
   font-weight: 900;
-  letter-spacing: .6px;
   text-transform: uppercase;
-  box-shadow: 0 16px 38px rgba(0,0,0,.22);
   border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 18px 40px rgba(0,0,0,.30);
 }
 
 .sticky-book-btn:hover{
   background: rgba(0,0,0,.94);
 }
 
-/* Hide sticky button on desktop */
 @media (min-width: 900px){
   .sticky-book-btn{ display:none; }
 }
 
-/* Prevent sticky button from covering footer on mobile */
+/* Give footer room on small screens */
 @media (max-width: 900px){
-  footer{ padding-bottom: 86px; }
+  footer{ padding-bottom: 90px; }
 }
+
 /* ==========================================
-   iPhone ONLY – Home intro polish
-   Fixes spacing + text flow
+   SERVICES PAGE (Premium)
 ========================================== */
 
-@media (max-width: 430px){
+.service-highlights{
+  display:flex;
+  gap: 10px;
+  justify-content:center;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
 
-  /* tighten the entire intro card */
-  .section.card.center{
-    padding: 14px 14px 16px;
-  }
+.highlight{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.75);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-weight: 800;
+  color: rgba(59,42,36,.85);
+  font-size: 13px;
+}
 
-  /* headline balance */
-  .home-h1{
-    font-size: 19px;
-    line-height: 1.25;
-    margin-bottom: 6px;
-  }
+.service-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
 
-  /* paragraph readability on narrow screens */
-  .lead{
-    font-size: 14.5px;
-    line-height: 1.5;
-    margin: 6px 0 10px;
+@media (min-width: 820px){
+  .service-grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
+}
 
-  /* remove any accidental extra spacing */
-  .lead + .cta-row{
-    margin-top: 8px;
-  }
+.service-card{
+  background: rgba(255,255,255,.86);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
 
-  /* buttons: stack cleanly without adding height */
-  .cta-row{
-    gap: 8px;
-    margin-top: 8px;
-  }
+.service-title{
+  margin: 0 0 6px;
+  font-size: 20px;
+}
 
-  .cta-row .btn{
-    width: 100%;
-    margin-top: 0;   /* IMPORTANT */
-    padding: 13px 14px;
-    border-radius: 14px;
-  }
+.service-desc{
+  margin: 0 0 10px;
+  color: rgba(59,42,36,.90);
+  font-weight: 600;
+}
 
-  /* response line closer to CTA */
-  .micro{
-    font-size: 13px;
-    margin-top: 8px !important;
-  }
+.service-list{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.service-list li{ margin: 6px 0; }
+
+.service-cta-row{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.badge{
+  display:inline-block;
+  margin-left: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.75);
+  font-weight: 900;
+  font-size: 12px;
+  color: rgba(59,42,36,.80);
+}
+
+.service-card--coming{
+  opacity: .96;
 }
