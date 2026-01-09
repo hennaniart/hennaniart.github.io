@@ -101,16 +101,31 @@ h2{
   margin-bottom: 10px;
 }
 
+/* ✅ HOME headline polish (fix iPhone awkward wrap) */
 .home-h1{
   font-size: clamp(18px, 2.2vw, 24px);
   letter-spacing: .2px;
   margin: 0 0 8px;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+@media (max-width: 520px){
+  .home-h1{
+    font-size: 18px;
+    letter-spacing: .05px;   /* less spacing = cleaner wrap on iPhone */
+    line-height: 1.18;       /* tighter = premium */
+    max-width: 22ch;         /* prevents ugly super-wide wrapping */
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .lead{
   font-size: 16px;
   color: var(--text);
   margin: 6px 0 10px;
+  text-wrap: pretty;
 }
 
 .micro{
@@ -124,6 +139,7 @@ h2{
   color: var(--muted);
   font-weight: 600;
   text-align: center;
+  text-wrap: balance;
 }
 
 .inline-link{
@@ -138,6 +154,7 @@ h2{
   font-size: clamp(22px, 2.6vw, 34px);
   margin: 0 0 6px;
   letter-spacing: .2px;
+  text-wrap: balance;
 }
 
 /* ---------- BUTTONS ---------- */
@@ -182,7 +199,6 @@ h2{
   background: #000;
 }
 
-/* Background image */
 .hero-bg{
   position:absolute;
   inset:0;
@@ -194,7 +210,6 @@ h2{
   filter: saturate(1.02) contrast(1.04);
 }
 
-/* Elegant overlay (not too dark) */
 .hero-full::after{
   content:"";
   position:absolute;
@@ -206,7 +221,6 @@ h2{
   );
 }
 
-/* Content layer */
 .hero-center{
   position:relative;
   z-index:2;
@@ -220,7 +234,6 @@ h2{
   text-align: center;
 }
 
-/* Logo overlay */
 .hero-logo{
   width: min(420px, 78vw);
   height: auto;
@@ -229,7 +242,6 @@ h2{
   margin-bottom: 2px;
 }
 
-/* CTA row */
 .hero-actions{
   display:flex;
   gap: 12px;
@@ -237,7 +249,6 @@ h2{
   justify-content:center;
 }
 
-/* CTA buttons */
 .hero-cta{
   display:inline-block;
   padding: 14px 26px;
@@ -265,7 +276,6 @@ h2{
   background: rgba(255,255,255,.16);
 }
 
-/* Micro tagline */
 .hero-micro{
   margin: 2px 0 0;
   color: rgba(255,255,255,.92);
@@ -275,7 +285,6 @@ h2{
   text-shadow: 0 6px 18px rgba(0,0,0,.35);
 }
 
-/* Mobile polish */
 @media (max-width: 520px){
   .hero-full{
     height: 74vh;
@@ -291,7 +300,6 @@ h2{
   }
 }
 
-/* iPad refinement */
 @media (min-width: 700px) and (max-width: 1199px){
   .hero-full{
     height: clamp(520px, 66vh, 720px);
@@ -301,7 +309,6 @@ h2{
   }
 }
 
-/* Desktop refinement */
 @media (min-width: 1200px){
   .hero-full{
     height: clamp(560px, 70vh, 780px);
@@ -501,6 +508,11 @@ footer{
   background: rgba(255,247,239,.92);
 }
 
+/* ✅ only add extra footer space on PHONE (sticky CTA lives here) */
+@media (max-width: 520px){
+  footer{ padding-bottom: 90px; }
+}
+
 footer a{
   color:var(--text);
   text-decoration:none;
@@ -537,12 +549,14 @@ footer a:hover{ color:var(--accent); }
   box-shadow: 0 18px 42px rgba(0,0,0,.14);
 }
 
+/* ✅ category thumbnail (single source of truth) */
 .category-thumb{
   width: 100%;
   height: clamp(180px, 26vh, 260px);
   object-fit: cover;
   object-position: center;
   display: block;
+  background: rgba(255,255,255,.55);
 }
 
 .category-body{
@@ -612,14 +626,17 @@ footer a:hover{ color:var(--accent); }
   }
 }
 
+/* ✅ Thumbnail fallback (luxury) */
+.category-card.thumb-fallback{
+  background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.18));
+}
+.category-card.thumb-fallback::after{
+  opacity: 1;
+  background: rgba(0,0,0,.28);
+}
+
 /* ==========================================
    CONTACT / BOOKING PAGE (Premium)
-   - Form polish
-   - Service type cards
-   - Preferred contact pills
-   - Timeline
-   - FAQ accordion
-   - Sticky mobile button
 ========================================== */
 
 .booking-form label{
@@ -683,7 +700,6 @@ footer a:hover{ color:var(--accent); }
   color: rgba(59,42,36,.70);
 }
 
-/* Radio fieldset pills */
 .radio-card{
   margin-top: 12px;
   border: 1px solid var(--border);
@@ -725,7 +741,6 @@ footer a:hover{ color:var(--accent); }
   box-shadow: none;
 }
 
-/* Service type cards */
 .choice-grid{
   display:grid;
   grid-template-columns: 1fr;
@@ -757,7 +772,6 @@ footer a:hover{ color:var(--accent); }
 
 .choice-card input{ width:auto; }
 
-/* Timeline */
 .timeline{
   display:flex;
   flex-direction:column;
@@ -798,7 +812,6 @@ footer a:hover{ color:var(--accent); }
   font-weight: 600;
 }
 
-/* FAQ */
 .faq{
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -834,7 +847,6 @@ footer a:hover{ color:var(--accent); }
   line-height: 1.7;
 }
 
-/* Sticky mobile button (Contact page) */
 .sticky-book-btn{
   position: fixed;
   left: 12px;
@@ -859,11 +871,6 @@ footer a:hover{ color:var(--accent); }
 
 @media (min-width: 900px){
   .sticky-book-btn{ display:none; }
-}
-
-/* Give footer room on small screens */
-@media (max-width: 900px){
-  footer{ padding-bottom: 90px; }
 }
 
 /* ==========================================
@@ -952,9 +959,9 @@ footer a:hover{ color:var(--accent); }
 .service-card--coming{
   opacity: .96;
 }
+
 /* ==========================================
    INSTAGRAM (Premium Link Cards) + BLOG GRID
-   Paste at the bottom of styles.css
 ========================================== */
 
 .ig-head{
@@ -1052,6 +1059,7 @@ footer a:hover{ color:var(--accent); }
   font-size: 18px;
   line-height: 1.2;
   margin-bottom: 6px;
+  text-wrap: balance;
 }
 
 .ig-sub{
@@ -1066,7 +1074,23 @@ footer a:hover{ color:var(--accent); }
   margin-top: 14px;
 }
 
-/* Blog layout blocks */
+/* ✅ Optional: portrait reel embed wrapper (if you use iframes) */
+.embed-portrait{
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.65);
+  box-shadow: 0 10px 26px rgba(0,0,0,.08);
+}
+.embed-portrait iframe{
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+}
+
 .blog-grid{
   display:grid;
   grid-template-columns: 1fr;
@@ -1113,22 +1137,4 @@ footer a:hover{ color:var(--accent); }
   justify-content:space-between;
   gap: 12px;
   flex-wrap: wrap;
-}
-/* Gallery category thumbnails (ensure they always render nicely) */
-.category-thumb{
-  width: 100%;
-  height: clamp(180px, 26vh, 260px);
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  background: rgba(255,255,255,.55);
-}
-
-/* If thumbnail image fails to load, use a luxury fallback */
-.category-card.thumb-fallback{
-  background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.18));
-}
-.category-card.thumb-fallback::after{
-  opacity: 1;
-  background: rgba(0,0,0,.28);
 }
