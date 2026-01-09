@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bridal Henna Gallery | Hennani Art</title>
+  <meta name="description" content="Explore intricate bridal henna designs by Hennani Art. Tap any image to view full size. Serving MD, VA & DC." />
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
@@ -22,19 +23,27 @@
     </ul>
   </nav>
 
-  <main class="container">
-    <section class="section card">
+  <main class="container page">
 
-      <div class="breadcrumb">
-        <a class="pill" href="index.html">← Home</a>
+    <!-- Header -->
+    <section class="section card center">
+      <div class="breadcrumb" style="justify-content:center;">
         <a class="pill" href="gallery.html">← Back to Gallery</a>
+        <a class="pill" href="contact.html">Book Henna</a>
       </div>
 
-      <h1 style="text-align:center;">Bridal Henna Gallery</h1>
-      <p class="subtitle" style="text-align:center;">Tap any image to view full size.</p>
+      <h1 class="page-title">Bridal Henna Gallery</h1>
+      <p class="subtitle">
+        A curated collection of intricate bridal work — tap any photo to view full size.
+      </p>
+      <p class="micro" style="margin-top:10px;">
+        Serving Maryland, Virginia & Washington DC
+      </p>
+    </section>
 
-      <!-- Grid (keeps your current gallery look) -->
-      <div class="portrait-gallery" id="gallery">
+    <!-- Gallery -->
+    <section class="section card">
+      <div class="portrait-gallery" id="gallery" aria-label="Bridal henna gallery">
         <img class="zoomable" loading="lazy" src="bridal1.JPG"  alt="Bridal Henna Design 1">
         <img class="zoomable" loading="lazy" src="bridal2.JPG"  alt="Bridal Henna Design 2">
         <img class="zoomable" loading="lazy" src="bridal3.JPG"  alt="Bridal Henna Design 3">
@@ -48,10 +57,20 @@
         <img class="zoomable" loading="lazy" src="bridal11.JPG" alt="Bridal Henna Design 11">
       </div>
 
+      <!-- Bottom CTA -->
+      <div class="cta-row" style="margin-top:16px;">
+        <a class="btn" href="contact.html">Book Bridal Henna</a>
+        <a class="btn btn-ghost" href="gallery.html">Back to Gallery</a>
+      </div>
+
+      <p class="micro" style="text-align:center; margin-top:10px;">
+        Want a similar style? Share inspiration photos in your inquiry.
+      </p>
     </section>
+
   </main>
 
-  <!-- Lightbox (center-screen overlay, with margin) -->
+  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <figure>
       <button class="close-btn" id="lbClose" aria-label="Close">×</button>
@@ -85,14 +104,14 @@
       lbImg.src = thumbs[idx].src;
       lb.classList.add('open');
       lb.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden'; // stop background scroll
+      document.body.style.overflow = 'hidden';
     }
 
     function closeLb(){
       lb.classList.remove('open');
       lb.setAttribute('aria-hidden','true');
       lbImg.src = '';
-      document.body.style.overflow = ''; // restore scroll
+      document.body.style.overflow = '';
     }
 
     function prev(){
@@ -110,12 +129,10 @@
     lbPrev.addEventListener('click', prev);
     lbNext.addEventListener('click', next);
 
-    // Click outside image closes
     lb.addEventListener('click', (e) => {
       if (e.target === lb) closeLb();
     });
 
-    // Keyboard controls
     document.addEventListener('keydown', (e) => {
       if (!lb.classList.contains('open')) return;
       if (e.key === 'Escape') closeLb();
