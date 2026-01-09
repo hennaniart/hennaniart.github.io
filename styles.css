@@ -1,4 +1,4 @@
-
+/* ==========================================
    Hennani Art – Premium Mobile-First Styles
    iPhone • iPad • Laptop
    Clean + No duplicates + No conflicts
@@ -637,470 +637,37 @@ footer a:hover{ color:var(--accent); }
   .card{ padding: 16px; }
   .section{ margin: 14px 0; }
 }
-/* ==========================================
-   CONTACT / BOOKING PAGE (Premium)
-   Adds: form polish, service type cards, preferred contact radios,
-   What happens next timeline, FAQ accordion, sticky mobile button
-========================================== */
 
-/* Page title */
+/* =========================================================
+   CONTACT / BOOKING PAGE (FINAL – clean, premium, no conflicts)
+   Matches your contact.html:
+   .notice, .booking-form, .radio-card/.radio-pill,
+   .choice-grid/.choice-card, .timeline (t-step),
+   details.faq, .sticky-book-btn
+========================================================= */
+
+/* Page title (used on contact page) */
 .page-title{
   text-align:center;
-  font-size: clamp(22px, 2.6vw, 32px);
-  margin: 0 0 8px;
-}
-
-/* Form base */
-form{
-  margin-top: 14px;
-}
-
-label{
-  display:block;
-  font-weight: 700;
-  margin: 14px 0 6px;
-  color: var(--text);
-}
-
-.label-top{ margin-top: 6px; }
-
-input, select, textarea{
-  width: 100%;
-  font-family: inherit;
-  font-size: 16px;
-  padding: 12px 12px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.86);
-  color: var(--text);
-  outline: none;
-}
-
-input:focus, select:focus, textarea:focus{
-  border-color: rgba(160,82,45,.45);
-  box-shadow: 0 0 0 4px rgba(160,82,45,.12);
-}
-
-textarea{
-  min-height: 150px;
-  resize: vertical;
-}
-
-.form-title{
-  margin: 6px 0 2px;
-  font-size: 18px;
-}
-
-/* 2-column rows */
-.form-row{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-
-.form-col-6{ width: 100%; }
-
-@media (min-width: 760px){
-  .form-row{ grid-template-columns: 1fr 1fr; }
-}
-
-.form-divider{
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 18px 0;
-}
-
-/* Preferred contact method pills */
-.choice-row{
-  display:flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.choice{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.78);
-  cursor: pointer;
-  user-select: none;
-  transition: transform .16s ease, box-shadow .16s ease;
-}
-
-.choice:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.07);
-}
-
-.choice input{ width:auto; }
-
-/* Service type cards grid */
-.choice-grid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-@media (min-width: 640px){
-  .choice-grid{ grid-template-columns: 1fr 1fr; }
-}
-
-.choice-card{
-  display:flex;
-  gap: 10px;
-  align-items:center;
-  padding: 12px 14px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.84);
-  cursor: pointer;
-  user-select: none;
-  transition: transform .16s ease, box-shadow .16s ease;
-}
-
-.choice-card:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 12px 26px rgba(0,0,0,.08);
-}
-
-.choice-card input{ width:auto; }
-
-.note{
-  margin-top: 12px;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.link{
-  color: var(--text);
-  font-weight: 800;
-  text-decoration: none;
-}
-.link:hover{ color: var(--accent); }
-
-/* ==========================================
-   What Happens Next (timeline)
-========================================== */
-
-.timeline{
-  list-style: none;
-  padding: 0;
-  margin: 12px 0 0;
-  display: grid;
-  gap: 12px;
-}
-
-.timeline li{
-  display:flex;
-  gap: 12px;
-  align-items:flex-start;
-  padding: 12px 14px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.82);
-}
-
-.step{
-  display:inline-block;
-  padding: 8px 10px;
-  border-radius: 999px;
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: .4px;
-  text-transform: uppercase;
-  background: rgba(0,0,0,.08);
-}
-
-/* ==========================================
-   FAQ (accordion)
-========================================== */
-
-.faq details{
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 12px 14px;
-  background: rgba(255,255,255,.82);
-  margin: 10px 0;
-}
-
-.faq summary{
-  cursor: pointer;
-  font-weight: 800;
-  list-style: none;
-}
-
-/* remove default marker in some browsers */
-.faq summary::-webkit-details-marker{ display:none; }
-
-.faq summary::after{
-  content: "＋";
-  float: right;
-  font-weight: 900;
-  color: rgba(59,42,36,.55);
-}
-
-.faq details[open] summary::after{
-  content: "—";
-}
-
-.faq p{ margin: 10px 0 0; }
-
-/* ==========================================
-   Sticky mobile booking button
-========================================== */
-
-.sticky-book-btn{
-  position: fixed;
-  left: 14px;
-  right: 14px;
-  bottom: 14px;
-  z-index: 1200;
-  text-align: center;
-  padding: 14px 16px;
-  border-radius: 16px;
-  background: rgba(0,0,0,.86);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 800;
-  letter-spacing: .6px;
-  text-transform: uppercase;
-  box-shadow: 0 16px 38px rgba(0,0,0,.22);
-}
-
-/* Avoid covering footer content on small screens */
-@media (max-width: 900px){
-  footer{ padding-bottom: 86px; }
-}
-
-@media (min-width: 900px){
-  .sticky-book-btn{ display:none; }
-}
-/* ==========================================
-   CONTACT / BOOKING PAGE (Premium Form + Timeline + FAQ)
-   Paste at the BOTTOM of styles.css
-========================================== */
-
-.page-title{
-  font-size: clamp(22px, 2.6vw, 32px);
-  margin: 0 0 6px;
+  font-size: clamp(22px, 2.8vw, 34px);
   letter-spacing: .2px;
+  margin: 0 0 6px;
 }
 
-.ha-form label{
-  display:block;
-  margin: 14px 0 6px;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.ha-form input,
-.ha-form select,
-.ha-form textarea{
-  width: 100%;
-  padding: 12px 12px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.85);
-  color: var(--text);
-  outline: none;
-  box-shadow: 0 8px 18px rgba(0,0,0,.05);
-}
-
-.ha-form input:focus,
-.ha-form select:focus,
-.ha-form textarea:focus{
-  border-color: rgba(160,82,45,.45);
-  box-shadow: 0 12px 26px rgba(0,0,0,.08);
-}
-
-.ha-form textarea{
-  min-height: 130px;
-  resize: vertical;
-}
-
-.form-row{
-  display:flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.form-col-6{
-  flex: 1 1 260px;
-  min-width: 240px;
-}
-
-.field{
-  margin-top: 14px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 12px 12px 10px;
-  background: rgba(255,255,255,.72);
-}
-
-.field legend{
-  padding: 0 8px;
-  font-weight: 800;
-  color: var(--text);
-}
-
-.choice-row{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-top: 8px;
-}
-
-.choice{
-  display:flex;
-  align-items:center;
-  gap: 8px;
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.85);
-  cursor: pointer;
-  user-select: none;
-}
-
-.choice input{
-  width: auto;
-  margin: 0;
-  box-shadow: none;
-}
-
-.form-note{
-  margin-top: 14px;
-  padding: 12px 14px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.72);
-  color: var(--text);
-}
-
-.form-submit{
-  margin-top: 16px;
-}
-
-/* Timeline */
-.timeline{
-  display:flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.step{
-  display:flex;
-  gap: 12px;
-  align-items:flex-start;
-  padding: 12px 12px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: rgba(255,255,255,.78);
-}
-
-.step-badge{
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight: 800;
-  background: rgba(59,42,36,.92);
-  color: #fff;
-  flex: 0 0 34px;
-}
-
-.step-title{
-  font-weight: 800;
-  margin-bottom: 2px;
-}
-
-.step-sub{
-  color: var(--muted);
-  font-weight: 600;
-  font-size: 14px;
-}
-
-/* FAQ */
-.faq{
-  display:flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.faq-item{
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: rgba(255,255,255,.78);
-  padding: 10px 12px;
-}
-
-.faq-item summary{
-  cursor: pointer;
-  font-weight: 800;
-  color: var(--text);
-  list-style: none;
-}
-
-.faq-item summary::-webkit-details-marker{ display:none; }
-
-.faq-item p{
-  margin: 10px 0 0;
-}
-
-/* Sticky submit (mobile) */
-.sticky-submit{
-  display:none;
-}
-
-@media (max-width: 640px){
-  .sticky-submit{
-    display:block;
-    position: sticky;
-    bottom: 0;
-    margin-top: 14px;
-    padding: 10px 0 2px;
-    background: linear-gradient(to top, rgba(255,247,239,.96), rgba(255,247,239,.0));
-  }
-  .sticky-btn{
-    width: 100%;
-    text-align:center;
-    padding: 14px 18px;
-  }
-
-  /* add breathing room so sticky doesn't cover content */
-  .ha-form{
-    padding-bottom: 60px;
-  }
-}
-/* ==========================================
-   CONTACT / BOOKING PAGE – Premium Form + FAQ
-========================================== */
-
-.page-title{
-  font-size: clamp(22px, 2.6vw, 34px);
-  margin: 0;
-}
-
+/* Henna used notice */
 .notice{
+  margin-top: 14px;
   border: 1px solid var(--border);
   background: rgba(255,255,255,.78);
   border-radius: 16px;
   padding: 14px 14px;
   box-shadow: 0 10px 24px rgba(0,0,0,.06);
+  text-align: left;
 }
 
 .notice-title{
   margin: 0 0 6px;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: .2px;
 }
 
@@ -1111,11 +678,12 @@ textarea{
   line-height: 1.7;
 }
 
-/* Form layout */
+/* Form base (scoped so other pages aren't affected) */
 .booking-form label{
   display:block;
   font-weight: 800;
   margin: 12px 0 6px;
+  color: var(--text);
 }
 
 .booking-form input,
@@ -1144,6 +712,7 @@ textarea{
   resize: vertical;
 }
 
+/* helper under fields */
 .field-help{
   margin: 6px 0 0;
   color: var(--muted);
@@ -1151,13 +720,12 @@ textarea{
   font-size: 13px;
 }
 
-/* 2-column rows */
+/* Two-column rows */
 .form-row{
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
 }
-
 .form-col-6{ width: 100%; }
 
 @media (min-width: 820px){
@@ -1167,28 +735,23 @@ textarea{
   }
 }
 
-/* Form sections */
-.form-section{
-  border-top: 1px solid var(--border);
-  padding-top: 14px;
-  margin-top: 12px;
-}
-.form-section:first-child{
-  border-top: none;
-  padding-top: 0;
-  margin-top: 0;
-}
-
+/* Section labels inside form */
 .form-section-title{
   margin: 0 0 8px;
   font-weight: 900;
-  letter-spacing: .3px;
+  letter-spacing: .4px;
   text-transform: uppercase;
   font-size: 12px;
   color: rgba(59,42,36,.70);
 }
 
-/* Radio “pills” */
+.form-divider{
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 18px 0;
+}
+
+/* Preferred Contact Method */
 .radio-card{
   margin-top: 12px;
   border: 1px solid var(--border);
@@ -1221,6 +784,12 @@ textarea{
   background: rgba(255,255,255,.92);
   cursor: pointer;
   font-weight: 800;
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.radio-pill:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.07);
 }
 
 .radio-pill input{
@@ -1230,7 +799,45 @@ textarea{
   box-shadow: none;
 }
 
-/* Timeline */
+/* Service type choices */
+.choice-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+@media (min-width: 640px){
+  .choice-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.choice-card{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.84);
+  cursor: pointer;
+  user-select: none;
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.choice-card:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.08);
+}
+
+.choice-card input{
+  width:auto;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* Timeline (What happens next) */
 .timeline{
   display:flex;
   flex-direction:column;
@@ -1259,6 +866,7 @@ textarea{
   align-items:center;
   justify-content:center;
   font-weight: 900;
+  flex: 0 0 36px;
 }
 
 .t-title{
@@ -1307,31 +915,36 @@ textarea{
   line-height: 1.7;
 }
 
-/* Sticky mobile booking button */
-.sticky-book{
+/* Sticky Mobile Button */
+.sticky-book-btn{
   position: fixed;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
   z-index: 2500;
-  display:none;
-  text-align:center;
+  text-align: center;
   padding: 14px 16px;
+  border-radius: 16px;
   background: rgba(0,0,0,.86);
   color: #fff;
-  text-decoration:none;
-  letter-spacing: .8px;
+  text-decoration: none;
   font-weight: 900;
+  letter-spacing: .6px;
   text-transform: uppercase;
+  box-shadow: 0 16px 38px rgba(0,0,0,.22);
   border: 1px solid rgba(255,255,255,.18);
-  box-shadow: 0 18px 40px rgba(0,0,0,.30);
 }
 
-.sticky-book:hover{
+.sticky-book-btn:hover{
   background: rgba(0,0,0,.94);
 }
 
-@media (max-width: 520px){
-  .sticky-book{ display:block; }
-  footer{ padding-bottom: 90px; } /* so footer isn’t covered */
+/* Hide sticky button on desktop */
+@media (min-width: 900px){
+  .sticky-book-btn{ display:none; }
+}
+
+/* Prevent sticky button from covering footer on mobile */
+@media (max-width: 900px){
+  footer{ padding-bottom: 86px; }
 }
