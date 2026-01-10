@@ -1240,7 +1240,7 @@ footer a:hover{ color:var(--accent); }
   margin-top: 10px;
 }
 
-/* Slightly smaller play button on small phones */
+/* Slightly to smaller play button on small phones */
 @media (max-width: 420px){
   .ig-play span{
     width: 56px;
@@ -1251,4 +1251,47 @@ footer a:hover{ color:var(--accent); }
     border-top-width: 8px;
     border-bottom-width: 8px;
   }
+}
+/* ==========================================
+   BLOG – FEATURED VIDEO GRID (SAFE ADDITION)
+========================================== */
+
+.ig-video-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+@media (min-width: 700px){
+  .ig-video-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+.ig-video-card{
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ig-video{
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px rgba(0,0,0,.10);
+  background: #000;
+}
+
+.ig-video-label{
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--text);
 }
