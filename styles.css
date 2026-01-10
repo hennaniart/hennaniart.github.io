@@ -1410,3 +1410,40 @@ footer a:hover{ color:var(--accent); }
     border-bottom-width: 9px;
   }
 }
+/* HAND COVERAGE INFO BLOCK */
+.coverage-block{
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 10px 24px rgba(0,0,0,.05);
+}
+
+.coverage-title{
+  margin-bottom: 8px;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  color: rgba(59,42,36,.70);
+}
+
+.coverage-list{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.coverage-list li{
+  margin: 6px 0;
+}
+
+.coverage-note{
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+}
