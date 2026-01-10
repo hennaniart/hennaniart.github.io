@@ -7,6 +7,40 @@
   <meta name="description" content="Henna before and after care, stain tips, and artistry insights by Hennani Art." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Optional: FAQ Schema (helps Google understand your FAQ) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Is henna safe during pregnancy?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Natural henna paste is generally considered safe during pregnancy. Hennani Art uses freshly prepared, natural henna paste. If you have sensitive skin or allergies, please mention it during booking."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Do you use black henna?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"No. Hennani Art uses 100% natural henna paste and does not use black henna or chemical dyes."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"How long does henna take to darken?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Henna typically appears bright orange at first and deepens over the next 24–48 hours into rich brown, mahogany, or cherry tones depending on skin chemistry and aftercare."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -26,9 +60,7 @@
     <!-- HEADER -->
     <section class="section card center">
       <h1 class="page-title">Henna Journal</h1>
-      <p class="subtitle">
-        Education, artistry, and care — thoughtfully curated by Hennani Art.
-      </p>
+      <p class="subtitle">Education, artistry, and care — thoughtfully curated by Hennani Art.</p>
 
       <div class="cta-row" style="margin-top:10px;">
         <a class="btn" href="contact.html">Book an Appointment</a>
@@ -36,31 +68,85 @@
       </div>
     </section>
 
-    <!-- FEATURED REELS (kept simple + safe) -->
+    <!-- FEATURED VIDEOS (LOCAL) -->
     <section class="section card">
       <h2 class="section-title">Featured Reels</h2>
       <p class="micro">
-        A glimpse into bridal work, paste making, and guest henna designs.
+        A quick look at bridal henna, paste making, and party designs — tap a video to open the full reel on Instagram.
       </p>
 
-      <div class="ig-grid" style="margin-top:12px;">
-        <a class="ig-card" href="https://www.instagram.com/reel/CpDXinXMD-i/" target="_blank" rel="noopener noreferrer">
-          <div class="ig-tag">Bridal</div>
-          <div class="ig-title">Intricate Bridal Henna</div>
-          <div class="ig-sub">Timeless, detailed, and client-loved designs.</div>
+      <!-- ✅ Portrait video grid (3 videos) -->
+      <div class="ig-video-grid" style="margin-top:12px;">
+
+        <!-- Bridal -->
+        <a class="ig-video-card"
+           href="https://www.instagram.com/reel/DOhYMpCDs7R/?igsh=c2NicnBnN2ppNnN5"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Watch Bridal reel on Instagram">
+          <div class="ig-video-wrap">
+            <video
+              class="ig-video"
+              src="thumb-bridal.MOV"
+              playsinline
+              controls
+              preload="metadata"
+              poster="thumb-bridal.jpg"
+            ></video>
+            <div class="ig-play" aria-hidden="true"></div>
+          </div>
+          <div class="ig-video-meta">
+            <div class="ig-tag">Bridal</div>
+            <div class="ig-title">Intricate Bridal Henna</div>
+            <div class="ig-sub">Detail-forward, timeless, and luxury-finished.</div>
+          </div>
         </a>
 
-        <a class="ig-card" href="https://www.instagram.com/reel/DSjB9JkjiuD/" target="_blank" rel="noopener noreferrer">
-          <div class="ig-tag">Paste Making</div>
-          <div class="ig-title">Fresh Henna Paste</div>
-          <div class="ig-sub">Handcrafted using natural ingredients.</div>
+        <!-- Paste -->
+        <a class="ig-video-card"
+           href="https://www.instagram.com/reel/DSjB9JkjiuD/?igsh=Z3p0MmMwYXIzdnZ3"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Watch Paste Making reel on Instagram">
+          <div class="ig-video-wrap">
+            <video
+              class="ig-video"
+              src="thumb-paste.MOV"
+              playsinline
+              controls
+              preload="metadata"
+              poster="thumb-paste.jpg"
+            ></video>
+            <div class="ig-play" aria-hidden="true"></div>
+          </div>
+          <div class="ig-video-meta">
+            <div class="ig-tag">Paste Making</div>
+            <div class="ig-title">Fresh Henna Paste</div>
+            <div class="ig-sub">Handcrafted with care using natural ingredients.</div>
+          </div>
         </a>
 
-        <a class="ig-card" href="https://www.instagram.com/p/DPyfMY_jud2/" target="_blank" rel="noopener noreferrer">
-          <div class="ig-tag">Guest Henna</div>
-          <div class="ig-title">Party & Event Designs</div>
-          <div class="ig-sub">Clean, quick, and event-ready styles.</div>
+        <!-- Party -->
+        <a class="ig-video-card"
+           href="https://www.instagram.com/reel/DPsDNc0jsnx/?igsh=MWhsbTdnZDBqOXVlbA=="
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Watch Party Henna reel on Instagram">
+          <div class="ig-video-wrap">
+            <video
+              class="ig-video"
+              src="thumb-party.MOV"
+              playsinline
+              controls
+              preload="metadata"
+              poster="thumb-party.jpg"
+            ></video>
+            <div class="ig-play" aria-hidden="true"></div>
+          </div>
+          <div class="ig-video-meta">
+            <div class="ig-tag">Party</div>
+            <div class="ig-title">Party & Guest Designs</div>
+            <div class="ig-sub">Clean, quick, and celebration-ready.</div>
+          </div>
         </a>
+
       </div>
 
       <div class="ig-foot">
@@ -70,69 +156,144 @@
       </div>
     </section>
 
-    <!-- BEFORE & AFTER CARE -->
+    <!-- BEFORE & AFTER CARE (LUXURY, DETAILED) -->
     <section class="section card">
       <h2 class="section-title">Henna Before & After Care</h2>
+
       <p class="micro">
-        Taking care of your henna is simple — good preparation and gentle aftercare make all the difference.
+        <strong>Perfect henna is achieved through fresh, high-quality preparation and thoughtful before and aftercare — a balance of artistry, technique, and care.</strong>
       </p>
 
-      <div class="blog-grid">
+      <div class="blog-grid" style="margin-top:12px;">
 
         <!-- BEFORE CARE -->
         <div class="blog-block">
-          <h3 class="blog-h3">Before Your Henna Appointment</h3>
+          <h3 class="blog-h3">Before Care (Prepare for a Rich Stain)</h3>
           <ul class="blog-ul">
-            <li>Shower before your appointment, as water should be avoided after application.</li>
-            <li>Avoid lotions, oils, or sunscreen on the area to be hennaed.</li>
-            <li>Henna takes about <strong>30 minutes to dry</strong>, so plan to keep the area uncovered.</li>
-            <li>If you plan to get your nails done, do so <strong>before</strong> your henna appointment — nail oils and cleaning products can affect the stain.</li>
-            <li>Wear <strong>comfortable clothing</strong>, especially for longer sessions.</li>
-            <li>Choose outfits that allow easy access to hands, arms, feet, or legs.</li>
-            <li>Avoid clothing that may block the work area — sleeves, pants, or dupattas should not interfere with the design.</li>
+            <li><strong>Hair removal:</strong> waxing/sugaring/shaving should be done <strong>2–4 days before</strong> henna. Doing it after henna can reduce color results.</li>
+            <li><strong>Nails:</strong> manicures/pedicures are best <strong>the day before or morning of</strong> your henna day. Please skip massage oils and heavy cuticle oils before henna.</li>
+            <li><strong>Clean, product-free skin:</strong> avoid lotions, oils, sunscreen, or body butter on the area being hennaed.</li>
+            <li><strong>Plan your timing:</strong> henna takes about <strong>30 minutes</strong> to fully dry — be prepared to keep the area uncovered during that time.</li>
+            <li><strong>Shower first:</strong> it’s ideal to shower before your appointment since we try to minimize water contact afterward.</li>
+            <li><strong>Comfort matters:</strong> wear comfortable clothing, especially for longer sessions.</li>
+            <li><strong>Easy access:</strong> choose sleeves and bottoms that won’t block hands, arms, feet, or legs while I’m working.</li>
+            <li><strong>Protect the work area:</strong> avoid outfits where fabric may brush the design (sleeves and bottoms can sometimes interfere). I can use clips when possible, but I can’t risk staining expensive clothing.</li>
+            <li><strong>Plan for gentle hands:</strong> avoid heavy rubbing, deep cleaning, kitchen work, or frequent water exposure right after your appointment.</li>
+            <li><strong>If you wear contacts:</strong> consider removing contact lenses before your appointment if you’ll be getting henna on hands/arms (so you won’t need to touch your eyes while paste is drying).</li>
           </ul>
         </div>
 
         <!-- AFTER CARE -->
         <div class="blog-block">
-          <h3 class="blog-h3">After Care (Golden Rule)</h3>
-          <p class="micro" style="margin-bottom:6px;">
-            <strong>Just leave it alone.</strong>
+          <h3 class="blog-h3">After Care (Luxury Finish + Darker Results)</h3>
+
+          <p class="micro" style="margin-top:6px;">
+            Taking care of your henna is simple — follow the golden rule:
+            <strong>leave it alone.</strong> The calmer the first few hours, the more beautiful the stain.
+          </p>
+
+          <ul class="blog-ul">
+            <li><strong>Keep time:</strong> leave paste on for <strong>4–8 hours</strong> (overnight if possible) for best results.</li>
+            <li><strong>Avoid smudging:</strong> once applied, avoid bumping the paste while it dries and sets.</li>
+
+            <li>
+              <strong>Lemon–sugar sealant (recommended):</strong>
+              once the paste has fully dried, a light lemon–sugar sealant may be gently applied.
+              This traditional technique helps the dried paste stay in place longer without cracking too soon.
+              It softly rehydrates the surface of the paste so it adheres comfortably while continuing to release dye —
+              keeping the artwork intact for extended wear and deeper stain development.
+              Once the sealant sets, the design can be gently wrapped or taped if needed to maximize results.
+            </li>
+
+            <li>
+              <strong>Covering / wrapping (important):</strong>
+              if you cover hands/feet (gloves, plastic wrap, socks), be mindful that warmth and sweating can spoil the design.
+              If you must cover, choose a method that allows <strong>air flow</strong> and does not trap moisture.
+            </li>
+
+            <li><strong>Clove smoke (optional):</strong> gently warm 8–10 cloves on a pan; once they smoke lightly, pass your hands over the smoke briefly to encourage deeper stain.</li>
+            <li><strong>Warmth helps:</strong> after paste removal, a thin layer of <strong>Vicks VapoRub</strong> can help deepen color because henna darkens with gentle warmth.</li>
+            <li><strong>Avoid water (best practice):</strong> avoid water for <strong>24 hours</strong> for darker stain. If water is unavoidable, protect the area as best you can.</li>
+            <li><strong>Moisture barrier:</strong> apply a balm/moisturizer as a protective layer (examples: <strong>Aquaphor</strong>, <strong>Vaseline</strong>, or a natural oil like olive/coconut).</li>
+          </ul>
+
+          <div class="soft-divider"></div>
+
+          <h3 class="blog-h3">Henna Removal (No Discomfort)</h3>
+          <p class="micro" style="margin-top:6px;">
+            For the easiest, cleanest removal — <strong>use oil first.</strong>
           </p>
           <ul class="blog-ul">
-            <li>Let the paste dry fully before moving the area.</li>
-            <li>Keep the paste on for several hours (or as long as possible) for a deeper stain.</li>
-            <li>Allow dried paste to flake off naturally; scrape gently if needed.</li>
-            <li>Do <strong>not</strong> use soap or water to remove the paste.</li>
-            <li>Avoid water for the first 24 hours for best stain development.</li>
-            <li>The stain will start orange and deepen to brown or mahogany over 24–48 hours.</li>
+            <li>Apply a <strong>generous amount of oil</strong> (olive, coconut, etc.) over the dried paste.</li>
+            <li>Gently rub to soften the paste, then scrape carefully using a butter knife/spatula.</li>
+            <li>Wipe away with a paper towel.</li>
+            <li>Repeat the oil + wipe process <strong>1–2 times</strong> until paste is removed.</li>
+            <li>This avoids discomfort and also moisturizes the skin (especially helpful after sealant use).</li>
+            <li>It’s normal to use a little soap after restroom use — but for best results, avoid full soapy washes of the design area on day one whenever possible.</li>
+          </ul>
+
+          <div class="soft-divider"></div>
+
+          <h3 class="blog-h3">Stain Timeline</h3>
+          <ul class="blog-ul">
+            <li>Stain often starts <strong>bright orange</strong>, then deepens over <strong>24–48 hours</strong>.</li>
+            <li>Final results vary by skin chemistry and aftercare — from deep reddish-brown to rich mahogany/cherry tones.</li>
+            <li>Following these steps supports a <strong>dark, beautiful, long-lasting</strong> stain.</li>
           </ul>
         </div>
 
-        <!-- SAFETY -->
+        <!-- FAQ / SAFETY -->
         <div class="blog-block">
-          <h3 class="blog-h3">Henna Used</h3>
-          <p class="micro">
-            100% natural, freshly prepared henna paste.<br>
-            No black henna or chemical dyes.
-          </p>
+          <h3 class="blog-h3">FAQ (Quick Answers)</h3>
+
+          <details class="faq">
+            <summary>Henna Used</summary>
+            <div class="faq-body">
+              <strong>100% natural, freshly prepared henna paste.</strong> No black henna or chemical dyes.
+              If you have allergies or sensitivities, please mention it during booking.
+            </div>
+          </details>
+
+          <details class="faq">
+            <summary>Pregnancy & Sensitive Skin</summary>
+            <div class="faq-body">
+              Henna is safe during pregnancy when using natural paste.
+              I’ve worked with many expecting clients and use carefully selected, natural ingredients.
+              If you have sensitive skin, allergies, or concerns — please share them in your booking message.
+            </div>
+          </details>
+
+          <details class="faq">
+            <summary>Nails Before Henna</summary>
+            <div class="faq-body">
+              If you’re getting your nails done, plan it for the day before or morning of your henna day.
+              Please avoid heavy massage oils/cuticle oils right before henna, as oils can reduce stain development.
+            </div>
+          </details>
+
+          <details class="faq">
+            <summary>Water on Day One</summary>
+            <div class="faq-body">
+              For best results, avoid water on the design area for 24 hours after paste removal.
+              If you must use water, pat gently and reapply a moisture barrier (Aquaphor/Vaseline or oil).
+            </div>
+          </details>
+
         </div>
 
-        <!-- FAQ -->
+        <!-- CTA BLOCK -->
         <div class="blog-block">
-          <h3 class="blog-h3">Pregnancy & Sensitive Skin</h3>
+          <h3 class="blog-h3">Want the Best Results?</h3>
           <p class="micro">
-            Henna is safe during pregnancy when using natural henna paste.
-            I have worked with many expecting clients and use only carefully selected, natural ingredients.
-            If you have sensitive skin or allergies, please mention it during booking.
+            Great stain is teamwork — I’ll provide fresh, high-quality henna and a careful application,
+            and your aftercare will bring the stain to its full richness.
           </p>
+          <div class="cta-row" style="margin-top:10px;">
+            <a class="btn" href="contact.html">Start Booking</a>
+            <a class="btn btn-ghost" href="gallery.html">View Designs</a>
+          </div>
         </div>
 
-      </div>
-
-      <div class="cta-row" style="margin-top:10px;">
-        <a class="btn" href="contact.html">Start Booking</a>
-        <a class="btn btn-ghost" href="gallery.html">View Designs</a>
       </div>
     </section>
 
