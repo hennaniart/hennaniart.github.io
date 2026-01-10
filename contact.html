@@ -30,13 +30,10 @@
         Thank you for considering Hennani Art — bridal & non-bridal appointments available.
       </p>
 
-      <!-- Your favorite lead paragraph (kept) -->
       <p class="lead" style="margin-top:12px;">
         Please fill out the form below. Once submitted, we will get back to you within <strong>2–3 business days</strong>
         to discuss availability. To secure your date and time, a deposit and signed contract will be required.
       </p>
-
-      <!-- Henna used note (short and clean) -->
     </section>
 
     <!-- Sticky Mobile CTA -->
@@ -198,7 +195,95 @@
           </div>
         </div>
 
-        <label for="referral">How did you hear about us? (optional)</label>
+        <!-- ✅ HENNA COVERAGE DETAILS (FINAL) -->
+        <hr class="form-divider" />
+
+        <p class="form-section-title">Henna Coverage Details</p>
+
+        <p class="micro" style="margin-bottom:12px;">
+          Please use the reference guides below to select the closest length.
+          Final design details will be confirmed based on your selections.
+        </p>
+
+        <!-- HAND HENNA -->
+        <div class="length-guide">
+          <img
+            src="hand-henna-length-chart.jpg"
+            alt="Hand henna length reference guide"
+            class="length-chart"
+          />
+
+          <label for="handLength">Hand Henna Length *</label>
+          <select id="handLength" name="handLength" required>
+            <option value="" disabled selected>Select an option</option>
+            <option>1 – Palm only</option>
+            <option>2 – Palm + 2–3 inches</option>
+            <option>3 – Palm + 4–5 inches</option>
+            <option>4 – Palm + 6–7 inches</option>
+            <option>5 – Palm + 8–10 inches</option>
+            <option>6 – Palm + 10–12 inches</option>
+            <option>Above 12 inches</option>
+          </select>
+
+          <fieldset class="radio-card" style="margin-top:10px;">
+            <legend>Hand Coverage *</legend>
+            <div class="radio-row">
+              <label class="radio-pill">
+                <input type="radio" name="handCoverage" value="One hand — one side" required>
+                <span>One hand — one side</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="handCoverage" value="One hand — both sides">
+                <span>One hand — both sides</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="handCoverage" value="Two hands — one side each">
+                <span>Two hands — one side each</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="handCoverage" value="Two hands — both sides">
+                <span>Two hands — both sides</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- FEET HENNA -->
+        <div class="length-guide" style="margin-top:18px;">
+          <label for="feetHenna">Would you like feet henna?</label>
+          <select id="feetHenna" name="feetHenna">
+            <option value="" disabled selected>Select an option</option>
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+
+          <img
+            src="feet-henna-length-chart.jpg"
+            alt="Feet henna length reference guide"
+            class="length-chart"
+            style="margin-top:10px;"
+          />
+
+          <label for="feetLength">Feet Henna Length</label>
+          <select id="feetLength" name="feetLength">
+            <option value="" disabled selected>Select an option</option>
+            <option>1 – Foot only</option>
+            <option>2 – 2–3 inches above foot</option>
+            <option>3 – 4–5 inches above foot</option>
+            <option>4 – 6–7 inches above foot</option>
+            <option>5 – 8–10 inches above foot</option>
+            <option>6 – 10–12 inches above foot</option>
+            <option>Above 12 inches</option>
+          </select>
+        </div>
+
+        <p class="micro" style="margin-top:10px;">
+          Length numbers correspond to the reference guides shown above.
+          Final design details and timing will be confirmed based on your selections.
+        </p>
+
+        <!-- Referral -->
+        <label for="referral" style="margin-top:14px;">How did you hear about us? (optional)</label>
         <select id="referral" name="referral">
           <option value="" selected>Select an option</option>
           <option>Google Search</option>
@@ -255,13 +340,15 @@
     <!-- FAQ -->
     <section class="section card">
       <h2 class="section-title">Quick FAQ</h2>
-<details class="faq">
-  <summary>What kind of henna do you use?</summary>
-  <div class="faq-body">
-    100% natural, freshly prepared henna paste. No black henna or chemical dyes.
-    If you have allergies/sensitivities or are pregnant, please mention it in your message.
-  </div>
-</details>
+
+      <details class="faq">
+        <summary>What kind of henna do you use?</summary>
+        <div class="faq-body">
+          100% natural, freshly prepared henna paste. No black henna or chemical dyes.
+          If you have allergies/sensitivities or are pregnant, please mention it in your message.
+        </div>
+      </details>
+
       <details class="faq">
         <summary>How long does bridal henna take?</summary>
         <div class="faq-body">
@@ -290,12 +377,6 @@
         </div>
       </details>
 
-      <details class="faq">
-        <summary>What kind of henna do you use?</summary>
-        <div class="faq-body">
-          100% natural, freshly prepared henna paste. No black henna or chemical dyes.
-        </div>
-      </details>
     </section>
 
   </main>
