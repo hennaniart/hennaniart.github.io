@@ -7,52 +7,80 @@
 
   <link rel="canonical" href="https://www.hennaniart.com/" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" /><script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.hennaniart.com/#localbusiness",
-  "name": "Hennani Art",
-  "url": "https://www.hennaniart.com/",
-  "telephone": "+1-443-300-8954",
-  "email": "hennaniart@gmail.com",
-  "image": "https://www.hennaniart.com/logo-glow.png",
-  "description": "Professional bridal and event mehndi (henna) artist based in Maryland, serving MD, VA, and Washington DC. Specializing in intricate bridal henna and custom designs. 100% natural, freshly prepared henna paste — no black henna or chemical dyes.",
-  "priceRange": "$$",
-  "areaServed": [
-    {
-      "@type": "State",
-      "name": "Maryland"
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- LocalBusiness + Services (Bridal / Party) Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.hennaniart.com/#localbusiness",
+    "name": "Hennani Art",
+    "url": "https://www.hennaniart.com/",
+    "telephone": "+1-443-300-8954",
+    "email": "hennaniart@gmail.com",
+    "image": "https://www.hennaniart.com/logo-glow.png",
+    "description": "Professional bridal and event mehndi (henna) artist based in Maryland, serving MD, VA, and Washington DC. Specializing in intricate bridal henna and custom designs. 100% natural, freshly prepared henna paste — no black henna or chemical dyes.",
+    "priceRange": "$$",
+    "areaServed": [
+      { "@type": "State", "name": "Maryland" },
+      { "@type": "State", "name": "Virginia" },
+      { "@type": "AdministrativeArea", "name": "Washington, DC" }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "MD",
+      "addressCountry": "US"
     },
-    {
-      "@type": "State",
-      "name": "Virginia"
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Washington, DC"
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "11:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "11:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "11:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "11:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "11:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "11:00", "closes": "19:00" }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/hennaniarts/",
+      "https://www.facebook.com/hennaniart"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Henna Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "url": "https://www.hennaniart.com/service.html",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Bridal Henna",
+            "serviceType": "Bridal Mehndi (Henna)",
+            "areaServed": [
+              { "@type": "State", "name": "Maryland" },
+              { "@type": "State", "name": "Virginia" },
+              { "@type": "AdministrativeArea", "name": "Washington, DC" }
+            ]
+          }
+        },
+        {
+          "@type": "Offer",
+          "url": "https://www.hennaniart.com/service.html",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Guest / Party Henna",
+            "serviceType": "Party & Event Henna",
+            "areaServed": [
+              { "@type": "State", "name": "Maryland" },
+              { "@type": "State", "name": "Virginia" },
+              { "@type": "AdministrativeArea", "name": "Washington, DC" }
+            ]
+          }
+        }
+      ]
     }
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressRegion": "MD",
-    "addressCountry": "US"
-  },
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "19:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "11:00", "closes": "19:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "11:00", "closes": "19:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "11:00", "closes": "19:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "11:00", "closes": "19:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "11:00", "closes": "19:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "11:00", "closes": "19:00" }
-  ],
-  "sameAs": [
-    "https://www.instagram.com/hennaniarts/",
-    "https://www.facebook.com/hennaniart"
-  ]
-}
-</script>
+  }
+  </script>
 </head>
 
 <body>
@@ -70,7 +98,7 @@
 
   <main>
 
-    <!-- HERO -->
+    <!-- HERO (background image + logo overlay + CTA) -->
     <section class="hero-full" aria-label="Hennani Art hero">
       <img
         src="hero.PNG?v=5"
@@ -99,7 +127,7 @@
 
     <div class="container">
 
-      <!-- INTRO -->
+      <!-- Intro / Value -->
       <section class="section card center">
         <h1 class="home-h1">Luxury Henna Artist in Maryland</h1>
 
@@ -118,7 +146,7 @@
         </p>
       </section>
 
-      <!-- CLIENT REVIEW -->
+      <!-- Reviews -->
       <section class="section card center" aria-label="Client review">
         <h2 class="section-title">Client Love</h2>
         <div class="stars" aria-label="5 star rating">★★★★★</div>
