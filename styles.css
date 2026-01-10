@@ -101,7 +101,7 @@ h2{
   margin-bottom: 10px;
 }
 
-/* ✅ HOME headline polish (fix iPhone awkward wrap) */
+/* HOME headline polish */
 .home-h1{
   font-size: clamp(18px, 2.2vw, 24px);
   letter-spacing: .2px;
@@ -113,9 +113,9 @@ h2{
 @media (max-width: 520px){
   .home-h1{
     font-size: 18px;
-    letter-spacing: .05px;   /* less spacing = cleaner wrap on iPhone */
-    line-height: 1.18;       /* tighter = premium */
-    max-width: 22ch;         /* prevents ugly super-wide wrapping */
+    letter-spacing: .05px;
+    line-height: 1.18;
+    max-width: 22ch;
     margin-left: auto;
     margin-right: auto;
   }
@@ -508,7 +508,7 @@ footer{
   background: rgba(255,247,239,.92);
 }
 
-/* ✅ only add extra footer space on PHONE (sticky CTA lives here) */
+/* only add extra footer space on PHONE */
 @media (max-width: 520px){
   footer{ padding-bottom: 90px; }
 }
@@ -549,7 +549,6 @@ footer a:hover{ color:var(--accent); }
   box-shadow: 0 18px 42px rgba(0,0,0,.14);
 }
 
-/* ✅ category thumbnail (single source of truth) */
 .category-thumb{
   width: 100%;
   height: clamp(180px, 26vh, 260px);
@@ -559,9 +558,7 @@ footer a:hover{ color:var(--accent); }
   background: rgba(255,255,255,.55);
 }
 
-.category-body{
-  padding: 12px 14px 14px;
-}
+.category-body{ padding: 12px 14px 14px; }
 
 .category-title{
   margin: 0;
@@ -609,30 +606,15 @@ footer a:hover{ color:var(--accent); }
   transition: opacity .25s ease;
 }
 
-.category-card:hover::after{
-  opacity: 1;
-}
+.category-card:hover::after{ opacity: 1; }
 
 @media (hover: none){
   .category-card::after{
     opacity: 1;
-    background: linear-gradient(
-      to top,
-      rgba(0,0,0,.55),
-      rgba(0,0,0,.15)
-    );
+    background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.15));
     align-items: flex-end;
     padding-bottom: 14px;
   }
-}
-
-/* ✅ Thumbnail fallback (luxury) */
-.category-card.thumb-fallback{
-  background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.18));
-}
-.category-card.thumb-fallback::after{
-  opacity: 1;
-  background: rgba(0,0,0,.28);
 }
 
 /* ==========================================
@@ -802,15 +784,8 @@ footer a:hover{ color:var(--accent); }
   font-weight: 900;
 }
 
-.t-title{
-  font-weight: 900;
-  margin-bottom: 2px;
-}
-
-.t-text{
-  color: var(--muted);
-  font-weight: 600;
-}
+.t-title{ font-weight: 900; margin-bottom: 2px; }
+.t-text{ color: var(--muted); font-weight: 600; }
 
 .faq{
   border: 1px solid var(--border);
@@ -826,7 +801,6 @@ footer a:hover{ color:var(--accent); }
   font-weight: 900;
   list-style: none;
 }
-
 .faq summary::-webkit-details-marker{ display:none; }
 
 .faq summary::after{
@@ -835,10 +809,7 @@ footer a:hover{ color:var(--accent); }
   font-weight: 900;
   opacity: .75;
 }
-
-.faq[open] summary::after{
-  content:"–";
-}
+.faq[open] summary::after{ content:"–"; }
 
 .faq-body{
   margin-top: 10px;
@@ -874,7 +845,7 @@ footer a:hover{ color:var(--accent); }
 }
 
 /* ==========================================
-   SERVICES PAGE (Premium)
+   SERVICES PAGE (Premium) – matches screenshots
 ========================================== */
 
 .service-highlights{
@@ -944,6 +915,9 @@ footer a:hover{ color:var(--accent); }
   margin-top: 12px;
 }
 
+/* ✅ Fix button spacing inside service cards */
+.service-cta-row .btn{ margin-top: 0; }
+
 .badge{
   display:inline-block;
   margin-left: 8px;
@@ -960,49 +934,27 @@ footer a:hover{ color:var(--accent); }
   opacity: .96;
 }
 
+/* Optional: equal-height cards on desktop (premium grid look) */
+@media (min-width: 820px){
+  .service-card{
+    display:flex;
+    flex-direction: column;
+  }
+  .service-cta-row{
+    margin-top: auto;
+  }
+}
+
 /* ==========================================
-   INSTAGRAM (Premium Link Cards) + BLOG GRID
+   BLOG / IG – Featured Video Grid (clean)
+   Works with your blog.html as-is ✅
 ========================================== */
 
-.ig-head{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap: 14px;
-  flex-wrap: wrap;
+.ig-video-section{
+  margin-top: 14px;
 }
 
-.ig-actions{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.ig-btn{
-  display:inline-block;
-  padding: 12px 16px;
-  border-radius: 14px;
-  background: rgba(0,0,0,.86);
-  color:#fff;
-  text-decoration:none;
-  font-weight: 800;
-  letter-spacing: .4px;
-  border: 1px solid rgba(255,255,255,.12);
-  box-shadow: 0 12px 28px rgba(0,0,0,.14);
-}
-.ig-btn:hover{ background: rgba(0,0,0,.92); }
-
-.ig-btn--ghost{
-  background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
-  box-shadow: none;
-}
-.ig-btn--ghost:hover{
-  background: rgba(255,255,255,.75);
-}
-
-.ig-grid{
+.ig-video-grid{
   display:grid;
   grid-template-columns: 1fr;
   gap: 12px;
@@ -1010,37 +962,109 @@ footer a:hover{ color:var(--accent); }
 }
 
 @media (min-width: 700px){
-  .ig-grid{
+  .ig-video-grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
   }
 }
 
 @media (min-width: 1100px){
-  .ig-grid{
+  .ig-video-grid{
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
   }
 }
 
-.ig-card{
+.ig-video-card{
   text-decoration:none;
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 18px;
   background: rgba(255,255,255,.84);
-  padding: 14px 14px 16px;
   box-shadow: 0 10px 26px rgba(0,0,0,.07);
-  transition: transform .18s ease, box-shadow .18s ease;
-  position: relative;
   overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+  display:flex;
+  flex-direction: column;
 }
 
-.ig-card:hover{
+.ig-video-card:hover{
   transform: translateY(-2px);
   box-shadow: 0 18px 44px rgba(0,0,0,.12);
 }
 
+@media (hover:none){
+  .ig-video-card:hover{ transform:none; }
+}
+
+.ig-video-wrap{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: rgba(255,255,255,.65);
+}
+
+.ig-video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+  background: #000;
+}
+
+.ig-video-wrap::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to top, rgba(0,0,0,.28), rgba(0,0,0,0));
+  pointer-events:none;
+}
+
+.ig-play{
+  position:absolute;
+  inset: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events: none;
+}
+
+.ig-play::before{
+  content:"";
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.22);
+  box-shadow: 0 14px 30px rgba(0,0,0,.25);
+  backdrop-filter: blur(6px);
+}
+
+.ig-play::after{
+  content:"";
+  position:absolute;
+  width: 0;
+  height: 0;
+  border-left: 16px solid rgba(255,255,255,.92);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  transform: translateX(2px);
+}
+
+@media (max-width: 360px){
+  .ig-play::before{ width: 56px; height: 56px; }
+  .ig-play::after{
+    border-left-width: 14px;
+    border-top-width: 9px;
+    border-bottom-width: 9px;
+  }
+}
+
+.ig-video-meta{
+  padding: 12px 14px 14px;
+}
+
+/* These are used in blog.html */
 .ig-tag{
   display:inline-block;
   font-weight: 900;
@@ -1074,22 +1098,9 @@ footer a:hover{ color:var(--accent); }
   margin-top: 14px;
 }
 
-/* ✅ Optional: portrait reel embed wrapper (if you use iframes) */
-.embed-portrait{
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.65);
-  box-shadow: 0 10px 26px rgba(0,0,0,.08);
-}
-.embed-portrait iframe{
-  width:100%;
-  height:100%;
-  border:0;
-  display:block;
-}
+/* ==========================================
+   BLOG GRID
+========================================== */
 
 .blog-grid{
   display:grid;
@@ -1131,286 +1142,10 @@ footer a:hover{ color:var(--accent); }
   margin: 16px 0;
 }
 
-.ig-strip{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-/* Blog – Featured POV video (portrait, premium, responsive) */
-.ig-video-section{
-  margin-top: 14px;
-}
-
-.ig-video-wrap{
-  width: min(420px, 100%);
-  margin: 0 auto;
-  aspect-ratio: 9 / 16;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.75);
-  box-shadow: 0 14px 34px rgba(0,0,0,.10);
-}
-
-.ig-video{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.ig-video-caption{
-  text-align: center;
-  margin-top: 10px;
-}/* ===== Blog – Featured POV video (portrait + play overlay) ===== */
-.ig-video-section{
-  margin-top: 14px;
-}
-
-/* wrapper */
-.ig-video-wrap{
-  width: min(420px, 100%);
-  margin: 0 auto;
-  aspect-ratio: 9 / 16;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,.75);
-  box-shadow: 0 14px 34px rgba(0,0,0,.10);
-  position: relative;
-}
-
-/* video */
-.ig-video{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* darken slightly for contrast */
-.ig-video-wrap::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,0));
-  pointer-events:none;
-  opacity: .9;
-}
-
-/* play button */
-.ig-play{
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  pointer-events: none; /* so taps go to the video controls */
-}
-
-.ig-play span{
-  width: 64px;
-  height: 64px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  background: rgba(0,0,0,.55);
-  border: 1px solid rgba(255,255,255,.22);
-  box-shadow: 0 18px 44px rgba(0,0,0,.28);
-  backdrop-filter: blur(6px);
-  transform: translateY(-6px);
-}
-
-/* triangle */
-.ig-play span::before{
-  content:"";
-  width: 0;
-  height: 0;
-  border-left: 14px solid #fff;
-  border-top: 9px solid transparent;
-  border-bottom: 9px solid transparent;
-  margin-left: 3px;
-  opacity: .95;
-}
-
-/* caption */
-.ig-video-caption{
-  text-align: center;
-  margin-top: 10px;
-}
-
-/* Slightly to smaller play button on small phones */
-@media (max-width: 420px){
-  .ig-play span{
-    width: 56px;
-    height: 56px;
-  }
-  .ig-play span::before{
-    border-left-width: 12px;
-    border-top-width: 8px;
-    border-bottom-width: 8px;
-  }
-}
 /* ==========================================
-   BLOG – FEATURED VIDEO GRID (SAFE ADDITION)
+   HAND COVERAGE INFO BLOCK (if you use it)
 ========================================== */
 
-.ig-video-grid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 14px;
-}
-
-@media (min-width: 700px){
-  .ig-video-grid{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-}
-
-.ig-video-card{
-  position: relative;
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-.ig-video{
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 26px rgba(0,0,0,.10);
-  background: #000;
-}
-
-.ig-video-label{
-  display: block;
-  text-align: center;
-  margin-top: 8px;
-  font-weight: 800;
-  font-size: 14px;
-  color: var(--text);
-}
-/* ==========================================
-   BLOG: Featured Video Grid (Portrait, Luxury)
-   - 1 column on phone
-   - 2 on iPad
-   - 3 on laptop/desktop
-   - video size similar to gallery images
-========================================== */
-
-.ig-video-grid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-
-@media (min-width: 700px){
-  .ig-video-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-  }
-}
-
-@media (min-width: 1100px){
-  .ig-video-grid{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-}
-
-/* Card behaves like your existing premium cards */
-.ig-video-card{
-  text-decoration:none;
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  background: rgba(255,255,255,.84);
-  box-shadow: 0 10px 26px rgba(0,0,0,.07);
-  overflow: hidden;
-  transition: transform .18s ease, box-shadow .18s ease;
-  display:flex;
-  flex-direction: column;
-}
-
-.ig-video-card:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 44px rgba(0,0,0,.12);
-}
-
-/* Portrait wrapper (clean, premium, matches gallery feel) */
-.ig-video-wrap{
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 4; /* close to your gallery portrait */
-  background: rgba(255,255,255,.65);
-}
-
-/* Video fills the portrait frame */
-.ig-video{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display:block;
-}
-
-/* Play button overlay (always visible, classy) */
-.ig-play{
-  position:absolute;
-  inset: 0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  pointer-events: none; /* doesn’t block clicking */
-}
-
-.ig-play::before{
-  content:"";
-  width: 64px;
-  height: 64px;
-  border-radius: 999px;
-  background: rgba(0,0,0,.45);
-  border: 1px solid rgba(255,255,255,.22);
-  box-shadow: 0 14px 30px rgba(0,0,0,.25);
-  backdrop-filter: blur(6px);
-  display:block;
-}
-
-.ig-play::after{
-  content:"";
-  position:absolute;
-  width: 0;
-  height: 0;
-  border-left: 16px solid rgba(255,255,255,.92);
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  transform: translateX(2px);
-}
-
-/* Meta below the video */
-.ig-video-meta{
-  padding: 12px 14px 14px;
-}
-
-/* On touch devices, keep it clean */
-@media (hover:none){
-  .ig-video-card:hover{ transform:none; }
-}
-
-/* Slightly tighter on very small phones */
-@media (max-width: 360px){
-  .ig-play::before{ width: 56px; height: 56px; }
-  .ig-play::after{
-    border-left-width: 14px;
-    border-top-width: 9px;
-    border-bottom-width: 9px;
-  }
-}
-/* HAND COVERAGE INFO BLOCK */
 .coverage-block{
   margin-top: 14px;
   padding: 14px;
@@ -1437,9 +1172,7 @@ footer a:hover{ color:var(--accent); }
   line-height: 1.7;
 }
 
-.coverage-list li{
-  margin: 6px 0;
-}
+.coverage-list li{ margin: 6px 0; }
 
 .coverage-note{
   margin-top: 10px;
