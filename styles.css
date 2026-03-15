@@ -1150,4 +1150,18 @@ footer a:hover{ color:var(--accent); }
   font-size: 13px;
   color: var(--muted);
   font-weight: 600;
-} 
+} @media (max-width: 400px) {
+  .hero-logo {
+    max-width: 180px; /* smaller logo on small phones */
+    width: 70%;
+  }
+
+  .hero-cta {
+    padding: 10px 20px; /* smaller buttons */
+    font-size: 0.9rem;
+  }
+
+  .hero-micro {
+    font-size: 0.85rem; /* smaller micro text */
+  }
+}
