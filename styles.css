@@ -189,49 +189,49 @@ h2{
 
 /* ==========================================
    HOME HERO (background + logo overlay)
-========================================== *//* Hero Section */
-/* Hero Section */
+========================================== */
+
+/* Hero Section – Flexbox centering */
 .hero-full {
   position: relative;
   width: 100%;
-  height: 100vh; /* full viewport height */
+  height: 100vh;          /* Full viewport height */
   overflow: hidden;
+  display: flex;          /* Flex container */
+  justify-content: center; /* Center horizontally */
+  align-items: center;    /* Center vertically */
+  flex-direction: column; /* Stack logo, buttons, text */
+  text-align: center;     /* Center text */
+  padding: 0;             /* Remove extra padding */
 }
 
+/* Background image */
 .hero-bg {
+  position: absolute;     /* Behind content */
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: -1;
 }
 
+/* Centered container for logo, buttons, micro text */
 .hero-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  width: 100%;
-  padding: 0 20px;
   z-index: 2;
 }
 
 /* Magical flickering glow animation */
 @keyframes magic-glow {
-  0% {
-    filter: drop-shadow(0 0 15px rgba(255, 200, 150, 0.6));
-  }
-  25% {
-    filter: drop-shadow(0 0 22px rgba(255, 190, 140, 0.8));
-  }
-  50% {
-    filter: drop-shadow(0 0 28px rgba(255, 210, 160, 0.9));
-  }
-  75% {
-    filter: drop-shadow(0 0 20px rgba(255, 200, 150, 0.7));
-  }
-  100% {
-    filter: drop-shadow(0 0 15px rgba(255, 200, 150, 0.6));
-  }
+  0% { filter: drop-shadow(0 0 15px rgba(255, 200, 150, 0.6)); }
+  25% { filter: drop-shadow(0 0 22px rgba(255, 190, 140, 0.8)); }
+  50% { filter: drop-shadow(0 0 28px rgba(255, 210, 160, 0.9)); }
+  75% { filter: drop-shadow(0 0 20px rgba(255, 200, 150, 0.7)); }
+  100% { filter: drop-shadow(0 0 15px rgba(255, 200, 150, 0.6)); }
 }
 
 /* Logo styling */
@@ -261,7 +261,7 @@ h2{
 
 .hero-cta {
   padding: 12px 28px;
-  background-color: #e0a04f; /* your brand color */
+  background-color: #e0a04f; /* Brand color */
   color: #fff;
   text-decoration: none;
   font-weight: bold;
@@ -289,7 +289,6 @@ h2{
   font-size: 1rem;
   letter-spacing: 1px;
 }
-
 /* ==========================================
    REVIEWS
 ========================================== */
@@ -1151,20 +1150,4 @@ footer a:hover{ color:var(--accent); }
   font-size: 13px;
   color: var(--muted);
   font-weight: 600;
-}/* MOBILE: Force center alignment for hero contents */
-@media only screen and (max-width: 768px) {
-  .hero-center {
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    text-align: center !important;
-    width: 100% !important;
-  }
-  .hero-logo {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    display: block !important;
-  }
-  .hero-actions {
-    justify-content: center !important;
-  }
-}
+} 
