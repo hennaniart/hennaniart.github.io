@@ -1151,4 +1151,20 @@ footer a:hover{ color:var(--accent); }
   font-size: 13px;
   color: var(--muted);
   font-weight: 600;
+}/* MOBILE: Force center alignment for hero contents */
+@media only screen and (max-width: 768px) {
+  .hero-center {
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  .hero-logo {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+  }
+  .hero-actions {
+    justify-content: center !important;
+  }
 }
